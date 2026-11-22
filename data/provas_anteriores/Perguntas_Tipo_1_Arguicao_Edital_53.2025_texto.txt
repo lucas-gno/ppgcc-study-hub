@@ -1,0 +1,88 @@
+=== PÁGINA 1 ===
+INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO CEARÁ
+Av Treze de Maio 2081 - Bairro Benfica - CEP 60040-531 - Fortaleza - CE - www.ifce.edu.br
+ 
+LISTA
+Processo: 23256.014991/2025-78
+Interessado: 
+Coordenadoria do Curso de Mestrado Acadêmico em Ciência
+da Computação (PPGCC) - Campus Fortaleza
+ 
+PERGUNTAS DO TIPO 1 - ARGUIÇÃO ORAL - EDITAL Nº 53/2025
+ 
+CA
+No contexto da Ciência de Dados, como a análise de dados históricos pode contribuir
+para a previsão de eventos futuros? Nesse mesmo cenário, de que maneira o conceito de
+generalização representa o equilíbrio adequado entre overﬁtting e underﬁtting em
+modelos preditivos?
+No contexto deste trabalho, você sabe o que é o Moodle? Conhece os padrões de
+extensão dessa ferramenta? Como você supõe a construção de um modelo preditivo
+capaz de indicar potenciais alunos evadidos?
+ 
+PDI
+Já usou proximidade/similaridade de imagens ou PDI/Visão Computacional em algum
+contexto?
+Já implementou algo próprio além de “usar bibliotecas/APIs/frameworks (CV/IA)?
+Teve experiência com dados, limpeza/curadoria, noções de avaliação/validação e
+cuidado com resultados?
+Por que escolheu o tema, experiência prévia, e quais decisões técnicas tomou (métodos,
+extração, classificação, deploy) e como foi a entrega.
+ 
+RCSD
+O que você entende por Redes de Computadores e Sistemas Distribuídos?
+Comente sobre os desaﬁos de segurança em redes modernas no contexto de ataques e
+proteção de dados.
+Qual o papel das redes de computadores e computação distribuída no gerenciamento de
+aplicações modernas como blockchains?
+O que você vê como atividades técnicas a serem desenvolvidas durante o mestrado no
+tema que você está aplicando? Qual sua experiência com essas atividades?
+Lista de Perguntas do Tipo 1 (8266230)         SEI 23256.014991/2025-78 / pg. 1
+
+=== PÁGINA 2 ===
+ 
+IA
+Qual o seu conhecimento sobre visão computacional aplicada em tecnologias assistivas?
+Qual o seu conhecimento sobre inteligência artificial em sistemas embarcados?
+O que você entende por Generalização?
+O que você entende sobre VAE e DDPM?
+O que você entende por treinamento e teste de modelos de ML? Você poderia citar
+modelos que são mais rápidos/eficientes em tempo de treinamento/teste?
+O que seria um classiﬁcador com capacidade de rejeição? Como isso poderia ser
+aplicado? 
+O que é overfitting em modelos de ML? E como podemos preveni-lo?
+O que você entende por generalização e expressividade? MLP é mais expressivo que
+Linear?
+Você poderia citar métodos de regularização utilizados em Deep Learning (aprendizado
+profundo)?
+Qual a sua experiência com LLMs e Redes Neurais Topológicas? O que são? Conhece em
+detalhes (matematicamente) como funcionam, por exemplo, camadas de Self-Attention
+ou message passing?
+O que você entende por IA explicável? Poderia citar algum método/estratégia dessa área
+e como ele funciona?
+De que forma podemos utilizar raciocínio automatizado em IA Explicável?
+ 
+Comissão de Seleção do Processo Seletivo do PPGCC/IFCE 2026.1
+PORTARIA Nº 8509/GAB-FOR/DG-FOR/FORTALEZA, DE 03 DE SETEMBRO DE 2025 (
+8028120
+)
+Documento assinado eletronicamente por 
+Saulo Anderson Freitas de Oliveira
+,
+Professor do Ensino Básico, Técnico e Tecnológico
+, em 30/12/2025, às 11:25,
+com fundamento no art. 6º, § 1º, do 
+Decreto nº 8.539, de 8 de outubro de 2015
+.
+A autenticidade do documento pode ser conferida no site
+https://sei.ifce.edu.br/sei/controlador_externo.php?
+acao=documento_conferir&id_orgao_acesso_externo=0
+ informando o código
+verificador 
+8266230
+ e o código CRC 
+8B9D513A
+.
+23256.014991/2025-78
+8266230v
+13
+Lista de Perguntas do Tipo 1 (8266230)         SEI 23256.014991/2025-78 / pg. 2

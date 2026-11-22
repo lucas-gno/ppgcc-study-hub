@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visão do Dia · PPGCC IFCE Study Hub</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body class="hub-body">
+  <main class="hub-shell">
+    <section class="hub-page-header">
+      <div>
+        <div class="hub-eyebrow" id="today-eyebrow">Visão do Dia · Turma 2027.1 · Tema CA05</div>
+        <h1 class="hub-title">Painel de Preparação</h1>
+        <p class="hub-subtitle" id="today-subtitle">Edital nº 43/2026 (Retificações nº 01 e nº 02) · Orientação: Prof. Dr. Carlos Maurício Dourado Jr.</p>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;" id="today-countdown-badges"></div>
+    </section>
+
+    <section class="hub-grid-4" id="kpi-strip"></section>
+
+    <section class="hub-grid-2">
+      <article class="hub-card" id="card-today-focus"></article>
+      <article class="hub-card" id="card-fsrs-queue"></article>
+    </section>
+
+    <section class="hub-grid-2">
+      <article class="hub-card" id="card-phases-progress"></article>
+      <article class="hub-card" id="card-banca-intel"></article>
+    </section>
+  </main>
+
+  <script src="./assets/data.js"></script>
+  <script src="./assets/icons.js"></script>
+  <script src="./assets/store.js"></script>
+  <script src="./assets/navbar.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      const { store } = window.PPGCCNavbar.init({ prefix: './', active: 'hoje' });
+      const DATA = window.PPGCC_DATA;
+      const I = window.PPGCCIcons;
+      const S = window.PPGCCStore;
+
+      function render() {
+        const cd = S.getCountdown();
+        const stats = store.getStats();
+        const state = store.getState();
+        const todayBlock = store.getTodaySprintBlock();
+        const dueIds = store.getDueFsrsIds(DATA.questoes);
+        const totalTopics = DATA.topicos.length;
+        const pctEdital = Math.round((stats.topicsCompleted / totalTopics) * 100);
+
+        const badgesEl = document.getElementById('today-countdown-badges');
+        badgesEl.innerHTML = `
+          <span class="hub-badge is-blue">${I.clock(14)} <span>Prova Escrita 04/12: ${cd.daysToProvaEscrita >= 0 ? cd.daysToProvaEscrita + ' dias' : 'Concluída'}</span></span>
+          <span class="hub-badge">${I.mic(14)} <span>Arguição 14/12: ${cd.daysToArguicaoOral >= 0 ? cd.daysToArguicaoOral + ' dias' : 'Em janela'}</span></span>
+        `;
+
+        const kpiEl = document.getElementById('kpi-strip');
+        kpiEl.innerHTML = `
+          <div class="hub-card-compact">
+            <div class="hub-kpi-label">Edital Verticalizado</div>
+            <div class="hub-kpi-value">${pctEdital}%</div>
+            <div class="hub-kpi-foot">${stats.topicsCompleted} de ${totalTopics} tópicos</div>
+          </div>
+          <div class="hub-card-compact">
+            <div class="hub-kpi-label">Questões Praticadas</div>
+            <div class="hub-kpi-value">${stats.totalAnswered}</div>
+            <div class="hub-kpi-foot">${DATA.questoes.length} no banco offline</div>
+          </div>
+          <div class="hub-card-compact">
+            <div class="hub-kpi-label">Taxa de Acerto</div>
+            <div class="hub-kpi-value">${stats.accuracyPct}%</div>
+            <div class="hub-kpi-foot">${stats.totalCorrect} acertos · ${stats.errorCount} no caderno de erros</div>
+          </div>
+          <div class="hub-card-compact">
+            <div class="hub-kpi-label">Projeção Nota Final (NF)</div>
+            <div class="hub-kpi-value">${stats.projectedNF.toFixed(2).replace('.', ',')}</div>
+            <div class="hub-kpi-foot">Meta 1o lugar: 8,50</div>
+          </div>
+        `;
+
+        const firstTopic = todayBlock.topicIds && todayBlock.topicIds.length
+          ? DATA.topicos.find((t) => t.id === todayBlock.topicIds[0])
+          : null;
+        const focusCta = firstTopic && firstTopic.lesson_file
+          ? `<a class="hub-btn-primary" href="./${firstTopic.lesson_file}">${I.book(16)}<span>Estudar Aula Agora</span></a>`
+          : `<a class="hub-btn-primary" href="./edital.html">${I.book(16)}<span>Ver Tópicos no Edital</span></a>`;
+
+        const filterTopicId = firstTopic ? firstTopic.id : '';
+        const practiceCta = filterTopicId
+          ? `<a class="hub-btn-secondary" href="./questoes.html?topico=${filterTopicId}">${I.checkSquare(16)}<span>Praticar Questões</span></a>`
+          : `<a class="hub-btn-secondary" href="./questoes.html">${I.checkSquare(16)}<span>Abrir Banco</span></a>`;
+
+        document.getElementById('card-today-focus').innerHTML = `
+          <div class="hub-card-header">
+            <h2 class="hub-card-title">${I.calendar(18)}<span>Foco do Sprint Atual</span></h2>
+            <span class="hub-badge is-blue">${todayBlock.date}</span>
+          </div>
+          <p style="font-weight:600; color:var(--text-main); margin-bottom:8px;">${todayBlock.focus}</p>
+          <p class="hub-muted" style="margin-bottom:20px;">
+            Bloco previsto: ${todayBlock.minutes} min · Meta de prática: ${todayBlock.targetQuestions || 0} questões.
+            Calibrado para a Prova Escrita de 04/12 (120 min, 20 questões).
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            ${focusCta}
+            ${practiceCta}
+          </div>
+        `;
+
+        const officialCount = DATA.questoes.filter((q) => q.origem === 'PROVA_53_2025').length;
+        document.getElementById('card-fsrs-queue').innerHTML = `
+          <div class="hub-card-header">
+            <h2 class="hub-card-title">${I.layers(18)}<span>Revisão FSRS e Banca Oficial</span></h2>
+            <span class="hub-badge ${dueIds.length > 0 ? 'is-amber' : 'is-green'}">${dueIds.length} pendentes hoje</span>
+          </div>
+          <p class="hub-muted" style="margin-bottom:16px;">
+            O motor determinístico FSRS v5 agenda suas questões entre D+1 e D+8 conforme a retenção real.
+            O banco já inclui as ${officialCount} questões integrais do Edital nº 53/2025.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="hub-btn-primary" href="./questoes.html?modo=${dueIds.length > 0 ? 'fsrs' : 'nao_resolvidas'}">
+              ${I.play(15)}<span>${dueIds.length > 0 ? 'Revisar Fila FSRS (' + dueIds.length + ')' : 'Treinar Inéditas e Banca'}</span>
+            </a>
+            <a class="hub-btn-secondary" href="./questoes.html?origem=PROVA_53_2025">
+              ${I.filter(15)}<span>Prova Oficial 53/2025 (${officialCount})</span>
+            </a>
+          </div>
+        `;
+
+        const phaseRows = DATA.fases.map((f) => {
+          const phaseTopics = DATA.topicos.filter((t) => t.fase_id === f.id);
+          const doneCount = phaseTopics.filter((t) => state.topicsRead.includes(t.id)).length;
+          const pct = phaseTopics.length ? Math.round((doneCount / phaseTopics.length) * 100) : 0;
+          const weightTag = f.peso_prova > 0 ? `${f.peso_prova}% da prova` : 'Arguição';
+          return `
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; font-size:0.86rem;">
+                <span style="font-weight:600; color:var(--text-main);">${f.titulo}</span>
+                <span class="hub-muted">${weightTag} · ${doneCount}/${phaseTopics.length}</span>
+              </div>
+              <div class="hub-progress-track">
+                <div class="hub-progress-fill" style="width:${pct}%"></div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        document.getElementById('card-phases-progress').innerHTML = `
+          <div class="hub-card-header">
+            <h2 class="hub-card-title">${I.book(18)}<span>Progresso por Fase e Peso Real</span></h2>
+            <a href="./edital.html" class="hub-btn-ghost hub-btn-sm">Abrir Edital ${I.arrowRight(14)}</a>
+          </div>
+          <div class="hub-stack">${phaseRows}</div>
+        `;
+
+        document.getElementById('card-banca-intel').innerHTML = `
+          <div class="hub-card-header">
+            <h2 class="hub-card-title">${I.terminal(18)}<span>Guias Rápidos e Inteligência da Banca</span></h2>
+            <span class="hub-badge">Zero Base</span>
+          </div>
+          <p class="hub-muted" style="margin-bottom:16px;">
+            Comissão 2026: Saulo Anderson (Linguagens/Computabilidade), Thiago Alves (Lógica/Representação),
+            Corneli Furtado e Róger Sarmento. Meta segura na escrita: 17/20 (NPE 8,50).
+          </p>
+          <div class="hub-stack" style="gap:10px;">
+            <a class="hub-btn-secondary" style="justify-content:space-between;" href="./reference/01-simbolos-matematicos.html">
+              <span>Referência 01: Dicionário de Símbolos Matemáticos</span>
+              ${I.arrowRight(15)}
+            </a>
+            <a class="hub-btn-secondary" style="justify-content:space-between;" href="./reference/02-propriedades-relacoes.html">
+              <span>Referência 02: Propriedades de Relações e Ordens</span>
+              ${I.arrowRight(15)}
+            </a>
+            <a class="hub-btn-secondary" style="justify-content:space-between;" href="./reference/03-guia-sintaxe-c-python.html">
+              <span>Referência 03: Guia de Sintaxe C99 vs. Python</span>
+              ${I.arrowRight(15)}
+            </a>
+          </div>
+        `;
+      }
+
+      render();
+      store.subscribe(render);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referência: Guia Comparativo de Semântica — C vs. Python | PPGCC IFCE</title>
+  <link rel="stylesheet" href="../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../assets/tufte-clean.css">
+</head>
+<body>
+  <div class="lesson-container">
+    <div class="header-meta">
+      <div>
+        <a href="../lessons/0009-sintaxe-semantica-c-python.html">← Ir para as Aulas de Programação</a>
+      </div>
+      <span class="badge-phase">Material de Referência • Fase 2</span>
+    </div>
+
+    <h1>Guia Comparativo de Semântica: C e Python</h1>
+    <p class="subtitle">Tabela-mestra de diferenças de execução, modelos de memória, coerção de tipos e armadilhas da banca do IFCE.</p>
+
+    <div class="callout callout-banca">
+      <strong>Atenção às nuances cobradas pela banca:</strong> A banca examinadora do PPGCC/IFCE não cobra programação genérica; ela cobra <em>semântica estrita da linguagem</em>. Questões típicas exploram divisão de inteiros em C, coerções de tipos primitivos, rastreamento de laços com variáveis auxiliares e profundidade de pilhas em recursão.
+    </div>
+
+    <h2>1. Tabela Comparativa de Operações e Semântica</h2>
+
+    <div style="overflow-x:auto; margin-bottom:2rem;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border:1px solid var(--border-strong);">
+        <thead>
+          <tr style="background:var(--bg-card-subtle); border-bottom:2px solid var(--border-strong); text-align:left;">
+            <th style="padding:10px 12px; border:1px solid var(--border-subtle);">Aspecto</th>
+            <th style="padding:10px 12px; border:1px solid var(--border-subtle);">Linguagem C (ANSI C99)</th>
+            <th style="padding:10px 12px; border:1px solid var(--border-subtle);">Linguagem Python (Python 3.x)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Tipagem</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Estática, fraca (permite coerções implícitas perigosas)</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Dinâmica, forte (rejeita somar int com string)</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Operador <code>/</code></td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Divisão inteira se ambos forem <code>int</code> (trunca casas decimais: <code>10/3 = 3</code>)</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Sempre divisão em ponto flutuante real (<code>10/3 = 3.3333333333333335</code>)</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Divisão Inteira</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);"><code>a / b</code> (quando $a, b \in \mathbb{Z}$)</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Operador explícito <code>a // b</code> (divisão pelo piso / floor)</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Passagem de Parâmetros</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Exclusivamente por valor (referência é emulada passando ponteiros de memória)</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Passagem por atribuição de objeto (*pass-by-object-reference*)</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Strings</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Vetor contíguo de <code>char</code> terminado pelo byte nulo <code>'\0'</code></td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Objeto atômico imutável de primeira classe</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Curto-Circuito</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);"><code>&&</code> e <code>||</code> avaliam apenas o estritamente necessário</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);"><code>and</code> e <code>or</code> retornam o operando decisivo, não só bool</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>2. Aritmética de Ponteiros em C</h2>
+    <div class="translation-box">
+      <div class="translation-header">Fórmula Fundamental do Offset de Memória</div>
+      <div class="math-formal">$$\text{Endereço}(v[i]) = \text{EndereçoBase}(v) + i \times \operatorname{sizeof}(\text{Tipo})$$</div>
+      <div class="spoken-pronounce">
+        <span class="icon">🗣️</span>
+        <span><strong>Como se lê:</strong> "O endereço do elemento $i$ do vetor é igual ao endereço base mais o deslocamento de $i$ vezes o tamanho do tipo de dado em bytes"</span>
+      </div>
+      <div class="plain-explanation">
+        <strong>Consequência imediata:</strong> A expressão <code>v[i]</code> é uma forma sintática reduzida para <code>*(v + i)</code>.<br>
+        Curiosidade cobrada em questões formais: Em C, como a adição comutativa se aplica, <code>i[v]</code> é sintaticamente idêntico a <code>v[i]</code>!
+      </div>
+    </div>
+
+    <h2>3. O Mecanismo da Pilha de Chamadas (*Call Stack*)</h2>
+    <p>
+      Toda chamada de função empilha um <strong>Registro de Ativação</strong> (*Stack Frame*) na memória com:
+    </p>
+    <ul style="margin-left:1.5rem; margin-bottom:1.5rem;">
+      <li>Endereço de retorno na instrução que chamou;</li>
+      <li>Parâmetros recebidos pela função;</li>
+      <li>Variáveis locais declaradas na função.</li>
+    </ul>
+    <p>
+      Em recursão, se a função fizer $k$ chamadas aninhadas antes de atingir o caso base, a profundidade da pilha será de $O(k)$ registros. Se a pilha estourar o limite de memória do sistema operacional, ocorre o clássico <strong>Stack Overflow</strong>.
+    </p>
+
+    <div class="lesson-footer-nav">
+      <a href="../reference/01-simbolos-matematicos.html" class="btn-nav">← Dicionário de Símbolos</a>
+      <a href="../lessons/0009-sintaxe-semantica-c-python.html" class="btn-nav btn-primary">Iniciar Aula 09 (Sintaxe e Semântica) →</a>
+    </div>
+  </div>
+
+  <script src="../assets/katex/katex.min.js"></script>
+  <script src="../assets/katex/auto-render.min.js"></script>
+  <script src="../assets/widgets.js"></script>
+</body>
+</html>

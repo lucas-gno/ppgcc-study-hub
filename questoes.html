@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco de Questões · PPGCC IFCE Study Hub</title>
+  <link rel="stylesheet" href="./assets/katex/katex.min.css">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body class="hub-body">
+  <main class="hub-shell">
+    <section class="hub-page-header">
+      <div>
+        <div class="hub-eyebrow">Prática Deliberada &amp; FSRS v5</div>
+        <h1 class="hub-title">Banco de Questões</h1>
+        <p class="hub-subtitle">Questões oficiais do Edital nº 53/2025 e inéditas calibradas. Atalhos no treino: A–E responde, 1–4 agenda FSRS, Enter avança.</p>
+      </div>
+      <div id="questoes-lesson-back"></div>
+    </section>
+
+    <div id="questoes-context-banner" class="hub-card-compact" style="margin-bottom:20px; border-color:var(--accent-primary-border); background:var(--accent-primary-light);" hidden></div>
+
+    <section id="view-readiness" class="hub-stack">
+      <div class="hub-card">
+        <div class="hub-card-header">
+          <h2 class="hub-card-title" id="readiness-title">Filtros de Prontidão</h2>
+          <button type="button" class="hub-btn-ghost hub-btn-sm" id="btn-clear-filters">Limpar filtros</button>
+        </div>
+
+        <div class="hub-filter-bar" style="margin-bottom:24px;">
+          <div class="hub-field">
+            <label for="filter-fase">Fase</label>
+            <select id="filter-fase" class="hub-select"></select>
+          </div>
+          <div class="hub-field">
+            <label for="filter-topico">Tópico</label>
+            <select id="filter-topico" class="hub-select"></select>
+          </div>
+          <div class="hub-field">
+            <label for="filter-origem">Origem</label>
+            <select id="filter-origem" class="hub-select">
+              <option value="TODAS">Todas as origens</option>
+              <option value="PROVA_53_2025">Prova Oficial 53/2025 (20)</option>
+              <option value="INEDITAS">Inéditas Calibradas</option>
+              <option value="BANCA_OFICIAL">Banco Oficial Complementar</option>
+            </select>
+          </div>
+          <div class="hub-field">
+            <label for="filter-modo">Modo de Estudo</label>
+            <select id="filter-modo" class="hub-select">
+              <option value="todos">Todas as questões</option>
+              <option value="nao_resolvidas">Não resolvidas</option>
+              <option value="fsrs">Revisão FSRS pendente hoje</option>
+              <option value="erros">Caderno de Erros</option>
+              <option value="favoritas">Favoritas</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-top:16px; border-top:1px solid var(--border-subtle);">
+          <div>
+            <strong id="readiness-count" style="font-size:1.15rem; color:var(--text-main);">0 questões selecionadas</strong>
+            <div class="hub-muted" id="readiness-breakdown"></div>
+          </div>
+          <button type="button" class="hub-btn-primary" id="btn-start-training">Iniciar Treino</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-training" class="hub-stack" hidden></section>
+    <section id="view-summary" class="hub-stack" hidden></section>
+  </main>
+
+  <script defer src="./assets/katex/katex.min.js"></script>
+  <script defer src="./assets/katex/auto-render.min.js"></script>
+  <script src="./assets/data.js"></script>
+  <script src="./assets/icons.js"></script>
+  <script src="./assets/store.js"></script>
+  <script src="./assets/navbar.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      const { store } = window.PPGCCNavbar.init({ prefix: './', active: 'questoes' });
+      const DATA = window.PPGCC_DATA;
+      const S = window.PPGCCStore;
+      const I = window.PPGCCIcons;
+
+      const faseSelect = document.getElementById('filter-fase');
+      const topicoSelect = document.getElementById('filter-topico');
+      const origemSelect = document.getElementById('filter-origem');
+      const modoSelect = document.getElementById('filter-modo');
+
+      const viewReadiness = document.getElementById('view-readiness');
+      const viewTraining = document.getElementById('view-training');
+      const viewSummary = document.getElementById('view-summary');
+      const bannerEl = document.getElementById('questoes-context-banner');
+      const lessonBackEl = document.getElementById('questoes-lesson-back');
+
+      let activeSession = null;
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      function renderRichText(raw) {
+        const blocks = String(raw || '').replace(/\r\n/g, '\n');
+        const parts = blocks.split(/```(\w*)\n([\s\S]*?)```/g);
+        let htmlOut = '';
+        for (let idx = 0; idx < parts.length; idx++) {
+          if (idx % 3 === 0) {
+            let chunk = parts[idx];
+            const mathTokens = [];
+            const codeTokens = [];
+            chunk = chunk.replace(/`([^`]+)`/g, (_, c) => {
+              const id = codeTokens.length;
+              codeTokens.push('<code>' + escapeHtml(c) + '</code>');
+              return '@@C' + id + '@@';
+            });
+            chunk = chunk.replace(/(?<!\\)\$(?!\$)(.+?)(?<!\\)\$/g, (m) => {
+              const id = mathTokens.length;
+              mathTokens.push(m);
+              return '@@M' + id + '@@';
+            });
+            chunk = escapeHtml(chunk)
+              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+              .replace(/\n\n+/g, '</p><p>')
+              .replace(/\n/g, '<br>');
+            mathTokens.forEach((m, i) => { chunk = chunk.replace('@@M' + i + '@@', escapeHtml(m)); });
+            codeTokens.forEach((c, i) => { chunk = chunk.replace('@@C' + i + '@@', c); });
+            if (chunk.trim()) htmlOut += '<p>' + chunk + '</p>';
+          } else if (idx % 3 === 2) {
+            const lang = parts[idx - 1] || 'text';
+            htmlOut += '<pre class="code-block"><code class="language-' + escapeHtml(lang) + '">' + escapeHtml(parts[idx]) + '</code></pre>';
+          }
+        }
+        return htmlOut;
+      }
+
+      function renderKatex(el) {
+        if (typeof renderMathInElement === 'function' && el) {
+          renderMathInElement(el, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+      }
+
+      function populateFilters(initialFilters) {
+        faseSelect.innerHTML = '<option value="">Todas as fases</option>' +
+          DATA.fases.map((f) => `<option value="${f.id}">${f.titulo}</option>`).join('');
+
+        if (initialFilters.topicoId) {
+          const tObj = DATA.topicos.find((t) => t.id === initialFilters.topicoId);
+          if (tObj) faseSelect.value = String(tObj.fase_id);
+        } else if (initialFilters.faseId) {
+          faseSelect.value = String(initialFilters.faseId);
+        }
+
+        populateTopicsDropdown(initialFilters.topicoId);
+
+        if (initialFilters.origem) origemSelect.value = initialFilters.origem;
+        if (initialFilters.modo) modoSelect.value = initialFilters.modo;
+      }
+
+      function populateTopicsDropdown(selectedTopicoId) {
+        const chosenFase = Number(faseSelect.value) || null;
+        const topics = DATA.topicos.filter((t) => !chosenFase || t.fase_id === chosenFase);
+        topicoSelect.innerHTML = '<option value="">Todos os tópicos</option>' +
+          topics.map((t) => `<option value="${t.id}">${String(t.id).padStart(2, '0')}. ${t.titulo}</option>`).join('');
+        if (selectedTopicoId && topics.some((t) => t.id === Number(selectedTopicoId))) {
+          topicoSelect.value = String(selectedTopicoId);
+        }
+      }
+
+      function getCurrentFilters() {
+        return {
+          faseId: Number(faseSelect.value) || null,
+          topicoId: Number(topicoSelect.value) || null,
+          origem: origemSelect.value || 'TODAS',
+          modo: modoSelect.value || 'todos',
+        };
+      }
+
+      function updateReadiness() {
+        const f = getCurrentFilters();
+        const filtered = S.filterQuestions(DATA.questoes, store.getState(), f);
+        document.getElementById('readiness-count').textContent =
+          `${filtered.length} ${filtered.length === 1 ? 'questão pronta' : 'questões prontas'} para treino`;
+
+        const officialInSet = filtered.filter((q) => q.origem === 'PROVA_53_2025').length;
+        const inedInSet = filtered.filter((q) => q.origem === 'INEDITAS').length;
+        document.getElementById('readiness-breakdown').textContent =
+          `Prova 53/2025: ${officialInSet} · Inéditas: ${inedInSet} · Demais banca: ${filtered.length - officialInSet - inedInSet}`;
+
+        const startBtn = document.getElementById('btn-start-training');
+        startBtn.disabled = filtered.length === 0;
+        startBtn.style.opacity = filtered.length === 0 ? '0.5' : '1';
+
+        if (f.topicoId) {
+          const t = DATA.topicos.find((x) => x.id === f.topicoId);
+          if (t) {
+            bannerEl.removeAttribute('hidden');
+            bannerEl.innerHTML = `
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+                <span style="font-size:0.9rem; color:var(--text-main);">
+                  <strong>Filtro ativo por tópico:</strong> ${String(t.id).padStart(2, '0')}. ${t.titulo}
+                </span>
+                ${t.lesson_file
+                  ? `<a class="hub-btn-secondary hub-btn-sm" href="./${t.lesson_file}">${I.arrowLeft(14)}<span>Voltar para a Aula</span></a>`
+                  : ''}
+              </div>
+            `;
+            lessonBackEl.innerHTML = t.lesson_file
+              ? `<a class="hub-btn-secondary hub-btn-sm" href="./${t.lesson_file}">${I.arrowLeft(14)}<span>Aula ${String(t.id).padStart(2, '0')}</span></a>`
+              : '';
+          }
+        } else {
+          bannerEl.setAttribute('hidden', '');
+          lessonBackEl.innerHTML = '';
+        }
+        return filtered;
+      }
+
+      function startTraining() {
+        const queue = updateReadiness();
+        if (!queue.length) return;
+        activeSession = {
+          queue,
+          index: 0,
+          answeredCurrent: false,
+          chosenLetter: null,
+          ratedCurrent: false,
+          results: [],
+        };
+        viewReadiness.setAttribute('hidden', '');
+        viewSummary.setAttribute('hidden', '');
+        viewTraining.removeAttribute('hidden');
+        renderTrainingQuestion();
+      }
+
+      function renderTrainingQuestion() {
+        if (!activeSession) return;
+        if (activeSession.index >= activeSession.queue.length) {
+          renderSummary();
+          return;
+        }
+        const q = activeSession.queue[activeSession.index];
+        const topic = DATA.topicos.find((t) => t.id === q.topico_id);
+        const options = S.normalizeOptions(q);
+        const state = store.getState();
+        const isFav = state.favorites.includes(q.id);
+        const isErr = state.errorNotebook.includes(q.id);
+        const pct = Math.round(((activeSession.index + 1) / activeSession.queue.length) * 100);
+
+        const origemLabel = q.origem === 'PROVA_53_2025'
+          ? `Prova 53/2025 · Q${q.numero_prova || ''}`
+          : (q.origem === 'INEDITAS' ? 'Inédita Calibrada' : 'Banca Oficial');
+
+        const optionsHtml = options.map((opt) => {
+          let cls = 'hub-option-btn';
+          if (activeSession.answeredCurrent) {
+            if (opt.letter === q.correta) cls += ' is-correct';
+            else if (opt.letter === activeSession.chosenLetter) cls += ' is-wrong';
+          }
+          return `
+            <button type="button" class="${cls}" data-opt="${opt.letter}" ${activeSession.answeredCurrent ? 'disabled' : ''}>
+              <span class="hub-option-letter">${opt.letter}</span>
+              <span class="hub-option-text">${renderRichText(opt.text)}</span>
+            </button>
+          `;
+        }).join('');
+
+        const solutionHtml = activeSession.answeredCurrent ? `
+          <div class="solution-box visible" style="margin-top:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+              <strong style="color:${activeSession.chosenLetter === q.correta ? 'var(--accent-success-text)' : 'var(--accent-danger-text)'};">
+                ${activeSession.chosenLetter === q.correta ? 'Resposta Correta' : 'Resposta Incorreta · Gabarito: ' + q.correta}
+              </strong>
+              <span class="hub-badge">${options.length} alternativas</span>
+            </div>
+            <div class="hub-stack" style="gap:8px;">${renderRichText(q.justificativa || 'Sem comentário cadastrado.')}</div>
+
+            <div style="margin-top:18px; padding-top:14px; border-top:1px solid var(--border-subtle);">
+              <div style="font-size:0.84rem; font-weight:600; color:var(--text-main); margin-bottom:8px;">
+                Classificação FSRS v5 (atalhos 1 a 4 ou Enter para avançar):
+              </div>
+              <div class="hub-fsrs-bar">
+                <button type="button" class="hub-fsrs-btn" data-fsrs="1"><span>1 · Esqueci</span><small>D+1</small></button>
+                <button type="button" class="hub-fsrs-btn" data-fsrs="2"><span>2 · Difícil</span><small>D+2</small></button>
+                <button type="button" class="hub-fsrs-btn" data-fsrs="3"><span>3 · Bom</span><small>D+3+</small></button>
+                <button type="button" class="hub-fsrs-btn" data-fsrs="4"><span>4 · Fácil</span><small>D+8+</small></button>
+              </div>
+            </div>
+          </div>
+        ` : '';
+
+        viewTraining.innerHTML = `
+          <div class="hub-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap;">
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="hub-badge is-blue">${origemLabel}</span>
+                <span class="hub-badge">${topic ? String(topic.id).padStart(2, '0') + '. ' + topic.titulo : 'Tópico'}</span>
+                <span class="hub-badge">${q.nivel || 'MEDIO'}</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button type="button" class="hub-btn-ghost hub-btn-sm" id="btn-toggle-fav" title="Favoritar">
+                  ${I.bookmark(15)}<span>${isFav ? 'Favoritada' : 'Favoritar'}</span>
+                </button>
+                <button type="button" class="hub-btn-ghost hub-btn-sm" id="btn-toggle-err" title="Caderno de Erros">
+                  ${I.alertTriangle(15)}<span>${isErr ? 'No Caderno de Erros' : 'Marcar Erro'}</span>
+                </button>
+                <button type="button" class="hub-btn-ghost hub-btn-sm" id="btn-exit-training">
+                  ${I.x(15)}<span>Sair</span>
+                </button>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:6px;">
+              <span class="hub-muted">Questão ${activeSession.index + 1} de ${activeSession.queue.length}</span>
+              <span class="hub-muted">${pct}%</span>
+            </div>
+            <div class="hub-progress-track" style="margin-bottom:20px;">
+              <div class="hub-progress-fill" style="width:${pct}%"></div>
+            </div>
+
+            <div style="font-size:1.02rem; color:var(--text-main); margin-bottom:20px;">
+              ${renderRichText(q.enunciado)}
+            </div>
+
+            <div class="hub-stack" style="gap:10px;">
+              ${optionsHtml}
+            </div>
+
+            ${solutionHtml}
+          </div>
+        `;
+
+        renderKatex(viewTraining);
+
+        viewTraining.querySelectorAll('.hub-option-btn').forEach((btn) => {
+          btn.addEventListener('click', () => submitAnswer(btn.getAttribute('data-opt')));
+        });
+        viewTraining.querySelectorAll('.hub-fsrs-btn').forEach((btn) => {
+          btn.addEventListener('click', () => submitFsrs(Number(btn.getAttribute('data-fsrs'))));
+        });
+        document.getElementById('btn-toggle-fav').addEventListener('click', () => {
+          store.toggleFavorite(q.id);
+          renderTrainingQuestion();
+        });
+        document.getElementById('btn-toggle-err').addEventListener('click', () => {
+          store.toggleErrorNotebook(q.id);
+          renderTrainingQuestion();
+        });
+        document.getElementById('btn-exit-training').addEventListener('click', () => {
+          activeSession = null;
+          viewTraining.setAttribute('hidden', '');
+          viewReadiness.removeAttribute('hidden');
+          updateReadiness();
+        });
+      }
+
+      function submitAnswer(letter) {
+        if (!activeSession || activeSession.answeredCurrent) return;
+        const q = activeSession.queue[activeSession.index];
+        const validLetters = S.normalizeOptions(q).map((o) => o.letter);
+        const chosen = String(letter || '').toUpperCase();
+        if (!validLetters.includes(chosen)) return;
+
+        const isCorrect = chosen === q.correta.toUpperCase();
+        activeSession.answeredCurrent = true;
+        activeSession.chosenLetter = chosen;
+        activeSession.results.push({ q, chosen, isCorrect });
+        store.recordAnswer(q.id, chosen, isCorrect);
+        renderTrainingQuestion();
+      }
+
+      function submitFsrs(rating) {
+        if (!activeSession || !activeSession.answeredCurrent) return;
+        const q = activeSession.queue[activeSession.index];
+        store.rateFsrsCard(q.id, rating);
+        activeSession.index += 1;
+        activeSession.answeredCurrent = false;
+        activeSession.chosenLetter = null;
+        renderTrainingQuestion();
+      }
+
+      function renderSummary() {
+        viewTraining.setAttribute('hidden', '');
+        viewSummary.removeAttribute('hidden');
+        const total = activeSession.results.length;
+        const hits = activeSession.results.filter((r) => r.isCorrect).length;
+        const pct = total ? Math.round((hits / total) * 100) : 0;
+
+        viewSummary.innerHTML = `
+          <div class="hub-card">
+            <div class="hub-card-header">
+              <h2 class="hub-card-title">${I.checkSquare(18)}<span>Sessão Concluída</span></h2>
+              <span class="hub-badge ${pct >= 70 ? 'is-green' : 'is-amber'}">${hits}/${total} acertos (${pct}%)</span>
+            </div>
+            <p class="hub-muted" style="margin-bottom:20px;">
+              Todas as respostas e agendamentos FSRS v5 foram persistidos no seu navegador.
+            </p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <button type="button" class="hub-btn-primary" id="btn-back-readiness">Nova Bateria de Filtros</button>
+              <a class="hub-btn-secondary" href="./index.html">Voltar à Visão do Dia</a>
+            </div>
+          </div>
+        `;
+        document.getElementById('btn-back-readiness').addEventListener('click', () => {
+          activeSession = null;
+          viewSummary.setAttribute('hidden', '');
+          viewReadiness.removeAttribute('hidden');
+          updateReadiness();
+        });
+      }
+
+      // Instant keyboard controls (zero animations on frequent actions)
+      document.addEventListener('keydown', (e) => {
+        if (!activeSession || viewTraining.hasAttribute('hidden')) return;
+        if (e.target && ['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) return;
+        const key = e.key.toUpperCase();
+        if (!activeSession.answeredCurrent && ['A', 'B', 'C', 'D', 'E'].includes(key)) {
+          e.preventDefault();
+          submitAnswer(key);
+        } else if (activeSession.answeredCurrent && ['1', '2', '3', '4'].includes(key)) {
+          e.preventDefault();
+          submitFsrs(Number(key));
+        } else if (activeSession.answeredCurrent && e.key === 'Enter') {
+          e.preventDefault();
+          submitFsrs(activeSession.chosenLetter === activeSession.queue[activeSession.index].correta ? 3 : 1);
+        }
+      });
+
+      faseSelect.addEventListener('change', () => {
+        populateTopicsDropdown(null);
+        updateReadiness();
+      });
+      topicoSelect.addEventListener('change', updateReadiness);
+      origemSelect.addEventListener('change', updateReadiness);
+      modoSelect.addEventListener('change', updateReadiness);
+
+      document.getElementById('btn-clear-filters').addEventListener('click', () => {
+        faseSelect.value = '';
+        populateTopicsDropdown(null);
+        topicoSelect.value = '';
+        origemSelect.value = 'TODAS';
+        modoSelect.value = 'todos';
+        updateReadiness();
+      });
+
+      document.getElementById('btn-start-training').addEventListener('click', startTraining);
+
+      const initialFilters = S.parseQueryFilters(window.location.search);
+      populateFilters(initialFilters);
+      updateReadiness();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1202 @@
+=== PÁGINA 1 ===
+INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO CEARÁ
+Av. Treze de Maio, 2081 - Bairro Benfica - CEP 60040531 - Fortaleza - CE - www.ifce.edu.br
+ 
+EDITAL Nº 43/2026 GAB-FOR/DG-FOR/FORTALEZA-IFCE
+SELEÇÃO PÚBLICA PARA INGRESSO DE ALUNOS NO MESTRADO ACADÊMICO
+EM CIÊNCIA DA COMPUTAÇÃO
+ 
+A diretora-geral do campus de Fortaleza do Instituto Federal de Educação, Ciência e Tecnologia
+do Ceará (IFCE), no uso de suas atribuições legais e considerando o que consta na Constituição
+Federal, Art. 207 § 2º, e na Lei 11892/2008, Art. 1º e 2º, torna públicas as normas da seleção de
+pessoas candidatas para ingresso no primeiro semestre letivo de 2027 do curso de Mestrado
+Acadêmico em Ciência da Computação do Programa de Pós-graduação em Ciência da
+Computação (PPGCC), área de concentração em sistemas de computação, do campus de
+Fortaleza do IFCE, conforme resolução n° 005, de 7 de maio de 2013, do CONSUP.
+ 
+1
+.
+DAS DISPOSIÇÕES PRELIMINARES
+1
+.
+1
+.
+A comissão de seleção, instituída pela Portaria nº 7234/GAB-FOR/DG-
+FOR/FORTALEZA, de 14 de setembro de 2026
+, responsável pelo presente processo seletivo
+é composta pelos seguintes docentes do quadro permanente do IFCE:
+1
+.
+2
+.
+Integram este edital os seguintes anexos:
+Anexo I – Distribuição de vagas e temas de pesquisa;
+Anexo II – Declaração de Cor/Raça ou Etnia;
+Anexo III – Declaração de pessoa com deficiência;
+Anexo IV – Declaração do empregador;
+Anexo V – Termo de compromisso e de dedicação exclusiva;
+Anexo VI – Tabela de pontuação pretendida pela pessoa candidata;
+Anexo VII – Conteúdo da prova escrita;
+Anexo VIII – Formulário para interposição de recursos.
+1
+.
+3
+.
+O curso tem duração prevista de 24 meses (incluindo o tempo de elaboração da
+dissertação de Mestrado), prorrogáveis, a critério do Colegiado do Curso, por mais três meses.
+Boletim de Serviços Eletrônico em
+26/10/2026
+DOCENTE
+FUNÇÃO
+Saulo Anderson
+Freitas de Oliveira
+Presidente
+Thiago Alves
+Rocha
+Vice-presidente
+Roger Moura
+Sarmento
+Membro
+Corneli Gomes
+Furtado Júnior
+Membro
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 1
+
+=== PÁGINA 2 ===
+A carga horária de disciplinas é de 360 horas. O funcionamento do curso é diurno.
+1
+.
+4
+.
+O curso é recomendado pela CAPES e atua na área de Ciência da Computação.
+1
+.
+5
+.
+Este edital e todas as publicações referentes a este processo seletivo serão
+disponibilizadas no site do IFCE: 
+https://portal.ifce.edu.br/campus/fortaleza/estude-no-
+ifce/selecao-mestrado-ciencia-da-computacao-ppgcc-turma2027/
+. É de inteira responsabilidade
+da pessoa candidata, o acompanhamento de todas as publicações realizadas.
+1
+.
+6
+.
+O curso é ofertado pelo IFCE na modalidade acadêmica e é constituído por
+atividades de ensino (aulas), pesquisa aplicada, produção intelectual (acadêmica e técnica) e
+inserção social. A pessoa matriculada no curso precisa participar obrigatoriamente e de maneira
+efetiva dessas atividades, como requisito para a diplomação. Sendo assim, a pessoa candidata
+deverá comprometer-se a dedicar-se ao curso de maneira a cumprir todas as atividades,
+devendo a sua carga horária de dedicação semanal não ser menor que 20 horas em período
+diurno.
+2
+.
+DA CLIENTELA E DA OFERTA DE VAGAS
+2
+.
+1
+.
+As pessoas candidatas deverão ser portadoras de diploma de curso superior de
+bacharelado ou de tecnologia, reconhecido, na área de STEM (Ciência, Tecnologia, Engenharia
+e Matemática) ou ainda de certificado de conclusão ou de documento equivalente em caráter
+provisório. As pessoas candidatas que fizerem uso de certificado de conclusão em caráter
+provisório para participação no referido processo seletivo deverão apresentar o diploma até a
+data da matrícula. A não apresentação do diploma no prazo limite estabelecido acarretará a
+eliminação da pessoa candidata.
+2
+.
+2
+.
+São ofertadas 35 (trinta e cinco) vagas para ingresso no primeiro semestre
+letivo de 2027.
+2
+.
+3
+.
+As vagas estão divididas em quatro linhas de pesquisa, conforme o 
+Anexo I
+. O
+provimento das vagas seguirá os critérios estabelecidos pela Resolução CONSUP/IFCE n° 80,
+de 29 de junho de 2023, das Ações Afirmativas da Pós-Graduação do Instituto Federal de
+Educação, Ciência e Tecnologia do Ceará.
+2
+.
+4
+.
+Do número total de vagas ofertadas, 20%  são reservadas para pessoas
+candidatas negras (pretas e pardas) e indígenas (PPI) e 10% para pessoas com deficiência
+(PCD) nos termos da Resolução CONSUP no 80, de 29 de junho de 2023, das Políticas de
+Ações Afirmativas para cursos de pós-graduação stricto sensu e lato sensu do IFCE. A
+distribuição de vagas está sendo feita conforme o 
+Anexo I
+ deste edital. Assim, das 35 vagas
+ofertadas, 7 são destinadas a PPI, 4 a PCD e 24 à ampla concorrência.
+2
+.
+5
+.
+É de exclusiva responsabilidade da pessoa candidata optar concorrer às vagas
+reservadas para pessoas negras (pretas e pardas) e indígenas (PPI) e/ou para pessoas com
+deficiência (PCD) nos termos deste edital.
+2
+.
+6
+.
+Das vagas reservadas aos candidatos negros (pretos e pardos) e indígenas (PPI)
+2
+.
+6
+.
+1
+.
+Poderá concorrer às vagas reservadas para pessoas negras (pretas e pardas) e
+indígenas (PPI) quem solicitar para concorrer pelo sistema de reserva de vagas e se
+autodeclarar pessoa negra (preta ou parda) ou indígena, através de declaração de cor/raça ou
+etnia (
+Anexo II
+), de acordo com os critérios de raça e cor utilizados pelo Instituto Brasileiro de
+Geografia e Estatística (IBGE).
+2
+.
+6
+.
+2
+.
+A autodeclaração de que trata o subitem 2.6.1 somente terá validade se entregue
+no ato da inscrição.
+2
+.
+6
+.
+3
+.
+A pessoa candidata que desejar concorrer às vagas reservadas para pessoas
+negras (pretas e pardas) e indígenas (PPI) que não proceder nos termos dos subitens 2.6.1 e
+2.6.2 deste edital terá sua solicitação indeferida, ficando submetida às regras gerais de ampla
+concorrência (AC).
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 2
+
+=== PÁGINA 3 ===
+2
+.
+6
+.
+4
+.
+As pessoas candidatas indígenas, além da autodeclaração, deverão apresentar a
+cópia do Registro Administrativo de Nascimento de Indígena (RANI) ou declaração de
+pertencimento emitida por liderança local de grupo indígena reconhecido pela Fundação
+Nacional do Índio (FUNAI).
+2
+.
+6
+.
+5
+.
+As pessoas candidatas autodeclaradas negras serão convocadas para
+procedimento de heteroidentificação, o que ocorrerá por meio de divulgação no sítio: 
+https://portal.ifce.edu.br/campus/fortaleza/estude-no-ifce/selecao-mestrado-ciencia-da-
+computacao-ppgcc-turma2027/
+.
+2
+.
+6
+.
+6
+.
+De acordo com o período definido no cronograma geral do processo seletivo, o
+cronograma contendo as datas, os horários e os locais do procedimento de heteroidentificação
+por pessoa candidata será divulgado na página: 
+https://portal.ifce.edu.br/campus/fortaleza/estude-no-ifce/selecao-mestrado-ciencia-da-
+computacao-ppgcc-turma2027/
+.
+2
+.
+6
+.
+7
+.
+As pessoas candidatas convocadas para o procedimento de heteroidentificação
+deverão comparecer na data, no horário e no local divulgados portando documento oficial de
+identificação, sob pena de serem automaticamente eliminadas do processo seletivo, não
+cabendo recurso.
+2
+.
+6
+.
+8
+.
+A avaliação da Comissão Local de Heteroidentificação (CLH) quanto à condição
+de pessoa autodeclarada preta ou parda ou indígena (procedimento de heteroidentificação)
+considerará, tão somente, os aspectos fenotípicos da pessoa candidata, os quais serão
+verificados com a presença da referida pessoa candidata. Com base na avaliação, será emitido
+um parecer que deferirá ou indeferirá a condição declarada pela pessoa candidata, conforme a
+Resolução nº 87, de 7 de outubro de 2019 do IFCE
+.
+2
+.
+6
+.
+9
+.
+Excepcionalmente e por solicitação detalhadamente motivada pela pessoa
+candidata, a aferição da condição poderá ocorrer no formato telepresencial, mediante utilização
+de recursos de tecnologia de comunicação. Enquadram-se como excepcionalidades apenas as
+situações de doença da pessoa candidata que impossibilitem seu deslocamento e os casos de
+morte na família (parentes de 1° grau) devidamente documentados. As solicitações de aferição
+telepresencial serão analisadas pela Comissão Local de Heteroidentificação, que deferirá ou
+não o pedido. As solicitações de que tratam este subitem deverão ser enviadas para o e-mail
+clh.fortaleza@ifce.edu.br
+ até três dias úteis anteriores à data do procedimento de
+heteroidentificação divulgado na página disponível no edital de seleção e no prazo definido no
+cronograma deste processo seletivo.
+2
+.
+6
+.
+10
+.
+Durante a avaliação de heteroidentificação, o candidato será fotografado e filmado
+para as devidas aferições e comprovações, inclusive, para análise de eventual recurso
+interposto. O candidato que recusar ser fotografado e/ou filmado para fins de validação da
+autodeclaração perderá o direito à vaga e será eliminado do processo seletivo, não cabendo
+recurso.
+2
+.
+6
+.
+11
+.
+As pessoas candidatas convocadas para a confirmação da autodeclaração que
+não comparecerem na(s) data(s), horário(s) e local informados perderão o direito à vaga e
+serão eliminadas do processo seletivo, não cabendo recurso.
+2
+.
+6
+.
+12
+.
+Caso a autodeclaração seja indeferida, a pessoa candidata poderá interpor
+recurso uma única vez, o qual será avaliado pela Comissão Recursal de Heteroidentificação do
+IFCE. O recurso deverá ser interposto no prazo de um dia útil a partir da publicação dos
+pareceres da Comissão Local de Heteroidentificação e deverão ser enviados diretamente pela
+pessoa candidata para o e-mail: 
+recurso.cotas@fortaleza.ifce.edu.br
+.
+2
+.
+6
+.
+13
+.
+Após a análise do recurso pela comissão recursal e em caso de indeferimento da
+autodeclaração, a pessoa candidata perderá o direito à vaga e será eliminada do processo não
+cabendo outro recurso, sendo a vaga destinada à chamada da próxima pessoa candidata PPI
+classificada e deferida no procedimento de heteroidentificação.
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 3
+
+=== PÁGINA 4 ===
+2
+.
+6
+.
+14
+.
+Para fins de resultado do processo seletivo, será divulgada lista com nome ou
+outra identificação adotada das pessoas candidatas, informando a categoria de reserva ou de
+ampla concorrência.
+2
+.
+7
+.
+Das vagas reservadas a pessoas candidatas com deficiência (PCD).
+2
+.
+7
+.
+1
+.
+Serão consideradas pessoas com deficiência as pessoas candidatas que se
+enquadrarem nas categorias discriminadas na Lei nº 13.146, de 6 de julho de 2015, no Art. 4º
+do Decreto nº 3.298, de 20 de dezembro de 1999, alterado pelo Decreto nº 5.296/2004, no Art.
+1º da Lei nº 12.764, de 27 de dezembro de 2012 (Transtorno do Espectro Autista), e as
+contempladas pela Súmula nº 377 do Superior Tribunal de Justiça (STJ) e no Enunciado AGU
+nº 45, de 14 de setembro de 2009.
+2
+.
+7
+.
+2
+.
+Para concorrer à(s) vaga(s) reservada(s) a pessoas com deficiência, a pessoa
+candidata deverá apresentar, no ato da inscrição, documentação correspondente a: i) formulário
+específico (
+Anexo III
+) declarando-se como pessoa com deficiência e ii) cópia escaneada, no
+formato PDF, do laudo médico original, legível, datado e emitido há
+́
+ no máximo 12 meses a
+contar da data do início das inscrições, atestando a categoria e o grau ou nível da deficiência,
+com expressa referência ao código correspondente da Classificação Internacional de Doenças
+(CID-10), contendo nome legível, assinatura e CRM do médico especialista.
+2
+.
+7
+.
+3
+.
+A pessoa candidata identificada como pessoa com deficiência que não proceder
+nos termos do subitem 2.7.2 deste edital terá sua solicitação indeferida, ficando submetida às
+regras gerais das vagas de ampla concorrência.
+2
+.
+7
+.
+4
+.
+Em caso de desistência de pessoa candidata com deficiência aprovada em vaga
+reservada, a vaga será preenchida pela pessoa candidata com deficiência posteriormente
+classificada.
+2
+.
+8
+.
+As pessoas candidatas negras (pretas e pardas) e indígenas e as pessoas com
+deficiência concorrerão concomitantemente às vagas reservadas e às vagas destinadas à
+ampla concorrência, de acordo com sua classificação no processo seletivo. Em conformidade
+com o Art. 8 da Resolução CONSUP/IFCE nº 80, de 29 de junho de 2023, a pessoa candidata
+deverá optar na sua inscrição por sua condição de PPI ou PCD, não podendo concorrer
+simultaneamente às duas.
+2
+.
+9
+.
+As vagas da reserva não ocupadas pelas pessoas candidatas negras (pretas e
+pardas), indígenas e pessoas com deficiência serão revertidas para a ampla concorrência e
+serão preenchidas pelas demais pessoas candidatas aprovadas, observada a ordem de
+classificação.
+2
+.
+10
+.
+Caso o número de pessoas candidatas aprovadas seja inferior ao correspondente
+número de vagas ofertadas, o IFCE se reserva o direito de não preencher o quantitativo
+previsto.
+2
+.
+11
+.
+A aprovação no processo seletivo do PPGCC, de acordo com o presente edital,
+não implica a obrigatoriedade de concessão de bolsas de estudo para cursar o mestrado.
+3
+.
+DAS INSCRIÇÕES
+3
+.
+1
+.
+As inscrições serão realizadas de forma eletrônica no portal do PPGCC
+(http://ppgcc.ifce.edu.br), no período estipulado no cronograma do item 7.1 deste edital.
+3
+.
+2
+.
+A pessoa candidata deverá informar, no formulário de inscrição, 1 (um) tema de
+pesquisa, dentre as opções no 
+Anexo I
+.
+3
+.
+3
+.
+Não será cobrada taxa de inscrição para este processo seletivo.
+3
+.
+4
+.
+No ato da inscrição, deverão ser entregues pela pessoa candidata cópias
+eletrônicas dos seguintes documentos no sistema eletrônico do PPGCC
+(
+https://ppgcc.ifce.edu.br
+):
+a
+)
+foto 3x4;
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 4
+
+=== PÁGINA 5 ===
+b
+)
+diploma e histórico escolar de curso superior de bacharelado ou de
+tecnologia, todos nas áreas de STEM (Ciência, Tecnologia, Engenharia e
+Matemática);
+c
+)
+para brasileiros, cópias eletrônicas em formato PDF da carteira de identidade
+(Registro Civil com foto, válido em território nacional), do CPF, do título de
+eleitor e da quitação com as obrigações eleitorais e, no caso de pessoas
+candidatas do sexo masculino, quitação com o serviço militar. A certidão de
+quitação eleitoral emitida pelo Tribunal Superior Eleitoral no período de
+inscrição, no caso de pessoa candidata brasileira, poderá ser obtida a partir do
+l i n k 
+https://www.tre-ce.jus.br/eleitor/certidoes/quitacao-eleitoral
+ (é importante
+ressaltar que a quitação eleitoral não será aceita sem a apresentação do título
+de eleitor);
+d
+)
+para pessoas candidatas estrangeiras, cópia eletrônica em formato PDF do
+passaporte e da documentação comprobatória de autorização de permanência
+no País;
+e
+)
+declaração de anuência do empregador (público ou privado) em formato PDF,
+caso mantenha vínculo de trabalho de qualquer natureza, mesmo que
+temporário, expressando apoio ao candidato para cursar o Mestrado, conforme
+modelo do 
+Anexo IV 
+(para essa declaração, o empregador também poderá ser
+a própria pessoa candidata, caso ela seja exclusivamente autônomo ou
+empregador de si mesma);
+f
+)
+termo de compromisso e de dedicação, de no mínimo 20 horas semanais,
+durante o período de realização do curso em formato PDF, conforme modelo do
+Anexo V
+, sabendo que o curso de Mestrado é diurno;
+g
+)
+tabela de pontuação, em formato PDF, conforme 
+Anexo VI
+;
+h
+)
+currículo Lattes (modelo Lattes/CNPq) atualizado em formato PDF com cópia
+eletrônica da documentação comprobatória declarada no preenchimento do
+Anexo VI
+, em formato PDF;
+i
+)
+para pessoas candidatas pretas, pardas e indígenas, formulário de
+autodeclaração de cor/raça ou etnia (
+Anexo II
+), em formato PDF (pessoas
+candidatas indígenas deverão ainda enviar cópia do Registro Administrativo de
+Nascimento de Indígena - RANI ou declaração equivalente);
+j
+)
+para pessoa com deficiência, apresentação da Declaração de Pessoa com
+Deficiência (
+Anexo III
+) e laudo médico correspondente, ambos em formato PDF;
+k
+)
+a pessoa candidata que tiver realizado o Exame POSCOMP nos últimos 3
+(três) anos poderá utilizá-lo em substituição à prova (item 4.1); para isso, deverá
+anexar o documento do resultado (Boletim de Desempenho) no ato da inscrição.
+3
+.
+4
+.
+1
+.
+Serão considerados como documentos de identidade, desde que em bom estado
+de conservação, com foto nítida e reconhecível e apresentados em frente e verso: a) carteiras
+expedidas pelos Comandos Militares, pelas Secretarias de Segurança Pública, pelos Institutos
+de Identificação e pelos Corpos de Bombeiros Militares; b) carteiras expedidas pelos órgãos
+fiscalizadores de exercício profissional (ordens, conselhos, etc.); c) passaporte brasileiro; d)
+certificado de reservista; e) carteiras funcionais expedidas por órgão público que, por lei federal,
+valham como identidade; f) carteira nacional de habilitação (somente o modelo com foto).
+3
+.
+4
+.
+2
+.
+Em caso de aprovação no processo seletivo, a pessoa candidata deverá
+apresentar fisicamente, no ato da matrícula, os documentos originais juntamente com as cópias
+para serem validadas pelo servidor responsável, visto que este tem competência para autenticar
+documentos, como estabelece o Decreto no 9.094/2017.
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 5
+
+=== PÁGINA 6 ===
+3
+.
+5
+.
+Caso a pessoa candidata não possua diploma de graduação expedido até a data
+de inscrição final, será aceita cópia de declaração, certificado ou certidão (expedida pela
+instituição de ensino) que informe que: i) o diploma está em fase de expedição; ou ii) a pessoa
+candidata concluirá o curso até o final do período de matrícula constante no cronograma deste
+processo seletivo.
+3
+.
+6
+.
+A comissão de seleção indeferirá, sem direito a recurso, inscrições de pessoas
+candidatas com pendência de documentação, incluindo a obrigatoriedade de apresentar frente e
+verso dos documentos, quando aplicável.
+3
+.
+7
+.
+As inscrições serão efetuadas exclusivamente pelo sistema eletrônico do PPGCC
+(
+http://ppgcc.ifce.edu.br
+). Não serão aceitas inscrições ou complementação de documentação
+de forma presencial nem por fax, e-mail nem postagem via correio.
+3
+.
+8
+.
+A efetivação da inscrição dependerá do atendimento às exigências deste edital e
+do consequente deferimento pela comissão de seleção.
+3
+.
+9
+.
+A inscrição de pessoa candidata ou mesmo sua matrícula no curso de Mestrado
+Acadêmico em Ciência da Computação poderá ser indeferida a qualquer momento caso se
+verifiquem quaisquer irregularidades ou informações inverídicas na documentação apresentada
+por ocasião da sua inscrição.
+3
+.
+10
+.
+Não serão aceitas inscrições fora do prazo, conforme cronograma deste edital.
+4
+.
+DO PROCESSO SELETIVO
+4
+.
+1
+.
+A seleção das pessoas candidatas inscritas será realizada em três etapas:
+a
+)
+prova escrita, de caráter classificatório e eliminatório;
+b
+)
+arguição oral, de caráter classificatório e eliminatório;
+c
+)
+avaliação de desempenho acadêmico, de caráter classificatório.
+4
+.
+2
+.
+Cada pessoa candidata concorre somente ao tema de pesquisa indicado no ato da
+inscrição (conforme o subitem 3.2 deste edital).
+4
+.
+2
+.
+1
+.
+Cada tema está associado a uma única linha de pesquisa do PPGCC e contém
+um ou mais projetos correlacionados.
+4
+.
+2
+.
+2
+.
+Os projetos são ilustrativos dos interesses das linhas de pesquisa e não
+representam necessariamente o tópico a ser desenvolvido durante o mestrado das pessoas
+candidatas aprovadas.
+4
+.
+2
+.
+3
+.
+Para cada linha de pesquisa, será formado um comitê de avaliação constituído por,
+pelo menos, dois pesquisadores do PPGCC.
+4
+.
+3
+.
+A primeira etapa consiste em prova escrita (NPE) de caráter
+classificatório/eliminatório, composta por 20 questões de múltipla escolha, cada uma valendo
+0,5 ponto, atinentes aos tópicos indicados no 
+Anexo VII
+. Cada prova objetiva será avaliada na
+escala de 0 a 10 pontos.
+4
+.
+3
+.
+1
+.
+A pessoa candidata que obtiver nota menor que 3 (três) ou que não comparecer à
+prova escrita será eliminada do processo seletivo.
+4
+.
+4
+.
+A segunda etapa (arguição oral) possui caráter classificatório e eliminatório, como
+segue:
+a
+)
+a pessoa candidata será arguida pelo comitê de avaliação associado à linha
+de pesquisa à qual concorre;
+b
+)
+cada comitê de avaliação deverá atribuir à pessoa candidata uma nota de
+arguição (NA) entre 0 (zero) e 10 (dez);
+c
+)
+a arguição oral terá duração máxima de 20 minutos;
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 6
+
+=== PÁGINA 7 ===
+d
+)
+a arguição oral será realizada de modo presencial, no campus de Fortaleza
+do IFCE, conforme cronograma a ser divulgado posteriormente (conforme o
+subitem 7.1);
+e
+)
+a divulgação do cronograma de arguições será feita no site desta seleção e
+pelo e-mail indicado pela pessoa candidata no momento da inscrição. É de
+responsabilidade da pessoa candidata assegurar-se de que seu e-mail tenha
+sido corretamente fornecido.
+f
+)
+a pessoa candidata que não atingir a nota mínima igual a 7 (sete) ou que não
+comparecer à arguição oral com o comitê de avaliação será eliminada do
+processo seletivo.
+4
+.
+4
+.
+1
+.
+Na arguição oral, a pessoa candidata será submetida a dois tipos de perguntas,
+sendo 3 de cada tipo, totalizando 6 perguntas. Os tipos são:
+a
+)
+Tipo 1.
+ Referentes a fundamentos teóricos e conceituais relacionados à linha
+e ao tema de pesquisa a que a pessoa candidata concorre;
+b
+)
+Tipo 2.
+ Referentes ao currículo e às experiências profissionais e/ou de
+pesquisa.
+4
+.
+4
+.
+2
+.
+O conjunto das perguntas do 
+Tipo 1
+ será comum a todas as pessoas candidatas
+concorrendo ao mesmo tema e será divulgado junto com o resultado da etapa 2. As perguntas
+do 
+Tipo 2
+ podem variar de acordo com o perfil do currículo da pessoa candidata. As pessoas
+candidatas serão avaliadas segundo os seguintes critérios:
+a
+)
+comunicação de forma clara e objetiva;
+b
+)
+expressão do domínio do conteúdo;
+c
+)
+relação entre sua experiência e a linha de pesquisa pretendida.
+4
+.
+4
+.
+3
+.
+A Prova Oral será avaliada na escala de 0 (zero) a 10 (dez). Todas as questões do
+Tipo 1
+ e 
+Tipo 2
+ possuem o mesmo peso e serão avaliadas segundo os critérios estabelecidos
+no subitem 4.4.2.
+4
+.
+5
+.
+A terceira etapa (avaliação de desempenho acadêmico) possui caráter
+classificatório, sendo composta pela análise do currículo e do histórico escolar da graduação.
+4
+.
+5
+.
+1
+.
+Para cada pessoa candidata aprovada na etapa de arguição oral será atribuída
+uma nota, entre 0 (zero) e 10 (dez), referente ao currículo (NC).
+4
+.
+5
+.
+2
+.
+A pontuação do currículo (NC) segue os valores e condições determinados no
+quadro do 
+Anexo VI
+.
+4
+.
+5
+.
+3
+.
+No ato da inscrição, a pessoa candidata deverá informar a pontuação que
+pretende obter no currículo (NC), usando a tabela contida no 
+Anexo VI
+ deste edital. O não
+cumprimento deste subitem acarretará a atribuição de nota 0 (zero) ao currículo da pessoa
+candidata. No ato da inscrição, a pessoa candidata deverá entregar a tabela em formato PDF.
+4
+.
+5
+.
+4
+.
+Serão contabilizados, para efeito de pontuação, os itens devidamente
+comprovados no período de 2023 a 2026, compreendendo:
+a
+)
+artigos publicados em periódicos ou congressos na área de Ciência da
+Computação comprovados por meio de cópia do respectivo trabalho
+(declaração, carta de aceite ou a primeira página do artigo onde constem as
+informações da publicação);
+b
+)
+patentes na área de Ciência da Computação comprovadas por cópia dos
+comprovantes de depósito ou de concessão;
+c
+)
+Iniciação científica, iniciação tecnológica, projetos ou estágios científicos
+comprovados por declaração do empregador, instituição de fomento ou
+orientador.
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 7
+
+=== PÁGINA 8 ===
+4
+.
+6
+.
+A classificação final das pessoas candidatas será dada de acordo com uma nota
+final (NF) obtida pela média simples da nota da prova escrita (NPE), da nota da arguição oral
+(NA) e da nota de currículo (NC), conforme a equação a seguir:
+NF = (NPE + NA + NC) / 3
+5
+.
+DO RESULTADO
+5
+.
+1
+.
+Serão 
+eliminadas
+ do processo seletivo as pessoas candidatas que:
+a
+)
+obtiverem nota menor que 3 (três) na prova escrita (NPE) ou não
+comparecerem;
+b
+)
+obtiverem nota de arguição (NA) menor que 7 (sete), condição mínima
+referente à segunda etapa do processo seletivo;
+c
+)
+não comparecerem à respectiva arguição.
+5
+.
+2
+.
+Ao final do processo seletivo, as pessoas candidatas serão classificadas por tema
+de pesquisa em ordem decrescente da Nota Final (NF) obtida. Nos casos de empate na nota
+final, os seguintes critérios de desempate serão utilizados para definição da classificação das
+pessoas candidatas, em ordem:
+a
+)
+a maior idade em dias;
+b
+)
+a maior nota NPE;
+c
+)
+a maior nota NC.
+5
+.
+3
+.
+Os resultados de cada fase e o resultado final do processo seletivo após análise
+de recursos (com a classificação das pessoas candidatas) serão divulgados na página: 
+https://portal.ifce.edu.br/campus/fortaleza/estude-no-ifce/selecao-mestrado-ciencia-da-
+computacao-ppgcc-turma2027/
+.
+5
+.
+4
+.
+A seleção do aluno ao PPGCC, de acordo com o presente edital, não implica a
+obrigatoriedade de concessão de bolsa de estudos.
+5
+.
+5
+.
+A concessão de bolsas de estudos será definida em edital próprio a ser publicado
+pelo PPGCC, estando o edital condicionado à disponibilidade de bolsas por parte dos órgãos de
+fomento.
+5
+.
+6
+.
+As pessoas candidatas que não forem classificadas no tema indicado na inscrição
+ficarão na condição de classificáveis.
+5
+.
+6
+.
+1
+.
+As pessoas candidatas classificáveis serão ordenadas conforme a pontuação
+obtida no processo seletivo.
+5
+.
+6
+.
+2
+.
+As pessoas candidatas classificáveis poderão ser chamadas para temas diversos
+do escolhido até o limite total de vagas do edital, seguindo a ordem de classificação, conforme
+interesse da pessoa proponente do tema e anuência da pessoa candidata.
+6
+.
+DA MATRÍCULA
+6
+.
+1
+.
+Estarão aptas e serão convocadas a efetuar matrícula no curso como estudantes
+regulares as pessoas candidatas não eliminadas no processo seletivo seguindo a ordem de
+classificação final até o preenchimento das vagas ofertadas.
+6
+.
+2
+.
+As matrículas serão realizadas de forma presencial na Secretaria de Pós-
+Graduação do campus de Fortaleza do IFCE. Para efetivação da matrícula, a pessoa candidata
+aprovada deverá apresentar os documentos originais indicados no subitem 3.4 ou suas cópias
+autenticadas.
+6
+.
+2
+.
+1
+.
+Especificamente, será aceita somente a apresentação do diploma de graduação
+(ou cópia autenticada) expedido pela instituição de ensino ou ainda declaração original (ou cópia
+autenticada) que comprove a data de colação de grau, sob pena de a matrícula não ser
+efetivada no curso.
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 8
+
+=== PÁGINA 9 ===
+6
+.
+3
+.
+Na impossibilidade do comparecimento da pessoa candidata, a matrícula poderá
+ser realizada por seu representante legal autorizado por procuração pública reconhecida em
+cartório.
+7
+.
+DO CRONOGRAMA
+7
+.
+1
+.
+As atividades desta seleção seguirão o cronograma do quadro abaixo.
+ETAPA DO PROCESSO SELETIVO
+DATAS
+Publicação do edital
+26.10.2026
+Data limite para impugnação do edital
+27.10.2026
+Divulgação das respostas às impugnações do
+edital
+30.10.2026
+Período de inscrições
+1.11.2026 a 21.11.2026
+Divulgação da lista preliminar das inscrições
+deferidas e indeferidas
+24.11.2026
+Interposição de recurso contra indeferimento
+de inscrição e regularização das inscrições
+indeferidas
+25.11.2026
+Divulgação das respostas aos recursos
+contra indeferimento de inscrição
+26.11.2026
+Divulgação da lista final das inscrições
+deferidas e indeferidas e Informações
+complementares da prova
+27.11.2026
+Etapa 1: Prova Escrita
+ 
+Realização da prova escrita presencial
+05.12.2026 (sábado)
+Divulgação do resultado preliminar da prova
+09.12.2026
+Interposição de recursos contra o resultado
+preliminar da prova
+10.12.2026
+Divulgação das respostas aos recursos
+contra o resultado preliminar da prova
+11.12.2026
+Divulgação do resultado final da prova
+11.12.2026
+Etapa 2: Arguição oral
+ 
+Divulgação do calendário de arguição oral
+dos candidatos
+11.12.2026
+Realização das arguições
+14.12.2026 a 18.12.2026
+Divulgação do resultado preliminar da etapa
+de arguição oral
+04.01.2027
+Interposição de recursos contra o resultado
+preliminar da etapa de arguição oral
+05.01.2027
+Divulgação das respostas aos recursos
+contra o resultado preliminar da etapa de
+arguição oral
+08.01.2027
+Divulgação do resultado final da etapa de
+arguição oral
+08.01.2027
+Etapa 3: Avaliação de desempenho
+ 
+Realização da avaliação dos currículos
+14.12.2026 a 18.12.2026
+Divulgação do resultado preliminar da terceira
+etapa: análise de histórico e currículo
+18.01.2027
+Interposição de recursos contra o resultado
+da terceira etapa
+19.01.2027
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 9
+
+=== PÁGINA 10 ===
+8
+.
+ DA INTERPOSIÇÃO DE RECURSOS
+8
+.
+1
+.
+A pessoa candidata poderá interpor recursos, com fundamentação
+circunstanciada, mediante o preenchimento de requerimento (
+Anexo VIII
+), e deverá encaminhá-
+los para o e-mail: 
+selecao@ppgcc.ifce.edu.br
+.
+8
+.
+2
+.
+Para cada período de interposição de recursos, a pessoa candidata poderá
+apresentar um único requerimento de interposição, contendo objetivamente todas as
+contestações e argumentos.
+8
+.
+3
+.
+As datas com os períodos para interposição de recursos de cada etapa, que
+ocorrerão das 7h30 às 23h59, encontram-se definidas no cronograma do subitem 7.1 deste
+edital.
+8
+.
+4
+.
+As interposições de recursos intempestivas serão desconsideradas pela comissão.
+9
+.
+DA IMPUGNAÇÃO
+9
+.
+1
+.
+É assegurado a qualquer interessado o direito de impugnar fundamentadamente
+este edital, identificando-se e pronunciando-se até o dia estipulado no cronograma do subitem
+7.1 deste edital.
+9
+.
+2
+.
+A impugnação deverá ser realizada por meio eletrônico, através do e-mail
+selecao@ppgcc.ifce.edu.br
+, com o assunto: “
+Impugnação do edital de seleção do PPGCC
+”.
+9
+.
+3
+.
+Não serão apreciados os pedidos de impugnação intempestivos nem sem
+fundamentação técnica.
+9
+.
+4
+.
+Os pedidos de impugnação fundamentados serão julgados pela comissão
+responsável pelo processo seletivo.
+9
+.
+5
+.
+No dia estipulado no cronograma do subitem 7.1 deste edital, as respostas às
+impugnações serão disponibilizadas em um único arquivo no site: 
+https://portal.ifce.edu.br/campus/fortaleza/estude-no-ifce/selecao-mestrado-ciencia-da-
+computacao-ppgcc-turma2027/
+.
+9
+.
+6
+.
+Da decisão sobre a impugnação não cabe recurso administrativo.
+10
+.
+DAS DISPOSIÇÕES FINAIS
+Divulgação das respostas aos recursos
+contra o resultado da terceira etapa
+20.01.2027
+Divulgação do resultado parcial do processo
+seletivo
+20.01.2027
+Divulgação dos procedimentos e do
+cronograma de heteroidentificação
+conforme período oficial a ser divulgado
+pela comissão local de heteroidentificação
+do campus
+Aferição de heteroidentificação dos
+aprovados e classificáveis
+conforme período oficial a ser divulgado
+pela comissão local de heteroidentificação
+do campus
+Resultado do processo de heteroidentificação
+a definir
+Interposição de recurso contra o resultado da
+heteroidentificação
+a definir
+Resultado da análise dos recursos sobre
+heteroidentificação
+a definir
+Resultado final do processo seletivo
+a definir
+Período de matrícula (Previsão)
+Conforme calendário do campus
+Fortaleza
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 10
+
+=== PÁGINA 11 ===
+10
+.
+1
+.
+Para o cumprimento dos horários previstos neste edital, levar-se-á em
+consideração o horário oficial local de Fortaleza - CE.
+10
+.
+2
+.
+Normas complementares e avisos oficiais, quando necessários, serão divulgados
+no site: 
+https://portal.ifce.edu.br/campus/fortaleza/estude-no-ifce/selecao-mestrado-ciencia-da-
+computacao-ppgcc-turma2027/
+.
+10
+.
+3
+.
+A inscrição da pessoa candidata implicará o conhecimento e a tácita aceitação das
+normas e condições estabelecidas neste edital, em relação às quais não poderá alegar
+desconhecimento.
+10
+.
+4
+.
+A validade do processo seletivo expirará após 30 dias corridos do início do
+semestre letivo, conforme cronograma do subitem 7.1 deste edital.
+10
+.
+5
+.
+Não existe a garantia de concessão de bolsas de estudo para as pessoas
+candidatas aprovadas nesta seleção.
+10
+.
+6
+.
+A pessoa candidata ao mestrado do PPGCC está ciente de que, quando aprovada
+e regularmente matriculada, estará sujeita às regras do regimento, incluindo o prazo máximo de
+24 (vinte e quatro) meses para a conclusão do curso, a contar da primeira matrícula.
+Excepcionalmente, o prazo poderá ser estendido por mais 3 (três) meses. Decorrido o prazo
+máximo de 27 (vinte e sete) meses, o aluno que não cumprir o requisito obrigatório da defesa
+de dissertação será automaticamente desligado do programa de pós-graduação, tendo direito à
+nova matrícula ou solicitação de diploma somente se for aprovado em novo processo seletivo.
+10
+.
+7
+.
+O presente edital poderá ser cancelado ou alterado, em parte ou no todo, a
+qualquer tempo, desde que motivos supervenientes, legais ou relevantes assim o determinem,
+sem que isso venha a gerar direitos ou obrigações em relação às pessoas interessadas.
+10
+.
+8
+.
+Os casos omissos e as situações não previstas neste edital serão avaliados pela
+comissão de seleção e, em última instância, pelo conselho de pós-graduação do Programa de
+Pós-graduação em Ciência da Computação (PPGCC) e/ou pela Pró-Reitoria de Pesquisa, Pós-
+Graduação e Inovação do IFCE.
+10
+.
+9
+.
+Fica eleito o foro da Justiça Federal, Subseção Judiciária de Fortaleza, com
+exclusão e renúncia de qualquer outro, por mais privilegiado que seja, para dirimir questões
+oriundas do presente processo seletivo.
+Fortaleza, 26 de outubro de 2026.
+ 
+ 
+ADRIANA GUIMARAES COSTA
+Diretora-geral IFCE 
+Campus
+ Fortaleza
+Documento assinado eletronicamente por 
+Adriana Guimaraes Costa
+, 
+Diretor(a)-Geral do
+Campus Fortaleza
+, em 26/10/2026, às 16:06, com fundamento no art. 6º, § 1º, do 
+Decreto nº
+8.539, de 8 de outubro de 2015
+.
+A autenticidade do documento pode ser conferida no site
+https://sei.ifce.edu.br/sei/controlador_externo.php?
+acao=documento_conferir&id_orgao_acesso_externo=0
+ informando o código verificador
+9386587
+ e o código CRC 
+70E63E45
+.
+ 
+23256.012827/2026-15
+9386587v
+4
+Edital 43 (9386587)         SEI 23256.012827/2026-15 / pg. 11

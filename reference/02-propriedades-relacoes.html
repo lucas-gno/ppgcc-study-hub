@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referência: Matriz Resumo das Propriedades de Relações — PPGCC IFCE</title>
+  <link rel="stylesheet" href="../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../assets/tufte-clean.css">
+</head>
+<body>
+  <div class="lesson-container">
+    <div class="header-meta">
+      <div>
+        <a href="../lessons/0001-teoria-dos-conjuntos.html">← Voltar para as Aulas</a>
+      </div>
+      <span class="badge-phase">Material de Referência</span>
+    </div>
+
+    <h1>Quadro Comparativo: Propriedades das Relações</h1>
+    <p class="subtitle">Guia mnemônico, verificação em matrizes booleanas e condições de fechamento para a prova objetiva.</p>
+
+    <h2>1. Tabela-Mestra das Propriedades em $R \subseteq A \times A$</h2>
+
+    <div style="overflow-x:auto; margin-bottom:2rem;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.92rem; background:#fff; border:1px solid var(--border-strong);">
+        <thead>
+          <tr style="background:var(--bg-card-subtle); border-bottom:2px solid var(--border-strong); text-align:left;">
+            <th style="padding:10px 12px; border:1px solid var(--border-subtle);">Propriedade</th>
+            <th style="padding:10px 12px; border:1px solid var(--border-subtle);">Definição Formal</th>
+            <th style="padding:10px 12px; border:1px solid var(--border-subtle);">Na Matriz Booleana $M_R$</th>
+            <th style="padding:10px 12px; border:1px solid var(--border-subtle);">No Dígrafo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Reflexiva</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">$\forall x \in A, \, (x, x) \in R$</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Diagonal principal é toda composta por <strong>1s</strong></td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Todo nó possui um <strong>laço</strong> sobre si</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Irreflexiva</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">$\forall x \in A, \, (x, x) \notin R$</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Diagonal principal é toda composta por <strong>0s</strong></td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Nenhum nó pode ter laço</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Simétrica</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">$(x, y) \in R \implies (y, x) \in R$</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">$M = M^T$ (Matriz perfeitamente simétrica)</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Toda aresta entre nós distintos é bidirecional ($\leftrightarrow$)</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Antissimétrica</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">$(x, y) \in R \land (y, x) \in R \implies x = y$</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Se $M[i][j]=1$ ($i \neq j$), obrigatoriamente $M[j][i]=0$</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Nunca existe mão-dupla entre nós distintos</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle); font-weight:700;">Transitiva</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">$(x, y) \in R \land (y, z) \in R \implies (x, z) \in R$</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">$M^2 \le M$ (fechamento booleano)</td>
+            <td style="padding:10px 12px; border:1px solid var(--border-subtle);">Se existe caminho de 2 passos $x \to y \to z$, tem atalho direto $x \to z$</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>2. As Duas Grandes Famílias</h2>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:2rem;">
+      <div style="background:#fff; border:2px solid var(--accent-primary); border-radius:var(--radius-md); padding:1.25rem;">
+        <h3 style="color:var(--accent-primary); margin-top:0;">1. Relação de Equivalência</h3>
+        <p style="font-size:0.92rem; margin-bottom:0.75rem;">Agrupa elementos com a mesma característica em "famílias" (classes disjuntas).</p>
+        <ul style="padding-left:1.2rem; font-size:0.9rem; margin-bottom:1rem;">
+          <li>✓ <strong>Reflexiva</strong></li>
+          <li>✓ <strong>Simétrica</strong></li>
+          <li>✓ <strong>Transitiva</strong></li>
+        </ul>
+        <div style="background:var(--accent-primary-light); padding:8px 10px; border-radius:4px; font-size:0.85rem; color:#1e3a8a;">
+          <strong>Exemplo Oficial:</strong> Relação em $\mathbb{R}$ dada por $|x| = |y|$ ou congruência módulo $n$.
+        </div>
+      </div>
+
+      <div style="background:#fff; border:2px solid var(--accent-success); border-radius:var(--radius-md); padding:1.25rem;">
+        <h3 style="color:var(--accent-success); margin-top:0;">2. Relação de Ordem Parcial (Poset)</h3>
+        <p style="font-size:0.92rem; margin-bottom:0.75rem;">Permite hierarquizar ou elencar prioridades entre elementos de um conjunto.</p>
+        <ul style="padding-left:1.2rem; font-size:0.9rem; margin-bottom:1rem;">
+          <li>✓ <strong>Reflexiva</strong></li>
+          <li>✓ <strong>Antissimétrica</strong> (impede ciclos e empates recíprocos)</li>
+          <li>✓ <strong>Transitiva</strong></li>
+        </ul>
+        <div style="background:var(--accent-success-light); padding:8px 10px; border-radius:4px; font-size:0.85rem; color:#166534;">
+          <strong>Exemplo Oficial:</strong> A relação de inclusão $(\mathcal{P}(A), \subseteq)$ ou divisibilidade em $\mathbb{N}^*$ ($a \mid b$).
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-footer-nav">
+      <a href="01-simbolos-matematicos.html" class="btn-nav">← Dicionário de Símbolos</a>
+      <a href="../lessons/0003-propriedades-das-relacoes.html" class="btn-nav btn-primary">Ir para a Aula 03 (Propriedades) →</a>
+    </div>
+  </div>
+
+  <script src="../assets/katex/katex.min.js"></script>
+  <script src="../assets/katex/auto-render.min.js"></script>
+  <script src="../assets/widgets.js"></script>
+</body>
+</html>

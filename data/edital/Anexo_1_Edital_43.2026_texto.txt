@@ -1,0 +1,1814 @@
+=== PÁGINA 1 ===
+INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO CEARÁ
+Av Treze de Maio 2081 - Bairro Benfica - CEP 60040-531 - Fortaleza - CE - www.ifce.edu.br
+ 
+ANEXO
+Processo: 23256.012827/2026-15
+Interessado: 
+Coordenadoria do Curso de Mestrado Acadêmico em Ciência da
+Computação (PPGCC) - Campus Fortaleza
+ANEXO I - DISTRIBUIÇÃO DE VAGAS E TEMAS DE PESQUISA
+ 
+CÓDIGO
+TEMA
+NÚMERO
+DE
+VAGAS
+CA01
+Uma Arquitetura Extensível para Integração de Jogos Pedagógicos como
+Atividades Avaliativas em Ambientes Virtuais de Aprendizagem
+1
+CA02
+Evolução de uma Arquitetura Orientada a Dados para o OI, DIVAS!: Visualização
+de Dados, Aprendizado de Máquina e Explicabilidade.
+1
+CA03
+Explicabilidade em Pipelines de Aprendizado de Máquina no Contexto da
+Mineração de Dados Educacionais
+1
+CA04
+Inteligência artificial aplicada à segurança de aplicações web: honeypots
+adaptativos com grandes modelos de linguagem.
+1
+CA05
+Otimização de recursos computacionais em infraestruturas institucionais
+baseadas em contêineres.
+1
+CA06
+Nova Metodologia para a Formação de Jovens na Era da IA Generativa
+1
+IA01
+Avaliação da Robustez de Redes Neurais Quantizadas em Sistemas Embarcados
+RISC-V sob Injeção de Falhas
+1
+IA02
+Aprendizado Profundo Explicável para Detecção de Alterações Isquêmicas e
+Cálculo Automatizado da Pontuação ASPECTS.
+1
+IA03
+Estruturação de Dados para Avaliação Estrutural de Pavimentos Asfálticos em
+Grande Escala
+2
+IA04
+Aprendizado de Máquina em Eficiência Energética
+1
+IA05
+Governança em Saúde Digital baseada em orquestração, integração com LLMs e
+recuperação vetorial de informações.
+1
+IA06
+Aprendizagem de máquina para compreender e aumentar a confiabilidade da
+inspeção termográfica
+3
+IA07
+Aprendizagem de Máquina Confiável para Inspeção Visual de Qualidade na
+Indústria Siderúrgica
+2
+IA08
+Visão Computacional para Tecnologias Assistivas de Navegação
+1
+IA09
+Uso de interfaces cérebro-computador e dispositivos vestíveis para análise de
+carga cognitiva
+2
+IA10
+Modelos Fundacionais para Dados Relacionais
+2
+IA11
+Aprendizado de Máquinas: Modelos Leves e/ou com Capacidade de Rejeição
+2
+PDI01
+Aprendizado Profundo para Análise e Classificação de Imagens Médicas em
+Diagnóstico e Tratamento.
+2
+PDI02
+Registro Anatômico Multimétodo para Localização e Delimitação das Regiões
+ASPECTS em Tomografias de Crânio sem Contraste
+1
+PDI03
+Modelagem Temporal de Grafos Espaciais via Processamento Clássico de
+Imagens e Autoencoders Variacionais
+2
+RCSD01
+Inteligência Artificial Explicável para Priorização de Risco em Sistemas de Gestão
+Contínua de Exposição a Ameaças
+1
+RCSD02
+Técnicas e Ferramentas para o Gerenciamento de Redes Blockchain
+2
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 1
+
+=== PÁGINA 2 ===
+RCSD03
+Monitoramento Integrado e Não Invasivo de Apis mellifera no Semiárido
+Cearense: Aplicação de Visão Computacional na Borda e Redes RFID UHF
+2
+RCSD04
+Segurança Cibernética em Ambientes de Tecnologia Operacional: Parsers
+Inteligentes e Ferramentas Inteligentes de Análise de Tráfego com Análise
+Conformal
+1
+TOTAL DE VAGAS
+35
+VAGAS RESERVADAS PARA PRETOS, PARDOS E INDÍGENAS
+7
+VAGAS RESERVADAS PARA PESSOAS COM DEFICIÊNCIA
+4
+VAGAS PARA AMPLA CONCORRÊNCIA
+24
+CÓDIGO
+TEMA
+NÚMERO
+DE
+VAGAS
+LINHA DE PESQUISA: COMPUTAÇÃO APLICADA (CA)
+CODIGO
+CA01
+Tema
+Uma Arquitetura Extensível para Integração de
+Jogos Pedagógicos como Atividades Avaliativas
+em Ambientes Virtuais de Aprendizagem
+Resumo
+Ambientes Virtuais de Aprendizagem (AVA)
+oferecem diferentes modalidades de atividades
+educacionais, como fóruns, questionários, tarefas e
+wikis. Este trabalho propõe uma arquitetura
+extensível para incorporar jogos pedagógicos como
+uma nova modalidade de atividade em AVAs. A
+proposta prevê uma interface padronizada de
+software que permita a desenvolvedores criar
+diferentes jogos e integrá-los aos recursos do
+ambiente virtual, incluindo identificação dos
+estudantes, registro de tentativas e progresso,
+critérios de conclusão e atribuição de notas ou
+conceitos. Como prova de conceito, serão
+desenvolvidos jogos utilizando a arquitetura
+proposta, avaliando aspectos como reutilização,
+extensibilidade, esforço de desenvolvimento e
+integração com o AVA. Espera-se, assim, facilitar o
+desenvolvimento de jogos pedagógicos capazes de
+funcionar como atividades formais de
+aprendizagem e avaliação em diferentes Ambientes
+Virtuais de Aprendizagem.
+Vagas
+1
+Proponentes
+Corneli Gomes Furtado Júnior
+Projeto
+Jogos Pedagógicos e Ambientes Virtuais de
+Aprendizagem
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 2
+
+=== PÁGINA 3 ===
+Referências
+ALONSO-FERNÁNDEZ, C.; CALVO-MORATA, A.;
+FREIRE, M.; MARTÍNEZ-ORTIZ, I.; FERNÁNDEZ-
+MANJÓN, B. Game Learning Analytics: Blending
+Visual and Data Mining Techniques to Improve
+Serious Games and to Better Understand Player
+Learning. Journal of Learning Analytics, 2022. DOI:
+10.18608/jla.2022.7633.
+PARASCHOS, P. D.; KOULOURIOTIS, D. E.
+Personalised Learning through Context-Based
+Adaptation in the Serious Games with Gating
+Mechanism. Education and Information
+Technologies, 2023. DOI: 10.1007/s10639-023-
+11695-8.
+ 
+SRBECKY, R.; CASSAU, V.; THIELE, P.; WETZEL,
+S. A.; WINTERHAGEN, M.; FRAAS, W.;
+DETTMERS, J.; HEMMJE, M. Realization of
+Competency-Based Gaming and Learning Analytics
+Components Based on xAPI Data for Psychology
+Courses at Higher Educational Institutions.
+ICERI2023 Proceedings, p. 650–658, 2023. DOI:
+10.21125/iceri.2023.0226.
+CODIGO
+CA01
+ 
+CODIGO
+CA02
+Tema
+Evolução de uma Arquitetura Orientada a Dados
+para o OI, DIVAS!: Visualização de Dados,
+Aprendizado de Máquina e Explicabilidade.
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 3
+
+=== PÁGINA 4 ===
+Resumo
+O OI, DIVAS! é uma iniciativa em desenvolvimento
+que propõe um ecossistema computacional
+orientado a dados para apoiar a compreensão e o
+acompanhamento da participação e da trajetória de
+meninas e mulheres nas áreas de Computação e
+Tecnologias da Informação e Comunicação (CTIC).
+A pesquisa de mestrado terá como foco a evolução
+da arquitetura computacional que estrutura o OI,
+DIVAS!, considerando especialmente os módulos
+de Integração e Curadoria de Dados e Inteligência
+sobre Ingresso, Permanência e Evasão Estudantil.
+A partir da arquitetura existente, busca-se ampliar
+seus componentes e fluxos computacionais,
+incluindo o suporte a novas fontes e aspectos de
+qualidade dos dados, bem como o
+desenvolvimento de novas soluções para
+exploração, análise e compreensão dos dados. O
+trabalho visa explorar a incorporação e integração
+de soluções de Visualização de Dados (VIS) e
+Aprendizado de Máquina (ML) à arquitetura. Além
+disso, particular atenção será dedicada à
+Explicabilidade, investigando mecanismos que
+permitam tornar mais compreensíveis os dados, os
+processos de análise e os resultados produzidos,
+incluindo, quando aplicável, técnicas de Inteligência
+Artificial Explicável (XAI). Como resultado, espera-
+se a evolução da arquitetura do OI, DIVAS! e a
+implementação de novos componentes funcionais
+em sua aplicação atual, ampliando as
+possibilidades de integração, visualização, análise
+inteligente e explicabilidade sobre dados
+relacionados à participação e à trajetória de
+mulheres em CTIC.
+Vagas
+1
+Proponentes
+Carina Teixeira de Oliveira
+Projeto
+Observatório de Inteligência DIVAS - OI, DIVAS!
+CODIGO
+CA02
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 4
+
+=== PÁGINA 5 ===
+Referências
+ATZMUELLER, M.; FÜRNKRANZ, J.; KLIEGR, T.;
+SCHMID, U. Explainable and interpretable machine
+learning and data mining. Data Mining and
+Knowledge Discovery, v. 38, n. 5, p. 2571–2595,
+2024.
+ 
+D’IGNAZIO, C.; KLEIN, L. Collect, analyze,
+imagine, teach. In: D’IGNAZIO, C.; KLEIN, L. Data
+Feminism. Cambridge, MA: MIT Press, 2020. cap.
+2. Disponível em:
+ https://data-
+feminism.mitpress.mit.edu/pub/ei7cogfn
+ 
+GOMES, L.; LINHARES, J.; BASTOS, N.;
+SILVEIRA, R.; OLIVEIRA, C. Perfil das bases de
+dados nacionais na área de mineração de dados
+educacionais. In: SIMPÓSIO BRASILEIRO DE
+INFORMÁTICA NA EDUCAÇÃO, 36., 2025. Anais
+[...]. Porto Alegre: SBC, 2025. p. 454–469.
+Disponível em:
+https://sol.sbc.org.br/index.php/sbie/article/view/38443
+ 
+WANG, Q.; CHEN, Z.; WANG, Y.; QU, H. Applying
+machine learning advances to data visualization: a
+survey on ML4VIS. arXiv, 2020. arXiv:2012.00467.
+Disponível em:
+ https://arxiv.org/abs/2012.00467
+ 
+WANG, Q.; CHEN, Z.; WANG, Y.; QU, H. A survey
+on ML4VIS: applying machine learning advances to
+data visualization. IEEE Transactions on
+Visualization and Computer Graphics, v. 28, n. 12,
+p. 5134–5153, 2022.
+ 
+YUAN, J.; CHEN, C.; YANG, W.; LIU, M.; XIA, J.;
+LIU, S. A survey of visual analytics techniques for
+machine learning. Computational Visual Media, v.
+7, n. 1, p. 3–36, 2021.
+CODIGO
+CA02
+ 
+CODIGO
+CA03
+Tema
+Explicabilidade em Pipelines de Aprendizado de
+Máquina no Contexto da Mineração de Dados
+Educacionais
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 5
+
+=== PÁGINA 6 ===
+Resumo
+A Mineração de Dados Educacionais (MDE), por
+meio de técnicas como Aprendizado de Máquina
+(ML), tem possibilitado o desenvolvimento de
+modelos para apoiar tarefas como predição de
+evasão, identificação de estudantes em situação de
+risco e acompanhamento de trajetórias
+acadêmicas. Entretanto, a explicabilidade dessas
+soluções é frequentemente concentrada no modelo
+preditivo final, sem considerar de forma sistemática
+como as decisões tomadas nas diferentes etapas
+do pipeline influenciam os resultados e sua
+compreensão. Esta pesquisa propõe investigar e
+desenvolver uma abordagem de explicabilidade ao
+longo de todo o pipeline de Aprendizado de
+Máquina no contexto da Mineração de Dados
+Educacionais, abrangendo etapas relacionadas à
+compreensão dos dados, ao pré-processamento, à
+seleção e transformação de atributos, à
+modelagem, à avaliação e à aplicação dos
+resultados em sistemas computacionais. Busca-se
+identificar o que pode ser explicado em cada etapa,
+quais mecanismos e artefatos podem apoiar essas
+explicações e como as decisões realizadas ao
+longo do processo afetam sua compreensão,
+combinando recursos como Visualização de Dados
+(VIS) e informações sobre as transformações dos
+dados com técnicas de Inteligência Artificial
+Explicável (XAI), como SHAP e LIME, para
+explicações globais e locais dos modelos e de suas
+predições. Como produto final da pesquisa,
+pretende-se incorporar as soluções de
+explicabilidade investigadas a uma aplicação já
+existente, destinada a docentes, gestores
+acadêmicos e outros usuários envolvidos na
+tomada de decisão, permitindo acompanhar desde
+as características e transformações dos dados até
+o desempenho dos modelos e as explicações das
+predições produzidas. Espera-se, assim, contribuir
+para a definição e avaliação de uma abordagem de
+explicabilidade em Aprendizado de Máquina
+aplicado à educação, articulando investigação
+experimental, mecanismos de explicação e uma
+solução computacional voltada ao apoio à análise e
+à tomada de decisão.
+Vagas
+1
+Proponentes
+Carina Teixeira de Oliveira
+Projeto
+Mineração de Dados Educacionais no combate à
+evasão escolar no IFCE
+CODIGO
+CA03
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 6
+
+=== PÁGINA 7 ===
+Referências
+ARRIETA, A. B.; DÍAZ-RODRÍGUEZ, N.; SER, J.
+D.; BENNETOT, A.; TABIK, S.; BARBADO, A.;
+GARCÍA, S.; GIL-LÓPEZ, S.; MOLINA, D.;
+BENJAMINS, R.; CHATILA, R.; HERRERA, F.
+Explainable artificial intelligence (XAI): concepts,
+taxonomies, opportunities and challenges toward
+responsible AI. Information Fusion, v. 58, p. 82–
+115, 2020. DOI:
+https://doi.org/10.1016/j.inffus.2019.12.012
+ 
+BASTOS, N. T. de M. Mineração de Dados
+Educacionais para Identificação de Padrões de
+Evasão no Programa de Pós-Graduação em
+Ciência da Computação (PPGCC) do Instituto
+Federal do Ceará (IFCE). 2026. Dissertação
+(Mestrado Acadêmico em Ciência da Computação)
+– Instituto Federal de Educação, Ciência e
+Tecnologia do Ceará, Fortaleza, 2026.
+ 
+BASTOS, N.; GOMES, L.; SILVEIRA, R.;
+OLIVEIRA, C. Mapeamento sistemático da
+mineração de dados educacionais no combate à
+evasão escolar no Brasil. In: CONGRESSO
+SOBRE TECNOLOGIAS NA EDUCAÇÃO, 9.,
+2025. Anais [...]. Porto Alegre: Sociedade Brasileira
+de Computação, 2025. p. 177–187. Disponível em:
+https://sol.sbc.org.br/index.php/ctrle/article/view/40480
+ 
+BETTAHI, A.; BELOUADHA, F.-Z.; HARROUD, H.
+A modular and explainable machine learning
+pipeline for student dropout prediction in higher
+education. Algorithms, v. 18, n. 10, art. 662, 2025.
+DOI:
+ https://doi.org/10.3390/a18100662
+ 
+TEKKESINOGLU, S.; WAGNER, M.; RUNESON,
+P. The role of explainability throughout the MLOps
+lifecycle: review and research agenda. Frontiers in
+Computer Science, v. 8, art. 1737008, 2026. DOI:
+https://doi.org/10.3389/fcomp.2026.1737008
+ 
+VO, T. L.; NGUYEN, T.; LOPEZ-RAMOS, L. M.;
+HAMMER, H. L.; RIEGLER, M. A.; HALVORSEN,
+P. Explainability of machine learning models under
+missing data. Applied Soft Computing, v. 196, art.
+115105, 2026. DOI:
+https://doi.org/10.1016/j.asoc.2026.115105
+CODIGO
+CA03
+ 
+CODIGO
+CA04
+Tema
+Inteligência artificial aplicada à segurança de
+aplicações web: honeypots adaptativos com
+grandes modelos de linguagem.
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 7
+
+=== PÁGINA 8 ===
+Resumo
+Este projeto tem como objetivo desenvolver e
+avaliar uma arquitetura de honeypots HTTP
+adaptativos orientada por grandes modelos de
+linguagem (LLMs), capaz de ajustar serviços web
+simulados conforme as tentativas de intrusão
+observadas em servidores institucionais. A
+proposta utilizará registros de requisições HTTP e
+alertas de segurança para caracterizar padrões de
+ataque e orientar a criação e a adaptação de
+páginas, rotas e respostas em contêineres
+isolados. O escopo compreenderá cenários de
+reconhecimento de aplicações, tentativas de
+acesso indevido e injeção de SQL, utilizando
+serviços simulados e dados sintéticos. O LLM
+interpretará os eventos e proporá adaptações,
+submetidas a uma camada de validação que
+restringirá as alterações a configurações
+autorizadas e verificará a coerência das interações.
+A metodologia compreenderá revisão da literatura,
+definição da arquitetura, implementação de um
+protótipo e experimentos controlados e
+reproduzíveis. Serão comparados honeypots
+estáticos, adaptação baseada em regras e
+adaptação orientada por LLM, considerando
+adequação aos padrões observados, consistência
+das respostas, diversidade dos comportamentos
+registrados, duração das interações, latência e
+custo computacional. Também será avaliada a
+resistência à manipulação do modelo por
+instruções maliciosas presentes nas requisições.
+Como resultados, espera-se uma arquitetura
+adaptativa, um protótipo e evidências sobre os
+benefícios e as limitações da abordagem para
+coleta e análise de informações sobre ameaças.
+Vagas
+1
+Proponentes
+Carlos Mauricio Jaborandy de Mattos Dourado
+Junior
+Projeto
+Desenvolvimento e avaliação de honeypots HTTP
+adaptativos orientados por grandes modelos de
+linguagem para análise de tentativas de intrusão.
+Referências
+JAVADPOUR, Amir et al. A comprehensive survey
+on cyber deception techniques to improve honeypot
+performance. Computers & Security, v. 140, art.
+103792, 2024. DOI: 10.1016/j.cose.2024.103792.
+ 
+SLADIĆ, Muris; VALEROS, Veronica; CATANIA,
+Carlos; GARCIA, Sebastian. LLM in the Shell:
+Generative Honeypots. arXiv, 2023. Versão
+revisada em 2024. DOI:
+10.48550/arXiv.2309.00155.
+ 
+VERO, Mark et al. Honeyval: A Comprehensive
+Evaluation Framework for LLM-powered HTTP
+Honeypots. Preprint, arXiv, 2026. DOI:
+10.48550/arXiv.2605.29963.
+CODIGO
+CA04
+ 
+CODIGO
+CA05
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 8
+
+=== PÁGINA 9 ===
+Tema
+Otimização de recursos computacionais em
+infraestruturas institucionais baseadas em
+contêineres.
+Resumo
+Este projeto tem como objetivo desenvolver e
+avaliar um método de alocação adaptativa de
+recursos computacionais para aplicações
+executadas em contêineres, considerando
+infraestruturas institucionais com capacidade
+limitada. A pesquisa investigará como ajustar a
+alocação de CPU e memória diante de variações
+na demanda, buscando reduzir o
+superdimensionamento de recursos e atender aos
+requisitos de desempenho dos serviços. A
+metodologia compreenderá revisão da literatura,
+caracterização de cargas de trabalho, definição de
+um modelo de alocação e implementação de um
+protótipo integrado a uma plataforma de
+gerenciamento de contêineres. O método utilizará
+métricas de consumo de recursos e desempenho
+das aplicações para orientar os ajustes,
+respeitando a capacidade disponível e os objetivos
+de nível de serviço estabelecidos. A validação será
+realizada em ambiente experimental, com
+aplicações representativas de serviços
+institucionais e cenários de carga estável, variável
+e de pico. Serão comparados o método proposto,
+configurações estáticas e uma estratégia dinâmica
+de referência, considerando utilização de CPU e
+memória, tempo de resposta, vazão, violações dos
+requisitos de desempenho e sobrecarga do
+gerenciamento. Como resultados, esperam-se um
+método de alocação, um protótipo funcional e
+evidências experimentais sobre as condições em
+que a abordagem melhora o aproveitamento da
+infraestrutura.
+Vagas
+1
+Proponentes
+Carlos Mauricio Jaborandy de Mattos Dourado
+Junior
+Projeto
+Desenvolvimento e avaliação de um método de
+alocação adaptativa de CPU e memória para
+aplicações institucionais executadas em
+contêineres.
+CODIGO
+CA05
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 9
+
+=== PÁGINA 10 ===
+Referências
+VERMA, Abhishek et al. Large-scale cluster
+management at Google with Borg. In: Proceedings
+of the Tenth European Conference on Computer
+Systems — EuroSys ’15. New York: ACM, 2015.
+Disponível em: https://research.google/pubs/large-
+scale-cluster-management-at-google-with-borg/.
+Acesso em: 25 set. 2026.
+ 
+RZADCA, Krzysztof et al. Autopilot: workload
+autoscaling at Google. In: Proceedings of the
+Fifteenth European Conference on Computer
+Systems — EuroSys ’20. New York: ACM, 2020.
+Disponível em: https://john.e-
+wilkes.com/papers/2020-EuroSys-Autopilot.pdf.
+Acesso em: 25 set. 2026.
+ 
+KUBERNETES. Resource Management for Pods
+and Containers. Documentação oficial. Disponível
+em:
+https://kubernetes.io/docs/concepts/configuration/manage-
+resources-containers/. Acesso em: 25 set. 2026.
+CODIGO
+CA05
+ 
+CODIGO
+CA06
+Tema
+Nova Metodologia para a Formação de Jovens na
+Era da IA Generativa
+Resumo
+A crescente transferência de funções cognitivas
+para tecnologias digitais, das calculadoras à IA
+Generativa, ampliou o acesso à informação, mas
+também trouxe o risco de substituir etapas
+essenciais da aprendizagem, como pesquisar,
+formular hipóteses, organizar ideias e construir o
+próprio raciocínio.
+Nesse contexto surge o FENIX, projeto voltado à
+relação entre Inteligência Artificial, autonomia
+cognitiva e educação. Inspirado em Richard
+Feynman, Vygotsky e nos princípios da soberania e
+do letramento digital, propõe uma abordagem
+socioconstrutivista baseada no ciclo pensar,
+escrever e explicar.
+O objetivo é reposicionar o estudante como
+protagonista da aprendizagem, utilizando a IA não
+como “muleta cognitiva”, mas como instrumento de
+confronto, reflexão e aprofundamento do
+pensamento. O FENIX busca, assim, fortalecer a
+autonomia intelectual, o raciocínio estruturado e a
+capacidade crítica, fazendo da tecnologia um meio
+para ampliar a cognição humana, e não substituí-la.
+Vagas
+01
+Proponentes
+Antonio Mauro Barbosa de Oliveira
+Projeto
+FENIX: Feynman em uma Educação Nova com
+Inteligência eXplicativa
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 10
+
+=== PÁGINA 11 ===
+Referências
+CARR, N. (2011). A geração superficial: o que a
+internet está fazendo com os nossos cérebros. Rio
+de Janeiro: Agir, 2011
+ 
+CASTELLS, M. (2010). A sociedade em rede. São
+Paulo: Paz e Terra, 1999.
+ 
+FEYNMAN, R. P. (1985). Surely You’re Joking, Mr.
+Feynman!. W. W. Norton & Company.
+ 
+FREIRE, P. (1996). Pedagogia da Autonomia:
+Saberes Necessários à Prática Educativa. Paz e
+Terra.
+ 
+OLIVEIRA, A. M. B. (2025). Soberania Digital:
+Colonialismo e Letramento. Owni Editora.
+Disponível em:
+ https://maurooliveira.blog
+ 
+OLIVEIRA, A. M. B. (2026). Entre a Máquina e o
+Pensamento: a reviravolta de Feynman. Artigo
+técnico-conceitual sobre IA generativa, autonomia
+cognitiva e aprendizagem crítica.
+https://blogdoeliomar.com/entre-a-maquina-e-o-
+pensamento-a-reviravolta-de-feynman-por-mauro-
+oliveira/
+ 
+RISKO, E. F.; GILBERT, S. J. (2016). Cognitive
+offloading. Trends in Cognitive Sciences, 20(9),
+676–688. doi:10.1016/j.tics.2016.07.002.
+ 
+VYGOTSKY, L. S. (2007). A Formação Social da
+Mente. 7. ed. Martins Fontes.
+WORLD ECONOMIC FORUM. (2023). The Future
+of Jobs Report 2023. World Economic Forum.
+Disponível em:
+ https://www.weforum.org
+CODIGO
+CA06
+LINHA DE PESQUISA: INTELIGÊNCIA ARTIFICIAL (IA)
+CODIGO
+IA01
+Tema
+Avaliação da Robustez de Redes Neurais Quantizadas em Sistemas Embarcados
+RISC-V sob Injeção de Falhas
+Resumo
+Investigação da robustez de redes neurais quantizadas (QNNs) executadas em
+plataformas embarcadas baseadas na arquitetura RISC-V diante da ocorrência de
+falhas em memória e elementos de processamento. O trabalho deverá desenvolver
+uma metodologia experimental de injeção de falhas, considerando modelos como
+bit-flip e stuck-at, e avaliar seus impactos sobre a saída e a acurácia das redes
+neurais. Pretende-se identificar parâmetros, bits, camadas ou estruturas mais
+vulneráveis e investigar estratégias para redução do espaço de injeção de falhas
+e/ou mitigação das falhas mais críticas. A avaliação poderá considerar diferentes
+arquiteturas de redes, níveis de quantização e cargas de trabalho representativas de
+aplicações de TinyML.
+Vagas
+1
+Proponentes
+Otávio Alcântara de Lima Júnior
+Projeto
+Confiabilidade e Tolerância a Falhas em Sistemas Computacionais Embarcados
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 11
+
+=== PÁGINA 12 ===
+Referências
+PERLO, G.; PORSIA, A.; RUOSPO, A.; SANCHEZ, E. Emulating SDC-1 Hardware
+Faults Through Application Level Bit-Flip Injections in QNNs. IEEE 27th Latin
+American Test Symposium (LATS), 2026. DOI:
+10.1109/LATS70329.2026.11480360..
+ 
+PERLO, G.; RUOSPO, A.; SANCHEZ, E. Vectorized in-Place CRC: a Zero Memory-
+Overhead Fault Detection Scheme for QNNs on RISC-V. IEEE International
+Symposium on On-Line Testing and Robust System Design (IOLTS), 2026. DOI:
+10.1109/IOLTS69666.2026.11633783.
+ 
+LODÉA, N. et al. Early Soft Error Reliability Analysis on RISC-V. IEEE Latin America
+Transactions, v. 20, n. 9, 2022. DOI: 10.1109/TLA.2022.9878169.
+ 
+SHARMA, J.; RAO, N. The Characterization of Errors in an FPGA-Based RISC-V
+Processor due to Single Event Transients. Microelectronics Journal, v. 123, 105392,
+2022. DOI: 10.1016/j.mejo.2022.105392.
+ 
+SANTOS, D. A. et al. Reliability analysis of a fault-tolerant RISC-V system-on-chip.
+Microelectronics Reliability, v. 125, 114346, 2021. DOI:
+10.1016/j.microrel.2021.114346.
+CODIGO
+IA01
+ 
+CODIGO
+IA02
+Tema
+Aprendizado Profundo Explicável para Detecção de Alterações Isquêmicas e Cálculo
+Automatizado da Pontuação ASPECTS.
+Resumo
+O ASPECTS é utilizado para quantificar alterações isquêmicas em tomografias de
+crânio sem contraste, mas sua avaliação manual pode apresentar variabilidade entre
+especialistas. Esta pesquisa propõe desenvolver um modelo de Aprendizado
+Profundo para identificar alterações nas dez regiões do ASPECTS e calcular
+automaticamente a pontuação. Técnicas de Inteligência Artificial Explicável serão
+empregadas para destacar as áreas que influenciaram cada classificação. O
+desempenho será avaliado por região e pela concordância da pontuação automática
+com especialistas. Espera-se produzir uma ferramenta objetiva, reprodutível e
+visualmente interpretável para apoio à avaliação do AVC isquêmico.
+Vagas
+1
+Proponentes
+Roger Moura Sarmento
+Projeto
+Inteligência Artificial Explicável Aplicada à Detecção de Alterações Isquêmicas e ao
+Cálculo Automatizado da Pontuação ASPECTS em Tomografias de Crânio sem
+Contraste.
+Referências
+J. Schröder and G. Thomalla, “A critical review of Alberta Stroke Program Early CT
+Score for evaluation of acute stroke imaging,” Frontiers in Neurology, vol. 7, art. 245,
+2017. 
+https://doi.org/10.3389/fneur.2016.00245
+.
+ 
+H. Kuang et al., “Automated ASPECTS on noncontrast CT scans in patients with
+acute ischemic stroke using machine learning,” American Journal of Neuroradiology,
+vol. 40, no. 1, pp. 33–38, 2019. 
+https://doi.org/10.3174/ajnr.A5889
+.
+ 
+W. L. Nowinski et al., “Ischemic infarct detection, localization, and segmentation in
+noncontrast CT human brain scans: review of automated methods,” PeerJ, vol. 8,
+e10444, 2020.
+ https://doi.org/10.7717/peerj.10444
+.
+ 
+J. E. Soun et al., “Artificial intelligence and acute stroke imaging,” American Journal
+of Neuroradiology, vol. 42, no. 1, pp. 2–11, 2021. 
+https://doi.org/10.3174/ajnr.A6883
+.
+ 
+Z. Cao et al., “Deep learning derived automated ASPECTS on non-contrast CT scans
+of acute ischemic stroke patients,” Brain and Behavior, vol. 12, no. 6, e2596, 2022.
+https://doi.org/10.1002/brb3.2596
+.
+ 
+N. M. D. Nascimento, Automação do Cálculo do ASPECTS em Tomografia
+Computadorizada de Crânio. Dissertação de Mestrado, UFC, 2025.
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 12
+
+=== PÁGINA 13 ===
+ 
+CODIGO
+IA03
+Tema
+Estruturação de Dados para Avaliação Estrutural de Pavimentos Asfálticos em
+Grande Escala
+Resumo
+Este projeto propõe o desenvolvimento de uma abordagem computacional para
+integração, estruturação e qualificação de dados multimodais aplicados à avaliação
+estrutural de pavimentos. Serão integrados dados de TSD e FWD, informações
+funcionais, geométricas, georreferenciadas, ambientais e de materiais. A pesquisa
+abordará modelagem de dados, integração espacial e temporal, padronização,
+tratamento de dados ausentes e detecção de inconsistências e anomalias. Como
+resultado, será desenvolvida uma base de dados estruturada e rastreável, capaz de
+apoiar aplicações posteriores de ciência de dados, aprendizado de máquina e
+modelagem probabilística.
+Vagas
+2
+Proponentes
+Saulo Anderson Freitas de Oliveira
+Projeto
+Este projeto de mestrado tem como foco o desenvolvimento de uma infraestrutura
+computacional para integração e qualificação de dados de pavimentos. Serão
+organizadas e integradas diferentes fontes de dados, incluindo TSD, FWD,
+informações funcionais, geométricas e georreferenciadas.
+ 
+A pesquisa envolverá modelagem e padronização dos dados, integração espacial e
+temporal, tratamento de dados ausentes, identificação de inconsistências e detecção
+de anomalias, considerando diferentes formatos, escalas e características de
+aquisição.
+ 
+Ao final, será disponibilizada uma base de dados multimodal, estruturada e
+documentada, juntamente com procedimentos para sua atualização e qualificação.
+Essa infraestrutura servirá de suporte para etapas posteriores envolvendo
+aprendizado de máquina, modelos probabilísticos e retroanálise estrutural.
+Referências
+Ameri et al. (2024). GPR method for estimation of unbound load-bearing layers'
+parameters using machine learning and interactive modelling. Disponível em:
+https://doi.org/10.1016/j.eng.2025.12.023
+ 
+GOODFELLOW, Ian; BENGIO, Yoshua; COURVILLE, Aaron. Deep Learning.
+Cambridge: MIT Press, 2016. (Adaptive Computation and Machine Learning series).
+ 
+Liu et al. (2025). Non-destructive testing and intelligent evaluation of road structural
+conditions using GPR and FWD. Disponível
+em: https://doi.org/10.1016/j.jtte.2023.09.006
+ 
+Wang et al. (2024). Real-Time Asphalt Pavement Layer Thickness Prediction Using
+Ground-Penetrating Radar Based on a Modified Extended Common Mid-Point
+(XCMP) Approach. Disponível em: https://arxiv.org/abs/2401.03375
+ 
+CODIGO
+IA04
+Tema
+Aprendizado de Máquina em Eficiência Energética
+Resumo
+Diversos processos industriais, bem como seus parâmetros e propriedades, podem
+ser descritos qualitativamente a partir de problemas de classificação de padrões ou
+de regressão (estática ou dinâmica), com soluções consideradas satisfatórias para
+diferentes aplicações. Nesse sentido, a utilização de técnicas de aprendizado de
+máquina em plantas industriais pode ser capaz de aumentar o rendimento da
+produção, reduzindo o consumo de energia elétrica e diminuindo impactos
+ambientais, sem afetar a qualidade do produto final.
+Vagas
+1
+Proponentes
+José Daniel de Alencar Santos
+Projeto
+Desenvolvimento e aplicação de técnicas de aprendizado de máquina para
+otimização de consumo de energia elétrica em processos de usinagem na
+manufatura de componentes mecânicos.
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 13
+
+=== PÁGINA 14 ===
+Referências
+KHAN, PATHAN LAYEEQUZZAMA; BHIVSANE, S. V., Experimental Analysis and
+Investigation of Machining Parameters in Finish Hard Turning of AISI 4340 Steel.
+Procedia Manufacturing, [s.l.], v. 20, p.265-270, 2018. Elsevier BV.
+ 
+LALBONDRE, RAJSHEKHAR; KRISHNA, PRASAD; MOHANKUMAR, G. C.. An
+Experimental Investigation on Machinability Studies of Steels by Face Turning.
+Procedia Materials Science, [s.l.], v. 6, p.1386-1395, 2014. Elsevier BV.
+ 
+BISHOP, CHRISTOPHER M., NASSER M. NASRABADIi. Pattern Recognition and
+Machine Learning. Vol. 4. No. 4. New York: springer, 2006.
+ 
+LIMA, R. C. C.; OLIVEIRA, L. A. V.; SILVA, S. P. P.; SANTOS, J. D. A.; et al. A new
+proposal for energy efficiency in industrial manufacturing systems based on machine
+learning techniques. Journal of Manufacturing Systems, v. 77, p. 1062–1076, 2024.
+DOI: 10.1016/j.jmsy.2024.10.025.
+ 
+GUPTA, M. K.; KORKMAZ, M. E.; YILMAZ, H.; et al. Real-time monitoring and
+measurement of energy characteristics in sustainable machining of titanium alloys.
+Measurement, v. 224, 113937, 2024. DOI: 10.1016/j.measurement.2023.113937.
+ 
+MURPHY, Kevin P. Probabilistic Machine Learning: An Introduction. Cambridge, MA:
+MIT Press, 2022.
+ 
+MURPHY, Kevin P. Probabilistic Machine Learning: Advanced Topics. Cambridge,
+MA: MIT Press, 2023.
+CODIGO
+IA04
+ 
+CODIGO
+IA05
+Tema
+Governança em Saúde Digital baseada em orquestração, integração com LLMs e
+recuperação vetorial de informações.
+Resumo
+O GISSA (Governança Inteligente em Sistemas de Saúde) é uma plataforma desenvolvida
+para integrar dados de diferentes sistemas do Ministério da Saúde e transformá-los em
+informações para apoio à tomada de decisão. Sua evolução tecnológica passou pelo
+Smart GISSA (2021), incorporando Aprendizado de Máquina, e pelo Giselle Saúde (2024),
+que introduziu IA Generativa e análise de sentimentos em Saúde Digital.Em 2026, o
+GISSA MultiAgent é proposto como nova evolução dessa trajetória, incorporando LLMs e
+agentes inteligentes à governança digital em saúde. O protótipo adota arquitetura
+orientada a eventos, mecanismos de RAG para fundamentar respostas em fontes
+verificáveis e implementação baseada em tecnologias contemporâneas para orquestração
+de workflows, construção de aplicações com LLMs e recuperação vetorial, como n8n,
+LangChain e ChromaDB.
+Vagas
+01
+Proponentes
+Antonio Mauro Barbosa de Oliveira
+Projeto
+GISSA MultiAgent: Plataforma Cognitiva para Governança Inteligente em Saúde Digital
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 14
+
+=== PÁGINA 15 ===
+Referências
+Tiago Veloso Araujo, Silvio Ricardo Pires, and Paulo Bandiera-Paiva. 2014. Adoção de
+padrões para registro eletrônico em saúde no brasil. RECIIS – Revista Eletrônica de
+Comunicação, Informação & Inovação em Saúde, 8, 4. Retrieved Jan. 17, 2026 from
+https://www.reciis.icict.fiocruz.br/index.php/reciis/article/view/440
+.
+ 
+John W. Ayers, Adam Poliak, Mark Dredze, et al. 2023. Comparing physician and artificial
+intelligence chatbot responses to patient questions posted to a public social media forum.
+JAMA Internal Medicine, 183, 6, 589–596. doi:10.1001/jamainternmed.2023.1838.
+ 
+Rishi Bommasani et al. 2021. On the opportunities and risks of foundation models. arXiv.
+Retrieved Jan. 17, 2026 from https://arxiv.org/abs/2108.07258arXiv: 2108.07258.
+ 
+Tom B. Brown et al. 2020. Language models are few-shot learners. In Advances in Neural
+Information Processing Systems (NeurIPS). Retrieved Jan. 17, 2026 from
+https://arxiv.org/abs/2005.14165
+.
+ 
+Raimundo Valter Costa Filho. 2021. Smart-GISSA: um Sistema para Governança em
+Saúde Digital Baseado em Aprendizado de Máquina. PhD thesis. Universidade Federal do
+Ceará, Fortaleza, CE, Brazil. Retrieved Jan. 17, 2026 from http :
+//repositorio.ufc.br/handle/riufc/60257. Ph.D. dissertation.
+A. M. B. Oliveira et al. 2021. Lariisa: soluções digitais inteligentes para apoio à saúde
+pública. Ciência & Saúde Coletiva, 26, 5369–5378. doi:10.1590/1413-
+81232021265.03382021.
+ 
+F. J. G. Sousa et al. 2024. Giselle, uma plataforma que analisa sentimentos da pessoa
+idosa, apoiada por editors. Editorial Casa, Curitiba, PR, Brazil, 174–194. Retrieved Jan.
+17, 2026 from ttps://arxiv.org/abs/1706.03762. Organization, Geneva. Retrieved Jan. 17,
+2026 from https://www.who.int/publications/i/item/9789240029200. from
+https://aclanthology.org/2024.findings-emnlp.678/. inteligência artificial generativa. In
+Saúde Digital: Conceitos, Pesquisas e Desenvolvimento Tecnológico. (1st ed.).
+CODIGO
+IA05
+ 
+CÓDIGO
+IA06
+Tema
+Aprendizagem de máquina para compreender e aumentar a confiabilidade da
+inspeção termográfica
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 15
+
+=== PÁGINA 16 ===
+Resumo
+A inspeção termográfica é uma técnica não destrutiva amplamente utilizada na
+indústria para avaliação de equipamentos elétricos e mecânicos durante sua
+operação. A partir da radiação infravermelha emitida pelas superfícies, termovisores
+permitem identificar distribuições anormais de temperatura que podem estar
+associadas a condições inadequadas de funcionamento. Por permitir inspeções sem
+contato e sem interrupção do funcionamento dos equipamentos, a termografia
+constitui uma ferramenta importante em estratégias de manutenção preventiva e
+preditiva, especialmente em instalações industriais e subestações elétricas de
+elevada criticidade.
+Técnicas de aprendizagem de máquina e visão computacional vêm sendo
+empregadas na análise de imagens térmicas com diferentes objetivos. Entretanto, em
+aplicações de inspeção, apenas aumentar a acurácia de classificação não é
+suficiente. A interpretação de um termograma pode envolver condições limítrofes,
+variações ambientais e diferentes níveis de concordância entre especialistas. Além
+disso, modelos de aprendizagem de máquina podem produzir decisões incorretas
+com elevada confiança ou basear suas classificações em regiões da imagem que não
+correspondem aos fenômenos físicos relevantes para a inspeção.
+Este projeto propõe investigar o uso de aprendizagem de máquina como instrumento
+de apoio à qualidade e à confiabilidade da inspeção termográfica de equipamentos
+elétricos. A pesquisa concentra-se em aspectos relacionados à confiabilidade das
+decisões produzidas pelos modelos, à variabilidade inerente à interpretação dos
+termogramas e à compreensão dos fatores que fundamentam essas decisões. Busca-
+se, assim, avançar na utilização de técnicas de aprendizagem de máquina em
+contextos de inspeção nos quais não apenas o desempenho preditivo, mas também a
+robustez, a consistência e a interpretabilidade dos resultados são relevantes.
+Vagas
+3
+Proponentes
+Prof. Dr. Cláudio Marques de Sá Medeiros
+Prof. Dr. Elias Teodoro da Silva Júnior
+Projeto 1
+Incerteza em Modelos de Aprendizagem para Inspeção Termográfica
+Projeto 2
+Concordância entre Especialistas em Inspeção Termográfica
+Projeto 3
+Explicabilidade de Modelos Aplicados à Inspeção Termográfica
+Referências
+Xia, C., Ren, M., Wang, B., Dong, M., Xu, G., Xie, J. and Zhang, C. (2021), “Infrared
+thermography-based diagnostics on power equipment: State-of-the-art”. High Voltage,
+6: 387-407. https://doi.org/10.1049/hve2.12023.
+ 
+Y. Qin et al., "Four-Parameter Riesz Physically Aware Network and Infrared
+Thermography-Based Fault Diagnosis of Rotating Machinery”, in IEEE Transactions
+on Instrumentation and Measurement, vol. 75, pp. 1-14, 2026, Art no. 3510114, doi:
+10.1109/TIM.2026.3674257.
+ 
+Alexandra N. Uma, Tommaso Fornaciari, Dirk Hovy, Silviu Paun, Barbara Plank, and
+Massimo Poesio. “Learning from Disagreement: A Survey”. J. Artif. Int. Res. 72 (Jan
+2022), 1385–1470. https://doi.org/10.1613/jair.1.12752.
+ 
+J. Yang, X. Yang, M. Lyu and J. Zhang, "Uncertainty Quantification Fault Diagnosis
+Method Based on Multisignal Domain Interpretable Neural Network”, in IEEE
+Transactions on Instrumentation and Measurement, vol. 74, pp. 1-12, 2025, Art no.
+3539312, doi: 10.1109/TIM.2025.3571134.
+ 
+L. F. D. D. Santos, J. L. D. S. Canuto, L. B. R. Aylon, V. Cocco Mariani and R. C. T. D.
+Souza, "A Multimodal Model for Fault Diagnosis in Induction Motors Using Thermal
+Images and Large Language Models”, in IEEE Access, vol. 14, pp. 89964-89976,
+2026, doi: 10.1109/ACCESS.2026.3703729.
+CÓDIGO
+IA06
+ 
+CÓDIGO
+IA07
+Tema
+Aprendizagem de Máquina Confiável para Inspeção Visual de Qualidade na Indústria
+Siderúrgica
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 16
+
+=== PÁGINA 17 ===
+Resumo
+Na indústria siderúrgica, o controle de qualidade é essencial para assegurar que os
+produtos obtidos ao longo da rota de produção do aço atendam às especificações
+exigidas quanto à integridade e à conformidade do material. Entre os diversos
+procedimentos empregados nesse contexto, destacam-se os métodos de inspeção
+visual macroscópica, nos quais a avaliação é realizada por especialistas a partir da
+observação direta da superfície do material, de seções cortadas ou de imagens
+obtidas por técnicas de inspeção. Nesse grupo podem ser citados, por exemplo:
+ensaio de Baumann, macrografia por ataque químico, inspeção visual de superfície,
+inspeção por partículas magnéticas, inspeção por líquidos penetrantes e interpretação
+visual de radiografias industriais.
+Neste projeto, opta-se por concentrar a investigação nesse grupo de métodos porque
+ele apresenta uma combinação particularmente favorável ao uso de aprendizagem de
+máquina: gera evidências visuais diretamente observáveis, depende de interpretação
+especializada e está sujeito a variabilidade na avaliação, sobretudo em casos
+limítrofes. Além disso, tais métodos se alinham naturalmente a abordagens de
+processamento de imagens e visão computacional, permitindo o desenvolvimento de
+ferramentas de apoio à decisão capazes de aumentar a consistência, a
+rastreabilidade e a produtividade da inspeção. Dentro desse conjunto, o ensaio de
+Baumann será adotado como caso inicial de estudo, por constituir um problema
+concreto de classificação visual de qualidade baseado em padrões observados em
+seções de barras de aço.
+Entre os temas de interesse estão a concordância entre especialistas, permitindo
+caracterizar o grau de subjetividade existente na própria rotulagem das amostras; a
+incerteza do modelo, de modo a identificar situações em que a decisão automática
+apresenta baixa confiança; a análise de casos limítrofes entre categorias,
+particularmente relevantes em escalas ordinais de qualidade; e, principalmente, a
+explicabilidade, buscando determinar quais regiões, padrões ou características da
+imagem efetivamente sustentam a decisão do modelo e se essas evidências são
+coerentes com os critérios utilizados pelos especialistas.
+Vagas
+2
+Proponentes
+Prof. Dr. Cláudio Marques de Sá Medeiros
+Prof. Dr. Elias Teodoro da Silva Júnior
+Projeto 1
+Concordância de Especialistas e Construção de Dataset para o Ensaio de Baumann
+Projeto 2
+Explicabilidade e Confiabilidade em Modelos de Inspeção Visual Siderúrgica
+Referências
+Q. Luo, X. Fang, L. Liu, C. Yang and Y. Sun, "Automated Visual Defect Detection for
+Flat Steel Surface: A Survey" in IEEE Transactions on Instrumentation and
+Measurement, vol. 69, no. 3, pp. 626-644, March 2020, doi:
+10.1109/TIM.2019.2963555.
+ 
+Guizhong Fu, Peize Sun, Wenbin Zhu, Jiangxin Yang, Yanlong Cao, Michael Ying
+Yang, Yanpeng Cao, “A deep-learning-based approach for fast and robust steel
+surface defects classification”, Optics and Lasers in Engineering, Volume 121, 2019,
+Pages 397-405, ISSN 0143-8166, https://doi.org/10.1016/j.optlaseng.2019.05.005.
+ 
+Bergmann, P., Batzner, K., Fauser, M. et al. The MVTec Anomaly Detection Dataset:
+A Comprehensive Real-World Dataset for Unsupervised Anomaly Detection. Int J
+Comput Vis 129, 1038–1059 (2021). https://doi.org/10.1007/s11263-020-01400-4.
+ 
+Pasquale Coscia, Angelo Genovese, Vincenzo Piuri, and Fabio Scotti. 2026. OneN:
+Guided attention for natively-explainable anomaly detection. Image Vision Comput.
+163, C (Nov 2025). https://doi.org/10.1016/j.imavis.2025.105741.
+ 
+Siyu Zhang, Qiuju Zhang, Jiefei Gu, Lei Su, Ke Li, Michael Pecht, "Visual inspection of
+steel surface defects based on domain adaptation and adaptive convolutional neural
+network", Mechanical Systems and Signal Processing, Volume 153, 2021, 107541,
+ISSN 0888-3270, https://doi.org/10.1016/j.ymssp.2020.107541.
+CÓDIGO
+IA07
+ 
+CÓDIGO
+IA08
+Tema
+Visão Computacional para Tecnologias Assistivas de Navegação
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 17
+
+=== PÁGINA 18 ===
+Resumo
+As Tecnologias Assistivas podem ampliar a autonomia e a segurança de pessoas
+com deficiência visual durante a locomoção em ambientes internos. Nesse contexto,
+sistemas baseados em visão computacional podem utilizar imagens capturadas por
+dispositivos vestíveis ou smartphones para reconhecer obstáculos e apoiar decisões
+de navegação, como seguir em frente, desviar ou parar.
+Apesar dos bons resultados obtidos por modelos de aprendizado profundo, ainda é
+necessário compreender melhor seu comportamento fora das condições usadas no
+treinamento. Um sistema pode apresentar alto desempenho em um conjunto de
+dados conhecido e, ainda assim, falhar quando submetido a outros ambientes,
+usuários, dispositivos, condições de iluminação ou configurações de cena. Assim,
+este projeto investigará a capacidade de generalização desses modelos em situações
+não vistas durante o treinamento.
+Também será estudada a confiabilidade das previsões produzidas pelo sistema. O
+interesse é identificar quando uma decisão pode ser considerada segura e quando o
+modelo deveria sinalizar baixa confiança ou evitar uma recomendação. Dessa forma,
+a pesquisa busca considerar a robustez das decisões diante de condições novas,
+ambíguas ou pouco representadas nos dados de treinamento.
+Vagas
+1
+Proponentes
+Prof. Dr. Elias Teodoro da Silva Junior
+Prof. Dr. Otávio Alcântara de Lima Júnior
+Projeto
+Generalização e Confiabilidade de Modelos Visuais para Navegação Assistiva em
+Ambientes Internos
+Referências
+X. Peng, F. Qiao and L. Zhao, "Out-of-Domain Generalization From a Single Source:
+An Uncertainty Quantification Approach," in IEEE Transactions on Pattern Analysis
+and Machine Intelligence, vol. 46, no. 3, pp. 1775-1787, March 2024, doi:
+10.1109/TPAMI.2022.3184598.
+ 
+Han Yu, Xingxuan Zhang, Renzhe Xu, Jiashuo Liu, Yue He, Peng Cui; “Rethinking the
+Evaluation Protocol of Domain Generalization”. Proceedings of the IEEE/CVF
+Conference on Computer Vision and Pattern Recognition (CVPR), 2024, pp. 21897-
+21908. https://doi.org/10.48550/arXiv.2305.15253
+ 
+C. Tomani, S. Gruber, M. E. Erdem, D. Cremers and F. Buettner, "Post-hoc
+Uncertainty Calibration for Domain Drift Scenarios," 2021 IEEE/CVF Conference on
+Computer Vision and Pattern Recognition (CVPR), Nashville, TN, USA, 2021, pp.
+10119-10127, doi: 10.1109/CVPR46437.2021.00999.
+ 
+OKSUZ, Kemal; JOY, Tom; DOKANIA, Puneet K. Towards Building Self-Aware Object
+Detectors via Reliable Uncertainty Quantification and Calibration. Proceedings of the
+IEEE/CVF Conference on Computer Vision and Pattern Recognition — CVPR, 2023,
+p. 9263–9274. DOI: 10.48550/arXiv.2307.00934
+Complementares:
+ 
+BREVE, F.; FISCHER, C. N. Visually impaired aid using convolutional neural
+networks, transfer learning, and particle competition and cooperation. In: 2020
+International Joint Conference on Neural Networks (IJCNN). IEEE, 2020.
+ 
+HENDRYCKS, Dan et al. The Many Faces of Robustness: A Critical Analysis of Out-
+of-Distribution Generalization. ICCV, 2021, p. 8340–8349.
+https://doi.org/10.48550/arXiv.2006.16241
+CÓDIGO
+IA08
+ 
+CÓDIGO
+IA09
+Tema
+Uso de interfaces cérebro-computador e dispositivos vestíveis para análise de carga
+cognitiva
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 18
+
+=== PÁGINA 19 ===
+Resumo
+O crescimento da disponibilidade de dispositivos vestíveis tem ampliado as
+possibilidades de coleta de dados fisiológicos e comportamentais em diferentes
+contextos. Além das aplicações tradicionais em saúde e fitness, esses dispositivos
+podem apoiar a investigação de estados relacionados ao desempenho humano, como
+carga cognitiva, fadiga e estresse.
+Este projeto propõe investigar técnicas de processamento e aprendizado de máquina
+para análise e detecção de carga cognitiva em atividades de elevada demanda
+mental. Inicialmente, serão explorados datasets públicos e sinais provenientes de
+dispositivos vestíveis, incluindo acelerometria e sinais fisiológicos periféricos, como
+variabilidade da frequência cardíaca e condutância da pele. Em etapas posteriores,
+poderão ser incorporados sinais cerebrais, como EEG, permitindo investigar
+estratégias de fusão multimodal.
+Entre os desafios estão a presença de artefatos de movimento, a variabilidade dos
+sinais em ambientes não controlados e a transferência de modelos entre diferentes
+tarefas cognitivas. Fadiga e estresse serão considerados como possíveis
+desdobramentos da investigação. Como contexto de aplicação, serão consideradas
+atividades relacionadas ao desenvolvimento de software, como revisão de código e
+análise de bugs.
+Vagas
+2
+Proponente
+Prof. Dr. Elias Teodoro da Silva Junior
+Projeto 1
+Este subprojeto propõe a análise de datasets públicos contendo sinais fisiológicos e
+comportamentais para identificar padrões associados à carga cognitiva. Serão
+considerados dados de movimento, como acelerometria, e sinais fisiológicos
+periféricos, como variabilidade da frequência cardíaca e condutância da pele. O
+objetivo é desenvolver técnicas de processamento e aprendizado de máquina
+aplicáveis ao monitoramento de carga cognitiva por dispositivos vestíveis,
+considerando fadiga e estresse como possíveis desdobramentos.
+Projeto 2
+Este subprojeto investiga a combinação de diferentes sinais para a análise e detecção
+de carga cognitiva, com foco em técnicas de processamento e aprendizado de
+máquina para fusão multimodal. Serão considerados sinais de movimento, sinais
+fisiológicos periféricos e, posteriormente, sinais cerebrais, como EEG. Como
+desdobramento, poderão ser investigadas também relações entre carga cognitiva,
+fadiga e estresse.
+Projeto 3
+Este subprojeto investiga a análise da carga cognitiva em atividades de elevada
+demanda mental relacionadas ao desenvolvimento de software, como revisão de
+código e análise de bugs. Serão utilizados sinais provenientes de dispositivos
+vestíveis, com possível incorporação posterior de EEG. Também será investigada a
+transferência de dados e modelos entre diferentes tarefas cognitivas, considerando
+fadiga e estresse como possíveis desdobramentos.
+CÓDIGO
+IA09
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 19
+
+=== PÁGINA 20 ===
+Referências
+Estudos secundários:
+ 
+Katmah R, Al-Shargie F, Tariq U, Babiloni F, Al-Mughairbi F, Al-Nashash H. A Review
+on Mental Stress Assessment Methods Using EEG Signals. Sensors (Basel). 2021 Jul
+26;21(15):5043. doi: 10.3390/s21155043. PMID: 34372280; PMCID: PMC8347831.
+ 
+Menzen, J. P., Farias, K., & Bischoff, V. (2021). Using biometric data in software
+engineering: a systematic mapping study. Behaviour & Information Technology. DOI:
+10.1080/0144929X.2020.1734086
+ 
+Dunn, J., Mishra, V., Shandhi, M. M. H., Jeong, H., Yamane, N., Watanabe, Y., Chen,
+B., & Goodwin, M. S. (2024). Building an open-source community to enhance
+autonomic nervous system signal analysis: DBDP-autonomic. Frontiers in Digital
+Health. DOI: 10.3389/fdgth.2024.1467424.
+ 
+Estudos primários:
+ 
+Frey, S., Spacone, G., Cossettini, A., Guermandi, M., Schilk, P., Benini, L., & Kartsch,
+V. (2026). BioGAP-Ultra: A Modular Edge-AI Platform for Wearable Multimodal
+Biosignal Acquisition and Processing. IEEE Transactions on Biomedical Circuits and
+Systems. DOI: 10.1109/TBCAS.2026.3652501.
+ 
+Juárez, R., Hernández-Fernández, A., Camargo, C. B., & Molero, D. (2026). Spatial–
+Temporal EEG Imaging for Dual-Loop Neuro-Adaptive Simulation: Cognitive-State
+Decoding and Communication Gating in Critical Human–Machine Teams. Journal of
+Imaging. DOI: 10.3390/jimaging12050208
+ 
+Brandebusemeyer, C., Schimmer, T., & Arnrich, B. (2025). Wearables to Measure
+Developer Experience at Work. In IEEE/ACM 47th International Conference on
+Software Engineering: Software Engineering in Practice (ICSE-SEIP). DOI:
+10.1109/ICSE-SEIP66354.2025.00008.
+ 
+Hijazi, H., Duraes, J., Couceiro, R., Castelhano, J., Barbosa, R., Medeiros, J., Castelo-
+Branco, M., De Carvalho, P., & Madeira, H. (2023). Quality Evaluation of Modern Code
+Reviews Through Intelligent Biometric Program Comprehension. IEEE Transactions
+on Software Engineering. DOI: 10.1109/TSE.2022.3158543
+CÓDIGO
+IA09
+CÓDIGO
+IA10
+Tema
+Modelos Fundacionais para Dados Relacionais
+Resumo
+Relational Foundation Models (RFMs) são modelos fundacionais projetados para
+aprender sobre dados relacionais e transferir conhecimento entre diferentes tarefas,
+bases de dados e esquemas, explorando conjuntamente atributos, entidades e suas
+relações estruturais. Essa capacidade pode ser obtida, entre outros mecanismos, por
+meio de in-context learning, permitindo que o modelo se adapte a novas tarefas a
+partir do contexto fornecido, sem treinamento específico para cada problema. Esta
+proposta de pesquisa tem como objetivo investigar os fundamentos teóricos e as
+limitações desses modelos, com foco em sua capacidade de realizar in-context
+learning sobre dados relacionais. O projeto buscará caracterizar quais propriedades
+estruturais, arquiteturais e de representação determinam a capacidade desses
+modelos de generalizar entre tarefas, bases de dados e esquemas distintos,
+fornecendo princípios para o desenvolvimento de novos métodos. Entre as questões
+de interesse estão a geração e seleção de task tables adequadas para aprendizado
+em contexto, os efeitos de oversquashing e de gargalos de longo alcance na
+propagação de informação em estruturas relacionais, e as condições necessárias
+para obter invariância ou equivariância a diferentes representações de um mesmo
+esquema. A partir de análises teóricas e experimentos controlados, pretende-se
+identificar limites fundamentais dos métodos existentes e traduzir esses resultados em
+diretrizes para arquiteturas e estratégias de treinamento mais eficientes, robustas e
+capazes de generalização sistemática em dados relacionais.
+Vagas
+2
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 20
+
+=== PÁGINA 21 ===
+Proponentes
+Prof. Dr. Amauri H. Souza
+Referências
+M. Fey, W. Hu, K. Huang, J. E. Lenssen, R. Ranjan, J. Robinson, R. Ying, J. You, J.
+Leskovec. Position: Relational Deep Learning — Graph Representation Learning on
+Relational Databases. International Conference on Machine Learning (ICML), 2024.
+ 
+R. Ranjan, V. Hudovernik, M. Znidar, C. Kanatsoulis, R. Upendra, M. Mohammadi, J.
+Meyer, T. Palczewski, C. Guestrin, J. Leskovec. Relational Transformer: Toward Zero-
+Shot Foundation Models for Relational Data. International Conference on Learning
+Representations (ICLR), 2026.
+ 
+Z. Chen, J. Yin, J. Gu, S. Xiong, X. Liu, R. Zhang, K. Zhou, K. Guo. OpenRFM:
+Dissecting Relational In-Context Learning. ArXiv e-prints, 2026.
+ 
+U. Alon & E. Yahav. On the Bottleneck of Graph Neural Networks and its Practical
+Implications. International Conference on Learning Representations (ICLR), 2021.
+CÓDIGO
+IA10
+CÓDIGO
+IA11
+Tema
+Aprendizado de Máquinas: Modelos Leves e/ou com Capacidade de Rejeição
+Resumo
+Esse tema envolve tanto a computação suave/leve (soft computing) quanto a redução
+do tamanho dos modelos com o intuito de aprimorar seu desempenho. De um lado,
+busca-se desenvolver métodos que tornem os modelos mais compactos,
+possibilitando sua execução em plataformas de recursos limitados (como dispositivos
+embarcados e móveis), com menor consumo de memória, processamento e energia,
+garantindo ainda respostas rápidas — aspecto crítico em aplicações de tempo real.
+De outro, pretende-se incorporar técnicas de rejeição, que permitem ao modelo
+abster-se de decisões em situações de baixa confiança, transferindo o processo para
+classificadores mais complexos ou para especialistas humanos. Essa combinação de
+eficiência e segurança visa aumentar a confiabilidade e a disponibilidade dos
+sistemas, especialmente em aplicações sensíveis.
+Vagas
+2
+Proponentes
+Prof. Dr. Ajalmar Rego da Rocha Neto
+Referências
+DIAS, MADSON L. D. ; MAIA, ATILLA N. ; DA ROCHA NETO, AJALMAR R. ;
+GOMES, JOAO P . P . . Parsimonious Minimal Learning Machine via Multiresponse
+Sparse Regression. International Journal of Neural Systems, v. 30, p. 1-16, 2020.
+ 
+MATIAS, ALAN L. ; NETO, AJALMAR R. ROCHA . OnARTMAP: A Fuzzy ARTMAP-
+based Architecture. NEURAL NETWORKS, v. 98, p. 236-250, 2017.
+ 
+DIAS, M. L. D. ; SOUSA, L. S. ; Rocha Neto, Ajalmar R. ; FREIRE, A. L.Fixed-Size
+Extreme Learning Machines Through Simulated Annealing. NEURAL PROCESSING
+LETTERS, v. 1, p. 1-17, 2017.
+ 
+CHOW, C. On optimum recognition error and reject tradeoff. IEEE Transactions on
+Information Theory,, v. 16, n. 1, p. 41–46, jan 1970.
+LINHA DE PESQUISA: PROCESSAMENTO DE SINAIS E IMAGENS (PDI)
+CODIGO
+PDI01
+Tema
+Aprendizado Profundo para Análise e Classificação
+de Imagens Médicas em Diagnóstico e Tratamento.
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 21
+
+=== PÁGINA 22 ===
+Resumo
+A análise de imagens médicas desempenha um
+papel fundamental na prática da medicina
+moderna, permitindo que os profissionais de saúde
+visualizem estruturas internas do corpo,
+identifiquem anormalidades e realizem diagnósticos
+precisos. Essas imagens, provenientes de diversas
+modalidades, como radiografia, tomografia,
+ressonância magnética e microscopia, oferecem
+informações valiosas para a compreensão e o
+tratamento de doenças. No entanto, à medida que
+a quantidade de dados gerados por exames
+médicos aumenta exponencialmente, cresce
+também a necessidade de métodos eficazes de
+análise e interpretação. A aplicação de técnicas de
+Aprendizado Profundo (Deep Learning) nesse
+contexto representa um avanço significativo,
+permitindo o desenvolvimento de sistemas
+inteligentes capazes de automatizar a interpretação
+de imagens médicas, melhorar a precisão
+diagnóstica e agilizar o processo de tomada de
+decisões clínicas.Esta linha busca contribuir para
+esse campo em constante evolução, explorando o
+potencial das tecnologias de Aprendizado Profundo
+para aprimorar a prática da Engenharia Biomédica.
+Vagas
+02
+Proponentes
+Pedro Pedrosa Rebouças Filho
+Projeto
+Inteligência Artificial Explicável (XAI) Aplicada ao
+Aprendizado Profundo para Análise e Classificação
+de Imagens Médicas em Diagnóstico e Tratamento
+CODIGO
+PDI01
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 22
+
+=== PÁGINA 23 ===
+Referências
+E. F. Ohata et al., “Automatic detection of COVID-
+19 infection using chest X-ray images through
+transfer learning,” IEEE/CAA Journal of Automatica
+Sinica, vol. 8, no. 1, pp. 239–248, Jan. 2021.
+https://doi.org/10.1109/JAS.2020.1003393
+.
+ 
+C. M. J. M. Dourado, S. P. P. da Silva, R. V. M. da
+Nobrega, P. P. Rebouças Filho, K. Muhammad,
+and V. H. C. de Albuquerque, “An Open IoHT-
+Based Deep Learning Framework for Online
+Medical Image Recognition,” IEEE Journal on
+Selected Areas in Communications, vol. 39, no. 2,
+pp. 541–548, Feb. 2021.
+https://doi.org/10.1109/JSAC.2020.3020598
+.
+ 
+Y. Xu, L. F. F. Souza, I. C. L. Silva, A. G. Marques,
+F. H. S. Silva, V. X. Nunes, T. Han, C. Jia, V. H. C.
+de Albuquerque, and P. P. Rebouças Filho, “A soft
+computing automatic based in deep learning with
+use of fine-tuning for pulmonary segmentation in
+computed tomography images,” Applied Soft
+Computing, vol. 112, Art. no. 107810, 2021.
+https://doi.org/10.1016/j.asoc.2021.107810
+.
+ 
+Y. Xu et al., “Deep Learning-Enhanced Internet of
+Medical Things to Analyze Brain CT Scans of
+Hemorrhagic Stroke Patients: A New Approach,”
+IEEE Sensors Journal, vol. 21, no. 22, pp. 24941–
+24951, Nov. 15, 2021.
+https://doi.org/10.1109/JSEN.2020.3032897
+ 
+M. A. G. Santos, R. Munoz, R. Olivares, P. P.
+Rebouças Filho, J. Del Ser, and V. H. C. de
+Albuquerque, “Online heart monitoring systems on
+the internet of health things environments: A
+survey, a reference model and an outlook,”
+Information Fusion, vol. 53, pp. 222–239, 2020.
+https://doi.org/10.1016/j.inffus.2019.06.004
+.
+ 
+R. M. Sarmento, F. F. X. Vasconcelos, P. P.
+Rebouças Filho, and V. H. C. de Albuquerque, “An
+IoT platform for the analysis of brain CT images
+based on Parzen analysis,” Future Generation
+Computer Systems, vol. 105, pp. 135–147, 2020.
+https://doi.org/10.1016/j.future.2019.11.033
+.
+CODIGO
+PDI01
+ 
+CODIGO
+PDI02
+Tema
+Registro Anatômico Multimétodo para Localização e Delimitação das Regiões ASPECTS
+em Tomografias de Crânio sem Contraste.
+Resumo
+A localização correta das regiões ASPECTS é essencial para a avaliação de alterações
+isquêmicas em tomografias de crânio. Esta pesquisa propõe comparar e combinar
+métodos de registro rígido, afim e deformável para alinhar atlas anatômicos aos exames
+dos pacientes. O método deverá localizar automaticamente os níveis BGL e SGL,
+propagar as máscaras das dez regiões ASPECTS e avaliar a qualidade das delimitações.
+Espera-se obter um procedimento robusto e reprodutível, capaz de lidar com diferenças
+anatômicas, posicionamento e qualidade dos exames.
+Vagas
+1
+Proponentes
+Roger Moura Sarmento
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 23
+
+=== PÁGINA 24 ===
+Projeto
+Processamento de Imagens Médicas Baseado em Atlas para Localização e Delimitação
+Automática das Regiões ASPECTS em Tomografias de Crânio sem Contraste.
+Referências
+Q. Sun et al., “Age-specific ASPECTS atlas of Chinese subjects across different age
+groups for assessing acute ischemic stroke,” Scientific Data, vol. 11, art. 1132, 2024.
+https://doi.org/10.1038/s41597-024-03973-y
+.
+ 
+E. Ortiz et al., “Automated ASPECTS Segmentation and Scoring Tool: A Method Tailored
+for a Colombian Telestroke Network,” Journal of Imaging Informatics in Medicine, 2025.
+https://doi.org/10.1007/s10278-024-01258-9
+.
+ 
+Z. Yu et al., “An automated ASPECTS method with atlas-based segmentation,” Computer
+Methods and Programs in Biomedicine, vol. 210, art. 106376, 2021.
+https://doi.org/10.1016/j.cmpb.2021.106376
+.
+ 
+Z. Chen et al., “Validation of two automated ASPECTS software on non-contrast computed
+tomography scans of patients with acute ischemic stroke,” Frontiers in Neurology, vol. 14,
+art. 1170955, 2023. 
+https://doi.org/10.3389/fneur.2023.1170955
+.
+ 
+S. Wan et al., “Automated ASPECTS calculation may equal the performance of
+experienced clinicians: a machine learning study based on a large cohort,” European
+Radiology, vol. 34, pp. 1624–1634, 2024. 
+https://doi.org/10.1007/s00330-023-10053-z
+.
+ 
+Z. Cao et al., “Deep learning derived automated ASPECTS on non-contrast CT scans of
+acute ischemic stroke patients,” Human Brain Mapping, vol. 43, no. 10, pp. 3023–3036,
+2022. 
+https://doi.org/10.1002/hbm.25845
+.
+CODIGO
+PDI02
+ 
+CÓDIGO
+PDI03
+Tema
+Modelagem Temporal de Grafos Espaciais via Processamento Clássico de Imagens e
+Autoencoders Variacionais
+Resumo
+Desenvolvimento de uma abordagem centrada em dados, explorando e correlacionando
+bases abertas consolidadas como o Space Syntax OpenMapping (que disponibiliza a
+malha urbana da Grã-Bretanha com métricas pré-calculadas de centralidade por
+proximidade e intermediação) e o RPLAN Dataset (repositório com plantas baixas
+residenciais reais e densamente anotadas). Como diferencial computacional voltado à
+eficiência e à explicabilidade matemática, utilizará pipelines de Visão Computacional
+clássica e determinística — empregando algoritmos geométricos, operadores de gradiente
+e filtros morfológicos lineares — para a extração direta de features e o rastreamento
+espaço-temporal de alvos em bases públicas de forma otimizada para dispositivos com
+restrição de hardware (computação na borda). Modelos do tipo Variational Autoencoders
+(VAEs) serão aplicados estritamente na etapa final para a compressão dessas
+informações em espaços latentes de baixa dimensão, integrando dinamicamente as
+trajetórias observadas à topologia teórica dos grafos. A arquitetura lógica do modelo se
+generaliza como uma ferramenta de validação robusta aplicável ao rastreamento de
+pessoas e objetos para pesquisas científicas, ao monitoramento de padrões temporais em
+ambientes construídos e, em vertentes de engenharia, ao diagnóstico estrutural por
+processamento de imagens tradicional, como a inspeção por varredura térmica e
+geométrica em parques de geração fotovoltaica.
+Vagas
+2
+Proponentes
+Geraldo Luis Bezerra Ramalho
+Projeto
+Modelagem e análise de redes espaciais, estruturado por meio de Algoritmos de Grafos e
+Técnicas de Aprendizagem de Máquina, com o objetivo de mitigar as limitações de rigidez
+temporal dos modelos clássicos da Sintaxe Espacial
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 24
+
+=== PÁGINA 25 ===
+Referências
+KEMPINSKA, Kira; MURCIO, Roberto. Modelling urban networks using Variational
+Autoencoders [3.1, 4.1]. Complex Networks and Their Applications VIII, p. 343-354, 2019.
+Disponível em: https://link.springer.com/article/10.1007/s41109-019-0234-0.
+ 
+SPACE SYNTAX OPENMAPPING GB. Space Syntax OpenMapping GB: A pre-processed
+spatial network model of Great Britain, published as an open dataset. Londres: Space
+Syntax Ltd, 2018. Disponível em: https://spacesyntax.com/project/openmapping-gb/.
+ 
+VAROUDIS, Tasos; PENN, Alan. Variational Beauty of Space: Machine Intuition and Non-
+Linear Neural Aggregations. In: Proceedings of the 12th International Space Syntax
+Symposium (12SSS), Pequim, China, 2019. Disponível em:
+https://discovery.ucl.ac.uk/id/eprint/10078367.
+ 
+WU, Wenming; FAN, Lubin; LIU, Ligang; WONKA, Peter. Data-driven interior plan
+generation for residential buildings. ACM Transactions on Graphics (TOG), v. 38, n. 6, p. 1-
+12, 2019. Disponível em: [github.io](https://wutomwu.github.io/particulars.html?id=1).
+ 
+ZORMAN, An?e; ŠTUMBERGER, Goran; SREĆKOVIĆ, Nejc. Thermographic Inspection
+of Photovoltaic Systems Using Classical Computer Vision Techniques on Edge Devices.
+Energies, v. 18, n. 4, p. 1102, 2025. Disponível em: https://www.mdpi.com/2504-
+446X/6/11/347.
+CÓDIGO
+PDI03
+ 
+LINHA DE PESQUISA: REDES DE COMPUTADORES E SISTEMAS DISTRIBUÍDOS (RCSD)
+CODIGO
+RCSD01
+Tema
+Inteligência Artificial Explicável para Priorização de
+Risco em Sistemas de Gestão Contínua de
+Exposição a Ameaças
+Resumo
+A expansão constante da superfície de ataque
+externa de organizações (i.e. domínios, endereços,
+serviços expostos e vazamentos de credenciais
+associados) tem impulsionado a adoção de
+plataformas de gestão contínua de exposição a
+ameaças (Continuous Threat Exposure
+Management, CTEM), que automatizam a
+descoberta de ativos e a geração de achados de
+segurança a partir de múltiplas fontes de dados. A
+priorização desses achados depende cada vez
+mais de modelos de aprendizado de máquina para
+estimar severidade, confiança e risco, mas a
+natureza opaca (“caixa-preta”) desses modelos
+compromete a confiança do operador humano
+responsável por validar cada decisão antes que ela
+se torne um alerta acionável. Esse problema é
+particularmente sensível em organizações públicas
+e reguladas, sujeitas ao direito de revisão de
+decisões automatizadas previsto no art. 20 da
+LGPD e a frameworks setoriais de maturidade em
+segurança cibernética que exigem auditabilidade e
+rastreabilidade das decisões. Esta linha de
+pesquisa propõe investigar e desenvolver técnicas
+de Inteligência Artificial Explicável (XAI), como
+SHAP, LIME e explicações contrafactuais,
+aplicadas à priorização de risco em ambientes de
+exposição contínua, avaliando o compromisso
+entre acurácia, redução de fadiga de alerta e a
+capacidade de sustentar, de forma compreensível e
+auditável, a curadoria humana exigida tanto por
+boas práticas de segurança quanto por exigências
+legais e regulatórias.
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 25
+
+=== PÁGINA 26 ===
+Vagas
+1
+Proponentes
+Reinaldo Bezerra Braga
+Projeto
+Explicabilidade em Modelos de Priorização de
+Risco para Gestão Contínua de Exposição a
+Ameaças: uma Abordagem Alinhada à LGPD e a
+Frameworks de Maturidade em Segurança
+Cibernética
+Referências
+G. Rjoub, J. Bentahar, O. Abdel Wahab, R.
+Mizouni, A. Song, R. Cohen, H. Otrok, and A.
+Mourad, “A Survey on Explainable Artificial
+Intelligence for Cybersecurity,” IEEE Transactions
+on Network and Service Management, vol. 20, no.
+4, pp. 5115–5140, 2023.
+https://doi.org/10.1109/TNSM.2023.3282740.
+ 
+N. Capuano, G. Fenza, V. Loia, and C. Stanzione,
+“Explainable Artificial Intelligence in Cybersecurity:
+A Survey,” IEEE Access, vol. 10, pp. 93575–93600,
+2022.
+https://doi.org/10.1109/ACCESS.2022.3204171.
+ 
+J. Jacobs, S. Romanosky, O. Suciu, B. Edwards,
+and A. Sarabi, “Enhancing Vulnerability
+Prioritization: Data-Driven Exploit Predictions with
+Community-Driven Insights,” 2023 IEEE European
+Symposium on Security and Privacy Workshops
+(EuroS&PW), pp. 194–206, 2023.
+https://doi.org/10.1109/EUROSPW59978.2023.00027.
+ 
+M. de F. Freire de Sá and T. M. Macena de Lima,
+“Inteligência artificial e Lei Geral de Proteção de
+Dados Pessoais: o direito à explicação nas
+decisões automatizadas,” Revista Brasileira de
+Direito Civil, vol. 26, no. 4, pp. 227–246, 2021.
+ 
+Autoridade Nacional de Proteção de Dados
+(ANPD), Nota Técnica nº
+12/2025/CON1/CGN/ANPD: Consolidação das
+contribuições recebidas na Tomada de Subsídios,
+Processo nº 00261.006920/2024-46, Brasília, DF, 3
+abr. 2025.
+CODIGO
+RCSD01
+ 
+CODIGO
+RCSD02
+Tema
+Técnicas e Ferramentas para o Gerenciamento de Redes Blockchain
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 26
+
+=== PÁGINA 27 ===
+Resumo
+Nos últimos anos, Blockchain tem sido apresentada como uma tecnologia disruptiva. Sua
+definição, embora seja expressa de modo bastante fragmentado na literatura atual,
+considera aspectos como ledgers descentralizados, redes peer-to-peer, transações
+confiáveis e seguras entre outros termos. Vários tipos de aplicações suportadas por redes
+Blockchain tem sido reportadas nos últimos anos. Aplicações essas que vão desde as
+consagradas criptomoedas até sistemas nas áreas de educação e saúde. Contudo, a
+infraestrutura descentralizada das redes Blockchain introduz grandes desafios para sua
+adoção nos negócios atualmente. A necessidade de lidar com questões de escalabilidade,
+carência de padrões universais, complexos sistemas de consenso, entre outros, requer a
+atuação de profissionais altamente especializados para lidar com esses desafios. Nesse
+sentido, esse projeto visa estudar, propor e validar métodos, técnicas e ferramentas para o
+suporte ao gerenciamento de redes Blockchain. O objetivo maior dessa pesquisa é
+fornecer ferramentas que permitam que essa tecnologia seja adotada mais facilmente
+pelas organizações, minorando os investimentos necessários para implantar redes de
+Blockchain complexas.
+Vagas
+2
+Proponentes
+Cidcley Teixeira de Souza
+Projeto
+Modelos em Tempo de Execução para o Gerenciamento de Redes Blockchain
+Referências
+Frizzo-Barkera, J., Chow-Whitea, P. A., Adamsa, P. R., Mentankoa, J., Hab D., Greenc, S.
+(2020).Blockchain as a disruptive technology for business: A systematic review.
+International Journal of Information Management. Volume 51, April 2020, 102029.
+https://doi.org/10.1016/j.ijinfomgt.2019.10.014.
+ 
+Kasireddy, P. (2017). Blockchains don’t scale. Not today, at least. But there’s hope.
+Retrieved December 10, 2020, from Hacker Noon
+website:https://hackernoon.com/blockchains-dont-scale-not-today-at-least-but-there-s-
+hope-2cb43946551a.
+ 
+Zalan, T. (2018). Born global on blockchain. Review of International Business and
+Strategy, 28(1), 19–34. https://doi.org/10.1108/RIBS-08-2017-0069.
+ 
+Hughes, L., Dwivedi, Y. K., Misra, S. K., Rana, N. P., Raghavan, V., Akella, V. (2019).
+Blockchain research, practice and policy: Applications, benefits, limitations, emerging
+research themes and research agenda. International Journal of Information Management,
+49, 114–129. https://doi.org/10.1016/j.ijinfomgt.2019.02.005.
+CODIGO
+RCSD02
+ 
+CODIGO
+RCSD03
+Tema
+Monitoramento Integrado e Não Invasivo de Apis mellifera no Semiárido Cearense:
+Aplicação de Visão Computacional na Borda e Redes RFID UHF
+Resumo
+A estimativa da força de uma colônia de abelhas é um indicador relevante de saúde e
+produtividade, mas os métodos tradicionais em Apis mellifera dependem da abertura da
+colmeia e da inspeção visual quadro a quadro, um procedimento invasivo e demorado.
+Além disso, a literatura aponta que a escassez de dados e a dificuldade de generalização
+para ambientes de campo diferentes são limitações centrais da aplicação de TinyML e
+visão computacional na apicultura. Este projeto propõe desenvolver e validar um sistema
+híbrido de monitoramento de baixo custo, adaptado às condições climáticas do sertão
+central do Ceará. O sistema combinará um modelo de detecção de objetos (como o
+YOLOv8) implantado em um dispositivo de borda para quantificar automaticamente o fluxo
+de abelhas na entrada da colmeia. Simultaneamente, o projeto empregará um sistema
+RFID operando na banda de 868 MHz (UHF) para analisar a atenuação de sinal (RSSI)
+através da estrutura de favos, visando identificar e localizar de forma não invasiva uma tag
+presa à abelha rainha. Como resultado, espera-se correlacionar os padrões de fluxo e a
+atividade interna com variáveis climáticas locais, gerando um conjunto de dados e uma
+ferramenta de apoio validada para o clima da região.
+Vagas
+2
+Proponentes
+Antonio Rafael Braga
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 27
+
+=== PÁGINA 28 ===
+Projeto
+Tecnologias Não Invasivas para Apicultura de Precisão: Visão Computacional e RFID no
+Manejo Inteligente no Semiárido
+Referências
+ROVAI, M.; FERREIRA FILHO, J. A.; REIS, J. A. BuzzTech, Machine Learning at the
+Edge, Deploying YOLOv8 on Raspberry Pi Zero 2W for Real-Time Bee Counting at the
+Hive Entrance. Universidade Federal de Itajubá, Hackster.io, 2024.
+ 
+LORENZO-LÓPEZ, Jaime; JUAN-LLÁCER, Leandro. Propagation Analysis of an RFID
+System in the UHF Band in the Honeycomb Frame of a Beehive. Sensors, v. 24, n. 11, p.
+3356, 2024. DOI: 10.3390/s24113356.
+ 
+LORENZO-LÓPEZ, Jaime; JUAN-LLÁCER, Leandro. Received Signal Strength Indicator
+Measurements and Simulations for Radio Frequency Identification Tag Identification and
+Location in Beehives. Sensors, v. 25, n. 11, p. 3372, 2025. DOI: 10.3390/s25113372.
+ 
+BELTRÁN, Laura Pérez et al. Compact 868 MHz RFID-based antenna for queen bee
+identification and location inside hives. In: 2024 18th European Conference on Antennas
+and Propagation (EuCAP). IEEE, 2024. p. 1976-1980.
+ 
+ALBURAKI, Mohamed; MADELLA, Shayne; CORONA, Miguel. RFID Technology Serving
+Honey Bee Research: A Comprehensive Description of a 32-Antenna System to Study
+Honey Bee and Queen Behavior. Applied System Innovation, v. 4, n. 4, p. 88, 2021. DOI:
+10.3390/asi4040088.
+CODIGO
+RCSD03
+ 
+CODIGO
+RCSD04
+Tema
+Segurança Cibernética em Ambientes de Tecnologia Operacional: Parsers Inteligentes e
+Ferramentas Inteligentes de Análise de Tráfego com Análise Conformal
+Resumo
+Ambientes de Tecnologia Operacional (OT), como sistemas industriais, redes de
+automação, SCADA, PLCs e infraestruturas críticas, apresentam requisitos rigorosos de
+disponibilidade, segurança operacional e previsibilidade, o que torna a detecção de
+comportamentos anômalos mais sensível do que em redes corporativas tradicionais. Ao
+mesmo tempo, a diversidade de protocolos industriais, a escassez de dados rotulados e a
+necessidade de reduzir falsos positivos dificultam a adoção direta de soluções
+convencionais de detecção de intrusão. Esta pesquisa propõe investigar e desenvolver
+parsers inteligentes e ferramentas inteligentes de análise de tráfego para ambientes OT,
+combinando extração estruturada de características de protocolos e fluxos industriais com
+técnicas de aprendizado de máquina e Análise Conformal. A abordagem buscará
+transformar tráfego bruto ou semiestruturado em representações interpretáveis, capazes
+de apoiar a identificação de padrões normais, desvios operacionais e possíveis eventos de
+segurança. A Análise Conformal será explorada como mecanismo para quantificar
+incerteza, calibrar alertas e controlar taxas de erro em cenários de detecção de anomalias
+e tráfego desconhecido. A metodologia compreenderá revisão da literatura, definição de
+uma arquitetura de parsing e análise, implementação de protótipos, experimentos com
+bases públicas ou ambientes controlados de OT e avaliação considerando acurácia, taxa
+de falsos positivos, latência, interpretabilidade e adequação ao uso em operação. Como
+resultado, espera-se produzir um conjunto de ferramentas e evidências experimentais
+sobre o uso de Análise Conformal para tornar a análise de tráfego OT mais confiável,
+auditável e útil para operadores humanos.
+Vagas
+1
+Proponentes
+Antonio Wendell de Oliveira Rodrigues
+Projeto
+Parsers Inteligentes e Análise Conformal para Segurança Cibernética em Ambientes de
+Tecnologia Operacional
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 28
+
+=== PÁGINA 29 ===
+Referências
+NIST. Guide to Operational Technology (OT) Security. NIST Special Publication 800-82
+Rev. 3, 2023. DOI: https://doi.org/10.6028/NIST.SP.800-82r3.
+ 
+ISA. ISA/IEC 62443 Series of Standards: Security for Industrial Automation and Control
+Systems. Disponível em: https://www.isa.org/standards-and-publications/isa-standards/isa-
+iec-62443-series-of-standards.
+ 
+VOVK, V.; GAMMERMAN, A.; SHAFER, G. Algorithmic Learning in a Random World.
+Springer, 2005.
+ 
+ANGELopoulos, A. N.; BATES, S. A Gentle Introduction to Conformal Prediction and
+Distribution-Free Uncertainty Quantification. arXiv:2107.07511, 2021.
+ 
+KRIKELI, P.; BENZAÏD, C.; TALHI, C. Conformal machine learning for reliable anomaly
+detection in industrial cyber-physical systems. Reliability Engineering & System Safety,
+2026.
+CODIGO
+RCSD04
+ 
+Documento assinado eletronicamente por 
+Saulo Anderson Freitas de Oliveira
+, 
+Professor do
+Ensino Básico, Técnico e Tecnológico
+, em 05/10/2026, às 20:13, com fundamento no art. 6º, §
+1º, do 
+Decreto nº 8.539, de 8 de outubro de 2015
+.
+Documento assinado eletronicamente por 
+Corneli Gomes Furtado Junior
+, 
+Professor do
+Ensino Básico, Técnico e Tecnológico
+, em 05/10/2026, às 20:36, com fundamento no art. 6º, §
+1º, do 
+Decreto nº 8.539, de 8 de outubro de 2015
+.
+Documento assinado eletronicamente por 
+Thiago Alves Rocha
+, 
+Professor do Ensino Básico,
+Técnico e Tecnológico
+, em 06/10/2026, às 10:20, com fundamento no art. 6º, § 1º, do 
+Decreto
+nº 8.539, de 8 de outubro de 2015
+.
+Documento assinado eletronicamente por 
+Roger Moura Sarmento
+, 
+Professor do Ensino
+Básico, Técnico e Tecnológico
+, em 06/10/2026, às 12:16, com fundamento no art. 6º, § 1º, do
+Decreto nº 8.539, de 8 de outubro de 2015
+.
+A autenticidade do documento pode ser conferida no site
+https://sei.ifce.edu.br/sei/controlador_externo.php?
+acao=documento_conferir&id_orgao_acesso_externo=0
+ informando o código verificador 
+9291396
+e o código CRC 
+7C3E1DB4
+.
+23256.012827/2026-15
+9291396v
+15
+Anexo I - Temas de pesquisa (9291396)         SEI 23256.012827/2026-15 / pg. 29

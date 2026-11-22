@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referência Rápida: Guia Fonético e Semântico de Símbolos Matemáticos — PPGCC IFCE</title>
+  <link rel="stylesheet" href="../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../assets/tufte-clean.css">
+</head>
+<body>
+  <div class="lesson-container">
+    <div class="header-meta">
+      <div>
+        <a href="../lessons/0001-teoria-dos-conjuntos.html">← Voltar para as Aulas</a>
+      </div>
+      <span class="badge-phase">Material de Referência</span>
+    </div>
+
+    <h1>Dicionário de Símbolos Matemáticos</h1>
+    <p class="subtitle">Guia fonético de leitura oral, significado formal e armadilhas da banca examinadora do PPGCC/IFCE.</p>
+
+    <div class="callout callout-tip">
+      <strong>Como utilizar esta referência:</strong> Volte a esta página sempre que encontrar uma notação nas questões da banca que pareça confusa. A prova escrita nunca perdoa confusão entre pertinência ($\in$) e inclusão ($\subseteq$).
+    </div>
+
+    <h2>1. Teoria dos Conjuntos</h2>
+    
+    <div class="translation-box">
+      <div class="translation-header">Símbolo: $\in$ e $\notin$</div>
+      <div class="math-formal">$x \in A \qquad \text{e} \qquad y \notin A$</div>
+      <div class="spoken-pronounce">
+        <span class="icon">🗣️</span>
+        <span><strong>Como se lê:</strong> "$x$ pertence a $A$" e "$y$ não pertence a $A$"</span>
+      </div>
+      <div class="plain-explanation">
+        <strong>Significado:</strong> Conecta um <em>elemento</em> a um <em>conjunto</em>. O elemento $x$ está dentro da caixa chamada $A$.<br>
+        <strong>Armadilha da Banca:</strong> Se $S = \{\emptyset\}$, então $\emptyset \in S$ (pois o conjunto vazio é um elemento físico dentro de $S$).
+      </div>
+    </div>
+
+    <div class="translation-box">
+      <div class="translation-header">Símbolo: $\subseteq$, $\subset$ e $\nsubseteq$</div>
+      <div class="math-formal">$A \subseteq B \qquad A \subset B \qquad A \nsubseteq B$</div>
+      <div class="spoken-pronounce">
+        <span class="icon">🗣️</span>
+        <span><strong>Como se lê:</strong> "$A$ está contido em $B$" (ou "$A$ é subconjunto de $B$"), "$A$ está estritamente contido em $B$" e "$A$ não está contido em $B$"</span>
+      </div>
+      <div class="plain-explanation">
+        <strong>Significado:</strong> Conecta um <em>conjunto</em> a outro <em>conjunto</em>. Todo elemento que estiver em $A$ precisa estar também em $B$.<br>
+        <strong>Teorema de Ouro:</strong> $\emptyset \subseteq A$ para absolutamente qualquer conjunto $A$.
+      </div>
+    </div>
+
+    <div class="translation-box">
+      <div class="translation-header">Símbolo: $\mathcal{P}(A)$ ou $2^A$</div>
+      <div class="math-formal">$\mathcal{P}(A) = \{ S \mid S \subseteq A \}$</div>
+      <div class="spoken-pronounce">
+        <span class="icon">🗣️</span>
+        <span><strong>Como se lê:</strong> "Conjunto das Partes de $A$" ou "Potência de $A$"</span>
+      </div>
+      <div class="plain-explanation">
+        <strong>Significado:</strong> É o conjunto que guarda todos os possíveis subconjuntos de $A$. Se $A$ tem $n$ elementos, $\mathcal{P}(A)$ tem exatamente $2^n$ elementos.<br>
+        <strong>Exemplo Crucial:</strong> Se $A = \{1\}$, $\mathcal{P}(A) = \{\emptyset, \{1\}\}$. Tem $2^1 = 2$ elementos.
+      </div>
+    </div>
+
+    <div class="translation-box">
+      <div class="translation-header">Símbolo: $\times$ (Produto Cartesiano)</div>
+      <div class="math-formal">$A \times B = \{ (a, b) \mid a \in A \land b \in B \}$</div>
+      <div class="spoken-pronounce">
+        <span class="icon">🗣️</span>
+        <span><strong>Como se lê:</strong> "$A$ cartesiano $B$" ou "Produto cartesiano de $A$ por $B$"</span>
+      </div>
+      <div class="plain-explanation">
+        <strong>Significado:</strong> A coleção de todos os pares ordenados onde o 1º elemento vem de $A$ e o 2º vem de $B$.<br>
+        <strong>Cardinalidade:</strong> $|A \times B| = |A| \cdot |B|$. O número de relações possíveis de $A$ em $B$ é $2^{|A \times B|} = 2^{|A| \cdot |B|}$.
+      </div>
+    </div>
+
+    <h2>2. Lógica de Primeira Ordem (Quantificadores)</h2>
+
+    <div class="translation-box">
+      <div class="translation-header">Quantificador Universal: $\forall$</div>
+      <div class="math-formal">$\forall x \in A, \, P(x)$</div>
+      <div class="spoken-pronounce">
+        <span class="icon">🗣️</span>
+        <span><strong>Como se lê:</strong> "Para todo $x$ pertencente a $A$, a propriedade $P(x)$ é verdadeira"</span>
+      </div>
+      <div class="plain-explanation">
+        <strong>Significado:</strong> Não admite exceção. Se falhar para um único elemento, a proposição inteira é falsa.
+      </div>
+    </div>
+
+    <div class="translation-box">
+      <div class="translation-header">Quantificador Existencial: $\exists$ e $\exists!$</div>
+      <div class="math-formal">$\exists x \in A, \, P(x) \qquad \text{e} \qquad \exists! x \in A, \, P(x)$</div>
+      <div class="spoken-pronounce">
+        <span class="icon">🗣️</span>
+        <span><strong>Como se lê:</strong> "Existe pelo menos um $x$ pertencente a $A$ tal que..." e "Existe um único $x$ pertencente a $A$ tal que..."</span>
+      </div>
+      <div class="plain-explanation">
+        <strong>Significado:</strong> Basta encontrar um único caso que funcione para ser verdade. O símbolo $\exists!$ exige unicidade estrita (usado na definição formal de função: para cada $x$ no domínio, existe um <em>único</em> $y$ na imagem).
+      </div>
+    </div>
+
+    <h2>3. Relações de Ordem e Diagramas de Hasse</h2>
+
+    <div class="translation-box">
+      <div class="translation-header">Relação de Cobertura: $\lessdot$</div>
+      <div class="math-formal">$x \lessdot y \iff (x < y \land \neg \exists z \, [x < z < y])$</div>
+      <div class="spoken-pronounce">
+        <span class="icon">🗣️</span>
+        <span><strong>Como se lê:</strong> "$x$ é coberto por $y$" ou "$y$ cobre $x$ imediatamente"</span>
+      </div>
+      <div class="plain-explanation">
+        <strong>Significado:</strong> $y$ é estritamente maior que $x$, e não existe absolutamente nenhum elemento intermediário entre eles. As arestas desenhadas no Diagrama de Hasse são precisamente as relações de cobertura!
+      </div>
+    </div>
+
+    <div class="translation-box">
+      <div class="translation-header">Supremo ($\sup$) e Ínfimo ($\inf$)</div>
+      <div class="math-formal">$\sup(S) = \operatorname{LMS}(S) \qquad \text{e} \qquad \inf(S) = \operatorname{GMI}(S)$</div>
+      <div class="spoken-pronounce">
+        <span class="icon">🗣️</span>
+        <span><strong>Como se lê:</strong> "Supremo de $S$ (menor das cotas superiores)" e "Ínfimo de $S$ (maior das cotas inferiores)"</span>
+      </div>
+      <div class="plain-explanation">
+        <strong>Significado:</strong> O supremo é o menor teto comum a todos os elementos de $S$. O ínfimo é o maior piso comum. Se todo par de elementos tiver supremo e ínfimo, a estrutura é chamada de <strong>Reticulado (Lattice)</strong>.
+      </div>
+    </div>
+
+    <div class="lesson-footer-nav">
+      <a href="../lessons/0001-teoria-dos-conjuntos.html" class="btn-nav btn-primary">Iniciar Aula 01: Teoria dos Conjuntos →</a>
+    </div>
+  </div>
+
+  <script src="../assets/katex/katex.min.js"></script>
+  <script src="../assets/katex/auto-render.min.js"></script>
+  <script src="../assets/widgets.js"></script>
+</body>
+</html>

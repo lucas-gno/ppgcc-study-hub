@@ -1,0 +1,108 @@
+=== PÁGINA 1 ===
+INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO CEARÁ
+Av Treze de Maio 2081 - Bairro Benfica - CEP 60040-531 - Fortaleza - CE - www.ifce.edu.br
+ 
+RESPOSTA
+RESPOSTA AOS RECURSOS CONTRA RESULTADO PRELIMINAR DA
+PROVA ESCRITA EDITAL N° 53/2025 - PPGCC
+ 
+CPF
+TEMA
+PARECER
+RESPOSTA AO PEDIDO DE RECURSO
+***.354.822-
+**
+PDI02
+INDEFERIDO
+Agradecemos a manifestação, mas a 
+Questão
+10 
+não apresenta qualquer ambiguidade. Os
+valores de x e y decorrem exclusivamente das
+regras da linguagem C: a / b é divisão inteira e
+resulta exatamente em 3, enquanto a /
+(float)b é divisão em ponto flutuante e produz
+3.333…, valor não finito, como usual em
+aritmética de ponto flutuante. As reticências
+indicam apenas a natureza não exata da
+representação, não arredondamento.
+Portanto, não há múltiplas interpretações
+possíveis; a alternativa (d) é a única
+compatível com o comportamento definido
+pela linguagem, e o gabarito permanece
+correto.
+***.354.822-
+**
+PDI02
+DEFERIDO
+Agradecemos pela manifestação
+encaminhada. Uma publicação acerca da capa
+do Gabarito vai ser publicada (SEI 
+8239576
+).
+***.354.822-
+**
+PDI02
+INDEFERIDO
+Na questão 15
+, a alternativa c) permanece
+correta porque é a única que descreve de
+forma precisa as estruturas pedidas no
+enunciado: um deque com inserções restritas
+às extremidades, uma lista simplesmente
+encadeada, uma pilha e uma fila FIFO. A
+alternativa a) não é aceita porque “fila
+circular” e “deque” genérico introduzem
+comportamentos e implementações que não
+correspondem às restrições descritas nos itens
+1 e 4. Assim, não há ambiguidade: c é a única
+alternativa tecnicamente compatível com as
+definições apresentadas.
+Resposta aos Pedidos de Recurso (8239524)         SEI 23256.014991/2025-78 / pg. 1
+
+=== PÁGINA 2 ===
+***478.673-
+**
+PDI02
+INDEFERIDO
+Na questão 15
+, a alternativa c) permanece
+correta porque é a única que descreve de
+forma precisa as estruturas pedidas no
+enunciado: um deque com inserções restritas
+às extremidades, uma lista simplesmente
+encadeada, uma pilha e uma fila FIFO. A
+alternativa a) não é aceita porque “fila
+circular” e “deque” genérico introduzem
+comportamentos e implementações que não
+correspondem às restrições descritas nos itens
+1 e 4. Assim, não há ambiguidade: c é a única
+alternativa tecnicamente compatível com as
+definições apresentadas. Logo, o gabarito
+permanece correto.
+ 
+Comissão de Seleção do Processo Seletivo do PPGCC/IFCE 2026.1
+PORTARIA Nº 8509/GAB-FOR/DG-FOR/FORTALEZA, DE 03 DE SETEMBRO DE 2025 (
+8028120
+)
+Documento assinado eletronicamente por 
+Saulo Anderson Freitas de Oliveira
+,
+Professor do Ensino Básico, Técnico e Tecnológico
+, em 11/12/2025, às 19:23,
+com fundamento no art. 6º, § 1º, do 
+Decreto nº 8.539, de 8 de outubro de 2015
+.
+A autenticidade do documento pode ser conferida no site
+https://sei.ifce.edu.br/sei/controlador_externo.php?
+acao=documento_conferir&id_orgao_acesso_externo=0
+ informando o código
+verificador 
+8239524
+ e o código CRC 
+7D0AC1AB
+.
+23256.014991/2025-78
+8239524v
+7
+Resposta aos Pedidos de Recurso (8239524)         SEI 23256.014991/2025-78 / pg. 2

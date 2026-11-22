@@ -1,0 +1,276 @@
+=== PÁGINA 1 ===
+Instituto Federal de Educação, Ciência e Tecnologia do Ceará - IFCE
+Programa de Pós-Graduação em Ciência da Computação - PPGCC
+Curso de Mestrado Acadêmico em Ciência da Computação
+Seleção PPGCC 2026.1 - Prova Escrita
+Observações:
+• Esta avaliação possui 09 (nove) páginas, com um total de 20 questões objetivas. Ve-
+riﬁque se há algum erro na impressão da avaliação.
+• Vo cê não p o de usar livros, notas de aulas, ou disp ositivos eletrônicos que p ossam conter
+assuntos relacionados à avaliação. Além disso, a avaliação é estritamente pessoal.
+Qualquer infração relacionada implicará na anulação da avaliação.
+• Ot e m p ol i m i t ep a r ar e a l i z a ç ã od ap r o v aéd e2h o r a s .
+• Vo cê deve preencher suas resp ostas deste exame no cartão resposta (página 09).
+Quaisquer anotações/respostas fora do cartão resposta serão desconsideradas pela co-
+missão de avaliação do PPGCC.
+Fortaleza, 19 de outubro de 2025.
+
+=== PÁGINA 2 ===
+Questão 1. . Considere o algoritmo Boo(A, n) abaixo, em que A éu mv e t o rd ei n t e i r o se
+n → 1 éos e ut a m a n h o .
+function Boo(A, n)
+esq ↑ 1
+dir ↑ n
+total ↑ 0
+while esq ↓ dir do
+mid ↑↔ (esq + dir)/2↗
+for i ↑ mid to dir do
+total ↑ total + A[i]
+end for
+dir ↑ mid ↘ 1
+return total
+No pior caso, o tempo de execução de Boo(A, n),e mn o t a ç ã o!,é :
+a) !(log n)
+b) !(n)
+c) !(n log n)
+d) !(n2)
+Questão 2. Considere o algoritmo Bar(A, n, x) abaixo, em que A éu mv e t o rd ei n t e i r o s ,
+n → 1 éos e ut a m a n h o ,ex éu mi n t e i r o .
+function Bar(A, n, x)
+esq ↑ 1
+dir ↑ n
+while esq ↓ dir do
+mid ↑↔ (esq + dir)/2↗
+if A[mid]= x then
+return mid
+else if A[mid] <x then
+esq ↑ mid +1
+else
+dir ↑ mid ↘ 1
+return ↘1
+No pior caso, o tempo de execução de Bar(A, n, x),e mn o t a ç ã o!,é :
+a) !(1)
+b) !(log n)
+c) !(n)
+d) !(n log n)
+Questão 3. Seja o algoritmo Bus(A, n, x) abaixo, tal que A éu mv e t o ro r d e n a d od e
+inteiros, n → 1 éot a m a n h od eA e x éu mi n t e i r o .
+
+=== PÁGINA 3 ===
+function Bus(A, n, x)
+i ↑ 0
+step ↑ 1
+while i<n and A[i] <x do
+i ↑ i + step
+step ↑ step +1
+start ↑ max(0,i ↘ (step ↘ 1))
+end ↑ min(i, n )
+for j ↑ start to end ↘ 1 do
+if A[j]= x then
+return j
+end for
+return No n e
+No pior caso, o tempo de execução de Bus(A, n, x),e mn o t a ç ã o!,é :
+a) !(1)
+b) !(log n)
+c) !(≃n)
+d) !(n)
+Questão 4. Sobre o funcionamento da estrutura de dados pilha, considere uma pilha
+inicialmente vazia e a seguinte sequência de operações:
+1. push(1)
+2. push(2)
+3. push(3)
+4. pop()
+5. push(4)
+6. pop()
+7. pop()
+Qual é o valor retornado pela última operação pop()?
+a) 1
+b) 2
+c) 3
+d) Nenhum valor é retornado, pois a pilha estaria vazia.
+Questão 5. Considere uma lista encadeada com n elementos sem ponteiro para o último
+elemento. Considere as operações a seguir e suas complexidades no pior caso:
+
+=== PÁGINA 4 ===
+1. Acessar o i-ésimo elemento da lista.
+2. Inserir um novo nó no início da lista.
+3. Remover o último elemento da lista.
+Quais são, respectivamente, as complexidades de tempo no pior caso dessas três operações?
+a) !(1), !(1), !(1)
+b) !(n), !(1), !(n)
+c) !(log n), !(1), !(log n)
+d) !(n), !(n), !(1)
+e) !(1), !(1), !(n)
+Questão 6. Considere um algoritmo que recebe um vetor de tamanho n ee x e c u t ao
+seguinte procedimento:
+para i de 1 até n:
+para j de i até n:
+executar operação de tempo constante
+Qual é a complexidade temporal desse algoritmo?
+a) O(n)
+b) O(n log n)
+c) O(n2)
+d) O(n3)
+e) O(log n)
+Questão 7.
+Considere o conjunto A = {1, 2, 3}.
+Seja R uma relação deﬁnida em A ⇐ A tal que:
+• R ér e ﬂ e x i v a ;
+• R não é simétrica;
+• R ét r a n s i t i v a .
+Qual das relações abaixo pode ser R?
+a) R = {(1, 1), (2, 2), (3, 3)}
+b) R = {(1, 1), (2, 2), (3, 3), (1, 2), (2, 1)}
+c) R = {(1, 1), (2, 2), (3, 3), (1, 2), (2, 3)}
+
+=== PÁGINA 5 ===
+d) R = {(1, 1), (2, 2), (1, 2), (3, 1)}
+e) R = {(1, 1), (2, 2), (3, 3), (1, 2), (2, 3), (1, 3)}
+Questão 8. Considere a seguinte sequência de operações sobre uma ﬁla inicialmente vazia:
+enqueue(3), enqueue(1), enqueue(4), dequeue(),
+enqueue(2), enqueue(5), dequeue(), dequeue()
+Qual é a sequência de elementos removidos?
+a) 3, 1, 4
+b) 3, 1, 2
+c) 3, 4, 2
+d) 3, 1, 5
+e) 3, 4, 5
+Questão 9. Considere a função abaixo em Python:
+def f(n):
+if n <= 1:
+return 1
+return 2*f(n-1) + f(n-2)
+Qual é o valor retornado por f (6)?
+a) 99
+b) 41
+c) 34
+d) 21
+e) 17
+Questão 10. Considere o código C:
+int a = 10, b = 3;
+float x = a / b;
+float y = a / (float)b;
+Quais são os valores de (x, y)?
+a) 3e3 . 0
+b) 3.0 e 3.0
+c) 3.0 e 3.3
+d) 3.0 e 3.333...
+
+=== PÁGINA 6 ===
+e) 3.3 e 3.3
+Questão 11. Uma lista simplesmente encadeada possui nós compostos por um valor e um
+ponteiro para o próximo. Qual operação é mais custosa (em tempo) nesta estrutura?
+a) Inserir no início.
+b) Inserir no ﬁm sem ponteiro para o último.
+c) Ler o primeiro elemento.
+d) Veriﬁcar se está vazia.
+e) Remover o primeiro elemento.
+Questão 12. Of a t o rt e m p o ,r e l a c i o n a d oàc o m p l e x i d a d e ,q u a n d ou s a d op a r ad e t e r m i n a r
+ae ﬁ c i ê n c i ad ea l g o r i t m o sém e d i d oe m :
+a) Número de Microsegundos.
+b) Número de Rotinas.
+c) Número de Operações Chave.
+d) Tamanho em kB (kilobytes).
+e) Número de Linhas de Código
+Questão 13. As a í d ad ot r e c h od ec ó d i g oe mCa b a i x oé :
+int i = 0, j = 9, k = 7, cont;
+for (cont = 4; cont < 11; cont++) {
+i=c o n t+5 ;
+while (k > 0) {
+k=k-1 ;
+j=k+j/2 ;
+}
+}
+printf("i: %d j: %d k: %d", i, j, k);
+Alternativas:
+a) Erro em tempo de compilação.
+b) i: 1 j: 4 k: 1
+c) i: 15 j: 1 k: 0
+d) i: 13 j: 2 k: 3
+e) Error em tempo de execução.
+Questão 14. Que recursos as linguagens oferecem para evitar falhas de acesso a um
+endereço de memória inexistente?
+a) Tratamento de Exceções.
+
+=== PÁGINA 7 ===
+b) Ponteiros.
+c) DMA (Acesso Direto à Memória).
+d) SW AP de Memória em Disco.
+e) Veriﬁcação em Tempo de Compilação.
+Questão 15. Considere as seguintes deﬁnições de classes que representam implementações
+de estruturas de dados disponíveis na biblioteca padrão de uma linguagem de programação:
+1. Classe A -o se l e m e n t o ss ã oo r g a n i z a d o se mu m ae s t r u t u r al i n e a rq u ep e r m i t ei n s e r ç õ e s
+exclusivamente nas extremidades da sequência.
+2. Classe B -o se l e m e n t o ss ã oa r m a z e n a d o se mn ó si n t e r l i g a d o s ,c a d au mc o n t e n d ou m a
+referência para o próximo elemento, permitindo percorrer a estrutura apenas em um
+sentido.
+3. Classe C -oe l e m e n t or e m o v i d oés e m p r eoú l t i m oe l e m e n t oq u ef o ii n s e r i d o ,i n d e p e n -
+dentemente de sua posição corrente na estrutura.
+4. Classe D -o se l e m e n t o ss ã op r o c e s s a d o sd ea c o r d oc o mao r d e me s t r i t a m e n t ec r o n o -
+lógica de entrada, removendo-se sempre o primeiro elemento que foi inserido.
+Com base nas descrições acima, assinale a alternativa que representa, respectivamente, as
+estruturas de dados implementadas pelas classes A, B, C e D.
+a) Deque, lista simplesmente encadeada, pilha baseada em vetor dinâmico e ﬁla circular.
+b) Lista duplamente encadeada, lista simplesmente encadeada, deque em modo LIFO e
+ﬁla encadeada.
+c) Deque de acesso restrito, lista simplesmente encadeada, pilha ligada e ﬁla implementada
+sobre bu!er circular.
+d) Lista de acesso bidirecional, lista simplesmente encadeada, pilha com política LIFO e
+deque em modo FIFO.
+e) Estrutura de extremidades duplas baseada em bu!er, lista linear encadeada simples,
+pilha com nó sentinela e ﬁla com controle de overﬂow circular.
+Questão 16. Qual o tempo de execução do Quick Sort no pior caso?
+a) O(n)
+b) O(n2)
+c) O(n lg n)
+d) O(lg n)
+Questão 17.
+Seja o conjunto A = {0, 1}.Q u a n t a s r e l a ç õ e s b i n á r i a s d i s t i n t a s p o d e m s e r d e ﬁ n i d a s s o b r e o
+conjunto A?
+
+=== PÁGINA 8 ===
+a) 2
+b) 4
+c) 8
+d) 16
+Questão 18. Seja R ar e l a ç ã od e ﬁ n i d an oc o n j u n t od o sn ú m e r o sr e a i sp o r :(x, y) ⇒ R se,
+es o m e n t es e ,|x| = |y|.P o d e - s e c o n c l u i r q u eR éu m ar e l a ç ã o :
+a) de ordem.
+b) de equivalência.
+c) antissimétrica.
+d) irreﬂexiva.
+Questão 19. Qual das seguintes relações binárias não representa uma função?
+a) R1 = {(3, 6), (4, 15)}
+b) R2 = {(4, 5), (7, 2), (7, 9)}
+c) R3 = {(↘2, 5), (↘1, 5), (0, 5), (1, 5), (2, 5)}
+d) R4 = {(x, y) | y =3 x2 +2 }
+Questão 20.
+Seja o algoritmo F(A, i, f) abaixo tal que A éu mv e t o rd ei n t e i r o sei, f são posições de A de
+forma que 1 ↓ i ↓ f ↓ m em que m éot a m a n h od eA.O b s e r v e q u e e s t a m o s c o n s i d e r a n d o
+que o primeiro elemento de A está em A[1].
+function F(A, i, f)
+if f ↓ i then
+return A[i]
+x ↑ F(A, i, f ↘ 1)
+if x → A[f ] then
+return x
+return A[f ]
+Considerando a entrada A =[ 3, ↘1, 4, 2, 1], i =1 e f =5 ,d e t e r m i n eor e t o r n od eF(A, i, f):
+a) ↘1.
+b) 3.
+c) 4.
+d) 9.
+
+=== PÁGINA 9 ===
+Instituto Federal de Educação, Ciência e Tecnologia do Ceará - IFCE
+Programa de Pós-Graduação em Ciência da Computação - PPGCC
+Curso de Mestrado Acadêmico em Ciência da Computação
+CARTÃO-RESPOSTA
+Nome do candidato:
+QUESTÕES
+01 02 03 04 05 06 07 08 09 10
+RESPOSTAS
+QUESTÕES
+11 12 13 14 15 16 17 18 19 20
+RESPOSTAS

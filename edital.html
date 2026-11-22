@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edital Verticalizado · PPGCC IFCE Study Hub</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body class="hub-body">
+  <main class="hub-shell">
+    <section class="hub-page-header">
+      <div>
+        <div class="hub-eyebrow">Anexo VII &amp; Tema CA05 · Edital nº 43/2026</div>
+        <h1 class="hub-title">Edital Verticalizado</h1>
+        <p class="hub-subtitle">37 tópicos distribuídos em 5 fases, calibrados pelos pesos reais observados na Prova 53/2025.</p>
+      </div>
+      <div style="min-width:240px;">
+        <div style="display:flex; justify-content:space-between; font-size:0.84rem; margin-bottom:6px;">
+          <span class="hub-muted">Progresso Geral</span>
+          <strong id="edital-global-pct">0%</strong>
+        </div>
+        <div class="hub-progress-track">
+          <div class="hub-progress-fill" id="edital-global-fill" style="width:0%"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hub-tabs" role="tablist" id="edital-tabs">
+      <button type="button" class="hub-tab-btn is-active" data-view="all">Todas as Fases (5)</button>
+      <button type="button" class="hub-tab-btn" data-view="escrita">Prova Escrita · 04/12 (Fases 1–3)</button>
+      <button type="button" class="hub-tab-btn" data-view="oral">Arguição Oral · 14–18/12 (Fases 4–5)</button>
+      <button type="button" class="hub-tab-btn" data-view="bibliografia">Bibliografia Oficial (7)</button>
+    </div>
+
+    <section class="hub-stack" id="edital-content"></section>
+  </main>
+
+  <script src="./assets/data.js"></script>
+  <script src="./assets/icons.js"></script>
+  <script src="./assets/store.js"></script>
+  <script src="./assets/navbar.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      const { store } = window.PPGCCNavbar.init({ prefix: './', active: 'edital' });
+      const DATA = window.PPGCC_DATA;
+      const I = window.PPGCCIcons;
+
+      let currentView = 'all';
+      const openFases = new Set([1, 2, 3]);
+
+      function render() {
+        const state = store.getState();
+        const total = DATA.topicos.length;
+        const done = state.topicsRead.length;
+        const pct = total ? Math.round((done / total) * 100) : 0;
+
+        document.getElementById('edital-global-pct').textContent = `${done}/${total} (${pct}%)`;
+        document.getElementById('edital-global-fill').style.width = `${pct}%`;
+
+        const container = document.getElementById('edital-content');
+
+        if (currentView === 'bibliografia') {
+          const obrasHtml = DATA.obras.map((o) => {
+            const isCA05 = o.codigo_tema === 'CA05';
+            return `
+              <article class="hub-card">
+                <div class="hub-card-header">
+                  <div>
+                    <span class="hub-badge ${isCA05 ? 'is-blue' : ''}">${o.codigo_tema} · ${o.tipo} · ${o.ano}</span>
+                    <h2 class="hub-card-title" style="margin-top:8px;">${o.titulo}</h2>
+                  </div>
+                </div>
+                <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:6px;">
+                  <strong>Autoria:</strong> ${o.autores}
+                </p>
+                ${o.referencia_completa ? `<p class="hub-muted">${o.referencia_completa}</p>` : ''}
+              </article>
+            `;
+          }).join('');
+          container.innerHTML = `<div class="hub-stack">${obrasHtml}</div>`;
+          return;
+        }
+
+        const visibleFases = DATA.fases.filter((f) => {
+          if (currentView === 'escrita') return f.etapa_edital === 'PROVA_ESCRITA';
+          if (currentView === 'oral') return f.etapa_edital === 'ARGUICAO_ORAL';
+          return true;
+        });
+
+        container.innerHTML = visibleFases.map((f) => {
+          const topics = DATA.topicos.filter((t) => t.fase_id === f.id);
+          const doneFase = topics.filter((t) => state.topicsRead.includes(t.id)).length;
+          const pctFase = topics.length ? Math.round((doneFase / topics.length) * 100) : 0;
+          const isOpen = openFases.has(f.id);
+          const weightBadge = f.peso_prova > 0
+            ? `<span class="hub-badge is-blue">${f.peso_prova}% na Prova 2025</span>`
+            : `<span class="hub-badge">Arguição Oral CA05</span>`;
+
+          const topicRows = topics.map((t) => {
+            const isChecked = state.topicsRead.includes(t.id);
+            const qCount = DATA.questoes.filter((q) => q.topico_id === t.id).length;
+            const lessonBtn = t.lesson_file
+              ? `<a class="hub-btn-primary hub-btn-sm" href="./${t.lesson_file}">${I.book(14)}<span>Aula</span></a>`
+              : `<span class="hub-badge">Em breve</span>`;
+
+            return `
+              <div class="hub-topic-row">
+                <div class="hub-topic-left">
+                  <input type="checkbox" class="hub-topic-check" data-topic-id="${t.id}" ${isChecked ? 'checked' : ''} aria-label="Concluir tópico ${t.id}">
+                  <div>
+                    <div class="hub-topic-title ${isChecked ? 'is-done' : ''}">${String(t.id).padStart(2, '0')}. ${t.titulo}</div>
+                    ${t.descricao ? `<div class="hub-muted" style="font-size:0.82rem; margin-top:2px;">${t.descricao}</div>` : ''}
+                  </div>
+                </div>
+                <div class="hub-topic-actions">
+                  ${lessonBtn}
+                  <a class="hub-btn-secondary hub-btn-sm" href="./questoes.html?topico=${t.id}">
+                    ${I.checkSquare(14)}<span>Questões (${qCount})</span>
+                  </a>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          return `
+            <section class="hub-accordion">
+              <button type="button" class="hub-accordion-trigger" data-fase-toggle="${f.id}" aria-expanded="${isOpen}">
+                <div>
+                  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:4px;">
+                    <strong style="font-size:1.05rem; color:var(--text-main);">${f.titulo}</strong>
+                    ${weightBadge}
+                  </div>
+                  <div class="hub-muted" style="font-size:0.86rem;">${f.subtitulo || f.descricao || ''}</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:14px; flex-shrink:0;">
+                  <span class="hub-badge ${doneFase === topics.length ? 'is-green' : ''}">${doneFase}/${topics.length} (${pctFase}%)</span>
+                  <span style="transform: rotate(${isOpen ? 180 : 0}deg); display:inline-flex; transition: transform 160ms var(--ease-out);">${I.chevronDown(18)}</span>
+                </div>
+              </button>
+              <div class="hub-accordion-body" ${isOpen ? '' : 'hidden'}>
+                ${topicRows}
+              </div>
+            </section>
+          `;
+        }).join('');
+
+        container.querySelectorAll('[data-fase-toggle]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = Number(btn.getAttribute('data-fase-toggle'));
+            if (openFases.has(id)) openFases.delete(id);
+            else openFases.add(id);
+            render();
+          });
+        });
+
+        container.querySelectorAll('.hub-topic-check').forEach((cb) => {
+          cb.addEventListener('change', () => {
+            const id = Number(cb.getAttribute('data-topic-id'));
+            store.toggleTopicRead(id);
+          });
+        });
+      }
+
+      document.querySelectorAll('#edital-tabs .hub-tab-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#edital-tabs .hub-tab-btn').forEach((b) => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          currentView = btn.getAttribute('data-view');
+          render();
+        });
+      });
+
+      render();
+      store.subscribe(render);
+    })();
+  </script>
+</body>
+</html>
