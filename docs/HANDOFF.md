@@ -73,10 +73,10 @@ Os Tickets 01 a 04 (Fundação, Edital, Aulas Fase 1 e Banco de Questões) já e
 
 ## 6. Repositório Remoto e Hospedagem
 
-- **Repositório Privado:** `https://github.com/lucas-gno/ppgcc-study-hub` (`git@github.com:lucas-gno/ppgcc-study-hub.git`)
+- **Repositório Público:** `https://github.com/lucas-gno/ppgcc-study-hub` (`git@github.com:lucas-gno/ppgcc-study-hub.git`)
 - **Branch principal:** `main` (inclui `.nojekyll`, `data/mestrado.db` e `scripts/deploy.ps1`)
 - **Clonagem em outro desktop:**
   ```bash
   git clone git@github.com:lucas-gno/ppgcc-study-hub.git
   ```
-- **Status do GitHub Pages:** Tentativa de ativação via API em `2026-11-22` retornou `HTTP 422` (`"Your current plan does not support GitHub Pages for this repository."`) porque o repositório está privado em conta GitHub Free. Para publicar no Pages sem trocar de plataforma, é necessário tornar o repositório público ou ativar GitHub Pro; alternativamente, o repositório privado pode ser conectado gratuitamente ao Cloudflare Pages / Netlify / Vercel ou aberto localmente via `file:///`.
+- **GitHub Pages Ativo:** `https://lucas-gno.github.io/ppgcc-study-hub/` (branch `main`, pasta `/`, HTTPS forçado).
