@@ -68,3 +68,15 @@ Leia AGENTS.md, GLOSSARY.md, docs/HANDOFF.md, docs/BANCA_E_EDITAL_2027.md e os a
 Execute as suítes `python -m unittest discover -s tests -v` e `node --test tests/*.test.mjs` para verificar o estado atual.
 Os Tickets 01 a 04 (Fundação, Edital, Aulas Fase 1 e Banco de Questões) já estão concluídos. Assuma os próximos tickets na fronteira (05, 06 e 07 em .scratch/ppgcc-study-hub/issues/) respeitando estritamente TDD (Red -> Green), zero emojis, ícones SVG minimalistas (assets/icons.js), Visual + Interativo + .notebook-cell (NOTES.md) e zero questões inline nas aulas.
 ```
+
+---
+
+## 6. Repositório Remoto e Hospedagem
+
+- **Repositório Privado:** `https://github.com/lucas-gno/ppgcc-study-hub` (`git@github.com:lucas-gno/ppgcc-study-hub.git`)
+- **Branch principal:** `main` (inclui `.nojekyll`, `data/mestrado.db` e `scripts/deploy.ps1`)
+- **Clonagem em outro desktop:**
+  ```bash
+  git clone git@github.com:lucas-gno/ppgcc-study-hub.git
+  ```
+- **Status do GitHub Pages:** Tentativa de ativação via API em `2026-11-22` retornou `HTTP 422` (`"Your current plan does not support GitHub Pages for this repository."`) porque o repositório está privado em conta GitHub Free. Para publicar no Pages sem trocar de plataforma, é necessário tornar o repositório público ou ativar GitHub Pro; alternativamente, o repositório privado pode ser conectado gratuitamente ao Cloudflare Pages / Netlify / Vercel ou aberto localmente via `file:///`.
