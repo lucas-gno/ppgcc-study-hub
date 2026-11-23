@@ -31,7 +31,7 @@
 > [!CRITICAL]
 > **Visual** e **Interativo** são dois pilares distintos e complementares obrigatórios (`NOTES.md` Seção 2), somados aos **Sandboxes Jupyter no Navegador** (`NOTES.md` Seção 3).
 
-1. **Pilar Visual (SVG Nativo):** Toda aula contém diagramas vetoriais em `<svg>` puro embutidos diretamente no HTML (Diagramas de Hasse $D_{12}$, hipercubo $Q_3$, $M_3/N_5$, dígrafos, Stack/Heap, BST/AVL, topologia Borg/Kubernetes).
+1. **Pilar Visual (SVG Nativo — Proibido Mermaid e Proibido ASCII Art):** Toda aula contém diagramas vetoriais em `<svg>` puro embutidos diretamente no HTML dentro de containers `.visual-diagram-card` (Diagramas de Hasse $D_{12}$, hipercubo $Q_3$, $M_3/N_5$, dígrafos, Stack/Heap, BST/AVL, topologia Borg/Kubernetes). É **estritamente proibido** usar blocos `mermaid`/`flowchart` ou diagramas desenhados em texto ASCII desformatado.
 2. **Pilar Interativo (`assets/widgets.js`):** Toda aula instancia controles táteis que reagem em tempo real (`initSetOperationsWidget`, `initBooleanMatrixWidget`, `initHasseReductionWidget`, etc.).
 3. **Sandboxes Jupyter no Navegador (`.notebook-cell`):** Obrigatório em todas as aulas de código, algoritmos e sistemas (Fases 2, 3 e 4), contendo: topbar macOS minimalista, editor sintático dark monospaced, `.notebook-inputs-group`, botões Executar/Passo/Reset, console `stdout` colorido e `.notebook-inspector-panel` de memória/ponteiros.
 4. **Separação Estrita Aulas vs. Banco de Questões (ADR 0004):**

@@ -1,0 +1,342 @@
+
+=======================================================
+TOPICO 1: Revisão geral de Teoria dos Conjuntos (domínio, imagem, produto cartesiano)
+=======================================================
+
+--- BLOCK 1 [lang='mermaid'] ---
+flowchart LR
+    subgraph Dominio_A["Conjunto A (Usuários)"]
+        u1["u1 (Alice)"]
+        u2["u2 (Bob)"]
+    end
+    subgraph Dominio_B["Conjunto B (Cargos)"]
+        r1["r1 (Admin)"]
+        r2["r2 (Dev)"]
+    end
+    subgraph Produto_Cartesiano["A x B (CROSS JOIN)"]
+        p1["(u1, r1)"]
+        p2["(u1, r2)"]
+        p3["(u2, r1)"]
+        p4["(u2, r2)"]
+    end
+    subgraph Relacao_R["Relação R (Permissões Efetivas)"]
+        r_p1["(u1, r1)"]
+        r_p4["(u2, r2)"]
+    end
+
+    u1 --> p1
+    u1 --> p2
+    u2 --> p3
+    u2 --> p4
+    r1 --> p1
+    r2 --> p2
+    r1 --> p3
+    r2 --> p4
+
+    p1 -.->|"Seleção σ"| r_p1
+    p4 -.->|"Seleção σ"| r_p4
+
+
+=======================================================
+TOPICO 2: Relações Binárias
+=======================================================
+
+--- BLOCK 1 [lang='mermaid'] ---
+flowchart LR
+    1((1)) --> 2((2))
+    2 --> 3((3))
+    3 --> 4((4))
+    4 --> 2
+
+
+--- BLOCK 2 [lang='python'] ---
+from typing import List, Tuple, Set
+
+def boolean_matrix_multiply(
+    M_R: List[List[int]], 
+    M_S: List[List[int]]
+) -> List[List[int]]:
+    # Calcula o produto booleano M_R e M_S de duas matrizes lógicas
+    rows = len(M_R)
+    cols = len(M_S[0])
+    inner_dim = len(M_S)
+    
+    # Inicializa matriz resultante zerada
+    result = [[0 for _ in range(cols)] for _ in range(rows)]
+    
+    for i in range(rows):
+        for j in range(cols):
+            val = 0
+            for k in range(inner_dim):
+                if M_R[i][k] and M_S[k][j]:
+                    val = 1
+                    break  # Curto-circuito lógico para or booleano
+            result[i][j] = val
+    return result
+
+def compose_relations(
+    R: Set[Tuple[any, any]], 
+    S: Set[Tuple[any, any]]
+) -> Set[Tuple[any, any]]:
+    # Composição relacional exata baseada na definição existencial
+    composite = set()
+    for a, b1 in R:
+        for b2, c in S:
+            if b1 == b2:
+                composite.add((a, c))
+    return composite
+
+
+=======================================================
+TOPICO 3: Propriedades das Relações (Reflexiva, Simétrica, Transitiva, Antissimétrica)
+=======================================================
+
+--- BLOCK 1 [lang='python'] ---
+def warshall_fecho_transitivo(matriz_adj: list[list[int]]) -> list[list[int]]:
+    # Computa o fecho transitivo de uma relacao binaria representada por matriz booleana.
+    # Complexidade de Tempo: Theta(n^3)
+    # Complexidade de Espaço: Theta(n^2) para a matriz resultante
+    n = len(matriz_adj)
+    # Clona a matriz para W_k
+    w = [linha[:] for linha in matriz_adj]
+
+    # k representa o vértice pivô intermediário
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                w[i][j] = w[i][j] or (w[i][k] and w[k][j])
+                
+    return w
+
+# Exemplo de Teste de Mesa:
+# R = {(1, 2), (2, 3), (3, 4)} sobre A = {1, 2, 3, 4}
+# Warshall computara arestas diretas (1, 3), (1, 4), (2, 4)
+
+
+--- BLOCK 2 [lang='mermaid'] ---
+flowchart LR
+    1((1)) -->|R| 2((2))
+    2 -->|R| 3((3))
+    3 -->|R| 1
+    3 -->|R| 4((4))
+    1 -.->|t(R)| 3
+    1 -.->|t(R)| 4
+    2 -.->|t(R)| 1
+    2 -.->|t(R)| 4
+    1 -.->|ciclo| 1
+    2 -.->|ciclo| 2
+    3 -.->|ciclo| 3
+
+
+=======================================================
+TOPICO 4: Relações de Equivalência
+=======================================================
+
+--- BLOCK 1 [lang=''] ---
+Grafo Não-Direcionado G:
+[1] --- [2]      [4] --- [5]
+ |       |        |
+[3] -----+       [6]        [7] (isolado)
+
+Classes de Equivalência (Componentes Conexas):
+Componente 1: [1] = {1, 2, 3}
+Componente 2: [4] = {4, 5, 6}
+Componente 3: [7] = {7}
+
+
+--- BLOCK 2 [lang='mermaid'] ---
+flowchart TD
+    subgraph Particao["Partição do Universo Z por Congruência Módulo 3"]
+        subgraph C0["Classe [0] (Resto 0)"]
+            n0["... -6, -3, 0, 3, 6, 9 ..."]
+        end
+        subgraph C1["Classe [1] (Resto 1)"]
+            n1["... -5, -2, 1, 4, 7, 10 ..."]
+        end
+        subgraph C2["Classe [2] (Resto 2)"]
+            n2["... -4, -1, 2, 5, 8, 11 ..."]
+        end
+    end
+
+
+=======================================================
+TOPICO 5: Classes de equivalência e partições (ex: congruência módulo n)
+=======================================================
+
+--- BLOCK 1 [lang='mermaid'] ---
+graph TD
+    subgraph "Universo A"
+        subgraph Bloco0["Classe [0]: Múltiplos de n"]
+            e0["... -2n, -n, 0, n, 2n ..."]
+        end
+        subgraph Bloco1["Classe [1]: Resto 1"]
+            e1["... 1 - n, 1, n + 1 ..."]
+        end
+        subgraph BlocoR["Classe [r]: Resto r"]
+            er["... r - n, r, n + r ..."]
+        end
+        subgraph BlocoN["Classe [n-1]: Resto n-1"]
+            en["... -1, n - 1, 2n - 1 ..."]
+        end
+    end
+
+    subgraph Quociente["Conjunto Quociente A / R = Z_n"]
+        q0["[0]"]
+        q1["[1]"]
+        qr["[r]"]
+        qn["[n-1]"]
+    end
+
+    Bloco0 -. Projeção Canônica π .-> q0
+    Bloco1 -. Projeção Canônica π .-> q1
+    BlocoR -. Projeção Canônica π .-> qr
+    BlocoN -. Projeção Canônica π .-> qn
+
+
+=======================================================
+TOPICO 6: Relações de Ordem (Parcial e Total)
+=======================================================
+
+--- BLOCK 1 [lang='text'] ---
+                  {a, b, c}               <- Nível 3 (Supremo Global)
+                /     |     \
+         {a, b}    {a, c}    {b, c}       <- Nível 2
+          |   \   /      \   /   |
+          |     X          X     |
+          |   /   \      /   \   |
+         {a}       {b}        {c}         <- Nível 1
+                \     |     /
+                     {}                   <- Nível 0 (Ínfimo Global)
+
+
+--- BLOCK 2 [lang='text'] ---
+                     24
+                   /    \
+                 8        12
+                 |      /    \
+                 4     6      |
+                  \   /  \    |
+                    2      3  |
+                     \    /   |
+                       1 -----+
+
+
+=======================================================
+TOPICO 7: Propriedades de Relações de Ordem (elementos maximais, minimais, supremo, ínfimo)
+=======================================================
+
+--- BLOCK 1 [lang='text'] ---
+           [8]       [12]       [18]     <-- Elementos Maximais (não há topo único)
+             \       /  \       /
+              \     /    \     /
+               \   /      \   /
+                [4]        [6]
+                 |        /   \
+                 |       /     \
+                [2] ----+       [3]      <-- Elementos Minimais (não há fundo único)
+
+
+--- BLOCK 2 [lang='text'] ---
+            [e]       [f]       <-- Elementos Maximais
+             \ \     / /
+              \  \ /  /
+               \  X  /
+                \/ \/
+                [c] [d]         <-- Limitantes comuns superiores a {a, b}
+                /\ /\
+               /  X  \
+              /  / \  \
+             / /     \ \
+            [a]       [b]       <-- Elementos Minimais
+
+
+--- BLOCK 3 [lang='typescript'] ---
+  const resultado = condicao ? expressaoA : expressaoB;
+  
+
+=======================================================
+TOPICO 8: Leitura e interpretação de Diagramas de Hasse
+=======================================================
+
+--- BLOCK 1 [lang=''] ---
+                  DÍGRAFO DA ORDEM (P, <=)
+                             │
+            [Regra 1: Supressão da Reflexividade]
+                             │
+                             ▼
+                 DÍGRAFO ACÍCLICO ESTRITO (P, <)
+                             │
+            [Regra 2: Redução Transitiva]
+                             │
+                             ▼
+                 DÍGRAFO DE COBERTURA (P, ⋖)
+                             │
+            [Regra 3: Disposição Vertical e Arestas Não-Direcionadas]
+                             │
+                             ▼
+                   DIAGRAMA DE HASSE
+
+
+--- BLOCK 2 [lang=''] ---
+    [M1]     [M2]   <-- Maximais múltiplos (não há máximo global)
+      \     /   \
+       \   /     \
+        [c]      [d]
+         │        │
+        [a]      [b]
+         \      /
+          \    /
+           [⊥]      <-- Mínimo único (alcança todos os elementos)
+
+
+--- BLOCK 3 [lang=''] ---
+                        Nível 3: {a, b, c}  (Top ⊤)
+                             /   │   \
+                            /    │    \
+                           /     │     \
+            Nível 2:  {a, b}   {a, c}  {b, c}
+                       │  \     /  \   /  │
+                       │   \   /    \ /   │
+                       │    \ /      X    │
+                       │     X      / \   │
+                       │    / \    /   \  │
+            Nível 1:  {a}     {b}     {c}
+                        \      │      /
+                         \     │     /
+                          \    │    /
+                        Nível 0: ∅          (Bottom ⊥)
+
+
+--- BLOCK 4 [lang=''] ---
+                         12  (Top ⊤)
+                        /  \
+                       /    \
+                      4      6
+                      │     / \
+                      │    /   \
+                      │   /     \
+                      2  /       3
+                       \│       /
+                        1  (Bottom ⊥)
+
+
+--- BLOCK 5 [lang=''] ---
+                           ⊤
+                          / \
+                         c   d
+                         │ X │
+                         a   b
+                          \ /
+                           ⊥
+
+
+--- BLOCK 6 [lang=''] ---
+        Reticulado N5 (Pentágono)              Reticulado M3 (Diamante)
+                  1                                      1
+                 / \                                   / │ \
+                b   \                                 /  │  \
+                │    c                               a   b   c
+                a   /                                 \  │  /
+                 \ /                                   \ │ /
+                  0                                      0
+

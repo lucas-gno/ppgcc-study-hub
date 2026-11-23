@@ -85,6 +85,13 @@ class UiContractsTests(unittest.TestCase):
             self.assertNotIn("question-card", html, f"{rel_path} must NOT contain inline questions")
             self.assertNotIn("option-btn", html, f"{rel_path} must NOT contain inline option buttons")
             self.assertNotIn("initQuiz(", html, f"{rel_path} must NOT initialize inline quiz")
+            # Native SVG Diagrams (ADR 0004 & User Feedback): ZERO broken mermaid & ZERO raw ASCII trees
+            self.assertNotIn("language-mermaid", html, f"{rel_path} contains broken language-mermaid code block")
+            self.assertNotIn("flowchart LR", html, f"{rel_path} contains raw mermaid flowchart text")
+            self.assertNotIn("flowchart TD", html, f"{rel_path} contains raw mermaid flowchart text")
+            self.assertNotIn("graph TD", html, f"{rel_path} contains raw mermaid graph text")
+            self.assertIn("visual-diagram-card", html, f"{rel_path} missing .visual-diagram-card native vector container")
+            self.assertNotIn("<pre class=\"code-block\"><code>│ X │", html, f"{rel_path} contains raw ASCII tree block")
             # Deep-link to Question Bank & Store completion
             self.assertIn(f"../questoes.html?topico={topico_id}", html)
             self.assertIn("toggleTopicRead", html)

@@ -10,3 +10,4 @@
 - [x] Cada aula embute ao menos um diagrama vetorial `<svg>` nativo e instancia um manipulador interativo em tempo real conectado aos motores de widgets.
 - [x] Nenhuma aula contém questões inline; o rodapé traz botão de conclusão sincronizado com o `Store` e link filtrado para praticar as questões daquele tópico no Banco de Questões.
 - [x] O componente de Sandbox Jupyter no Navegador e os widgets compartilhados estão livres de emojis e prontos para uso nas Fases 2, 3 e 4.
+- [x] Todos os diagramas Mermaid quebrados e diagramas ASCII das aulas 1 a 8 foram substituídos por 16 componentes vetoriais nativos em `<svg>` dentro de `.visual-diagram-card` com zero emojis.

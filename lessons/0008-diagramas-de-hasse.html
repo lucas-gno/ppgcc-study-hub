@@ -60,22 +60,61 @@
 <hr>
 <h3>2.3. O Algoritmo de Simplificação de Hasse</h3>
 <p>Para converter o dígrafo original de um poset finito $(P, \le)$ em seu Diagrama de Hasse, executa-se o seguinte algoritmo em três regras estritas:</p>
-<pre class="code-block"><code class="language-text">                  DÍGRAFO DA ORDEM (P, &lt;=)
-                             │
-            [Regra 1: Supressão da Reflexividade]
-                             │
-                             ▼
-                 DÍGRAFO ACÍCLICO ESTRITO (P, &lt;)
-                             │
-            [Regra 2: Redução Transitiva]
-                             │
-                             ▼
-                 DÍGRAFO DE COBERTURA (P, ⋖)
-                             │
-            [Regra 3: Disposição Vertical e Arestas Não-Direcionadas]
-                             │
-                             ▼
-                   DIAGRAMA DE HASSE</code></pre>
+<div class="visual-diagram-card">
+  <div class="diagram-header">
+    <span class="diagram-tag">FIGURA 8.1 — PIPELINE ALGORÍTMICO</span>
+    <h4 class="diagram-title">O Algoritmo de Simplificação de Hasse em Três Regras Estritas</h4>
+  </div>
+  <div class="diagram-body">
+    <svg viewBox="0 0 620 400" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr-step" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0071e3"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1: Dígrafo da Ordem -->
+  <g transform="translate(130, 20)">
+    <rect width="360" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="180" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">DÍGRAFO DA ORDEM (P, ≤)</text>
+  </g>
+
+  <!-- Transition 1 -->
+  <line x1="310" y1="72" x2="310" y2="120" stroke="#0071e3" stroke-width="2" marker-end="url(#arr-step)"/>
+  <rect x="180" y="85" width="260" height="22" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="310" y="100" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1e40af">Regra 1: Supressão da Reflexividade (Remove Laços)</text>
+
+  <!-- Step 2: Dígrafo Acíclico Estrito -->
+  <g transform="translate(130, 125)">
+    <rect width="360" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="180" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">DÍGRAFO ACÍCLICO ESTRITO (P, &lt;)</text>
+  </g>
+
+  <!-- Transition 2 -->
+  <line x1="310" y1="177" x2="310" y2="225" stroke="#0071e3" stroke-width="2" marker-end="url(#arr-step)"/>
+  <rect x="180" y="190" width="260" height="22" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="310" y="205" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1e40af">Regra 2: Redução Transitiva (Remove Atalhos)</text>
+
+  <!-- Step 3: Dígrafo de Cobertura -->
+  <g transform="translate(130, 230)">
+    <rect width="360" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="180" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">DÍGRAFO DE COBERTURA (P, ⋖)</text>
+  </g>
+
+  <!-- Transition 3 -->
+  <line x1="310" y1="282" x2="310" y2="330" stroke="#0071e3" stroke-width="2" marker-end="url(#arr-step)"/>
+  <rect x="160" y="295" width="300" height="22" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="310" y="310" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1e40af">Regra 3: Disposição Vertical e Arestas Não-Direcionadas</text>
+
+  <!-- Step 4: Diagrama de Hasse -->
+  <g transform="translate(130, 335)">
+    <rect width="360" height="52" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+    <text x="180" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#15803d">DIAGRAMA DE HASSE FINAL</text>
+  </g>
+</svg>
+  </div>
+  <p class="diagram-caption">Redução do dígrafo original da ordem em seu Diagrama de Hasse via eliminação de laços reflexivos, redução transitiva e elevação espacial ascendente.</p>
+</div>
 <h4>Regra 1: Eliminação dos laços reflexivos</h4>
 <p>Para todo elemento $x \in P$, remove-se a aresta direcionada $(x, x)$. Como a relação é declarada como uma ordem parcial, a reflexividade é axioma implícito universal e sua exibição gráfica é ruído redundante.</p>
 <h4>Regra 2: Redução Transitiva (Eliminação de arestas redundantes)</h4>
@@ -95,15 +134,52 @@
 <h3>3.1. Identificação Topológica de Elementos Extremais</h3>
 <p>A leitura do Diagrama de Hasse permite a identificação imediata dos elementos extremais através de propriedades de grau dos nós:</p>
 <div class="table-wrapper"><table><thead><tr><th>Conceito</th><th>Definição Formal</th><th>Assinatura Topológica no Diagrama de Hasse</th></tr></thead><tbody><tr><td><strong>Elemento Minimal</strong></td><td>$m \in P \iff (\forall x \in P)(x \le m \implies x = m)$</td><td>Vértice sem nenhuma aresta descendente (grau inferior nulo). Pode haver múltiplos.</td></tr><tr><td><strong>Elemento Maximal</strong></td><td>$M \in P \iff (\forall x \in P)(M \le x \implies x = M)$</td><td>Vértice sem nenhuma aresta ascendente (grau superior nulo). Pode haver múltiplos.</td></tr><tr><td><strong>Elemento Mínimo ($\bot$)</strong></td><td>$\bot \in P \iff (\forall x \in P)(\bot \le x)$</td><td>Vértice único na base de onde parte caminho ascendente para <strong>todos</strong> os demais nós.</td></tr><tr><td><strong>Elemento Máximo ($\top$)</strong></td><td>$\top \in P \iff (\forall x \in P)(x \le \top)$</td><td>Vértice único no topo até onde converge caminho ascendente de <strong>todos</strong> os demais nós.</td></tr></tbody></table></div>
-<pre class="code-block"><code class="language-text">    [M1]     [M2]   &lt;-- Maximais múltiplos (não há máximo global)
-      \     /   \
-       \   /     \
-        [c]      [d]
-         │        │
-        [a]      [b]
-         \      /
-          \    /
-           [⊥]      &lt;-- Mínimo único (alcança todos os elementos)</code></pre>
+<div class="visual-diagram-card">
+  <div class="diagram-header">
+    <span class="diagram-tag">FIGURA 8.2 — ASSINATURA TOPOLÓGICA</span>
+    <h4 class="diagram-title">Identificação Topológica de Elementos Extremais</h4>
+  </div>
+  <div class="diagram-body">
+    <svg viewBox="0 0 520 300" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Edges -->
+  <line x1="260" y1="240" x2="190" y2="180" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="260" y1="240" x2="330" y2="180" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="190" y1="180" x2="190" y2="120" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="330" y1="180" x2="330" y2="120" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="190" y1="120" x2="150" y2="60" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="190" y1="120" x2="330" y2="60" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="330" y1="120" x2="330" y2="60" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- Unique Bottom (⊥) -->
+  <circle cx="260" cy="240" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2.5"/>
+  <text x="260" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0071e3">⊥</text>
+  <text x="370" y="245" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#0071e3">Mínimo Global Único (Grau inf = 0)</text>
+
+  <!-- Level 1: a, b -->
+  <circle cx="190" cy="180" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="190" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">a</text>
+
+  <circle cx="330" cy="180" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="330" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">b</text>
+
+  <!-- Level 2: c, d -->
+  <circle cx="190" cy="120" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="190" y="125" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">c</text>
+
+  <circle cx="330" cy="120" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="330" y="125" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">d</text>
+
+  <!-- Maximais: M1, M2 -->
+  <circle cx="150" cy="60" r="18" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
+  <text x="150" y="65" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#b91c1c">M₁</text>
+
+  <circle cx="330" cy="60" r="18" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
+  <text x="330" y="65" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#b91c1c">M₂</text>
+  <text x="370" y="65" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#b91c1c">Maximais Múltiplos (Grau sup = 0)</text>
+</svg>
+  </div>
+  <p class="diagram-caption">Nós sem arestas superiores são maximais (M₁, M₂). O nó inferior único de onde partem caminhos para todos os vértices é o mínimo absoluto ⊥.</p>
+</div>
 <blockquote><p><strong>Invariante Crítico:</strong> Todo elemento mínimo é minimal, mas a recíproca é falsa. Se um poset possui dois ou mais elementos minimais distintos, ele <strong>não possui</strong> elemento mínimo. O mesmo raciocínio aplica-se a maximais e máximo.</p></blockquote>
 <hr>
 <h3>3.2. Limitantes, Supremo e Ínfimo</h3>
@@ -129,21 +205,68 @@
 <h2>4. Exemplos Computacionais e Diagramas</h2>
 <h3>Exemplo 1: O Hipercubo Booleano $\mathcal{P}(\{a, b, c\})$ sob Inclusão $\subseteq$</h3>
 <p>Seja $A = \{a, b, c\}$ e $P = \mathcal{P}(A)$ com $2^3 = 8$ elementos, ordenados por inclusão de conjuntos ($X \le Y \iff X \subseteq Y$). A relação de cobertura ocorre quando um conjunto tem exatamente um elemento a mais: $X \lessdot Y \iff X \subset Y \land |Y| = |X| + 1$.</p>
-<pre class="code-block"><code class="language-text">                        Nível 3: {a, b, c}  (Top ⊤)
-                             /   │   \
-                            /    │    \
-                           /     │     \
-            Nível 2:  {a, b}   {a, c}  {b, c}
-                       │  \     /  \   /  │
-                       │   \   /    \ /   │
-                       │    \ /      X    │
-                       │     X      / \   │
-                       │    / \    /   \  │
-            Nível 1:  {a}     {b}     {c}
-                        \      │      /
-                         \     │     /
-                          \    │    /
-                        Nível 0: ∅          (Bottom ⊥)</code></pre>
+<div class="visual-diagram-card">
+  <div class="diagram-header">
+    <span class="diagram-tag">EXEMPLO 1 — RETICULADO BOOLEANO Q₃</span>
+    <h4 class="diagram-title">O Hipercubo Booleano 𝒫({a,b,c}) sob Inclusão</h4>
+  </div>
+  <div class="diagram-body">
+    <svg viewBox="0 0 620 360" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Level Lines -->
+  <line x1="40" y1="50" x2="580" y2="50" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="40" y1="140" x2="580" y2="140" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="40" y1="230" x2="580" y2="230" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="40" y1="310" x2="580" y2="310" stroke="#f1f5f9" stroke-width="1"/>
+
+  <text x="50" y="55" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Nível 3: {a, b, c} (Top ⊤)</text>
+  <text x="50" y="145" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Nível 2: Pares</text>
+  <text x="50" y="235" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Nível 1: Unitários</text>
+  <text x="50" y="315" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Nível 0: ∅ (Bottom ⊥)</text>
+
+  <!-- Edges -->
+  <line x1="310" y1="310" x2="190" y2="230" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="310" y1="310" x2="310" y2="230" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="310" y1="310" x2="430" y2="230" stroke="#64748b" stroke-width="1.8"/>
+
+  <line x1="190" y1="230" x2="190" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="190" y1="230" x2="310" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="310" y1="230" x2="190" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="310" y1="230" x2="430" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="430" y1="230" x2="310" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="430" y1="230" x2="430" y2="140" stroke="#64748b" stroke-width="1.8"/>
+
+  <line x1="190" y1="140" x2="310" y2="50" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="310" y1="140" x2="310" y2="50" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="430" y1="140" x2="310" y2="50" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- Nodes -->
+  <rect x="285" y="294" width="50" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="310" y="315" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">∅</text>
+
+  <rect x="165" y="214" width="50" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="190" y="235" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{a}</text>
+
+  <rect x="285" y="214" width="50" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="310" y="235" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{b}</text>
+
+  <rect x="405" y="214" width="50" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="430" y="235" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{c}</text>
+
+  <rect x="155" y="124" width="70" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="190" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{a, b}</text>
+
+  <rect x="275" y="124" width="70" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="310" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{a, c}</text>
+
+  <rect x="395" y="124" width="70" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="430" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{b, c}</text>
+
+  <rect x="265" y="34" width="90" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="310" y="55" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{a, b, c}</text>
+</svg>
+  </div>
+  <p class="diagram-caption">Cada nível k representa subconjuntos de cardinalidade exata k. As arestas representam a relação de cobertura X ⋖ Y ⟺ X ⊂ Y e |Y| = |X| + 1.</p>
+</div>
 <ul><li><strong>Propriedades:</strong> É um reticulado distributivo e booleano. Para quaisquer $X, Y \in \mathcal{P}(A)$:</li></ul>
 <div class="math-display">$$X \vee Y = X \cup Y \quad \text{e} \quad X \wedge Y = X \cap Y$$</div>
 <ul><li>Topologia de grafo: Hipercubo 3D ($Q_3$), com 8 vértices e 12 arestas de cobertura.</li></ul>
@@ -152,39 +275,176 @@
 <p>Considere $D_{12} = \{1, 2, 3, 4, 6, 12\}$ sob a relação de divisibilidade ($x \le y \iff x \mid y$). Como $12 = 2^2 \cdot 3^1$, os divisores são expressos como $2^i 3^j$ com $i \in \{0, 1, 2\}$ e $j \in \{0, 1\}$.</p>
 <p>A relação de cobertura exige multiplicação por um único fator primo irredutível:</p>
 <ul><li>$1 \lessdot 2$ e $1 \lessdot 3$</li><li>$2 \lessdot 4$ e $2 \lessdot 6$</li><li>$3 \lessdot 6$</li><li>$4 \lessdot 12$ e $6 \lessdot 12$</li></ul>
-<pre class="code-block"><code class="language-text">                         12  (Top ⊤)
-                        /  \
-                       /    \
-                      4      6
-                      │     / \
-                      │    /   \
-                      │   /     \
-                      2  /       3
-                       \│       /
-                        1  (Bottom ⊥)</code></pre>
+<div class="visual-diagram-card">
+  <div class="diagram-header">
+    <span class="diagram-tag">EXEMPLO 2 — RETICULADO DISTRIBUTIVO D₁₂</span>
+    <h4 class="diagram-title">Diagrama de Hasse dos Divisores de 12 (D₁₂ sob Divisibilidade)</h4>
+  </div>
+  <div class="diagram-body">
+    <svg viewBox="0 0 460 300" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Edges -->
+  <line x1="230" y1="240" x2="160" y2="170" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="230" y1="240" x2="300" y2="170" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="170" x2="160" y2="100" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="170" x2="300" y2="100" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="300" y1="170" x2="300" y2="100" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="100" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="300" y1="100" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- Nodes -->
+  <!-- 1 -->
+  <circle cx="230" cy="240" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2"/>
+  <text x="230" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#1e40af">1</text>
+  <text x="270" y="245" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">Bottom ⊥</text>
+
+  <!-- 2, 3 -->
+  <circle cx="160" cy="170" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="160" y="175" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">2</text>
+
+  <circle cx="300" cy="170" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="300" y="175" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">3</text>
+
+  <!-- 4, 6 -->
+  <circle cx="160" cy="100" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="160" y="105" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">4</text>
+
+  <circle cx="300" cy="100" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="300" y="105" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">6</text>
+
+  <!-- 12 -->
+  <circle cx="230" cy="40" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+  <text x="230" y="45" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#15803d">12</text>
+  <text x="270" y="45" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#15803d">Top ⊤</text>
+</svg>
+  </div>
+  <p class="diagram-caption">D₁₂ = {1, 2, 3, 4, 6, 12}. Como todo par possui supremo (MMC) e ínfimo (MDC) únicos, D₁₂ é um reticulado distributivo completo.</p>
+</div>
 <ul><li>Total de arestas de cobertura: <strong>7 arestas</strong>.</li><li>Arestas transitivas omitidas: $(1, 4), (1, 6), (1, 12), (2, 12), (3, 12)$ (5 arestas suprimidas).</li><li>Neste reticulado:</li></ul>
 <div class="math-display">$$x \vee y = \text{mmc}(x, y) \quad \text{e} \quad x \wedge y = \text{mdc}(x, y)$$</div>
 <hr>
 <h3>Exemplo 3: O Poset Ampulheta Dupla (Com Mínimo e Máximo, mas NÃO-Reticulado)</h3>
 <p>Considere o poset $P = \{\bot, a, b, c, d, \top\}$ com as coberturas: $\bot \lessdot a, \bot \lessdot b, a \lessdot c, a \lessdot d, b \lessdot c, b \lessdot d, c \lessdot \top, d \lessdot \top$.</p>
-<pre class="code-block"><code class="language-text">                           ⊤
-                          / \
-                         c   d
-                         │ X │
-                         a   b
-                          \ /
-                           ⊥</code></pre>
+<div class="visual-diagram-card">
+  <div class="diagram-header">
+    <span class="diagram-tag">FIGURA 8.3 — TOPOLOGIA DE CRUZAMENTO</span>
+    <h4 class="diagram-title">Poset com Cruzamento Central X ({⊥, a, b, c, d, ⊤})</h4>
+  </div>
+  <div class="diagram-body">
+    <svg viewBox="0 0 460 300" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cross Edges -->
+  <line x1="230" y1="240" x2="160" y2="180" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="230" y1="240" x2="300" y2="180" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- The X Cross -->
+  <line x1="160" y1="180" x2="160" y2="110" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="180" x2="300" y2="110" stroke="#0071e3" stroke-width="2"/>
+  <line x1="300" y1="180" x2="160" y2="110" stroke="#0071e3" stroke-width="2"/>
+  <line x1="300" y1="180" x2="300" y2="110" stroke="#64748b" stroke-width="1.8"/>
+
+  <line x1="160" y1="110" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="300" y1="110" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- Nodes -->
+  <!-- Bottom ⊥ -->
+  <circle cx="230" cy="240" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2"/>
+  <text x="230" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0071e3">⊥</text>
+
+  <!-- a, b -->
+  <circle cx="160" cy="180" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="160" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">a</text>
+
+  <circle cx="300" cy="180" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="300" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">b</text>
+
+  <!-- c, d -->
+  <circle cx="160" cy="110" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="160" y="115" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">c</text>
+
+  <circle cx="300" cy="110" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="300" y="115" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">d</text>
+
+  <!-- Top ⊤ -->
+  <circle cx="230" cy="40" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+  <text x="230" y="45" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#15803d">⊤</text>
+</svg>
+  </div>
+  <p class="diagram-caption">As conexões cruzadas a ⋖ d e b ⋖ c produzem limitantes superiores comuns c e d para o par {a, b}. Como c e d são incomparáveis, este poset NÃO é um reticulado.</p>
+</div>
 <ul><li>O poset possui mínimo único ($\bot$) e máximo único ($\top$).</li><li>Analisemos o par $\{a, b\}$:</li><li>Limitantes superiores de $\{a, b\}$: $\{c, d, \top\}$.</li><li>Quem é o <strong>menor</strong> limitante superior?</li><li>Os limitantes $c$ e $d$ são incomparáveis ($c \parallel d$). Nenhum deles é menor que o outro.</li><li>Portanto, não existe um menor limitante superior para $\{a, b\}$. $\sup(\{a, b\})$ inexiste!</li><li><strong>Conclusão:</strong> Este poset <strong>NÃO é um reticulado</strong>.</li></ul>
 <hr>
 <h3>Exemplo 4: Os Reticulados Não-Distributivos $N_5$ (Pentágono) e $M_3$ (Diamante)</h3>
-<pre class="code-block"><code class="language-text">        Reticulado N5 (Pentágono)              Reticulado M3 (Diamante)
-                  1                                      1
-                 / \                                   / │ \
-                b   \                                 /  │  \
-                │    c                               a   b   c
-                a   /                                 \  │  /
-                 \ /                                   \ │ /
-                  0                                      0</code></pre>
+<div class="visual-diagram-card">
+  <div class="diagram-header">
+    <span class="diagram-tag">FIGURA 8.4 — RETICULADOS PROIBIDOS N₅ E M₃</span>
+    <h4 class="diagram-title">Sub-reticulados Proibidos: Teoremas de Dedekind e Birkhoff</h4>
+  </div>
+  <div class="diagram-body">
+    <svg viewBox="0 0 680 320" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sublattice N5 (Pentágono) -->
+  <g transform="translate(40, 20)">
+    <rect width="280" height="280" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="140" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">Reticulado N₅ (Pentágono)</text>
+    <text x="140" y="50" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#ef4444">Não-Modular (Teorema de Dedekind)</text>
+
+    <!-- N5 Edges -->
+    <line x1="140" y1="240" x2="80" y2="180" stroke="#64748b" stroke-width="2"/>
+    <line x1="80" y1="180" x2="80" y2="120" stroke="#64748b" stroke-width="2"/>
+    <line x1="80" y1="120" x2="140" y2="70" stroke="#64748b" stroke-width="2"/>
+    <line x1="140" y1="240" x2="200" y2="150" stroke="#64748b" stroke-width="2"/>
+    <line x1="200" y1="150" x2="140" y2="70" stroke="#64748b" stroke-width="2"/>
+
+    <!-- N5 Nodes -->
+    <circle cx="140" cy="240" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+    <text x="140" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">0</text>
+
+    <circle cx="80" cy="180" r="16" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="80" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">a</text>
+
+    <circle cx="80" cy="120" r="16" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="80" y="125" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">b</text>
+
+    <circle cx="200" cy="150" r="16" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="200" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">c</text>
+
+    <circle cx="140" cy="70" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+    <text x="140" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">1</text>
+  </g>
+
+  <!-- Sublattice M3 (Diamante) -->
+  <g transform="translate(360, 20)">
+    <rect width="280" height="280" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="140" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">Reticulado M₃ (Diamante)</text>
+    <text x="140" y="50" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#b45309">Modular, mas Não-Distributivo</text>
+
+    <!-- M3 Edges -->
+    <line x1="140" y1="240" x2="60" y2="150" stroke="#64748b" stroke-width="2"/>
+    <line x1="140" y1="240" x2="140" y2="150" stroke="#64748b" stroke-width="2"/>
+    <line x1="140" y1="240" x2="220" y2="150" stroke="#64748b" stroke-width="2"/>
+
+    <line x1="60" y1="150" x2="140" y2="70" stroke="#64748b" stroke-width="2"/>
+    <line x1="140" y1="150" x2="140" y2="70" stroke="#64748b" stroke-width="2"/>
+    <line x1="220" y1="150" x2="140" y2="70" stroke="#64748b" stroke-width="2"/>
+
+    <!-- M3 Nodes -->
+    <circle cx="140" cy="240" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+    <text x="140" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">0</text>
+
+    <circle cx="60" cy="150" r="16" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="60" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">a</text>
+
+    <circle cx="140" cy="150" r="16" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="140" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">b</text>
+
+    <circle cx="220" cy="150" r="16" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="220" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">c</text>
+
+    <circle cx="140" cy="70" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+    <text x="140" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">1</text>
+  </g>
+</svg>
+  </div>
+  <p class="diagram-caption">Um reticulado é modular se e somente se não contém N₅ como sub-reticulado. Um reticulado é distributivo se e somente se não contém nem N₅ nem M₃.</p>
+</div>
 <p>Ambos são reticulados, mas <strong>não são distributivos</strong>:</p>
 <ul><li>Em $N_5$, $a \le b$, mas $a \vee (b \wedge c) = a \vee 0 = a$, enquanto $(a \vee b) \wedge (a \vee c) = b \wedge 1 = b$. Como $a \neq b$, a distributividade falha!</li><li><strong>Teorema de Birkhoff:</strong> Um reticulado $L$ é distributivo se, e somente se, não possui sub-reticulado isomorfo a $N_5$ nem a $M_3$.</li></ul>
 <hr>

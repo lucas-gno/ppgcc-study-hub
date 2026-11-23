@@ -184,14 +184,61 @@
 Considere o conjunto $S_1 = \{2, 3, 4, 6, 8, 12, 18\}$ sob a ordem parcial de divisibilidade usual:
 $$x \preceq y \iff x \mid y \quad (x \text{ divide } y)$$</div>
 <h4>Diagrama de Hasse Estruturado:</h4>
-<pre class="code-block"><code class="language-text">           [8]       [12]       [18]     &lt;-- Elementos Maximais (não há topo único)
-             \       /  \       /
-              \     /    \     /
-               \   /      \   /
-                [4]        [6]
-                 |        /   \
-                 |       /     \
-                [2] ----+       [3]      &lt;-- Elementos Minimais (não há fundo único)</code></pre>
+<div class="visual-diagram-card">
+  <div class="diagram-header">
+    <span class="diagram-tag">FIGURA 7.1 — MAXIMAIS E MINIMAIS MÚLTIPLOS</span>
+    <h4 class="diagram-title">Poset sem Elementos Extremais Globais Únicos</h4>
+  </div>
+  <div class="diagram-body">
+    <svg viewBox="0 0 540 280" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Edges -->
+  <line x1="160" y1="210" x2="160" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="140" x2="110" y2="70" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="140" x2="270" y2="70" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="210" x2="380" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="380" y1="210" x2="380" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="380" y1="140" x2="270" y2="70" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="380" y1="140" x2="430" y2="70" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- Nodes Minimais -->
+  <g>
+    <circle cx="160" cy="210" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2.5"/>
+    <text x="160" y="215" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#15803d">2</text>
+  </g>
+  <g>
+    <circle cx="380" cy="210" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2.5"/>
+    <text x="380" y="215" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#15803d">3</text>
+  </g>
+  <text x="270" y="255" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#15803d">Minimais = {2, 3} (Não há mínimo único)</text>
+
+  <!-- Nodes Intermediários -->
+  <g>
+    <circle cx="160" cy="140" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="160" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">4</text>
+  </g>
+  <g>
+    <circle cx="380" cy="140" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="380" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">6</text>
+  </g>
+
+  <!-- Nodes Maximais -->
+  <g>
+    <circle cx="110" cy="70" r="18" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
+    <text x="110" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">8</text>
+  </g>
+  <g>
+    <circle cx="270" cy="70" r="18" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
+    <text x="270" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">12</text>
+  </g>
+  <g>
+    <circle cx="430" cy="70" r="18" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
+    <text x="430" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">18</text>
+  </g>
+  <text x="270" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#b91c1c">Maximais = {8, 12, 18} (Não há máximo único)</text>
+</svg>
+  </div>
+  <p class="diagram-caption">No subconjunto {2, 3, 4, 6, 8, 12, 18} sob divisibilidade, existem múltiplos elementos minimais (verdes) e múltiplos maximais (vermelhos). Não existe nem mínimo ⊥ nem máximo ⊤.</p>
+</div>
 <h4>Análise das Propriedades de $S_1$:</h4>
 <ol><li><strong>Elementos Minimais</strong>: $\{2, 3\}$.</li></ol>
 <ul><li>Nenhum elemento de $S_1$ divide 2 (exceto o próprio 2).</li><li>Nenhum elemento de $S_1$ divide 3.</li><li>Não existe elemento mínimo global, pois nem $2 \mid 3$ nem $3 \mid 2$.</li></ul>
@@ -205,17 +252,55 @@ $$x \preceq y \iff x \mid y \quad (x \text{ divide } y)$$</div>
 <p>Considere o poset $P = \{a, b, c, d, e, f\}$ com a seguinte ordem parcial:</p>
 <ul><li>$a \prec c$, $a \prec d$, $b \prec c$, $b \prec d$</li><li>$c \prec e$, $c \prec f$, $d \prec e$, $d \prec f$</li></ul>
 <h4>Diagrama de Hasse:</h4>
-<pre class="code-block"><code class="language-text">            [e]       [f]       &lt;-- Elementos Maximais
-             \ \     / /
-              \  \ /  /
-               \  X  /
-                \/ \/
-                [c] [d]         &lt;-- Limitantes comuns superiores a {a, b}
-                /\ /\
-               /  X  \
-              /  / \  \
-             / /     \ \
-            [a]       [b]       &lt;-- Elementos Minimais</code></pre>
+<div class="visual-diagram-card">
+  <div class="diagram-header">
+    <span class="diagram-tag">FIGURA 7.2 — AUSÊNCIA DE MENOR LIMITANTE SUPERIOR</span>
+    <h4 class="diagram-title">Poset com Limitantes Superiores Incomparáveis (Falha de Supremo)</h4>
+  </div>
+  <div class="diagram-body">
+    <svg viewBox="0 0 540 280" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Edges -->
+  <!-- Minimais a, b to Limitantes c, d -->
+  <line x1="210" y1="210" x2="210" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="210" y1="210" x2="330" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="330" y1="210" x2="210" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="330" y1="210" x2="330" y2="140" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- Limitantes c, d to Maximais e, f -->
+  <line x1="210" y1="140" x2="210" y2="70" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="210" y1="140" x2="330" y2="70" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="330" y1="140" x2="210" y2="70" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="330" y1="140" x2="330" y2="70" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- Minimais a, b -->
+  <circle cx="210" cy="210" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+  <text x="210" y="215" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#15803d">a</text>
+
+  <circle cx="330" cy="210" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+  <text x="330" y="215" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#15803d">b</text>
+
+  <!-- Limitantes Superiores Comuns c, d -->
+  <circle cx="210" cy="140" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2"/>
+  <text x="210" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#1e40af">c</text>
+
+  <circle cx="330" cy="140" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2"/>
+  <text x="330" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#1e40af">d</text>
+
+  <!-- Maximais e, f -->
+  <circle cx="210" cy="70" r="18" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="210" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">e</text>
+
+  <circle cx="330" cy="70" r="18" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="330" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">f</text>
+
+  <!-- Annotations -->
+  <text x="140" y="145" text-anchor="end" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#0071e3">Limitantes Superiores de {a,b}</text>
+  <text x="140" y="215" text-anchor="end" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#15803d">Elementos {a,b}</text>
+  <text x="140" y="75" text-anchor="end" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#ef4444">Maximais</text>
+</svg>
+  </div>
+  <p class="diagram-caption">O par {a, b} possui limitantes superiores comuns {c, d}. Como c e d são incomparáveis (c ≰ d e d ≰ c), não existe menor elemento entre eles, demonstrando que sup{a, b} não existe.</p>
+</div>
 <h4>Análise da Falha de Reticulado:</h4>
 <ul><li>Tomemos o subconjunto $A = \{a, b\}$.</li><li>Quais elementos estão acima de $a$ E de $b$ simultaneamente?</li></ul>
 <div class="math-display">$$\mathrm{UB}(\{a, b\}) = \{c, d, e, f\}$$</div>

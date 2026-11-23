@@ -131,6 +131,29 @@ def markdown_to_html(md_text: str) -> str:
             i += 1
             continue
 
+        # Raw block-level HTML (<div, <section, <figure, <svg, <!--, etc.)
+        if (
+            stripped.startswith("<div")
+            or stripped.startswith("<section")
+            or stripped.startswith("<figure")
+            or stripped.startswith("<svg")
+            or stripped.startswith("<!--")
+        ):
+            tag_match = re.match(r"^<([a-zA-Z0-9]+)", stripped)
+            root_tag = tag_match.group(1).lower() if tag_match else None
+            html_lines = [line]
+            i += 1
+            if root_tag and not stripped.startswith("<!--"):
+                depth = len(re.findall(rf"<{root_tag}(?:[\s>]|$)", stripped, re.IGNORECASE)) - len(re.findall(rf"</{root_tag}>", stripped, re.IGNORECASE))
+                while i < len(lines) and depth > 0:
+                    html_lines.append(lines[i])
+                    opens = len(re.findall(rf"<{root_tag}(?:[\s>]|$)", lines[i], re.IGNORECASE))
+                    closes = len(re.findall(rf"</{root_tag}>", lines[i], re.IGNORECASE))
+                    depth += (opens - closes)
+                    i += 1
+            out.append("\n".join(html_lines))
+            continue
+
         # Fenced code block
         if stripped.startswith("```"):
             lang = stripped[3:].strip() or "text"
@@ -244,6 +267,11 @@ def markdown_to_html(md_text: str) -> str:
                 or re.match(r"^-{3,}$", cur)
                 or re.match(r"^[-*]\s+", cur)
                 or re.match(r"^\d+\.\s+", cur)
+                or cur.startswith("<div")
+                or cur.startswith("<section")
+                or cur.startswith("<figure")
+                or cur.startswith("<svg")
+                or cur.startswith("<!--")
             ):
                 break
             para_lines.append(cur)

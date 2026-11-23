@@ -176,11 +176,55 @@ M_S = \begin{pmatrix}
 <h3>Exemplo 2: Dígrafo Direcionado, Ciclos e Potências Relacionais</h3>
 <p>Seja $A = \{1, 2, 3, 4\}$ e a relação homogênea sobre $A$:</p>
 <div class="math-display">$$R = \{ (1, 2), (2, 3), (3, 4), (4, 2) \}$$</div>
-<pre class="code-block"><code class="language-mermaid">flowchart LR
-    1((1)) --&gt; 2((2))
-    2 --&gt; 3((3))
-    3 --&gt; 4((4))
-    4 --&gt; 2</code></pre>
+<div class="visual-diagram-card">
+  <div class="diagram-header">
+    <span class="diagram-tag">FIGURA 2.1 — TOPOLOGIA DIRECIONADA</span>
+    <h4 class="diagram-title">Dígrafo da Relação Binária R = {(1,2), (2,3), (3,4), (4,2)}</h4>
+  </div>
+  <div class="diagram-body">
+    <svg viewBox="0 0 540 240" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-t2" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0071e3"/>
+    </marker>
+  </defs>
+
+  <!-- Edges -->
+  <!-- 1 -> 2 -->
+  <line x1="80" y1="120" x2="200" y2="120" stroke="#0071e3" stroke-width="2" marker-end="url(#arrow-t2)"/>
+  <!-- 2 -> 3 -->
+  <path d="M 200 120 C 260 50, 340 50, 400 120" fill="none" stroke="#0071e3" stroke-width="2" marker-end="url(#arrow-t2)"/>
+  <!-- 3 -> 4 -->
+  <path d="M 400 120 C 400 180, 360 200, 300 200" fill="none" stroke="#0071e3" stroke-width="2" marker-end="url(#arrow-t2)"/>
+  <!-- 4 -> 2 -->
+  <path d="M 300 200 C 240 200, 200 180, 200 120" fill="none" stroke="#0071e3" stroke-width="2" marker-end="url(#arrow-t2)"/>
+
+  <!-- Nodes -->
+  <!-- Node 1 -->
+  <circle cx="80" cy="120" r="22" fill="#ffffff" stroke="#0071e3" stroke-width="2.5"/>
+  <text x="80" y="126" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0f172a">1</text>
+
+  <!-- Node 2 -->
+  <circle cx="200" cy="120" r="22" fill="#ffffff" stroke="#0071e3" stroke-width="2.5"/>
+  <text x="200" y="126" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0f172a">2</text>
+
+  <!-- Node 3 -->
+  <circle cx="400" cy="120" r="22" fill="#ffffff" stroke="#0071e3" stroke-width="2.5"/>
+  <text x="400" y="126" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0f172a">3</text>
+
+  <!-- Node 4 -->
+  <circle cx="300" cy="200" r="22" fill="#ffffff" stroke="#0071e3" stroke-width="2.5"/>
+  <text x="300" y="206" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0f172a">4</text>
+
+  <!-- Edge Labels -->
+  <text x="140" y="112" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">(1, 2)</text>
+  <text x="300" y="66" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">(2, 3)</text>
+  <text x="375" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">(3, 4)</text>
+  <text x="225" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">(4, 2)</text>
+</svg>
+  </div>
+  <p class="diagram-caption">Vértice 1 possui apenas grau de saída (fonte). O ciclo direcionado 2 → 3 → 4 → 2 evidencia caminhos múltiplos e não-antissimetria.</p>
+</div>
 <p>O dígrafo apresenta uma aresta de entrada $1 \to 2$ e um ciclo direcionado de comprimento 3 envolvendo os vértices $\{2, 3, 4\}$.</p>
 <ul><li><strong>Cálculo de $R^2$ (caminhos de comprimento 2):</strong></li><li>$1 \to 2 \to 3 \implies (1, 3)$</li><li>$2 \to 3 \to 4 \implies (2, 4)$</li><li>$3 \to 4 \to 2 \implies (3, 2)$</li><li>$4 \to 2 \to 3 \implies (4, 3)$</li></ul>
 <div class="math-display">$$R^2 = \{ (1, 3), (2, 4), (3, 2), (4, 3) \}$$</div>
