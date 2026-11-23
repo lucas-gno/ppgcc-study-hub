@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 02: Relações Binárias · PPGCC IFCE</title>
+  <title>Aula 02: Relações Binárias — Da Filosofia à Computação · PPGCC IFCE</title>
   <link rel="stylesheet" href="../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -11,9 +11,9 @@
   <main class="lesson-container">
     <div class="hub-page-header">
       <div>
-        <div class="hub-eyebrow">Fase 1 · Tópico 02 de 37 · Tempo estimado: 60 min</div>
-        <h1 class="hub-title">Relações Binárias</h1>
-        <p class="hub-subtitle">Didática Zero Base com Tradução Tríplice, Pilar Visual (SVG) e Manipulação Interativa.</p>
+        <div class="hub-eyebrow">Fase 1 · Tópico 02 de 37 · Tempo estimado: 45 min</div>
+        <h1 class="hub-title">Relações Binárias — Da Filosofia à Computação</h1>
+        <p class="hub-subtitle">A transição ontológica: como o pensamento lógico se converte em arestas de dígrafos e matrizes booleanas.</p>
       </div>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a class="hub-btn-secondary hub-btn-sm" href="../edital.html">Edital</a>
@@ -21,162 +21,110 @@
       </div>
     </div>
 
-    <section aria-label="Nivelamento Zero Base">
-      <div class="como-se-le"><strong>Tradução Tríplice (Zero Base) — Como se Lê e Analogia Prática</strong><p><strong>$R \subseteq A \times B$:</strong> Lê-se 'R é uma relação binária de A em B'. Na prática: qualquer tabela associativa (N:N) ligando registros de A a registros de B.</p><p><strong>$a R b$ ou $(a, b) \in R$:</strong> Lê-se 'a está relacionado com b por R'. Contagem de prova (Q17 do Edital 53/2025): como há $|A| \cdot |B|$ pares possíveis e cada par pode estar ligado (1) ou desligado (0), existem exatamente $2^{|A|\cdot|B|}$ relações distintas.</p></div>
+    <!-- 1. Transição Ontológica & Filosofia -->
+    <div class="callout philosophy">
+      <div class="callout-title">[Filosofia da Lógica]: Da Filosofia para a Lógica Extensional: O Predicado Diádico</div>
+      <div>
+Na lógica tradicional de Aristóteles, o foco era quase exclusivo em propriedades individuais: <em>'Sócrates é mortal'</em> ($M(s)$).
+Mas quando queremos modelar sistemas de computação, quase nunca lidamos com objetos isolados.
+Lidamos com conexões: <em>'O pacote A foi enviado para o nó B'</em>, <em>'O processo 1042 é pai do processo 1088'</em>, ou <em>'O usuário u tem permissão no arquivo f'</em>.
+Esses vínculos são chamados de <strong>predicados diádicos</strong> (ou relações binárias).
+Para Gottlob Frege e Bertrand Russell, uma relação binária não é um mistério psicológico:
+ela é simplesmente o <strong>conjunto de todos os pares ordenados</strong> de entidades para as quais o vínculo de fato existe.
+</div>
+    </div>
+
+    <!-- 2. Dicionário Fonético de Símbolos -->
+    
+<div class="como-se-le" style="margin-top:2rem;">
+  <div class="como-se-le-title">[Dicionário Fonético de Símbolos Lógicos]</div>
+  <p>Para ler com fluência natural qualquer fórmula desta lição:</p>
+  <ul style="margin-left: 1.25rem;">
+    <li>$\in$ : <em>"Pertence a"</em> (ex: $a \in A \to$ <em>"o elemento a pertence ao conjunto A"</em>).</li>
+    <li>$\subseteq$ : <em>"Está contido em"</em> ou <em>"é subconjunto de"</em> (ex: $R \subseteq A \times B \to$ <em>"R está contido em A vezes B"</em>).</li>
+    <li>$\land$ : <em>"E"</em> (conjunção lógica, exige que ambas as condições sejam verdadeiras).</li>
+    <li>$\lor$ : <em>"OU"</em> (disjunção lógica, basta que uma seja verdadeira).</li>
+    <li>$\iff$ : <em>"Se, e somente se"</em> (equivalência lógica bidirecional).</li>
+    <li>$\implies$ : <em>"Implica que"</em> ou <em>"se... então..."</em> (condicional unidirecional).</li>
+    <li>$\forall$ : <em>"Para todo..."</em> ou <em>"Qualquer que seja..."</em> (quantificador universal).</li>
+    <li>$\exists$ : <em>"Existe ao menos um..."</em> (quantificador existencial).</li>
+    <li>$\emptyset$ : <em>"Conjunto vazio"</em> (a sacola sem nenhum elemento).</li>
+  </ul>
+</div>
+
+
+    <!-- 3. Degraus Cognitivos e Desmistificação de Termos -->
+    <section aria-label="Degraus Cognitivos e Termos">
+      <h2>1. Degraus Cognitivos: Desmistificando os Termos</h2>
+      <p>Entendendo a etimologia e o significado real antes de qualquer fórmula complexa:</p>
+      
+<div class="word-breakdown">
+  <div><strong class="term">Par Ordenado</strong> <span class="pronunciation">[par or-de-na-do]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;ordo&#x27; (fileira com direção e posição definida).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Uma tupla de dois itens onde a ordem importa: (a, b) significa que a é a origem e b é o destino. (a, b) só é igual a (b, a) se a = b.</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Relação Binária</strong> <span class="pronunciation">[re-la-ção bi-ná-ri-a]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;relatio&#x27; (levar de volta, vincular) e &#x27;bis&#x27; (dois a dois).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Qualquer subconjunto do produto cartesiano: R ⊆ A x B. Se o par (x, y) está em R, eles estão conectados; se não está, não há vínculo.</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Matriz Booleana de Adjacência</strong> <span class="pronunciation">[ma-triz bo-o-le-a-na de ad-ja-cên-ci-a]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Em homenagem a George Boole (0 e 1) e adjacência (estar ao lado, conectado).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Uma tabela quadrada onde linhas são as origens, colunas são os destinos. Célula = 1 se há aresta; 0 se não há.</p>
+</div>
+
     </section>
 
+    <!-- 4. Fórmulas Limpas com Guia de Leitura -->
+    <section aria-label="Fórmulas Canônicas e Como se Fala">
+      <h2>2. Fórmulas Canônicas: Como se Lê e o que Significa</h2>
+      <p>Cada símbolo rigoroso acompanhado de sua pronúncia fonética e tradução intuitiva para sistemas de TI:</p>
+      
+<div class="formula-box">
+  <div class="math-display">$$(a, b) = (c, d) \iff a = c \land b = d$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"O par ordenado (a, b) é igual ao par (c, d) se, e somente se, a for igual a c e b for igual a d"</em></div>
+    <div style="color:#92400e;">[O que significa]: Axioma Fundamental do Par Ordenado: para que dois pares sejam idênticos, as primeiras coordenadas devem ser iguais e as segundas coordenadas também.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$R \subseteq A \times B$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"R está contido em A vezes B (R é uma relação binária de A em B)"</em></div>
+    <div style="color:#92400e;">[O que significa]: Definição canônica: qualquer subconjunto do produto cartesiano é uma relação válida. Pode ser vazia, total ou intermediária.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$\text{Total de Relações Possíveis} = 2^{|A \times B|} = 2^{|A| \cdot |B|}$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"Total de relações é dois elevado ao número de elementos de A vezes o número de elementos de B"</em></div>
+    <div style="color:#92400e;">[O que significa]: Fórmula de contagem oficial da banca (Questão 17 do Edital 53/2025): como há |A| . |B| pares e cada par pode estar presente (1) ou ausente (0), há 2^(|A|.|B|) relações possíveis.</div>
+  </div>
+</div>
+
+    </section>
+
+    <!-- 5. Aplicação Computacional -->
+    <div class="callout computation">
+      <div class="callout-title">[Computação e Infraestrutura]: Dígrafos e Matrizes: Como o Computador Enxerga Vínculos</div>
+      <div>
+Quando uma relação vincula elementos de um conjunto com ele mesmo ($R \subseteq A \times A$), ela é chamada de <strong>relação homogênea</strong>.
+O computador armazena e processa relações homogêneas por duas representações idênticas:
+1. <strong>Grafo Direcionado (Dígrafo):</strong> Os elementos de $A$ são os nós (vértices). Se $(x, y) \in R$, desenha-se uma flecha saindo de $x$ e apontando para $y$. Se $(x, x) \in R$, a flecha sai de $x$ e volta para $x$ (um <em>laço</em>).
+2. <strong>Matriz Booleana ($M_R$):</strong> Grade $n \times n$. A diagonal principal $M[i, i]$ indica a presença de laços.
+</div>
+    </div>
+
+    <!-- 6. Representação Visual Vetorial SVG Nativo -->
     <section aria-label="Pilar Visual — Diagrama Vetorial">
-      <h2>Representação Visual</h2>
-      <div class="diagram-container"><svg viewBox="0 0 600 200" width="100%" height="auto" role="img" aria-label="Dígrafo e Matriz de Relação Binária"><defs><marker id="arr2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#0071e3"/></marker></defs><rect x="12" y="12" width="576" height="176" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/><text x="28" y="34" font-size="12" font-weight="600" fill="#334155">Dígrafo da Relação R = {(1,1), (1,2), (2,3), (3,3)} em A = {1, 2, 3}</text><path d="M 120 82 C 95 40, 145 40, 134 80" fill="none" stroke="#0071e3" stroke-width="2" marker-end="url(#arr2)"/><line x1="146" y1="106" x2="262" y2="106" stroke="#0071e3" stroke-width="2" marker-end="url(#arr2)"/><line x1="312" y1="106" x2="428" y2="106" stroke="#0071e3" stroke-width="2" marker-end="url(#arr2)"/><path d="M 454 82 C 430 40, 480 40, 468 80" fill="none" stroke="#0071e3" stroke-width="2" marker-end="url(#arr2)"/><circle cx="122" cy="106" r="22" fill="#ffffff" stroke="#0f172a" stroke-width="2"/><text x="122" y="111" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">1</text><circle cx="288" cy="106" r="22" fill="#ffffff" stroke="#0f172a" stroke-width="2"/><text x="288" y="111" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">2</text><circle cx="454" cy="106" r="22" fill="#ffffff" stroke="#0f172a" stroke-width="2"/><text x="454" y="111" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">3</text><text x="300" y="168" text-anchor="middle" font-size="11" fill="#64748b">Setas indicam pares (origem, destino). Cada par gera 1 célula na matriz booleana.</text></svg></div>
-    </section>
-
-    <section aria-label="Pilar Interativo — Laboratório Tátil">
-      <h2>Laboratório Interativo</h2>
-      <div id="lesson-widget-2"></div>
-    </section>
-
-    <article class="lesson-content">
-      <h2>1. Visão Geral e Contexto Formal</h2>
-<p>No âmbito da Ciência da Computação Teórica e dos Fundamentos Matemáticos, uma <strong>relação binária</strong> constitui a estrutura primordial para a modelagem formal de associações, restrições e mapeamentos entre coleções de entidades. Enquanto conjuntos puros capturam apenas a agregação estática de elementos, as relações binárias introduzem a noção fundamental de <strong>vínculo direcional</strong> entre elementos de um mesmo universo ou entre conjuntos distintos.</p>
-<p>O domínio formal deste tópico é indispensável para diversas subáreas nucleares do exame de seleção do PPGCC IFCE:</p>
-<ol><li><strong>Teoria de Bancos de Dados</strong>: A álgebra relacional proposta por Edgar F. Codd fundamenta-se estritamente na noção de relações como subconjuntos de produtos cartesianos, onde operações de junção (<em>joins</em>) nada mais são do que composições de relações com projeção.</li><li><strong>Engenharia de Compiladores e Análise Estática</strong>: Grafo de fluxo de controle (<em>Control Flow Graph</em> - CFG), relações de dominância entre blocos básicos e cadeias de definição-uso (<em>def-use chains</em>) são relações binárias finitas analisadas via potências matriciais e fechamentos.</li><li><strong>Sistemas Concorrentes e Distribuídos</strong>: A causalidade entre eventos distribuídos, expressa pelo formalismo de Leslie Lamport (<em>happens-before relation</em> $\to$), é modelada como uma relação binária de ordem estrita e irreflexiva.</li><li><strong>Semântica Formal e Teoria dos Autômatos</strong>: Sistemas de transição de estados rotulados ($S, \to$) dependem de relações de transição binárias $\delta \subseteq S \times S$.</li></ol>
-<p>Historicamente, o tratamento rigoroso de relações binárias consolida-se com a formalização da teoria axiomática dos conjuntos por Zermelo e Fraenkel, refinada para a Ciência da Computação na obra de Judith L. Gersting (<em>Fundamentos Matemáticos para a Ciência da Computação</em>, Capítulo 2).</p>
-<hr>
-<h2>2. Definições Rigorosas e Formalismo Matemático</h2>
-<h3>2.1 Produto Cartesiano e Definição Canônica de Relação Binária</h3>
-<p>Sejam $A$ e $B$ dois conjuntos arbitrários pertencentes a um universo de discurso $\mathcal{U}$.</p>
-<blockquote><p><strong>Definição (Produto Cartesiano):</strong> O produto cartesiano entre $A$ e $B$, denotado por $A \times B$, é o conjunto constituído por todos os pares ordenados cuja primeira coordenada pertence a $A$ e a segunda coordenada pertence a $B$: $$A \times B = \{ (a, b) \mid a \in A \land b \in B \}$$</p></blockquote>
-<blockquote><p><strong>Definição (Relação Binária Heterogênea):</strong> Uma <strong>relação binária</strong> $R$ de $A$ em $B$ (frequentemente denotada por $R: A \to B$ ou $R \subseteq A \times B$) é qualquer subconjunto do produto cartesiano $A \times B$: $$R \subseteq A \times B$$</p></blockquote>
-<p>Se $(a, b) \in R$, diz-se formalmente que &quot;$a$ relaciona-se com $b$ por meio de $R$&quot; e emprega-se a notação infixada clássica:</p>
-<div class="math-display">$$a \, R \, b \iff (a, b) \in R$$</div>
-<p>Reciprocamente, se o par $(a, b)$ não pertence ao subconjunto $R$, escreve-se $a \not R b$ ou $(a, b) \notin R$.</p>
-<blockquote><p><strong>Definição (Relação Binária Homogênea):</strong> Quando os conjuntos de partida e de chegada coincidem ($A = B$), diz-se que $R$ é uma <strong>relação binária sobre $A$</strong>: $$R \subseteq A \times A$$</p></blockquote>
-<h3>2.2 Domínio, Imagem e Contradomínio</h3>
-<p>Dada uma relação binária $R \subseteq A \times B$, a caracterização dos elementos efetivamente ativos na relação exige distinções precisas entre o conjunto suporte e o subconjunto de pares instanciados:</p>
-<blockquote><p><strong>Definição (Domínio):</strong> O domínio de $R$, denotado por $\operatorname{dom}(R)$ ou $\operatorname{Dom}(R)$, é o conjunto de todos os elementos de $A$ que comparecem como primeira coordenada de pelo menos um par ordenado pertencente a $R$: $$\operatorname{dom}(R) = \{ a \in A \mid \exists b \in B, \, (a, b) \in R \} \subseteq A$$</p></blockquote>
-<blockquote><p><strong>Definição (Imagem ou Alcance):</strong> A imagem (ou alcance/<em>range</em>) de $R$, denotada por $\operatorname{img}(R)$, $\operatorname{Im}(R)$ ou $\operatorname{rng}(R)$, é o conjunto de todos os elementos de $B$ que comparecem como segunda coordenada de pelo menos um par ordenado pertencente a $R$: $$\operatorname{img}(R) = \{ b \in B \mid \exists a \in A, \, (a, b) \in R \} \subseteq B$$</p></blockquote>
-<blockquote><p><strong>Definição (Contradomínio):</strong> O contradomínio de $R$ é o próprio conjunto de chegada $B$, denominado $\operatorname{codom}(R) = B$.</p></blockquote>
-<p><strong>Aviso Crítico de Exame:</strong> Enquanto $\operatorname{dom}(R)$ pode ser um subconjunto próprio de $A$ ($\operatorname{dom}(R) \subsetneq A$), e $\operatorname{img}(R)$ pode ser um subconjunto próprio de $B$ ($\operatorname{img}(R) \subsetneq B$), uma relação para a qual $\operatorname{dom}(R) = A$ é dita <strong>totalmente definida</strong> (ou simplesmente relação total). Uma função matemática $f: A \to B$ nada mais é do que um caso particular de relação binária que é total e unívoca (para cada $a \in A$, existe um único $b \in B$ tal que $(a, b) \in f$).</p>
-<h3>2.3 Formas Canônicas de Representação Estrutural</h3>
-<p>De acordo com Gersting (Capítulo 2), existem quatro representações fundamentais e mutuamente conversíveis para relações binárias finitas:</p>
-<ol><li><strong>Representação Extensional (Listagem de Pares Ordenados):</strong></li></ol>
-<p>Especificação direta dos pares pertencentes ao subconjunto:</p>
-<div class="math-display">$$R = \{ (1, 2), (1, 3), (2, 4), (3, 4) \}$$</div>
-<ol><li><strong>Matriz Booleana de Adjacência (Matriz Lógica / Zero-Um):</strong></li></ol>
-<p>Sejam $A = \{a_1, a_2, \dots, a_m\}$ e $B = \{b_1, b_2, \dots, b_n\}$ com ordenações indexadas pré-fixadas. A matriz de adjacência booleana $M_R = [m_{ij}]$ de dimensão $m \times n$ possui suas entradas definidas por:</p>
-<div class="math-display">$$m_{ij} = \begin{cases} 1, &amp; \text{se } (a_i, b_j) \in R \\ 0, &amp; \text{se } (a_i, b_j) \notin R \end{cases}$$</div>
-<p>Esta representação viabiliza a execução de algoritmos vetoriais com operações binárias bit a bit (<em>bitwise operations</em>) em processadores modernos.</p>
-<ol><li><strong>Dígrafo Direcionado (Grafo Orientado $G_R$):</strong></li></ol>
-<p>Aplicável quando $R$ é homogênea sobre $A$ ($R \subseteq A \times A$). Constrói-se um grafo dirigido $G_R = (V, E)$ no qual:</p>
-<ul><li>Os vértices correspondem aos elementos do conjunto: $V = A$.</li><li>As arestas direcionadas (arcos) representam os pares da relação: $E = R$. Uma aresta orientada sai do vértice $u$ e entra no vértice $v$ se e somente se $(u, v) \in R$.</li><li>Pares da forma $(u, u) \in R$ manifestam-se visualmente como <strong>laços reflexivos</strong> (<em>self-loops</em>).</li></ul>
-<ol><li><strong>Grafo Bipartido Direcionado:</strong></li></ol>
-<p>Aplicável para relações heterogêneas $R \subseteq A \times B$. O conjunto de vértices é particionado em duas classes disjuntas $V_1 = A$ e $V_2 = B$, com arestas direcionadas fluindo exclusivamente de $V_1$ para $V_2$.</p>
-<h3>2.4 Relação Inversa ($R^{-1}$)</h3>
-<blockquote><p><strong>Definição (Relação Inversa):</strong> Dada uma relação binária $R \subseteq A \times B$, a relação inversa de $R$, denotada por $R^{-1} \subseteq B \times A$, é o conjunto obtido pela transposição da ordem das coordenadas de cada par pertencente a $R$: $$R^{-1} = \{ (b, a) \in B \times A \mid (a, b) \in R \}$$</p></blockquote>
-<p>Propriedades imediatas da relação inversa:</p>
-<ul><li><strong>Dupla Inversão (Involução):</strong> $(R^{-1})^{-1} = R$.</li><li><strong>Permutação de Domínio e Imagem:</strong> $\operatorname{dom}(R^{-1}) = \operatorname{img}(R)$ e $\operatorname{img}(R^{-1}) = \operatorname{dom}(R)$.</li><li><strong>Transposição Matricial:</strong> A matriz booleana associada a $R^{-1}$ é a matriz transposta de $M_R$:</li></ul>
-<div class="math-display">$$M_{R^{-1}} = (M_R)^T$$</div>
-<ul><li><strong>Reversão no Dígrafo:</strong> No dígrafo orientado, obter $R^{-1}$ equivale a inverter a direção de todas as arestas direcionadas sem alterar o conjunto de vértices.</li></ul>
-<h3>2.5 Composição de Relações ($R \circ S$) e Produto Booleano</h3>
-<p>A composição é a operação que encadeia passos lógicos ou transições sucessivas entre domínios vinculados.</p>
-<blockquote><p><strong>Definição Canônica de Gersting (Composição de Relações):</strong> Sejam $R \subseteq A \times B$ e $S \subseteq B \times C$. A composição de $R$ com $S$, indicada formalmente por $R \circ S \subseteq A \times C$, consiste no conjunto de todos os pares $(a, c)$ para os quais existe pelo menos um elemento intermediário $b \in B$ que estabelece a ponte $(a, b) \in R$ e $(b, c) \in S$: $$R \circ S = \{ (a, c) \in A \times C \mid \exists b \in B, \, ((a, b) \in R \land (b, c) \in S) \}$$</p></blockquote>
-<div class="math-display">$$\begin{CD}
-A @&gt;R&gt;&gt; B @&gt;S&gt;&gt; C \\
-@. @VV{\exists b}V @. \\
-A @= {R \circ S} @&gt;&gt;&gt; C
-\end{CD}$$</div>
-<p><strong>Nota Epistemológica sobre Notações em Provas:</strong> Em livros de Álgebra Abstrata e Teoria de Categorias, utiliza-se por vezes a notação invertida $S \circ R$ para denotar a aplicação de $R$ seguida de $S$, de modo a espelhar a composição funcional clássica $(g \circ f)(x) = g(f(x))$. Contudo, na bibliografia oficial de Judith L. Gersting adotada no edital do PPGCC IFCE, adota-se a convenção diagramática direta da esquerda para a direita: <strong>$R \circ S$ significa primeiro a relação $R$, e em seguida a relação $S$</strong>.</p>
-<blockquote><p><strong>Definição (Produto Booleano de Matrizes):</strong> Sejam as matrizes booleanas $M_R \in \{0, 1\}^{m \times p}$ e $M_S \in \{0, 1\}^{p \times n}$. O produto booleano $M_R \odot M_S = M_{R \circ S} \in \{0, 1\}^{m \times n}$ tem sua entrada $(i, j)$ calculada substituindo a adição aritmética pela disjunção lógica ($\lor$) e a multiplicação aritmética pela conjunção lógica ($\land$): $$(M_{R \circ S})_{ij} = \bigvee_{k=1}^p \big( (M_R)_{ik} \wedge (M_S)_{kj} \big)$$</p></blockquote>
-<h3>2.6 Potências de Relações e Caminhos em Dígrafos</h3>
-<p>Seja $R \subseteq A \times A$ uma relação binária homogênea. Definem-se indutivamente as potências relacionais de $R$:</p>
-<ul><li><strong>Caso Base ($k=0$):</strong> $R^0 = I_A = \{ (a, a) \mid a \in A \}$ (Relação Identidade sobre $A$).</li><li><strong>Passo Unitário ($k=1$):</strong> $R^1 = R$.</li><li><strong>Passo Indutivo ($k &gt; 1$):</strong> $R^k = R^{k-1} \circ R = R \circ R^{k-1}$.</li></ul>
-<blockquote><p><strong>Interpretação Estrutural em Grafos:</strong> O par $(u, v) \in R^k$ se e somente se existe uma sequência direcionada de vértices $v_0, v_1, v_2, \dots, v_k$ em $A$ tal que $v_0 = u$, $v_k = v$ e $(v_{i-1}, v_i) \in R$ para todo $1 \le i \le k$. Em outros termos, <strong>$R^k$ descreve exatamente a existência de caminhos direcionados de comprimento exato $k$</strong> entre os vértices no dígrafo $G_R$.</p></blockquote>
-<hr>
-<h2>3. Teoremas, Propriedades Invariantes e Demonstrações</h2>
-<h3>Teorema 1: Cardinalidade do Universo de Relações Binárias</h3>
-<blockquote><p><strong>Enunciado:</strong> Sejam $A$ e $B$ conjuntos finitos não vazios com cardinalidades $|A| = m$ e $|B| = n$. 1. O número total de relações binárias possíveis de $A$ em $B$ é dado por:    $$|\mathcal{P}(A \times B)| = 2^{m \cdot n}$$ 2. Se $R$ é homogênea sobre $A$ com $|A| = n$, o número total de relações distintas sobre $A$ é:    $$|\mathcal{P}(A \times A)| = 2^{n^2}$$</p></blockquote>
-<p><strong>Demonstração Formal:</strong> Pelo princípio fundamental da contagem, a cardinalidade do produto cartesiano é o produto aritmético das cardinalidades de seus fatores:</p>
-<div class="math-display">$$|A \times B| = |A| \times |B| = m \cdot n$$</div>
-<p>Como qualquer relação binária $R$ de $A$ em $B$ é, por definição estrita, um elemento do conjunto das partes $\mathcal{P}(A \times B)$ ($R \in \mathcal{P}(A \times B)$), e dado que para qualquer conjunto finito $S$ tem-se $|\mathcal{P}(S)| = 2^{|S|}$, segue imediatamente que:</p>
-<div class="math-display">$$|\mathcal{R}(A, B)| = 2^{|A \times B|} = 2^{m \cdot n}$$</div>
-<p>Fazendo $A = B$ e $|A| = |B| = n$, obtemos $2^{n \cdot n} = 2^{n^2}$. $\blacksquare$</p>
-<hr>
-<h3>Teorema 2: Associatividade da Composição de Relações</h3>
-<blockquote><p><strong>Enunciado:</strong> Sejam $R \subseteq A \times B$, $S \subseteq B \times C$ e $T \subseteq C \times D$. A operação de composição relacional é estritamente associativa: $$(R \circ S) \circ T = R \circ (S \circ T)$$</p></blockquote>
-<p><strong>Demonstração Formal:</strong> Provaremos a igualdade demonstrando a equivalência lógica entre as condições de pertinência para um par genérico $(a, d) \in A \times D$:</p>
-<div class="math-display">$$(a, d) \in (R \circ S) \circ T$$</div>
-<p>Por definição de composição com a relação $T$, isso equivale a:</p>
-<div class="math-display">$$\exists c \in C \text{ tal que } ((a, c) \in R \circ S) \land ((c, d) \in T)$$</div>
-<p>Substituindo a definição de $(a, c) \in R \circ S$:</p>
-<div class="math-display">$$\exists c \in C \text{ tal que } \big( \exists b \in B ((a, b) \in R \land (b, c) \in S) \big) \land ((c, d) \in T)$$</div>
-<p>Pela regra lógica de escopo de quantificadores existenciais e comutatividade/associatividade da conjunção lógica ($\land$):</p>
-<div class="math-display">$$\exists b \in B \, \exists c \in C \big( (a, b) \in R \land ((b, c) \in S \land (c, d) \in T) \big)$$</div>
-<p>Agrupando os termos internos associados ao elemento intermediário $c \in C$:</p>
-<div class="math-display">$$\exists b \in B \Big( (a, b) \in R \land \big( \exists c \in C ((b, c) \in S \land (c, d) \in T) \big) \Big)$$</div>
-<p>Reconhecendo que a subexpressão interna define a pertinência $(b, d) \in S \circ T$:</p>
-<div class="math-display">$$\exists b \in B \big( (a, b) \in R \land (b, d) \in S \circ T \big)$$</div>
-<p>Pela definição de composição de $R$ com $(S \circ T)$, isso é exatamente:</p>
-<div class="math-display">$$(a, d) \in R \circ (S \circ T)$$</div>
-<p>Como a cadeia de bi-implicações $(\iff)$ foi mantida em todas as etapas, decorre a igualdade estrita dos conjuntos: $(R \circ S) \circ T = R \circ (S \circ T)$. $\blacksquare$</p>
-<hr>
-<h3>Teorema 3: Inversão da Composição Relacional (Propriedade Anti-Distribuição)</h3>
-<blockquote><p><strong>Enunciado:</strong> Sejam $R \subseteq A \times B$ e $S \subseteq B \times C$. A relação inversa da composição inverte a ordem dos fatores composicionais: $$(R \circ S)^{-1} = S^{-1} \circ R^{-1}$$</p></blockquote>
-<p><strong>Demonstração Formal:</strong> Seja $(c, a) \in C \times A$ um par ordenado arbitrário. Aplicamos sequencialmente as definições formais:</p>
-<div class="math-display">$$(c, a) \in (R \circ S)^{-1} \iff (a, c) \in R \circ S$$</div>
-<p>Pela definição de composição de $R$ com $S$:</p>
-<div class="math-display">$$\iff \exists b \in B \text{ tal que } (a, b) \in R \land (b, c) \in S$$</div>
-<p>Pela comutatividade do operador lógico conjunção ($\land$):</p>
-<div class="math-display">$$\iff \exists b \in B \text{ tal que } (b, c) \in S \land (a, b) \in R$$</div>
-<p>Pela definição de relação inversa aplicada a cada predicado atômico:</p>
-<div class="math-display">$$\iff \exists b \in B \text{ tal que } (c, b) \in S^{-1} \land (b, a) \in R^{-1}$$</div>
-<p>Por definição de composição relacional entre $S^{-1} \subseteq C \times B$ e $R^{-1} \subseteq B \times A$:</p>
-<div class="math-display">$$\iff (c, a) \in S^{-1} \circ R^{-1}$$</div>
-<p>Conclui-se que $(R \circ S)^{-1} = S^{-1} \circ R^{-1}$. $\blacksquare$</p>
-<p><em>Corolário Matricial:</em> Na álgebra linear booleana, esta propriedade reflete com rigor a identidade de transposição de produtos matriciais:</p>
-<div class="math-display">$$M_{(R \circ S)^{-1}} = (M_{R \circ S})^T = (M_R \odot M_S)^T = M_S^T \odot M_R^T = M_{S^{-1}} \odot M_{R^{-1}}$$</div>
-<hr>
-<h3>Teorema 4: Distributividade sobre União e Inclusão na Interseção</h3>
-<blockquote><p><strong>Enunciado:</strong> Sejam $R \subseteq A \times B$, e sejam $S_1, S_2 \subseteq B \times C$. Então: 1. A composição distribui-se perfeitamente sobre a união:    $$R \circ (S_1 \cup S_2) = (R \circ S_1) \cup (R \circ S_2)$$ 2. A composição distribui-se apenas na forma de subconjunto (inclusão direta) sobre a interseção:    $$R \circ (S_1 \cap S_2) \subseteq (R \circ S_1) \cap (R \circ S_2)$$    <em>(A inclusão pode ser estrita; a igualdade plena não se sustenta em geral).</em></p></blockquote>
-<p><strong>Demonstração do Item 2 e Contraexemplo:</strong> Se $(a, c) \in R \circ (S_1 \cap S_2)$, então $\exists b \in B$ tal que $(a, b) \in R$ e $(b, c) \in S_1 \cap S_2$. Logo, $(a, b) \in R \land (b, c) \in S_1 \implies (a, c) \in R \circ S_1$. Analogamente, $(a, b) \in R \land (b, c) \in S_2 \implies (a, c) \in R \circ S_2$. Assim, $(a, c) \in (R \circ S_1) \cap (R \circ S_2)$, demonstrando a inclusão $\subseteq$.</p>
-<p><em>Contraexemplo para a igualdade reversa:</em> Sejam $A = \{1\}$, $B = \{b_1, b_2\}$, $C = \{c\}$. Definamos $R = \{(1, b_1), (1, b_2)\}$, $S_1 = \{(b_1, c)\}$ e $S_2 = \{(b_2, c)\}$.</p>
-<ul><li>Note que $S_1 \cap S_2 = \emptyset$, logo $R \circ (S_1 \cap S_2) = R \circ \emptyset = \emptyset$.</li><li>Por outro lado, $R \circ S_1 = \{(1, c)\}$ e $R \circ S_2 = \{(1, c)\}$.</li><li>Logo, $(R \circ S_1) \cap (R \circ S_2) = \{(1, c)\} \neq \emptyset$.</li></ul>
-<p>Portanto, $R \circ (S_1 \cap S_2) \subsetneq (R \circ S_1) \cap (R \circ S_2)$. $\blacksquare$</p>
-<hr>
-<h3>Teorema 5: Preservação de Domínio e Imagem sob Álgebra Booleana</h3>
-<blockquote><p><strong>Enunciado:</strong> Dadas relações $R_1, R_2 \subseteq A \times B$: 1. $\operatorname{dom}(R_1 \cup R_2) = \operatorname{dom}(R_1) \cup \operatorname{dom}(R_2)$ e $\operatorname{img}(R_1 \cup R_2) = \operatorname{img}(R_1) \cup \operatorname{img}(R_2)$. 2. $\operatorname{dom}(R_1 \cap R_2) \subseteq \operatorname{dom}(R_1) \cap \operatorname{dom}(R_2)$ e $\operatorname{img}(R_1 \cap R_2) \subseteq \operatorname{img}(R_1) \cap \operatorname{img}(R_2)$.</p></blockquote>
-<p><strong>Demonstração da Inclusão e Contraexemplo:</strong> Se $x \in \operatorname{dom}(R_1 \cap R_2)$, existe $y \in B$ tal que $(x, y) \in R_1 \cap R_2$. Logo $(x, y) \in R_1 \implies x \in \operatorname{dom}(R_1)$ e $(x, y) \in R_2 \implies x \in \operatorname{dom}(R_2)$. Assim, $x \in \operatorname{dom}(R_1) \cap \operatorname{dom}(R_2)$. <em>Contraexemplo da Igualdade:</em> Sejam $R_1 = \{(1, a)\}$ e $R_2 = \{(1, b)\}$ com $a \neq b$. Temos $\operatorname{dom}(R_1) = \{1\}$ e $\operatorname{dom}(R_2) = \{1\}$, portanto $\operatorname{dom}(R_1) \cap \operatorname{dom}(R_2) = \{1\}$. Todavia, $R_1 \cap R_2 = \emptyset$, o que implica $\operatorname{dom}(R_1 \cap R_2) = \emptyset \neq \{1\}$. $\blacksquare$</p>
-<hr>
-<h2>4. Exemplos Computacionais e Diagramas</h2>
-<h3>Exemplo 1: Composição de Relações e Multiplicação Booleana de Matrizes</h3>
-<p>Sejam $A = \{1, 2, 3\}$, $B = \{a, b, c\}$ e $C = \{x, y, z\}$. Considere as relações binárias:</p>
-<div class="math-display">$$R = \{ (1, a), (1, b), (2, c), (3, b) \} \subseteq A \times B$$</div>
-<div class="math-display">$$S = \{ (a, y), (b, x), (b, z), (c, x) \} \subseteq B \times C$$</div>
-<p><strong>Construção das Matrizes Booleanas:</strong></p>
-<div class="math-display">$$M_R = \begin{pmatrix}
-1 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 1 \\
-0 &amp; 1 &amp; 0
-\end{pmatrix}_{\begin{subarray}{l} 1 \\ 2 \\ 3 \end{subarray} \times \{a, b, c\}}, \quad
-M_S = \begin{pmatrix}
-0 &amp; 1 &amp; 0 \\
-1 &amp; 0 &amp; 1 \\
-1 &amp; 0 &amp; 0
-\end{pmatrix}_{\begin{subarray}{l} a \\ b \\ c \end{subarray} \times \{x, y, z\}}$$</div>
-<p><strong>Cálculo do Produto Booleano $M_{R \circ S} = M_R \odot M_S$:</strong></p>
-<ul><li><strong>Linha 1:</strong></li><li>$(M_{R \circ S})_{11} = (1 \land 0) \lor (1 \land 1) \lor (0 \land 1) = 0 \lor 1 \lor 0 = 1$</li><li>$(M_{R \circ S})_{12} = (1 \land 1) \lor (1 \land 0) \lor (0 \land 0) = 1 \lor 0 \lor 0 = 1$</li><li>$(M_{R \circ S})_{13} = (1 \land 0) \lor (1 \land 1) \lor (0 \land 0) = 0 \lor 1 \lor 0 = 1$</li><li><strong>Linha 2:</strong></li><li>$(M_{R \circ S})_{21} = (0 \land 0) \lor (0 \land 1) \lor (1 \land 1) = 0 \lor 0 \lor 1 = 1$</li><li>$(M_{R \circ S})_{22} = (0 \land 1) \lor (0 \land 0) \lor (1 \land 0) = 0 \lor 0 \lor 0 = 0$</li><li>$(M_{R \circ S})_{23} = (0 \land 0) \lor (0 \land 1) \lor (1 \land 0) = 0 \lor 0 \lor 0 = 0$</li><li><strong>Linha 3:</strong></li><li>$(M_{R \circ S})_{31} = (0 \land 0) \lor (1 \land 1) \lor (0 \land 1) = 0 \lor 1 \lor 0 = 1$</li><li>$(M_{R \circ S})_{32} = (0 \land 1) \lor (1 \land 0) \lor (0 \land 0) = 0 \lor 0 \lor 0 = 0$</li><li>$(M_{R \circ S})_{33} = (0 \land 0) \lor (1 \land 1) \lor (0 \land 0) = 0 \lor 1 \lor 0 = 1$</li></ul>
-<p>Resultado Matricial:</p>
-<div class="math-display">$$M_{R \circ S} = \begin{pmatrix}
-1 &amp; 1 &amp; 1 \\
-1 &amp; 0 &amp; 0 \\
-1 &amp; 0 &amp; 1
-\end{pmatrix}$$</div>
-<p>Correspondência Extensional:</p>
-<div class="math-display">$$R \circ S = \{ (1, x), (1, y), (1, z), (2, x), (3, x), (3, z) \}$$</div>
-<hr>
-<h3>Exemplo 2: Dígrafo Direcionado, Ciclos e Potências Relacionais</h3>
-<p>Seja $A = \{1, 2, 3, 4\}$ e a relação homogênea sobre $A$:</p>
-<div class="math-display">$$R = \{ (1, 2), (2, 3), (3, 4), (4, 2) \}$$</div>
-<div class="visual-diagram-card">
+      <h2>3. Anatomia Visual: Diagrama Vetorial Nativo</h2>
+      <p class="hub-muted">Inspeção espacial sem Mermaid e sem texto desformatado (ADR 0008).</p>
+      <div class="visual-diagram-card">
   <div class="diagram-header">
     <span class="diagram-tag">FIGURA 2.1 — TOPOLOGIA DIRECIONADA</span>
     <h4 class="diagram-title">Dígrafo da Relação Binária R = {(1,2), (2,3), (3,4), (4,2)}</h4>
@@ -225,94 +173,90 @@ M_S = \begin{pmatrix}
   </div>
   <p class="diagram-caption">Vértice 1 possui apenas grau de saída (fonte). O ciclo direcionado 2 → 3 → 4 → 2 evidencia caminhos múltiplos e não-antissimetria.</p>
 </div>
-<p>O dígrafo apresenta uma aresta de entrada $1 \to 2$ e um ciclo direcionado de comprimento 3 envolvendo os vértices $\{2, 3, 4\}$.</p>
-<ul><li><strong>Cálculo de $R^2$ (caminhos de comprimento 2):</strong></li><li>$1 \to 2 \to 3 \implies (1, 3)$</li><li>$2 \to 3 \to 4 \implies (2, 4)$</li><li>$3 \to 4 \to 2 \implies (3, 2)$</li><li>$4 \to 2 \to 3 \implies (4, 3)$</li></ul>
-<div class="math-display">$$R^2 = \{ (1, 3), (2, 4), (3, 2), (4, 3) \}$$</div>
-<ul><li><strong>Cálculo de $R^3$ (caminhos de comprimento 3):</strong></li><li>$1 \to 3 \to 4 \implies (1, 4)$</li><li>$2 \to 4 \to 2 \implies (2, 2)$ <em>(Laço reflexivo gerado pelo ciclo de período 3)</em></li><li>$3 \to 2 \to 3 \implies (3, 3)$ <em>(Laço reflexivo)</em></li><li>$4 \to 3 \to 4 \implies (4, 4)$ <em>(Laço reflexivo)</em></li></ul>
-<div class="math-display">$$R^3 = \{ (1, 4), (2, 2), (3, 3), (4, 4) \}$$</div>
-<p>A matriz booleana $M_{R^3}$ evidencia laços reflexivos na diagonal principal para os nós do ciclo:</p>
-<div class="math-display">$$M_{R^3} = \begin{pmatrix}
-0 &amp; 0 &amp; 0 &amp; 1 \\
-0 &amp; 1 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{pmatrix}$$</div>
-<p>Observe que $(1, 1) \notin R^3$, pois o vértice $1$ possui grau de entrada zero ($\operatorname{grau}_{in}(1) = 0$).</p>
-<hr>
-<h3>Exemplo 3: Implementação Computacional do Produto Booleano (Python)</h3>
-<pre class="code-block"><code class="language-python">from typing import List, Tuple, Set
+    </section>
 
-def boolean_matrix_multiply(
-    M_R: List[List[int]], 
-    M_S: List[List[int]]
-) -&gt; List[List[int]]:
-    # Calcula o produto booleano M_R e M_S de duas matrizes lógicas
-    rows = len(M_R)
-    cols = len(M_S[0])
-    inner_dim = len(M_S)
+    <!-- 7. Laboratório Interativo Tátil -->
+    <section aria-label="Pilar Interativo — Laboratório Tátil">
+      <h2>4. Laboratório Interativo: Manipulação em Tempo Real</h2>
+      <p class="hub-muted">Clique nos controles para experimentar o comportamento da estrutura e visualizar os estados.</p>
+      <div class="interactive-card">
+        <div id="lesson-widget-2"></div>
+      </div>
+    </section>
+
+    <!-- 8. Pegadinhas de Concurso -->
+    <section aria-label="Pegadinhas da Banca">
+      <h2>5. Armadilhas Clássicas da Banca Examinadora</h2>
+      
+<div class="trap-box">
+  <strong style="display:block; margin-bottom:4px;">[Cuidado com a Pegadinha da Banca]: Confundir Número de Pares com Número de Relações</strong>
+  <div>Se $|A| = 3$, o produto cartesiano $A \times A$ possui $3 \times 3 = 9$ pares ordenados. Mas o número de RELAÇÕES distintas possíveis NÃO É 9: é $2^9 = 512$ relações! Uma relação é QUALQUER subconjunto dos pares.</div>
+</div>
+
+    </section>
+
+    <!-- 9. Active Retrieval (Retenção Imediata da Aula) -->
     
-    # Inicializa matriz resultante zerada
-    result = [[0 for _ in range(cols)] for _ in range(rows)]
-    
-    for i in range(rows):
-        for j in range(cols):
-            val = 0
-            for k in range(inner_dim):
-                if M_R[i][k] and M_S[k][j]:
-                    val = 1
-                    break  # Curto-circuito lógico para or booleano
-            result[i][j] = val
-    return result
+<section class="quiz-section" aria-label="Active Retrieval — Retenção Imediata">
+  <h2>Active Retrieval — Fixação Imediata da Aula</h2>
+  <p class="hub-muted">Quatro perguntas de verificação imediata para checar se os conceitos e fórmulas se assentaram na sua mente antes de praticar na banca de concurso.</p>
+  
+<div class="question-block" id="q1">
+  <div class="question-title"><strong>Questão de Retenção 1 de 4:</strong> Sejam A = {1, 2} e B = {x, y}. Qual dos seguintes conjuntos NÃO representa uma relação binária válida de A em B?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'A')"><strong>A)</strong> R = ∅</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'B')"><strong>B)</strong> R = {(1, x), (2, y)}</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'C')"><strong>C)</strong> R = {(1, x), (x, 1)}</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'D')"><strong>D)</strong> R = {(1, x), (1, y), (2, x), (2, y)}</button>
+  </div>
+  <div class="feedback-box" id="fb-1"></div>
+</div>
 
-def compose_relations(
-    R: Set[Tuple[any, any]], 
-    S: Set[Tuple[any, any]]
-) -&gt; Set[Tuple[any, any]]:
-    # Composição relacional exata baseada na definição existencial
-    composite = set()
-    for a, b1 in R:
-        for b2, c in S:
-            if b1 == b2:
-                composite.add((a, c))
-    return composite</code></pre>
-<hr>
-<h2>5. Armadilhas de Banca e Corner Cases</h2>
-<p>As bancas examinadoras de mestrado em Ciência da Computação (em especial para o PPGCC IFCE) exploram sistematicamente as seguintes vulnerabilidades conceituais dos candidatos:</p>
-<h3>Armadilha 1: Confundir $2^{n^2}$ com $2^{2n}$ ou com $n^2$</h3>
-<ul><li><strong>O Erro:</strong> Calcular o número de relações binárias sobre um conjunto de $n$ elementos como $(2^n)^2 = 2^{2n}$ ou como $n^2$.</li><li><strong>A Verdade:</strong> O número de pares possíveis em $A \times A$ é $n^2$. Logo, o número de subconjuntos possíveis (relações) é o conjunto das partes de $A \times A$, resultando estritamente em $2^{n^2}$.</li><li><strong>Comparativo:</strong></li><li>Para $n = 3$: $n^2 = 9$, $2^{2n} = 2^6 = 64$, enquanto $2^{n^2} = 2^9 = 512$ relações.</li><li>Para $n = 4$: $n^2 = 16$, $2^{2n} = 2^8 = 256$, enquanto $2^{n^2} = 2^{16} = 65.536$ relações.</li></ul>
-<h3>Armadilha 2: A Não-Comutatividade da Composição e a Ordem da Inversão</h3>
-<ul><li><strong>O Erro:</strong> Escrever $(R \circ S)^{-1} = R^{-1} \circ S^{-1}$ por falsa analogia com propriedades de produtos escalares ou união.</li><li><strong>A Verdade:</strong> $(R \circ S)^{-1} = S^{-1} \circ R^{-1}$. Se $R \subseteq A \times B$ e $S \subseteq B \times C$, então $R^{-1} \subseteq B \times A$ e $S^{-1} \subseteq C \times B$. O produto $R^{-1} \circ S^{-1}$ sequer está definido se $A \neq C$, pois o conjunto de chegada de $R^{-1}$ é $A$, enquanto o conjunto de partida de $S^{-1}$ é $C$.</li></ul>
-<h3>Armadilha 3: A Falácia da Distributividade Perfeita da Interseção no Domínio</h3>
-<ul><li><strong>O Erro:</strong> Assumir que $\operatorname{dom}(R_1 \cap R_2) = \operatorname{dom}(R_1) \cap \operatorname{dom}(R_2)$.</li><li><strong>A Verdade:</strong> A relação válida é estritamente $\operatorname{dom}(R_1 \cap R_2) \subseteq \operatorname{dom}(R_1) \cap \operatorname{dom}(R_2)$. Se $R_1 = \{(x, y_1)\}$ e $R_2 = \{(x, y_2)\}$ com $y_1 \neq y_2$, temos $R_1 \cap R_2 = \emptyset \implies \operatorname{dom}(R_1 \cap R_2) = \emptyset$. Contudo, $\operatorname{dom}(R_1) = \{x\}$ e $\operatorname{dom}(R_2) = \{x\}$, logo $\operatorname{dom}(R_1) \cap \operatorname{dom}(R_2) = \{x\} \neq \emptyset$.</li></ul>
-<h3>Armadilha 4: O Caso Limite da Relação Vazia ($\emptyset$)</h3>
-<ul><li><strong>Propriedade:</strong> O conjunto vazio $\emptyset$ é uma relação binária válida para quaisquer conjuntos $A$ e $B$ ($\emptyset \subseteq A \times B$).</li><li><strong>Características:</strong></li><li>$\operatorname{dom}(\emptyset) = \emptyset$ e $\operatorname{img}(\emptyset) = \emptyset$.</li><li>A matriz booleana associada $M_\emptyset$ é a matriz de zeros.</li><li>Elemento absorvente da composição: $\emptyset \circ R = \emptyset$ e $R \circ \emptyset = \emptyset$.</li><li>Inversa da relação vazia: $\emptyset^{-1} = \emptyset$.</li></ul>
-<h3>Armadilha 5: A Relação Identidade como Elemento Neutro</h3>
-<ul><li>Seja $I_A = \{ (a, a) \mid a \in A \}$. Para qualquer relação $R \subseteq A \times B$:</li></ul>
-<div class="math-display">$$I_A \circ R = R \quad \text{e} \quad R \circ I_B = R$$</div>
-<ul><li>A matriz associada a $I_A$ é a matriz identidade $I_{n \times n}$, cuja diagonal principal é preenchida por 1s e todas as demais entradas são 0s.</li></ul>
-<hr>
-<h2>6. Aplicação na Ciência da Computação</h2>
-<h3>6.1 Fundamentação da Álgebra Relacional de Codd (SGBDs)</h3>
-<p>No modelo relacional, uma tabela de banco de dados é formalizada como uma relação matemática $R \subseteq D_1 \times D_2 \times \dots \times D_k$. Quando restringida a duas colunas (como no caso de tabelas associativas Many-to-Many entre <code>Aluno</code> e <code>Disciplina</code>), as consultas SQL baseadas em junção <code>JOIN</code> com cláusulas <code>ON</code> correspondem exatamente à composição relacional:</p>
-<div class="math-display">$$\text{Aluno} \bowtie_{\text{id\_curso}} \text{Curso} \equiv \operatorname{Aluno} \circ \operatorname{Curso}$$</div>
-<p>A verificação de integridade referencial por chave estrangeira (<em>Foreign Key</em>) exige formalmente que $\operatorname{img}(R) \subseteq \operatorname{dom}(S)$.</p>
-<h3>6.2 Análise de Fluxo de Dados e Compiladores</h3>
-<p>Em compiladores otimizadores (como LLVM e GCC), as análises de variáveis vivas (<em>liveness analysis</em>) e expressões disponíveis utilizam a relação de dominância $DOM \subseteq V \times V$ sobre o Grafo de Fluxo de Controle:</p>
-<div class="math-display">$$u \, DOM \, v \iff \text{todo caminho da entrada até } v \text{ passa por } u$$</div>
-<p>A transitividade da dominância e o cálculo de caminhos utilizam diretamente o fechamento transitivo de relações obtido por somas booleanas de potências $R^+ = \bigcup_{k=1}^n R^k$.</p>
-<h3>6.3 Sistemas Concorrentes e Redes de Petri</h3>
-<p>A modelagem de sistemas concorrentes depende de relações de dependência causal. No modelo de Leslie Lamport, a relação <em>happens-before</em> ($\to$) sobre o conjunto de eventos de um sistema distribuído é definida recursivamente:</p>
-<ol><li>Se os eventos $a$ e $b$ ocorrem no mesmo processo e $a$ precede $b$, então $a \to b$.</li><li>Se $a$ é o envio de uma mensagem e $b$ é o seu recebimento, então $a \to b$.</li><li>Se $a \to b$ e $b \to c$, então $a \to c$ (Fechamento composicional transitivo).</li></ol>
-    </article>
+<div class="question-block" id="q2">
+  <div class="question-title"><strong>Questão de Retenção 2 de 4:</strong> Seja o conjunto S = {1, 2, 3}. Quantas relações binárias homogêneas distintas podem ser definidas sobre S?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'A')"><strong>A)</strong> 9 relações.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'B')"><strong>B)</strong> 27 relações.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'C')"><strong>C)</strong> 512 relações.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'D')"><strong>D)</strong> 1024 relações.</button>
+  </div>
+  <div class="feedback-box" id="fb-2"></div>
+</div>
 
+<div class="question-block" id="q3">
+  <div class="question-title"><strong>Questão de Retenção 3 de 4:</strong> Seja a relação R = {(1, 4), (2, 3), (3, 2), (4, 1)} sobre o conjunto A = {1, 2, 3, 4}. Qual é o Domínio dom(R) e a Imagem img(R)?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'A')"><strong>A)</strong> dom(R) = {1, 2} e img(R) = {3, 4}</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'B')"><strong>B)</strong> dom(R) = {1, 2, 3, 4} e img(R) = {1, 2, 3, 4}</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'C')"><strong>C)</strong> dom(R) = {4, 3, 2, 1} e img(R) = {5}</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'D')"><strong>D)</strong> dom(R) = ∅ e img(R) = A x A</button>
+  </div>
+  <div class="feedback-box" id="fb-3"></div>
+</div>
+
+<div class="question-block" id="q4">
+  <div class="question-title"><strong>Questão de Retenção 4 de 4:</strong> Em uma matriz booleana de adjacência M_R de dimensão n x n, o que indica quando TODOS os elementos da diagonal principal são iguais a 1 (M[i, i] = 1 para todo i)?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'A')"><strong>A)</strong> Que a relação é simétrica.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'B')"><strong>B)</strong> Que todo vértice do dígrafo possui um laço apontando para si mesmo (relação reflexiva).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'C')"><strong>C)</strong> Que o grafo não possui ciclos.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'D')"><strong>D)</strong> Que a relação é vazia.</button>
+  </div>
+  <div class="feedback-box" id="fb-4"></div>
+</div>
+
+  <div class="score-banner" id="score-box" style="display:none;">
+    <div id="score-text"></div>
+  </div>
+</section>
+
+
+    <!-- 10. Card Próxima Parada -->
+    <div class="next-step-card">
+      <h3>Próxima Parada</h3>
+      <p>Agora que sabemos que relações são dígrafos e matrizes, analisaremos os padrões que governam esses vínculos: reflexividade, simetria, antissimetria e transitividade nas Propriedades das Relações!</p>
+      <div style="margin-top: 1rem;">
+        <a class="hub-btn-secondary hub-btn-sm" href="./0003-propriedades-das-relacoes.html">Próxima Aula</a>
+      </div>
+    </div>
+
+    <!-- 11. Conclusão e CTA para a Banca de Questões -->
     <section class="lesson-footer-cta" aria-label="Conclusão e Prática de Questões">
       <div>
-        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico</strong>
+        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico no Banco</strong>
         <span class="hub-muted" id="lesson-q-status">Carregando questões deste tópico no Banco...</span>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
         <button type="button" class="hub-btn-secondary" id="lesson-toggle-read-btn">Marcar aula como concluída</button>
-        <a class="hub-btn-primary" href="../questoes.html?topico=2" id="lesson-practice-btn">Praticar questões desta aula</a>
+        <a class="hub-btn-primary" href="../questoes.html?topico=2" id="lesson-practice-btn">Praticar questões desta aula na banca</a>
       </div>
     </section>
 
@@ -348,6 +292,76 @@ def compose_relations(
         });
       }
 
+      // --- Active Retrieval Engine ---
+      const activeGabarito = {"1": "C", "2": "C", "3": "B", "4": "B"};
+      const activeExplanations = {"1": {"correct": "Exato! Em uma rela\u00e7\u00e3o de A em B, o primeiro elemento do par DEVE pertencer a A ({1, 2}) e o segundo DEVE pertencer a B ({x, y}). O par (x, 1) tem x na primeira posi\u00e7\u00e3o, violando a defini\u00e7\u00e3o de A x B!", "incorrect": "Aten\u00e7\u00e3o: uma rela\u00e7\u00e3o de A em B s\u00f3 pode conter pares onde a primeira coordenada vem de A e a segunda vem de B. O par (x, 1) inverteu a ordem, pertencendo a B x A, n\u00e3o a A x B."}, "2": {"correct": "Perfeito! O produto cartesiano S x S possui 3 x 3 = 9 pares ordenados. Como qualquer subconjunto desse espa\u00e7o \u00e9 uma rela\u00e7\u00e3o, o total de rela\u00e7\u00f5es \u00e9 a cardinalidade das partes: 2^9 = 512 rela\u00e7\u00f5es distintas.", "incorrect": "Cuidado com o c\u00e1lculo: 9 \u00e9 apenas a quantidade de pares ordenados. O n\u00famero de rela\u00e7\u00f5es poss\u00edveis \u00e9 2 elevado ao total de pares: 2^(3 x 3) = 2^9 = 512."}, "3": {"correct": "Excelente! O Dom\u00ednio \u00e9 o conjunto das primeiras coordenadas: {1, 2, 3, 4}. A Imagem \u00e9 o conjunto das segundas coordenadas: {4, 3, 2, 1} = {1, 2, 3, 4}. Ambos coincidem com o conjunto A inteiro!", "incorrect": "Incorreto. O Dom\u00ednio re\u00fane todos os elementos que aparecem como primeiro item do par (1, 2, 3, 4) e a Imagem re\u00fane os que aparecem como segundo item (4, 3, 2, 1). Ambos s\u00e3o iguais a {1, 2, 3, 4}."}, "4": {"correct": "Brilhante! O elemento M[i, i] representa o par (i, i). Se todos s\u00e3o 1, significa que todo elemento possui um la\u00e7o apontando para si mesmo no d\u00edgrafo. Essa \u00e9 a defini\u00e7\u00e3o exata de Reflexividade!", "incorrect": "Incorreto. A diagonal principal M[i, i] conecta o v\u00e9rtice i a ele pr\u00f3prio: (i, i). Ter 1 em toda a diagonal significa que todo n\u00f3 tem um la\u00e7o, o que caracteriza a Reflexividade."}};
+      const userAnswers = {};
+
+      window.submitActiveRetrieval = function (qNum, opt) {
+        userAnswers[qNum] = opt;
+        const block = document.getElementById('q' + qNum);
+        const items = block.querySelectorAll('.option-item');
+        const fb = document.getElementById('fb-' + qNum);
+        const correctOpt = activeGabarito[qNum];
+
+        items.forEach(function (btn) {
+          btn.classList.remove('correct', 'incorrect');
+          const text = btn.textContent.trim();
+          if (text.startsWith(opt + ')')) {
+            if (opt === correctOpt) btn.classList.add('correct');
+            else btn.classList.add('incorrect');
+          }
+          if (text.startsWith(correctOpt + ')')) {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (opt === correctOpt) {
+          fb.className = 'feedback-box correct';
+          fb.innerHTML = '<strong>[Correto!]</strong> ' + activeExplanations[qNum].correct;
+        } else {
+          fb.className = 'feedback-box incorrect';
+          fb.innerHTML = '<strong>[Incorreto]</strong> ' + activeExplanations[qNum].incorrect;
+        }
+
+        if (window.renderMathInElement) {
+          renderMathInElement(fb, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+
+        updateActiveScore();
+      };
+
+      function updateActiveScore() {
+        const keys = Object.keys(userAnswers);
+        if (keys.length === 4) {
+          let hits = 0;
+          for (let i = 1; i <= 4; i++) {
+            if (userAnswers[i] === activeGabarito[i]) hits++;
+          }
+          const box = document.getElementById('score-box');
+          const txt = document.getElementById('score-text');
+          box.style.display = 'block';
+
+          if (hits === 4) {
+            box.style.background = '#14532d';
+            txt.innerHTML = '<strong>Sensacional: 4 de 4 acertos (100%)!</strong> Você absorveu perfeitamente a essência deste conceito. Seu cérebro está pronto para encarar as pegadinhas da banca!';
+          } else if (hits >= 2) {
+            box.style.background = '#1e3a8a';
+            txt.innerHTML = '<strong>Bom desempenho: ' + hits + ' de 4 acertos.</strong> Revise as explicações das questões onde você hesitou para consolidar o vocabulário formal.';
+          } else {
+            box.style.background = '#7c2d12';
+            txt.innerHTML = '<strong>Você acertou ' + hits + ' de 4.</strong> Leia com atenção os gabaritos comentados acima antes de seguir para o banco de questões.';
+          }
+        }
+      }
+
+      // --- Store & Progress Integration ---
       const toggleBtn = document.getElementById('lesson-toggle-read-btn');
       const statusEl = document.getElementById('lesson-q-status');
 
@@ -360,7 +374,7 @@ def compose_relations(
           const topicQs = window.PPGCC_DATA.questoes.filter((q) => q.topico_id === TOPICO_ID);
           const answers = store.getState().answers || {};
           const solved = topicQs.filter((q) => Boolean(answers[q.id])).length;
-          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico (' + solved + ' resolvidas).';
+          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico no Banco (' + solved + ' resolvidas).';
         }
       }
 

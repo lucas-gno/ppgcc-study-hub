@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 04: Relações de Equivalência · PPGCC IFCE</title>
+  <title>Aula 04: Relações de Equivalência — A Tríade da Agrupabilidade Perfeita · PPGCC IFCE</title>
   <link rel="stylesheet" href="../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -12,8 +12,8 @@
     <div class="hub-page-header">
       <div>
         <div class="hub-eyebrow">Fase 1 · Tópico 04 de 37 · Tempo estimado: 45 min</div>
-        <h1 class="hub-title">Relações de Equivalência</h1>
-        <p class="hub-subtitle">Didática Zero Base com Tradução Tríplice, Pilar Visual (SVG) e Manipulação Interativa.</p>
+        <h1 class="hub-title">Relações de Equivalência — A Tríade da Agrupabilidade Perfeita</h1>
+        <p class="hub-subtitle">Reflexiva + Simétrica + Transitiva: o critério universal para classificar e agrupar sem ambiguidades.</p>
       </div>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a class="hub-btn-secondary hub-btn-sm" href="../edital.html">Edital</a>
@@ -21,159 +21,104 @@
       </div>
     </div>
 
-    <section aria-label="Nivelamento Zero Base">
-      <div class="como-se-le"><strong>Tradução Tríplice (Zero Base) — Como se Lê e Analogia Prática</strong><p><strong>$a \equiv b \pmod{m} \iff m \mid (a - b)$:</strong> Lê-se 'a é congruente a b módulo m se, e somente se, m divide a diferença a - b'. Analogia: dois horários no relógio de 12 horas (21h e 9h) apontam para o mesmo ponteiro porque $12 \mid (21 - 9)$.</p><p><strong>Tríade de Equivalência:</strong> Toda relação que é simultaneamente <strong>Reflexiva + Simétrica + Transitiva</strong> funciona como um critério de agrupamento perfeito (como $|x|=|y|$ na Q18 da Prova 53/2025).</p></div>
-    </section>
-
-    <section aria-label="Pilar Visual — Diagrama Vetorial">
-      <h2>Representação Visual</h2>
-      <div class="diagram-container"><svg viewBox="0 0 600 200" width="100%" height="auto" role="img" aria-label="Relógio Modular Z5 e Grupos de Equivalência"><rect x="12" y="12" width="576" height="176" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/><text x="28" y="34" font-size="12" font-weight="600" fill="#334155">Relógio Aritmético Módulo 5: Congruência como Equivalência</text><circle cx="150" cy="112" r="58" fill="#ffffff" stroke="#0071e3" stroke-width="2"/><text x="150" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">0 (5, 10)</text><text x="200" y="98" text-anchor="middle" font-size="11.5" font-weight="600" fill="#334155">1 (6, 11)</text><text x="182" y="152" text-anchor="middle" font-size="11.5" font-weight="600" fill="#334155">2 (7, 12)</text><text x="118" y="152" text-anchor="middle" font-size="11.5" font-weight="600" fill="#334155">3 (8, 13)</text><text x="100" y="98" text-anchor="middle" font-size="11.5" font-weight="600" fill="#334155">4 (9, 14)</text><rect x="290" y="54" width="276" height="114" rx="10" fill="#ffffff" stroke="#e2e8f0"/><text x="306" y="78" font-size="12" font-weight="600" fill="#0f172a">Teste da Tríade em |x| = |y| (Prova 2025 Q18):</text><text x="306" y="102" font-size="11.5" fill="#15803d">1. Reflexiva: |x| = |x| (sempre verdadeiro)</text><text x="306" y="124" font-size="11.5" fill="#15803d">2. Simétrica: |x|=|y| -> |y|=|x| (verdadeiro)</text><text x="306" y="146" font-size="11.5" fill="#15803d">3. Transitiva: |x|=|y| e |y|=|z| -> |x|=|z|</text></svg></div>
-    </section>
-
-    <section aria-label="Pilar Interativo — Laboratório Tátil">
-      <h2>Laboratório Interativo</h2>
-      <div id="lesson-widget-4"></div>
-    </section>
-
-    <article class="lesson-content">
-      <h2>1. Visão Geral e Contexto Formal</h2>
-<p>Na Ciência da Computação e na Matemática Discreta, a abstração é a ferramenta conceitual mais poderosa para mitigar a complexidade intrínseca de sistemas de grande escala. Frequentemente, manipulamos universos de dados contendo milhares ou infinitos elementos concretos — tais como sequências de caracteres de uma linguagem formal, estados de um autômato, ponteiros em memória, classes de um sistema orientado a objetos ou números inteiros em algoritmos criptográficos.</p>
-<p>No entanto, sob um determinado objetivo analítico, muitos desses elementos exibem comportamentos idênticos ou intercambiáveis. O formalismo de <strong>Relação de Equivalência</strong> (introduzido rigorosamente por Judith L. Gersting no Capítulo 2 de <em>Fundamentos Matemáticos para a Ciência da Computação</em>) estabelece a fundamentação algébrica para o processo de <strong>quocientação</strong>: o agrupamento sistemático de entidades que compartilham uma dada invariante em blocos homogêneos, denominados <strong>classes de equivalência</strong>.</p>
-<p>Ao substituir elementos individuais por suas respectivas classes de equivalência, alcançamos:</p>
-<ul><li><strong>Redução de Espaço de Estados</strong>: Minimização de autômatos finitos determinísticos (AFD) via classes de indistinguibilidade de Myhill-Nerode.</li><li><strong>Estruturas Quocientes</strong>: Aritmética modular $\mathbb{Z}_n$, base da criptografia moderna (RSA, ElGamal, ECC).</li><li><strong>Particionamento Dinâmico</strong>: Estruturas de conjuntos disjuntos (<em>Disjoint-Set / Union-Find</em>) em algoritmos gulosos de grafos como Kruskal.</li></ul>
-<hr>
-<h2>2. Definições Rigorosas e Formalismo Matemático</h2>
-<h3>2.1. Relação Binária sobre um Conjunto</h3>
-<p>Seja $S$ um conjunto não vazio. O <strong>produto cartesiano</strong> $S \times S$ consiste no conjunto de todos os pares ordenados $(a, b)$ com $a, b \in S$:</p>
-<div class="math-display">$$S \times S = \{ (a, b) \mid a \in S \land b \in S \}$$</div>
-<p>Uma <strong>relação binária</strong> $R$ sobre $S$ é formalmente definida como qualquer subconjunto do produto cartesiano:</p>
-<div class="math-display">$$R \subseteq S \times S$$</div>
-<p>Utilizamos habitualmente a notação de infixo $x \, R \, y$ para denotar que $(x, y) \in R$, e $x \cancel{R} y$ para indicar que $(x, y) \notin R$.</p>
-<h3>2.2. A Tríade de Propriedades de Equivalência</h3>
-<p>Uma relação binária $R$ sobre um conjunto $S$ é denominada <strong>relação de equivalência</strong> se, e somente se, satisfaz concomitantemente três propriedades fundamentais:</p>
-<ol><li><strong>Reflexividade</strong>: Todo elemento relaciona-se consigo mesmo:</li></ol>
-<div class="math-display">$$\forall x \in S, \quad (x, x) \in R \quad (\text{ou } x \, R \, x)$$</div>
-<ol><li><strong>Simetria</strong>: A relação é bidirecional; a direção do par ordenado pode ser invertida sem violar a pertinência:</li></ol>
-<div class="math-display">$$\forall x, y \in S, \quad (x, y) \in R \implies (y, x) \in R$$</div>
-<ol><li><strong>Transitividade</strong>: A relação propaga-se por elos encadeados intermediários:</li></ol>
-<div class="math-display">$$\forall x, y, z \in S, \quad ((x, y) \in R \land (y, z) \in R) \implies (x, z) \in R$$</div>
-<p>Se qualquer uma das três propriedades for violada por ao menos um contraexemplo, a relação $R$ <strong>não</strong> é de equivalência.</p>
-<h3>2.3. Classes de Equivalência</h3>
-<p>Seja $R$ uma relação de equivalência sobre $S$ e seja $x \in S$. A <strong>classe de equivalência</strong> de $x$ módulo $R$, denotada por $[x]$ ou $[x]_R$, é o subconjunto de todos os elementos de $S$ que estão relacionados a $x$:</p>
-<div class="math-display">$$[x] = \{ y \in S \mid (x, y) \in R \} = \{ y \in S \mid x \, R \, y \}$$</div>
-<p>O elemento $x$ é chamado de <strong>representante</strong> da classe $[x]$. Como veremos nos teoremas a seguir, qualquer elemento $y \in [x]$ pode servir de representante para essa mesma classe, isto é, $[x] = [y]$ se e somente se $x \, R \, y$.</p>
-<h3>2.4. Conjunto Quociente</h3>
-<p>O conjunto cujos elementos são todas as classes de equivalência distintas de $S$ módulo $R$ é denominado <strong>conjunto quociente</strong> de $S$ por $R$, indicado pela notação:</p>
-<div class="math-display">$$S / R = \{ [x] \mid x \in S \}$$</div>
-<h3>2.5. Partição de um Conjunto</h3>
-<p>Uma coleção de subconjuntos $\mathcal{P} = \{ A_i \}_{i \in I}$ de $S$ é dita uma <strong>partição</strong> de $S$ se e somente se satisfaz três postulados:</p>
-<ol><li><strong>Não-vacuidade</strong>: Nenhum bloco da partição é vazio:</li></ol>
-<div class="math-display">$$\forall i \in I, \quad A_i \neq \emptyset$$</div>
-<ol><li><strong>Disjunção Par a Par</strong>: Quaisquer dois blocos distintos são mutuamente disjuntos:</li></ol>
-<div class="math-display">$$\forall i, j \in I, \quad i \neq j \implies A_i \cap A_j = \emptyset$$</div>
-<ol><li><strong>Cobertura Completa</strong>: A união de todos os blocos recompõe integralmente o conjunto universo $S$:</li></ol>
-<div class="math-display">$$\bigcup_{i \in I} A_i = S$$</div>
-<hr>
-<h2>3. Teoremas, Propriedades Invariantes e Demonstrações</h2>
-<h3>3.1. Teorema Fundamental das Relações de Equivalência</h3>
-<p>Existe uma correspondência biunívoca (bijeção) entre relações de equivalência e partições:</p>
-<blockquote><p><strong>Teorema</strong>: Seja $S$ um conjunto não vazio. 1. Se $R$ é uma relação de equivalência sobre $S$, então o conjunto quociente $S / R$ é uma partição de $S$. 2. Reciprocamente, se $\mathcal{P} = \{ A_i \}_{i \in I}$ é uma partição de $S$, a relação $R_\mathcal{P}$ definida por:    $$(x, y) \in R_\mathcal{P} \iff \exists i \in I \, (x \in A_i \land y \in A_i)$$    é uma relação de equivalência sobre $S$, cujas classes de equivalência coincidem exatamente com os blocos de $\mathcal{P}$.</p></blockquote>
-<h4>Demonstração Estruturada Passo a Passo:</h4>
-<p>Para demonstrar que $S / R$ é uma partição, provamos primeiro dois lemas fundamentais estabelecidos por Gersting:</p>
-<ul><li><strong>Lema 1</strong>: <em>Se $x \, R \, y$, então $[x] = [y]$.</em></li><li><strong>Prova</strong>: Devemos demonstrar a dupla inclusão $[x] \subseteq [y]$ e $[y] \subseteq [x]$.</li><li>Seja $z \in [x]$. Pela definição de classe de equivalência, $x \, R \, z$. Pela hipótese, $x \, R \, y$; aplicando a simetria de $R$, obtemos $y \, R \, x$. Agora, aplicando a transitividade a $y \, R \, x$ e $x \, R \, z$, concluímos que $y \, R \, z$. Logo, $z \in [y]$, o que estabelece que $[x] \subseteq [y]$.</li><li>Reciprocamente, seja $w \in [y]$, donde $y \, R \, w$. Como $x \, R \, y$, pela transitividade temos diretamente $x \, R \, w$, logo $w \in [x]$, provando que $[y] \subseteq [x]$.</li><li>Pela dupla inclusão, $[x] = [y]$. $\blacksquare$</li></ul>
-<ul><li><strong>Lema 2</strong>: <em>Para quaisquer $x, y \in S$, ou $[x] = [y]$ ou $[x] \cap [y] = \emptyset$.</em></li><li><strong>Prova</strong>: Suponhamos que $[x] \cap [y] \neq \emptyset$. Então existe ao menos um elemento $z \in [x] \cap [y]$.</li><li>Como $z \in [x]$, temos $x \, R \, z$.</li><li>Como $z \in [y]$, temos $y \, R \, z$, o que por simetria implica $z \, R \, y$.</li><li>Pela transitividade de $R$, $x \, R \, z$ e $z \, R \, y \implies x \, R \, y$.</li><li>Aplicando o Lema 1 a $x \, R \, y$, deduzimos que $[x] = [y]$.</li><li>Logo, se duas classes de equivalência compartilham um único elemento, elas são obrigatoriamente idênticas; caso contrário, são estritamente disjuntas. $\blacksquare$</li></ul>
-<ul><li><strong>Conclusão da Prova de Partição ($S / R$)</strong>:</li></ul>
-<ol><li><em>Blocos não-vazios</em>: Pela propriedade reflexiva de $R$, temos $\forall x \in S, \, x \, R \, x$, logo $x \in [x]$. Portanto, $[x] \neq \emptyset$ para todo $x$.</li><li><em>Disjunção par a par</em>: Decorre imediatamente do Lema 2: se $[x] \neq [y]$, então $[x] \cap [y] = \emptyset$.</li><li><em>Cobertura total</em>: Como cada $x \in S$ pertence à sua respectiva classe $[x]$, temos:</li></ol>
-<div class="math-display">$$S = \bigcup_{x \in S} \{ x \} \subseteq \bigcup_{x \in S} [x] \subseteq S \implies \bigcup_{x \in S} [x] = S$$</div>
-<p>Conclui-se que o quociente $S / R$ é uma partição de $S$. $\blacksquare$</p>
-<hr>
-<h3>3.2. Demonstração de um Caso Concreto: Congruência Módulo $n$</h3>
-<p>Fixemos um inteiro positivo $n \in \mathbb{Z}^+$. A relação de congruência módulo $n$ sobre $\mathbb{Z}$ é definida por:</p>
-<div class="math-display">$$a \equiv b \pmod n \iff n \mid (a - b) \iff \exists k \in \mathbb{Z} \, (a - b = k \cdot n)$$</div>
-<p>Vamos demonstrar formalmente que a congruência módulo $n$ é uma relação de equivalência:</p>
-<ol><li><strong>Reflexividade</strong>:</li></ol>
-<p>Seja $a \in \mathbb{Z}$ arbitrário.</p>
-<div class="math-display">$$a - a = 0 = 0 \cdot n$$</div>
-<p>Como $0 \in \mathbb{Z}$, segue que $n \mid (a - a)$, logo $a \equiv a \pmod n$. A reflexividade está provada.</p>
-<ol><li><strong>Simetria</strong>:</li></ol>
-<p>Sejam $a, b \in \mathbb{Z}$ tais que $a \equiv b \pmod n$. Por definição, existe $k \in \mathbb{Z}$ tal que:</p>
-<div class="math-display">$$a - b = k \cdot n$$</div>
-<p>Multiplicando ambos os membros por $-1$:</p>
-<div class="math-display">$$b - a = (-k) \cdot n$$</div>
-<p>Como $k \in \mathbb{Z}$, temos $(-k) \in \mathbb{Z}$. Portanto, $n \mid (b - a)$, o que garante que $b \equiv a \pmod n$. A simetria está provada.</p>
-<ol><li><strong>Transitividade</strong>:</li></ol>
-<p>Sejam $a, b, c \in \mathbb{Z}$ tais que $a \equiv b \pmod n$ e $b \equiv c \pmod n$. Existem inteiros $k_1, k_2 \in \mathbb{Z}$ tais que:</p>
-<div class="math-display">$$a - b = k_1 \cdot n \quad \text{e} \quad b - c = k_2 \cdot n$$</div>
-<p>Somando membro a membro as duas igualdades:</p>
-<div class="math-display">$$(a - b) + (b - c) = k_1 \cdot n + k_2 \cdot n \implies a - c = (k_1 + k_2) \cdot n$$</div>
-<p>Como a soma de inteiros é fechada em $\mathbb{Z}$, temos $(k_1 + k_2) \in \mathbb{Z}$. Portanto, $n \mid (a - c)$, o que estabelece que $a \equiv c \pmod n$. A transitividade está provada.</p>
-<p>Como as três propriedades foram satisfeitas, a congruência módulo $n$ é uma relação de equivalência sobre $\mathbb{Z}$. Pelo Teorema da Divisão Euclidiana, todo inteiro $a$ pode ser escrito de forma única como $a = q \cdot n + r$, com resto $0 \le r &lt; n$. Portanto, existem exatamente $n$ classes de equivalência distintas:</p>
-<div class="math-display">$$\mathbb{Z} / \equiv_n = \{ [0], [1], [2], \dots, [n-1] \} = \mathbb{Z}_n$$</div>
-<hr>
-<h2>4. Exemplos Computacionais e Diagramas</h2>
-<h3>Exemplo 1: Componentes Conexas em Grafos Não-Direcionados</h3>
-<p>Seja $G = (V, E)$ um grafo não-direcionado. Definimos a relação de conectividade $\sim$ sobre $V$ por:</p>
-<div class="math-display">$$u \sim v \iff \text{existe um caminho em } G \text{ entre os vértices } u \text{ e } v$$</div>
-<ul><li><strong>Reflexiva</strong>: Para todo $u \in V$, existe o caminho trivial de comprimento 0 de $u$ para $u$.</li><li><strong>Simétrica</strong>: Se existe caminho de $u$ a $v$, como o grafo é não-direcionado, a inversão da sequência de arestas fornece um caminho válido de $v$ para $u$.</li><li><strong>Transitiva</strong>: Se há caminho de $u$ a $v$ e de $v$ a $w$, a concatenação de ambos resulta em um passeio conexo de $u$ a $w$. A eliminação de eventuais ciclos produz um caminho simples entre $u$ e $w$.</li></ul>
-<p>As classes de equivalência $V / \sim$ são exatamente as <strong>componentes conexas</strong> do grafo $G$.</p>
-<div class="visual-diagram-card">
-  <div class="diagram-header">
-    <span class="diagram-tag">FIGURA 4.1 — PARTIÇÃO DO GRAFO NÃO-DIRECIONADO</span>
-    <h4 class="diagram-title">Componentes Conexas como Classes de Equivalência</h4>
-  </div>
-  <div class="diagram-body">
-    <svg viewBox="0 0 640 240" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <!-- Component 1: {1, 2, 3} -->
-  <g transform="translate(30, 20)">
-    <rect width="180" height="190" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
-    <text x="90" y="28" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e40af">Classe [1] = {1, 2, 3}</text>
-    
-    <line x1="50" y1="70" x2="130" y2="70" stroke="#0071e3" stroke-width="2"/>
-    <line x1="130" y1="70" x2="90" y2="150" stroke="#0071e3" stroke-width="2"/>
-    <line x1="90" y1="150" x2="50" y2="70" stroke="#0071e3" stroke-width="2"/>
-
-    <circle cx="50" cy="70" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-    <text x="50" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">1</text>
-    <circle cx="130" cy="70" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-    <text x="130" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">2</text>
-    <circle cx="90" cy="150" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-    <text x="90" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">3</text>
-  </g>
-
-  <!-- Component 2: {4, 5, 6} -->
-  <g transform="translate(240, 20)">
-    <rect width="180" height="190" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
-    <text x="90" y="28" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#166534">Classe [4] = {4, 5, 6}</text>
-    
-    <line x1="50" y1="70" x2="130" y2="70" stroke="#10b981" stroke-width="2"/>
-    <line x1="50" y1="70" x2="50" y2="150" stroke="#10b981" stroke-width="2"/>
-
-    <circle cx="50" cy="70" r="16" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
-    <text x="50" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">4</text>
-    <circle cx="130" cy="70" r="16" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
-    <text x="130" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">5</text>
-    <circle cx="50" cy="150" r="16" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
-    <text x="50" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">6</text>
-  </g>
-
-  <!-- Component 3: {7} -->
-  <g transform="translate(450, 20)">
-    <rect width="150" height="190" rx="12" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
-    <text x="75" y="28" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#6b21a8">Classe [7] = {7}</text>
-    
-    <circle cx="75" cy="110" r="18" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
-    <text x="75" y="115" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">7</text>
-    <text x="75" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-style="italic" fill="#64748b">(Isolado)</text>
-  </g>
-</svg>
-  </div>
-  <p class="diagram-caption">Cada componente conexa no grafo não-direcionado corresponde rigorosamente a uma classe de equivalência disjunta da relação R = Conectado.</p>
+    <!-- 1. Transição Ontológica & Filosofia -->
+    <div class="callout philosophy">
+      <div class="callout-title">[Filosofia da Lógica]: A Busca pela Igualdade Subjetiva: Classificar sem Excluir</div>
+      <div>
+No mundo real, duas coisas quase nunca são estritamente idênticas.
+Duas pessoas têm CPFs diferentes, dois pacotes IP têm números de sequência diferentes, duas cadeias de caracteres têm endereços de memória diferentes.
+No entanto, quando queremos classificar, dizemos: <em>'Para o meu propósito, essas duas coisas são equivalentes'</em>.
+Por exemplo: na arquitetura de contêineres, duas instâncias de microsserviço que consomem menos de 200MB de RAM podem pertencer à mesma classe de agendamento de recursos.
+A matemática formalizou essa ideia através da <strong>Relação de Equivalência</strong>:
+uma relação que se comporta exatamente como a igualdade clássica ($=$), mas relaxada para qualquer critério que respeite a <strong>Tríade Sagrada: Reflexiva + Simétrica + Transitiva</strong>.
 </div>
-<h3>Exemplo 2: Minimização de Autômatos Finitos Determinísticos (AFD)</h3>
-<p>No projeto de compiladores e na teoria da computação (Hopcroft, Motwani, Ullman), o Algoritmo de Minimização de Estados fundamenta-se na <strong>Relação de Indistinguibilidade de Moore / Myhill-Nerode</strong>: Dois estados $p, q \in Q$ de um AFD $M = (Q, \Sigma, \delta, q_0, F)$ são ditos equivalentes ($p \sim q$) se:</p>
-<div class="math-display">$$\forall w \in \Sigma^*, \quad \hat{\delta}(p, w) \in F \iff \hat{\delta}(q, w) \in F$$</div>
-<ul><li>Essa relação $\sim$ é comprovadamente uma relação de equivalência.</li><li>O Algoritmo de Hopcroft ($O(|\Sigma| n \log n)$) refina iterativamente partições de estados até encontrar as classes de indistinguibilidade $Q / \sim$.</li><li>O autômato mínimo é o <strong>autômato quociente</strong> $M / \sim$, onde cada estado corresponde a uma classe de equivalência $[q]$.</li></ul>
-<div class="visual-diagram-card">
+    </div>
+
+    <!-- 2. Dicionário Fonético de Símbolos -->
+    
+<div class="como-se-le" style="margin-top:2rem;">
+  <div class="como-se-le-title">[Dicionário Fonético de Símbolos Lógicos]</div>
+  <p>Para ler com fluência natural qualquer fórmula desta lição:</p>
+  <ul style="margin-left: 1.25rem;">
+    <li>$\in$ : <em>"Pertence a"</em> (ex: $a \in A \to$ <em>"o elemento a pertence ao conjunto A"</em>).</li>
+    <li>$\subseteq$ : <em>"Está contido em"</em> ou <em>"é subconjunto de"</em> (ex: $R \subseteq A \times B \to$ <em>"R está contido em A vezes B"</em>).</li>
+    <li>$\land$ : <em>"E"</em> (conjunção lógica, exige que ambas as condições sejam verdadeiras).</li>
+    <li>$\lor$ : <em>"OU"</em> (disjunção lógica, basta que uma seja verdadeira).</li>
+    <li>$\iff$ : <em>"Se, e somente se"</em> (equivalência lógica bidirecional).</li>
+    <li>$\implies$ : <em>"Implica que"</em> ou <em>"se... então..."</em> (condicional unidirecional).</li>
+    <li>$\forall$ : <em>"Para todo..."</em> ou <em>"Qualquer que seja..."</em> (quantificador universal).</li>
+    <li>$\exists$ : <em>"Existe ao menos um..."</em> (quantificador existencial).</li>
+    <li>$\emptyset$ : <em>"Conjunto vazio"</em> (a sacola sem nenhum elemento).</li>
+  </ul>
+</div>
+
+
+    <!-- 3. Degraus Cognitivos e Desmistificação de Termos -->
+    <section aria-label="Degraus Cognitivos e Termos">
+      <h2>1. Degraus Cognitivos: Desmistificando os Termos</h2>
+      <p>Entendendo a etimologia e o significado real antes de qualquer fórmula complexa:</p>
+      
+<div class="word-breakdown">
+  <div><strong class="term">Equivalência</strong> <span class="pronunciation">[e-qui-va-lên-ci-a]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;aequus&#x27; (igual) + &#x27;valere&#x27; (ter o mesmo valor, mesmo peso).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Uma relação que agrupa elementos que compartilham a mesma propriedade fundamental. Denota-se pelo til (~) ou por ≡.</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Congruência Modular</strong> <span class="pronunciation">[con-gru-ên-ci-a mo-du-lar]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;congruere&#x27; (concordar, coincidir no mesmo ponto).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Dois números inteiros são congruentes módulo n se deixam rigorosamente o mesmo resto ao serem divididos por n. É a aritmética dos relógios!</p>
+</div>
+
+    </section>
+
+    <!-- 4. Fórmulas Limpas com Guia de Leitura -->
+    <section aria-label="Fórmulas Canônicas e Como se Fala">
+      <h2>2. Fórmulas Canônicas: Como se Lê e o que Significa</h2>
+      <p>Cada símbolo rigoroso acompanhado de sua pronúncia fonética e tradução intuitiva para sistemas de TI:</p>
+      
+<div class="formula-box">
+  <div class="math-display">$$R \text{ é de Equivalência} \iff R \text{ é Reflexiva, Simétrica e Transitiva (RST)}$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"R é uma relação de equivalência se, e somente se, R for reflexiva, simétrica e transitiva"</em></div>
+    <div style="color:#92400e;">[O que significa]: Os 3 Pilares Indispensáveis. Se falhar em apenas um deles, a relação perde a capacidade de criar agrupamentos perfeitos.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$a \equiv b \pmod{n} \iff n \mid (a - b)$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"a é congruente a b módulo n se, e somente se, n divide a diferença a menos b"</em></div>
+    <div style="color:#92400e;">[O que significa]: A fórmula do relógio de 12 horas: 21 horas e 9 horas da noite apontam para o mesmo número porque 12 divide (21 - 9 = 12). Deixam o mesmo resto 9 ao dividir por 12.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$|x| = |y| \implies x \sim y$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"Se o valor absoluto de x é igual ao valor absoluto de y, então x é equivalente a y"</em></div>
+    <div style="color:#92400e;">[O que significa]: A clássica Questão 18 do Concurso IFCE 2025: números como -5 e +5 são equivalentes porque ambos possuem a mesma distância até a origem (módulo 5).</div>
+  </div>
+</div>
+
+    </section>
+
+    <!-- 5. Aplicação Computacional -->
+    <div class="callout computation">
+      <div class="callout-title">[Computação e Infraestrutura]: Aplicações em Computação: Hashing, Compiladores e Redes</div>
+      <div>
+As relações de equivalência são o alicerce de otimizações críticas em infraestrutura e computação:
+1. <strong>Tabelas Hash:</strong> A função hash $h(k) = k \bmod m$ particiona o universo de chaves em classes de equivalência (os <em>buckets</em>);
+2. <strong>Compiladores:</strong> Otimização de código identifica 'expressões comuns' e substitui variáveis equivalentes por um único registrador;
+3. <strong>Sub-redes IPv4/IPv6:</strong> A máscara de sub-rede (ex: <code>/24</code>) define uma relação de equivalência: dois IPs são equivalentes se pertencem ao mesmo domínio de broadcast.
+</div>
+    </div>
+
+    <!-- 6. Representação Visual Vetorial SVG Nativo -->
+    <section aria-label="Pilar Visual — Diagrama Vetorial">
+      <h2>3. Anatomia Visual: Diagrama Vetorial Nativo</h2>
+      <p class="hub-muted">Inspeção espacial sem Mermaid e sem texto desformatado (ADR 0008).</p>
+      <div class="visual-diagram-card">
   <div class="diagram-header">
     <span class="diagram-tag">FIGURA 4.2 — CONGRUÊNCIA E PARTIÇÃO</span>
     <h4 class="diagram-title">Partição de ℤ em Três Classes Disjuntas Módulo 3</h4>
@@ -211,53 +156,90 @@
   </div>
   <p class="diagram-caption">A união das três classes reconstitui todo o conjunto dos inteiros ℤ, e a interseção de quaisquer duas classes é estritamente vazia.</p>
 </div>
-<h3>Exemplo 3: Tipagem Estrutural vs Tipagem Nominal</h3>
-<p>Em linguagens com tipagem estrutural (TypeScript, Go), dois tipos de dados $T_1$ e $T_2$ pertencem à mesma classe de equivalência se possuírem exatamente a mesma coleção de atributos e assinaturas:</p>
-<div class="math-display">$$T_1 \equiv_{tipo} T_2 \iff \text{Fields}(T_1) = \text{Fields}(T_2) \land \text{Methods}(T_1) = \text{Methods}(T_2)$$</div>
-<p>Essa relação de equivalência permite que o compilador realize <em>type checking</em> por substitutibilidade segura sem acoplamento nominal explícito.</p>
-<hr>
-<h2>5. Armadilhas de Banca e Corner Cases</h2>
-<h3>Armadilha 1: A Falsa Dedução da Reflexividade via Simetria e Transitividade</h3>
-<p>Uma das armadilhas teóricas mais recorrentes em concursos e exames de mestrado (PPGCC IFCE) é a seguinte afirmação falaciosa:</p>
-<blockquote><p><em>&quot;A propriedade reflexiva é redundante, pois se $x \, R \, y$, pela simetria temos $y \, R \, x$, e pela transitividade $(x, y) \in R \land (y, x) \in R \implies (x, x) \in R$.&quot;</em></p></blockquote>
-<p><strong>Por que esse raciocínio é falso?</strong> O argumento pressupõe tacitamente que para <strong>todo</strong> $x \in S$, existe algum $y \in S$ tal que $(x, y) \in R$. Se existir um elemento isolado $x_0 \in S$ que não se relaciona com nenhum elemento de $S$, o antecedente $(x_0, y) \in R$ é falso para todo $y$, e o par $(x_0, x_0)$ jamais é gerado!</p>
-<p><strong>Contraexemplo Cabal:</strong> Seja $S = \{1, 2, 3\}$ e seja $R = \{(1, 1), (1, 2), (2, 1), (2, 2)\}$.</p>
-<ul><li>$R$ é simétrica: todos os pares têm seu inverso em $R$.</li><li>$R$ é transitiva: todas as composições estão em $R$.</li><li>Contudo, <strong>$R$ NÃO é reflexiva sobre $S$</strong>, pois $(3, 3) \notin R$ (o elemento 3 está totalmente desconectado).</li><li>Logo, $R$ <strong>não</strong> é uma relação de equivalência sobre $S$.</li></ul>
-<h3>Armadilha 2: A Relação Vazia ($\emptyset$)</h3>
-<ul><li>Seja $S \neq \emptyset$ um conjunto com ao menos um elemento. A relação vazia $R = \emptyset \subseteq S \times S$:</li><li>É <strong>simétrica</strong> por vacuidade: $(\forall x, y) ((x, y) \in \emptyset \implies (y, x) \in \emptyset)$ é verdadeiro, pois o antecedente é falso.</li><li>É <strong>transitiva</strong> por vacuidade: $(\forall x, y, z) (((x, y) \in \emptyset \land (y, z) \in \emptyset) \implies (x, z) \in \emptyset)$ é verdadeiro.</li><li>No entanto, <strong>NÃO é reflexiva</strong>: como $S \neq \emptyset$, existe $a \in S$, mas $(a, a) \notin \emptyset$.</li><li>Conclusão: Para $S \neq \emptyset$, a relação vazia <strong>nunca</strong> é de equivalência.</li><li><em>Corner case extremo</em>: Se $S = \emptyset$, então $\emptyset \subseteq \emptyset \times \emptyset$ é trivialmente reflexiva, simétrica e transitiva, constituindo uma relação de equivalência sobre o conjunto vazio.</li></ul>
-<h3>Armadilha 3: Relação de Tolerância / Proximidade Métrica ($\le \epsilon$)</h3>
-<p>Considere $R$ sobre $\mathbb{R}$ definida por:</p>
-<div class="math-display">$$x \, R \, y \iff |x - y| \le 1$$</div>
-<ul><li><strong>Reflexiva</strong>: $|x - x| = 0 \le 1$ (V).</li><li><strong>Simétrica</strong>: $|x - y| = |y - x| \le 1$ (V).</li><li><strong>Transitiva? NÃO!</strong></li></ul>
-<p>Tome $x = 0$, $y = 1$ e $z = 2$.</p>
-<ul><li>$|0 - 1| = 1 \le 1 \implies (0, 1) \in R$.</li><li>$|1 - 2| = 1 \le 1 \implies (1, 2) \in R$.</li><li>Porém, $|0 - 2| = 2 &gt; 1 \implies (0, 2) \notin R$.</li></ul>
-<p>A violação da transitividade faz com que relações métricas de tolerância gerem agrupamentos com sobreposição (<em>clusters</em> sobrepostos), impossibilitando a formação de uma partição disjunta.</p>
-<h3>Armadilha 4: Perpendicularismo vs Paralelismo em Geometria</h3>
-<ul><li><strong>Perpendicularismo ($r \perp s$)</strong> no plano euclidiano:</li><li>Não é reflexiva: nenhuma reta é perpendicular a si própria ($r \not\perp r$).</li><li>É simétrica: $r \perp s \implies s \perp r$.</li><li>Não é transitiva: se $r \perp s$ e $s \perp t$, então $r$ e $t$ são paralelas no plano, logo $r \not\perp t$.</li><li>Portanto, perpendicularismo <strong>não</strong> é relação de equivalência.</li><li><strong>Paralelismo ($r \parallel s$)</strong> no plano euclidiano (com a convenção padrão $r \parallel r$):</li><li>É reflexiva ($r \parallel r$), simétrica ($r \parallel s \implies s \parallel r$) e transitiva ($r \parallel s \land s \parallel t \implies r \parallel t$).</li><li>Logo, paralelismo <strong>é</strong> uma relação de equivalência. Suas classes de equivalência correspondem aos feixes de retas com a mesma direção/inclinação angular $\theta$.</li></ul>
-<h3>Armadilha 5: Relação de Equivalência vs Relação de Ordem Parcial</h3>
-<ul><li>Equivalência exige: Reflexividade, <strong>Simetria</strong>, Transitividade.</li><li>Ordem Parcial exige: Reflexividade, <strong>Antissimetria</strong>, Transitividade.</li><li>Qual relação satisfaz simultaneamente ambas as definições?</li></ul>
-<p>Se $R$ é de equivalência e de ordem sobre $S$:</p>
-<ul><li>Por simetria: se $(x, y) \in R \implies (y, x) \in R$.</li><li>Por antissimetria: se $(x, y) \in R \land (y, x) \in R \implies x = y$.</li><li>Portanto, $R$ não pode conter nenhum par $(x, y)$ com $x \neq y$.</li><li>Pela reflexividade, $R$ deve conter todos os pares $(x, x)$ para $x \in S$.</li><li><strong>Teorema de Unicidade</strong>: A única relação sobre $S$ que é simultaneamente de equivalência e de ordem parcial é a <strong>relação de identidade</strong> $I_S = \{ (x, x) \mid x \in S \}$.</li></ul>
-<hr>
-<h2>6. Aplicação na Ciência da Computação</h2>
-<h3>6.1. Algoritmo Disjoint-Set / Union-Find</h3>
-<p>A estrutura de dados <em>Disjoint-Set</em> (desenvolvida por Bernard Galler e Michael Fischer, refinada por Robert Tarjan) é a concretização algorítmica direta de uma relação de equivalência dinâmica:</p>
-<ul><li>Cada conjunto disjunto representa uma classe de equivalência $[x]$.</li><li><code>Find(x)</code>: Localiza o elemento representativo canônico da classe de equivalência de $x$.</li><li><code>Union(x, y)</code>: Funde as classes de equivalência $[x]$ e $[y]$ quando uma nova relação $x \sim y$ é descoberta.</li><li>Com as heurísticas de <strong>Compressão de Caminho</strong> (<em>Path Compression</em>) e <strong>União por Rank</strong>, uma sequência de $m$ operações sobre $n$ elementos executa no tempo assintótico quase-linear:</li></ul>
-<div class="math-display">$$O(m \cdot \alpha(n))$$</div>
-<p>onde $\alpha$ é a função inversa de Ackermann ($\alpha(n) \le 4$ para qualquer entrada realizável no universo físico). Essa estrutura é a espinha dorsal do Algoritmo de Kruskal para determinação da Árvore Geradora Mínima (MST).</p>
-<h3>6.2. Otimização de Compiladores: Common Subexpression Elimination (CSE)</h3>
-<p>Durante a fase de otimização de código intermediário em compiladores (<em>LLVM</em>, <em>GCC</em>), o compilador executa a análise de <strong>Value Numbering</strong>:</p>
-<ul><li>Se duas expressões $e_1 = a + b$ e $e_2 = c + d$ computam o mesmo valor em todos os caminhos de execução, elas são colocadas na mesma classe de equivalência de valores.</li><li>O compilador substitui a computação de $e_2$ por uma leitura direta do registrador alocado para $e_1$, eliminando instruções redundantes na CPU e otimizando o consumo de energia e latência do programa executável.</li></ul>
-    </article>
+    </section>
 
+    <!-- 7. Laboratório Interativo Tátil -->
+    <section aria-label="Pilar Interativo — Laboratório Tátil">
+      <h2>4. Laboratório Interativo: Manipulação em Tempo Real</h2>
+      <p class="hub-muted">Clique nos controles para experimentar o comportamento da estrutura e visualizar os estados.</p>
+      <div class="interactive-card">
+        <div id="lesson-widget-4"></div>
+      </div>
+    </section>
+
+    <!-- 8. Pegadinhas de Concurso -->
+    <section aria-label="Pegadinhas da Banca">
+      <h2>5. Armadilhas Clássicas da Banca Examinadora</h2>
+      
+<div class="trap-box">
+  <strong style="display:block; margin-bottom:4px;">[Cuidado com a Pegadinha da Banca]: A Armadilha do Quase-Igual (Tolerância Não é Equivalência!)</strong>
+  <div>Se definirmos a relação &#x27;x e y têm quase a mesma altura&#x27; ($|x - y| \le 2\text{cm}$), ela é reflexiva e simétrica, mas NÃO É TRANSITIVA! João tem quase a mesma altura de Pedro (2cm), Pedro de Lucas (2cm), mas João e Lucas diferem por 4cm e não são mais parentes. Sem transitividade, NÃO É equivalência!</div>
+</div>
+
+    </section>
+
+    <!-- 9. Active Retrieval (Retenção Imediata da Aula) -->
+    
+<section class="quiz-section" aria-label="Active Retrieval — Retenção Imediata">
+  <h2>Active Retrieval — Fixação Imediata da Aula</h2>
+  <p class="hub-muted">Quatro perguntas de verificação imediata para checar se os conceitos e fórmulas se assentaram na sua mente antes de praticar na banca de concurso.</p>
+  
+<div class="question-block" id="q1">
+  <div class="question-title"><strong>Questão de Retenção 1 de 4:</strong> Para que uma relação binária R sobre um conjunto A seja classificada formalmente como Relação de Equivalência, quais propriedades ela DEVE satisfazer obrigatoriamente?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'A')"><strong>A)</strong> Reflexiva, antissimétrica e transitiva.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'B')"><strong>B)</strong> Irreflexiva, simétrica e transitiva.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'C')"><strong>C)</strong> Reflexiva, simétrica e transitiva.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'D')"><strong>D)</strong> Reflexiva, simétrica e não-transitiva.</button>
+  </div>
+  <div class="feedback-box" id="fb-1"></div>
+</div>
+
+<div class="question-block" id="q2">
+  <div class="question-title"><strong>Questão de Retenção 2 de 4:</strong> Na aritmética modular Z, por que podemos afirmar com certeza matemática que 25 ≡ 9 (mod 8)?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'A')"><strong>A)</strong> Porque 25 e 9 são números ímpares maiores que 8.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'B')"><strong>B)</strong> Porque 8 divide a diferença (25 - 9 = 16) de forma exata.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'C')"><strong>C)</strong> Porque 25 dividido por 8 dá quociente 3.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'D')"><strong>D)</strong> Porque 9 é o antecessor direto de 10.</button>
+  </div>
+  <div class="feedback-box" id="fb-2"></div>
+</div>
+
+<div class="question-block" id="q3">
+  <div class="question-title"><strong>Questão de Retenção 3 de 4:</strong> Considere a questão oficial Q18 do Concurso PPGCC IFCE 2025: a relação R definida nos inteiros Z por (x, y) ∈ R se, e somente se, |x| = |y|. Essa relação é de equivalência?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'A')"><strong>A)</strong> Não, pois (-3, 3) está na relação mas (3, -3) não está.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'B')"><strong>B)</strong> Não, pois o número zero não possui simétrico.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'C')"><strong>C)</strong> Sim, pois a igualdade de valores absolutos é trivialmente reflexiva (|x|=|x|), simétrica (|x|=|y| =&gt; |y|=|x|) e transitiva (|x|=|y| e |y|=|z| =&gt; |x|=|z|).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'D')"><strong>D)</strong> Não, pois falha na transitividade quando x e z têm sinais opostos.</button>
+  </div>
+  <div class="feedback-box" id="fb-3"></div>
+</div>
+
+<div class="question-block" id="q4">
+  <div class="question-title"><strong>Questão de Retenção 4 de 4:</strong> Em termos visuais e topológicos, como se parece o dígrafo de uma relação de equivalência homogênea?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'A')"><strong>A)</strong> Uma única linha reta que nunca retorna ao ponto de partida.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'B')"><strong>B)</strong> Um conjunto de componentes desconexas, onde cada componente é um subgrafo completamente conectado com laços em todos os nós e arestas de mão dupla entre todos os seus membros.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'C')"><strong>C)</strong> Uma árvore binária perfeita com nós folhas sem arestas de saída.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'D')"><strong>D)</strong> Um dígrafo sem laços e sem ciclos.</button>
+  </div>
+  <div class="feedback-box" id="fb-4"></div>
+</div>
+
+  <div class="score-banner" id="score-box" style="display:none;">
+    <div id="score-text"></div>
+  </div>
+</section>
+
+
+    <!-- 10. Card Próxima Parada -->
+    <div class="next-step-card">
+      <h3>Próxima Parada</h3>
+      <p>Agora que vimos como a equivalência cria ilhas perfeitas, vamos aprender a etiquetar e separar essas ilhas no Teorema Fundamental das Classes de Equivalência e Partições!</p>
+      <div style="margin-top: 1rem;">
+        <a class="hub-btn-secondary hub-btn-sm" href="./0005-classes-e-particoes.html">Próxima Aula</a>
+      </div>
+    </div>
+
+    <!-- 11. Conclusão e CTA para a Banca de Questões -->
     <section class="lesson-footer-cta" aria-label="Conclusão e Prática de Questões">
       <div>
-        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico</strong>
+        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico no Banco</strong>
         <span class="hub-muted" id="lesson-q-status">Carregando questões deste tópico no Banco...</span>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
         <button type="button" class="hub-btn-secondary" id="lesson-toggle-read-btn">Marcar aula como concluída</button>
-        <a class="hub-btn-primary" href="../questoes.html?topico=4" id="lesson-practice-btn">Praticar questões desta aula</a>
+        <a class="hub-btn-primary" href="../questoes.html?topico=4" id="lesson-practice-btn">Praticar questões desta aula na banca</a>
       </div>
     </section>
 
@@ -293,6 +275,76 @@
         });
       }
 
+      // --- Active Retrieval Engine ---
+      const activeGabarito = {"1": "C", "2": "B", "3": "C", "4": "B"};
+      const activeExplanations = {"1": {"correct": "Exato! A Tr\u00edade Sagrada da Equival\u00eancia \u00e9 sempre: Reflexiva (olhar no espelho), Sim\u00e9trica (m\u00e3o dupla m\u00fatua) e Transitiva (atalhos garantidos). A sigla mnem\u00f4nica \u00e9 RST!", "incorrect": "Cuidado: a tr\u00edade \u00e9 Reflexiva + Sim\u00e9trica + Transitiva (RST). Se for antissim\u00e9trica em vez de sim\u00e9trica, vira uma rela\u00e7\u00e3o de ordem (Poset), que estudaremos adiante."}, "2": {"correct": "Perfeito! A defini\u00e7\u00e3o formal estabelece: a \u2261 b (mod n) \u27fa n | (a - b). Como 25 - 9 = 16, e 8 divide 16 perfeitamente (16 / 8 = 2 sem resto), a equival\u00eancia \u00e9 irrefut\u00e1vel!", "incorrect": "Incorreto. A defini\u00e7\u00e3o de congru\u00eancia modular exige que n divida a diferen\u00e7a entre os dois n\u00fameros: 25 - 9 = 16. Como 16 \u00e9 m\u00faltiplo exato de 8 (8 x 2 = 16), a afirma\u00e7\u00e3o \u00e9 verdadeira."}, "3": {"correct": "Brilhante! Essa foi a quest\u00e3o exata da banca: a igualdade de qualquer fun\u00e7\u00e3o f(x) = f(y) (neste caso f(x) = |x|) SEMPRE induz uma rela\u00e7\u00e3o de equival\u00eancia perfeita, pois a igualdade no contradom\u00ednio \u00e9 reflexiva, sim\u00e9trica e transitiva!", "incorrect": "Incorreto. Verifique os tr\u00eas testes: 1. |x| = |x| (sempre verdadeiro). 2. Se |x| = |y|, ent\u00e3o |y| = |x| (sempre verdadeiro). 3. Se |x|=|y| e |y|=|z|, ent\u00e3o |x|=|z| (sempre verdadeiro). Logo, \u00e9 uma rela\u00e7\u00e3o de equival\u00eancia!"}, "4": {"correct": "Exato! Cada classe de equival\u00eancia forma uma 'ilha' (componente conexa) onde todo mundo se conecta com todo mundo em m\u00e3o dupla e cada n\u00f3 possui um la\u00e7o pr\u00f3prio. As ilhas n\u00e3o conversam entre si!", "incorrect": "Incorreto. Devido \u00e0 reflexividade (todo n\u00f3 tem la\u00e7o), simetria (toda aresta tem volta) e transitividade (todos os pares se conectam), cada grupo de elementos equivalentes forma um subgrafo completo isolado das outras classes."}};
+      const userAnswers = {};
+
+      window.submitActiveRetrieval = function (qNum, opt) {
+        userAnswers[qNum] = opt;
+        const block = document.getElementById('q' + qNum);
+        const items = block.querySelectorAll('.option-item');
+        const fb = document.getElementById('fb-' + qNum);
+        const correctOpt = activeGabarito[qNum];
+
+        items.forEach(function (btn) {
+          btn.classList.remove('correct', 'incorrect');
+          const text = btn.textContent.trim();
+          if (text.startsWith(opt + ')')) {
+            if (opt === correctOpt) btn.classList.add('correct');
+            else btn.classList.add('incorrect');
+          }
+          if (text.startsWith(correctOpt + ')')) {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (opt === correctOpt) {
+          fb.className = 'feedback-box correct';
+          fb.innerHTML = '<strong>[Correto!]</strong> ' + activeExplanations[qNum].correct;
+        } else {
+          fb.className = 'feedback-box incorrect';
+          fb.innerHTML = '<strong>[Incorreto]</strong> ' + activeExplanations[qNum].incorrect;
+        }
+
+        if (window.renderMathInElement) {
+          renderMathInElement(fb, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+
+        updateActiveScore();
+      };
+
+      function updateActiveScore() {
+        const keys = Object.keys(userAnswers);
+        if (keys.length === 4) {
+          let hits = 0;
+          for (let i = 1; i <= 4; i++) {
+            if (userAnswers[i] === activeGabarito[i]) hits++;
+          }
+          const box = document.getElementById('score-box');
+          const txt = document.getElementById('score-text');
+          box.style.display = 'block';
+
+          if (hits === 4) {
+            box.style.background = '#14532d';
+            txt.innerHTML = '<strong>Sensacional: 4 de 4 acertos (100%)!</strong> Você absorveu perfeitamente a essência deste conceito. Seu cérebro está pronto para encarar as pegadinhas da banca!';
+          } else if (hits >= 2) {
+            box.style.background = '#1e3a8a';
+            txt.innerHTML = '<strong>Bom desempenho: ' + hits + ' de 4 acertos.</strong> Revise as explicações das questões onde você hesitou para consolidar o vocabulário formal.';
+          } else {
+            box.style.background = '#7c2d12';
+            txt.innerHTML = '<strong>Você acertou ' + hits + ' de 4.</strong> Leia com atenção os gabaritos comentados acima antes de seguir para o banco de questões.';
+          }
+        }
+      }
+
+      // --- Store & Progress Integration ---
       const toggleBtn = document.getElementById('lesson-toggle-read-btn');
       const statusEl = document.getElementById('lesson-q-status');
 
@@ -305,7 +357,7 @@
           const topicQs = window.PPGCC_DATA.questoes.filter((q) => q.topico_id === TOPICO_ID);
           const answers = store.getState().answers || {};
           const solved = topicQs.filter((q) => Boolean(answers[q.id])).length;
-          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico (' + solved + ' resolvidas).';
+          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico no Banco (' + solved + ' resolvidas).';
         }
       }
 

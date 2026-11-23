@@ -91,12 +91,19 @@ Quando precisar criar diagramas nas Fases 2, 3 e 4 (ex: Stack vs Heap, ponteiros
    - `index.html`: Visão do dia, metas diárias, cards de progresso, atalhos rápidos e modal de backup.
    - `edital.html`: Matriz de tópicos, status de leitura por aula, peso na prova e bibliografia recomendada.
    - `questoes.html`: Banco de questões com filtro por tópicos (`?topico=ID`), alternância 4/5 itens, Modo Treino FSRS, Modo Prova e explicações detalhadas da banca.
-4. **Aulas da Fase 1 (`lessons/0001` a `0008`):**
-   - 100% livres de emojis;
-   - 100% livres de Mermaid ou árvores ASCII desformatadas;
-   - Didática Zero Base com Tradução Tríplice (`.como-se-le`);
-   - Pilar Visual (diagramas vetoriais `<svg>` nativos) + Pilar Interativo (`assets/widgets.js`);
-   - Rodapé com botão de alternância de leitura (`Store.toggleTopicRead`) e botão primário para o Banco de Questões (`../questoes.html?topico=<id>`).
+4. **Aulas da Fase 1 (`lessons/0001` a `0008`) — Padrão Didático de Excelência (ADR 0009):**
+   - 100% livres de emojis (ADR 0007) e 100% offline-first sem CDNs externas;
+   - 100% livres de Mermaid ou árvores ASCII desformatadas (ADR 0008, diagramas em `<svg>` vetoriais puros em `.visual-diagram-card`);
+   - Didática Zero Base pautada no **Princípio de Einstein**: *"Se você não consegue explicar algo para uma criança de seis anos, você mesmo não entende"*;
+   - Tom aproximador, acolhedor e direto (*"Você"*), desmistificando o medo da matemática discreta com metáforas viscerais de TI/infraestrutura (pacotes de rede, nós de cluster, tabelas SQL, permissões);
+   - Micro-degraus cognitivos com blocos `.word-breakdown` com etimologia e pronúncia fonética silábica (`.pronunciation`);
+   - Caixas de fórmulas limpas (`.formula-box`) com KaTeX centralizado e barra integrada `.reading-guide` ("Como se fala" + "O que significa");
+   - Dicionário Fonético de Símbolos Lógicos integrado;
+   - Paleta rica e semântica de caixas de destaque (`.callout.philosophy` em âmbar, `.callout.computation` em esmeralda, `.trap-box` em rosa para armadilhas de banca);
+   - Pilar Interativo com controles táteis em tempo real (`assets/widgets.js`);
+   - **Active Retrieval no final de cada aula (`.quiz-section`):** Mini-quiz de 4 questões conceituais com feedback instantâneo colorido (verde/vermelho), justificativa imediata explicando o porquê de cada item e banner de pontuação dinâmico (`.score-banner`);
+   - Card "Próxima Parada" (`.next-step-card`) com gancho conectivo para a aula seguinte;
+   - Rodapé com botão de alternância de leitura (`Store.toggleTopicRead`) e botão primário **"Praticar questões desta aula na banca"** direcionando para `../questoes.html?topico=<id>`.
 
 ---
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 05: Classes de equivalência e partições (ex: congruência módulo n) · PPGCC IFCE</title>
+  <title>Aula 05: Classes de Equivalência e Partições — Organizando o Caos em Gavetas Perfeitas · PPGCC IFCE</title>
   <link rel="stylesheet" href="../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -11,9 +11,9 @@
   <main class="lesson-container">
     <div class="hub-page-header">
       <div>
-        <div class="hub-eyebrow">Fase 1 · Tópico 05 de 37 · Tempo estimado: 60 min</div>
-        <h1 class="hub-title">Classes de equivalência e partições (ex: congruência módulo n)</h1>
-        <p class="hub-subtitle">Didática Zero Base com Tradução Tríplice, Pilar Visual (SVG) e Manipulação Interativa.</p>
+        <div class="hub-eyebrow">Fase 1 · Tópico 05 de 37 · Tempo estimado: 45 min</div>
+        <h1 class="hub-title">Classes de Equivalência e Partições — Organizando o Caos em Gavetas Perfeitas</h1>
+        <p class="hub-subtitle">O Teorema Fundamental das Relações de Equivalência: gavetas disjuntas, quociente A/~ e congruência modular.</p>
       </div>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a class="hub-btn-secondary hub-btn-sm" href="../edital.html">Edital</a>
@@ -21,205 +21,247 @@
       </div>
     </div>
 
-    <section aria-label="Nivelamento Zero Base">
-      <div class="como-se-le"><strong>Tradução Tríplice (Zero Base) — Como se Lê e Analogia Prática</strong><p><strong>$[a]_R = \{x \in A \mid (x, a) \in R\}$:</strong> Lê-se 'A classe de equivalência de a segundo R é o conjunto de todos os elementos x em A que são equivalentes a a'. Analogia: diretórios separados onde cada arquivo entra em exatamente uma pasta (sem sobreposição e sem arquivo órfão).</p><p><strong>Partição $A/R$:</strong> O conjunto quociente divide $A$ em blocos não vazios, mutuamente disjuntos e cuja união recompõe $A$ inteiro.</p></div>
+    <!-- 1. Transição Ontológica & Filosofia -->
+    <div class="callout philosophy">
+      <div class="callout-title">[Filosofia da Lógica]: O Armário Perfeito: Gavetas Sem Furos e Sem Sobreposição</div>
+      <div>
+Imagine que você tem a tarefa de organizar centenas de arquivos espalhados na área de trabalho de um servidor.
+Você cria pastas temáticas. Para que essa organização seja impecável, ela precisa respeitar duas regras de ouro:
+1. <strong>Nenhum arquivo pode ficar órfão</strong> (todo arquivo deve estar em alguma pasta);
+2. <strong>Nenhum arquivo pode estar em duas pastas ao mesmo tempo</strong> (as pastas não se sobrepõem).
+Na matemática, esse armário perfeito chama-se <strong>Partição de um Conjunto</strong>.
+E o resultado mais belo da álgebra discreta nos diz:
+<strong>Toda relação de equivalência particiona o conjunto em gavetas perfeitas — e cada uma dessas gavetas é chamada de Classe de Equivalência!</strong>
+</div>
+    </div>
+
+    <!-- 2. Dicionário Fonético de Símbolos -->
+    
+<div class="como-se-le" style="margin-top:2rem;">
+  <div class="como-se-le-title">[Dicionário Fonético de Símbolos Lógicos]</div>
+  <p>Para ler com fluência natural qualquer fórmula desta lição:</p>
+  <ul style="margin-left: 1.25rem;">
+    <li>$\in$ : <em>"Pertence a"</em> (ex: $a \in A \to$ <em>"o elemento a pertence ao conjunto A"</em>).</li>
+    <li>$\subseteq$ : <em>"Está contido em"</em> ou <em>"é subconjunto de"</em> (ex: $R \subseteq A \times B \to$ <em>"R está contido em A vezes B"</em>).</li>
+    <li>$\land$ : <em>"E"</em> (conjunção lógica, exige que ambas as condições sejam verdadeiras).</li>
+    <li>$\lor$ : <em>"OU"</em> (disjunção lógica, basta que uma seja verdadeira).</li>
+    <li>$\iff$ : <em>"Se, e somente se"</em> (equivalência lógica bidirecional).</li>
+    <li>$\implies$ : <em>"Implica que"</em> ou <em>"se... então..."</em> (condicional unidirecional).</li>
+    <li>$\forall$ : <em>"Para todo..."</em> ou <em>"Qualquer que seja..."</em> (quantificador universal).</li>
+    <li>$\exists$ : <em>"Existe ao menos um..."</em> (quantificador existencial).</li>
+    <li>$\emptyset$ : <em>"Conjunto vazio"</em> (a sacola sem nenhum elemento).</li>
+  </ul>
+</div>
+
+
+    <!-- 3. Degraus Cognitivos e Desmistificação de Termos -->
+    <section aria-label="Degraus Cognitivos e Termos">
+      <h2>1. Degraus Cognitivos: Desmistificando os Termos</h2>
+      <p>Entendendo a etimologia e o significado real antes de qualquer fórmula complexa:</p>
+      
+<div class="word-breakdown">
+  <div><strong class="term">Classe de Equivalência</strong> <span class="pronunciation">[clas-se de e-qui-va-lên-ci-a]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;classis&#x27; (grupo convocado sob a mesma bandeira).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> O conjunto de todos os elementos que são equivalentes a um representante escolhido &#x27;a&#x27;. Denota-se por [a] ou ā.</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Conjunto Quociente</strong> <span class="pronunciation">[con-jun-to quo-ci-en-te]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;quotiens&#x27; (quantas vezes se divide uma totalidade).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> A coleção de todas as gavetas (classes de equivalência). Denota-se por A/~ ou A/R. É o conjunto cujos elementos são as próprias classes!</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Partição</strong> <span class="pronunciation">[par-ti-ção]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;partitio&#x27; (divisão de uma totalidade em fatias sem perda de massa).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Uma família de subconjuntos não vazios que divide o conjunto original sem sobras e sem cruzamentos.</p>
+</div>
+
     </section>
 
+    <!-- 4. Fórmulas Limpas com Guia de Leitura -->
+    <section aria-label="Fórmulas Canônicas e Como se Fala">
+      <h2>2. Fórmulas Canônicas: Como se Lê e o que Significa</h2>
+      <p>Cada símbolo rigoroso acompanhado de sua pronúncia fonética e tradução intuitiva para sistemas de TI:</p>
+      
+<div class="formula-box">
+  <div class="math-display">$$[a]_R = \{ x \in A \mid (x, a) \in R \}$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"A classe de equivalência de a segundo R é o conjunto dos elementos x em A tais que x se relaciona com a"</em></div>
+    <div style="color:#92400e;">[O que significa]: Definição formal da gaveta: todos os elementos que compartilham a mesma essência de &#x27;a&#x27; entram dentro da mesma chave $[a]$.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$[a] = [b] \iff a \sim b \qquad \text{caso contrário} \qquad [a] \cap [b] = \emptyset$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"A classe de a é idêntica à classe de b se, e somente se, a for equivalente a b; caso contrário, a interseção entre elas é vazia"</em></div>
+    <div style="color:#92400e;">[O que significa]: O Teorema da Disjunção Total: duas classes de equivalência NUNCA se cruzam pela metade! Ou elas são a mesmíssima gaveta, ou são completamente estranhas entre si.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$A / \sim \, = \{ [a] \mid a \in A \}$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"O conjunto quociente de A por til é o conjunto de todas as classes de equivalência de A"</em></div>
+    <div style="color:#92400e;">[O que significa]: O novo universo onde cada elemento é uma gaveta inteira. Exemplo: Z / 3Z tem apenas 3 elementos: a classe [0] (múltiplos de 3), [1] (resto 1) e [2] (resto 2).</div>
+  </div>
+</div>
+
+    </section>
+
+    <!-- 5. Aplicação Computacional -->
+    <div class="callout computation">
+      <div class="callout-title">[Computação e Infraestrutura]: O Teorema Fundamental das Relações de Equivalência</div>
+      <div>
+Este teorema é um dos mais cobrados em pós-graduação e concursos:
+- <strong>Direção 1:</strong> Dada qualquer relação de equivalência $R$ sobre $A$, as classes de equivalência formam uma partição legítima de $A$;
+- <strong>Direção 2:</strong> Dada qualquer partição $\mathcal{P} = \{A_1, A_2, \dots, A_k\}$ de $A$, existe uma relação de equivalência induzida onde $(x, y) \in R \iff x$ e $y$ pertencem ao mesmíssimo bloco $A_i$.
+Existe uma bijeção de um-para-um entre o conceito de 'Relação de Equivalência' e o conceito de 'Partição'!
+</div>
+    </div>
+
+    <!-- 6. Representação Visual Vetorial SVG Nativo -->
     <section aria-label="Pilar Visual — Diagrama Vetorial">
-      <h2>Representação Visual</h2>
-      <div class="diagram-container"><svg viewBox="0 0 600 180" width="100%" height="auto" role="img" aria-label="Partição de Conjunto em Classes Disjuntas"><rect x="14" y="14" width="572" height="152" rx="12" fill="#f8fafc" stroke="#0f172a" stroke-width="1.5"/><text x="28" y="36" font-size="12" font-weight="600" fill="#0f172a">Partição do Conjunto A = {0, 1, 2, 3, 4, 5} pela Congruência Módulo 3 (A / ~)</text><rect x="30" y="52" width="170" height="96" rx="10" fill="#eff6ff" stroke="#0071e3" stroke-width="1.5"/><text x="115" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#0071e3">[0]_3 (Resto 0)</text><text x="115" y="110" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">0 , 3</text><rect x="215" y="52" width="170" height="96" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/><text x="300" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">[1]_3 (Resto 1)</text><text x="300" y="110" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">1 , 4</text><rect x="400" y="52" width="170" height="96" rx="10" fill="#faf5ff" stroke="#8b5cf6" stroke-width="1.5"/><text x="485" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#6b21a8">[2]_3 (Resto 2)</text><text x="485" y="110" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">2 , 5</text></svg></div>
-    </section>
-
-    <section aria-label="Pilar Interativo — Laboratório Tátil">
-      <h2>Laboratório Interativo</h2>
-      <div id="lesson-widget-5"></div>
-    </section>
-
-    <article class="lesson-content">
-      <h2>1. Visão Geral e Contexto Formal</h2>
-<p>Na Ciência da Computação e na Matemática Discreta, a abstração é a técnica fundamental para controlar a complexidade. Frequentemente, é necessário agrupar elementos que compartilham uma dada propriedade ou comportamento de interesse, ignorando diferenças irrelevantes para o problema em análise. O formalismo matemático exato que viabiliza essa abstração é a teoria de <strong>relações de equivalência</strong>, <strong>classes de equivalência</strong> e <strong>partições</strong>.</p>
-<p>Seja na partição do espaço de estados de um autômato finito determinístico (AFD) para minimização, no particionamento de componentes conexas em grafos via estruturas de dados <em>Disjoint-Set</em> (Union-Find), ou na aritmética modular que alicerça os algoritmos de criptografia de chave pública (como RSA e curvas elípticas), o princípio subjacente é invariante: dividimos um domínio universal em blocos mutuamente exclusivos cuja união reconstitui integralmente o espaço original.</p>
-<p>Conforme a abordagem estrutural de Judith L. Gersting (<em>Fundamentos Matemáticos para a Ciência da Computação</em>, Capítulo 2), a correspondência biunívoca entre relações de equivalência e partições de conjuntos constitui o <strong>Teorema Fundamental das Relações de Equivalência</strong>, um dos pilares da teoria dos conjuntos moderna.</p>
-<hr>
-<h2>2. Definições Rigorosas e Formalismo Matemático</h2>
-<h3>2.1. Relação de Equivalência</h3>
-<p>Seja $A$ um conjunto não vazio. Uma relação binária $R \subseteq A \times A$ (frequentemente denotada em notação infixa por $x \mathrel{R} y$ ou $x \sim y$) é denominada uma <strong>relação de equivalência</strong> sobre $A$ se, e somente se, satisfaz simultaneamente três propriedades invariantes:</p>
-<ol><li><strong>Reflexividade</strong>:</li></ol>
-<div class="math-display">$$\forall x \in A, \quad (x, x) \in R$$</div>
-<ol><li><strong>Simetria</strong>:</li></ol>
-<div class="math-display">$$\forall x, y \in A, \quad (x, y) \in R \implies (y, x) \in R$$</div>
-<ol><li><strong>Transitividade</strong>:</li></ol>
-<div class="math-display">$$\forall x, y, z \in A, \quad \big((x, y) \in R \land (y, z) \in R\big) \implies (x, z) \in R$$</div>
-<h3>2.2. Classe de Equivalência</h3>
-<p>Dada uma relação de equivalência $R$ sobre um conjunto $A$ e um elemento arbitrário $a \in A$, a <strong>classe de equivalência</strong> de $a$ induzida por $R$, denotada por $[a]$, $[a]_R$ ou $\bar{a}$, é o conjunto de todos os elementos de $A$ que estão relacionados com $a$:</p>
-<div class="math-display">$$[a]_R = \{ x \in A \mid (x, a) \in R \}$$</div>
-<p>Pela propriedade de simetria de $R$, $(x, a) \in R \iff (a, x) \in R$, logo a definição pode ser expressa equivalentemente por $[a] = \{ x \in A \mid a \mathrel{R} x \}$.</p>
-<ul><li><strong>Representante da Classe</strong>: Qualquer elemento $b \in [a]$ é denominado um <em>representante</em> da classe $[a]$.</li><li><strong>Não-Vacuidade</strong>: Como $R$ é reflexiva, temos que $\forall a \in A, (a, a) \in R \implies a \in [a]$. Logo, nenhuma classe de equivalência é vazia:</li></ul>
-<div class="math-display">$$\forall a \in A, \quad [a] \neq \emptyset$$</div>
-<h3>2.3. Partição de um Conjunto</h3>
-<p>Seja $A$ um conjunto não vazio. Uma família de subconjuntos $\mathcal{P} = \{A_i\}_{i \in I}$, onde cada $A_i \subseteq A$, é dita uma <strong>partição</strong> de $A$ (e seus elementos $A_i$ são denominados blocos ou células da partição) se, e somente se, as três condições formais a seguir são rigorosamente atendidas:</p>
-<ol><li><strong>Não-Vacuidade dos Blocos</strong>:</li></ol>
-<div class="math-display">$$\forall i \in I, \quad A_i \neq \emptyset$$</div>
-<ol><li><strong>Disjunção Par a Par (Mútua Exclusão)</strong>:</li></ol>
-<div class="math-display">$$\forall i, j \in I, \quad i \neq j \implies A_i \cap A_j = \emptyset$$</div>
-<ol><li><strong>Exaustão (Cobertura Total de $A$)</strong>:</li></ol>
-<div class="math-display">$$\bigcup_{i \in I} A_i = A$$</div>
-<h3>2.4. Conjunto Quociente</h3>
-<p>O conjunto formado por todas as classes de equivalência distintas de $A$ sob a relação $R$ é denominado <strong>conjunto quociente</strong> de $A$ por $R$, denotado por $A / R$:</p>
-<div class="math-display">$$A / R = \{ [a]_R \mid a \in A \}$$</div>
-<p>A cardinalidade $|A / R|$ é denominada o <strong>índice</strong> da relação de equivalência $R$ sobre $A$, denotado por $[A : R]$. O índice pode ser finito mesmo quando o conjunto $A$ é infinito (como ocorre com as classes de congruência nos inteiros).</p>
-<hr>
-<h2>3. Teoremas, Propriedades Invariantes e Demonstrações</h2>
-<h3>3.1. Lema Fundamental da Tricotomia de Classes</h3>
-<p>Para qualquer relação de equivalência $R$ sobre $A$ e quaisquer elementos $a, b \in A$, as três sentenças a seguir são logicamente equivalentes:</p>
-<div class="math-display">$$(1) \ (a, b) \in R \quad \iff \quad (2) \ [a] = [b] \quad \iff \quad (3) \ [a] \cap [b] \neq \emptyset$$</div>
-<h4>Demonstração Rigorosa:</h4>
-<p>A demonstração segue a cadeia cíclica de implicações $(1) \implies (2) \implies (3) \implies (1)$:</p>
-<ul><li><strong>Parte 1: $(1) \implies (2)$</strong></li></ul>
-<p>Suponha que $(a, b) \in R$. Devemos provar que $[a] = [b]$, isto é, $[a] \subseteq [b]$ e $[b] \subseteq [a]$.</p>
-<ul><li>Seja $x \in [a]$. Pela definição de classe, $(x, a) \in R$.</li><li>Por hipótese, $(a, b) \in R$.</li><li>Como $R$ é transitiva, $(x, a) \in R \land (a, b) \in R \implies (x, b) \in R$.</li><li>Logo, $x \in [b]$, o que demonstra que $[a] \subseteq [b]$.</li><li>Reciprocamente, como $R$ é simétrica e $(a, b) \in R$, temos $(b, a) \in R$. Aplicando o mesmo raciocínio, para qualquer $y \in [b]$ temos $(y, b) \in R \implies (y, a) \in R \implies y \in [a]$, logo $[b] \subseteq [a]$.</li><li>Portanto, $[a] = [b]$.</li></ul>
-<ul><li><strong>Parte 2: $(2) \implies (3)$</strong></li></ul>
-<p>Suponha que $[a] = [b]$.</p>
-<ul><li>Pela reflexividade de $R$, sabemos que $(a, a) \in R$, o que garante que $a \in [a]$.</li><li>Como $[a] = [b]$, decorre que $a \in [b]$.</li><li>Portanto, $a \in [a] \cap [b]$, o que implica diretamente $[a] \cap [b] \neq \emptyset$.</li></ul>
-<ul><li><strong>Parte 3: $(3) \implies (1)$</strong></li></ul>
-<p>Suponha que $[a] \cap [b] \neq \emptyset$.</p>
-<ul><li>Então, existe pelo menos um elemento $c \in A$ tal que $c \in [a] \cap [b]$.</li><li>Isso significa que $c \in [a]$ e $c \in [b]$, ou seja, $(c, a) \in R$ e $(c, b) \in R$.</li><li>Pela simetria de $R$, $(c, a) \in R \implies (a, c) \in R$.</li><li>Pela transitividade de $R$, $(a, c) \in R \land (c, b) \in R \implies (a, b) \in R$.</li><li>Conclui-se que $(a, b) \in R$. $\blacksquare$</li></ul>
-<blockquote><p><strong>Corolário Invariante Fundamental</strong>: Duas classes de equivalência $[a]$ e $[b]$ ou são rigorosamente idênticas ($[a] = [b]$) ou são absolutamente disjuntas ($[a] \cap [b] = \emptyset$). É matematicamente impossível que duas classes de equivalência compartilhem alguns elementos e difiram em outros.</p></blockquote>
-<hr>
-<h3>3.2. Teorema Fundamental das Relações de Equivalência</h3>
-<blockquote><p><strong>Teorema</strong>: Seja $A$ um conjunto não vazio. 1. Se $R$ é uma relação de equivalência sobre $A$, então o conjunto quociente $A / R$ é uma partição de $A$. 2. Reciprocamente, se $\mathcal{P}$ é uma partição de $A$, então a relação $R_{\mathcal{P}}$ definida por:    $$(x, y) \in R_{\mathcal{P}} \iff \exists B \in \mathcal{P} \text{ tal que } x \in B \land y \in B$$    é uma relação de equivalência sobre $A$, cuja partição induzida $A / R_{\mathcal{P}}$ é exatamente $\mathcal{P}$.</p></blockquote>
-<h4>Demonstração da Parte 1 ($R \implies \text{Partição}$):</h4>
-<p>Devemos verificar as 3 propriedades de partição para a família $\mathcal{P} = A / R$:</p>
-<ol><li><strong>Não-vacuidade</strong>: Para todo $[a] \in A/R$, como $R$ é reflexiva, $a \in [a]$, logo $[a] \neq \emptyset$.</li><li><strong>Disjunção par a par</strong>: Sejam $[a], [b] \in A/R$ com $[a] \neq [b]$. Pelo Lema Fundamental da Tricotomia, se $[a] \neq [b]$, então sua interseção não pode ser não-vazia; logo, necessariamente $[a] \cap [b] = \emptyset$.</li><li><strong>Exaustão</strong>: Como cada $[a] \subseteq A$, a união $\bigcup_{a \in A} [a] \subseteq A$. Por outro lado, para qualquer elemento $x \in A$, a reflexividade garante que $x \in [x] \subseteq \bigcup_{a \in A} [a]$, de modo que $A \subseteq \bigcup_{a \in A} [a]$. Logo, $\bigcup_{a \in A} [a] = A$. $\blacksquare$</li></ol>
-<h4>Demonstração da Parte 2 ($\text{Partição} \implies R$):</h4>
-<p>Seja $\mathcal{P}$ uma partição de $A$ e $R_{\mathcal{P}}$ definida como acima:</p>
-<ol><li><strong>Reflexiva</strong>: Como $\bigcup B = A$, para todo $x \in A$, existe algum bloco $B \in \mathcal{P}$ tal que $x \in B$. Como $x, x \in B$, temos $(x, x) \in R_{\mathcal{P}}$.</li><li><strong>Simétrica</strong>: Se $(x, y) \in R_{\mathcal{P}}$, então $x, y \in B$ para algum $B \in \mathcal{P}$. Como a pertinência conjuntista é não-ordenada ($y, x \in B$), decorre imediatamente $(y, x) \in R_{\mathcal{P}}$.</li><li><strong>Transitiva</strong>: Se $(x, y) \in R_{\mathcal{P}}$ e $(y, z) \in R_{\mathcal{P}}$, então existem blocos $B_1, B_2 \in \mathcal{P}$ tais que $x, y \in B_1$ e $y, z \in B_2$. Note que $y \in B_1 \cap B_2$. Mas como $\mathcal{P}$ é uma partição, blocos com interseção não vazia são idênticos ($B_1 = B_2$). Assim, $x, z \in B_1$, o que prova que $(x, z) \in R_{\mathcal{P}}$. $\blacksquare$</li></ol>
-<hr>
-<h2>4. Exemplos Computacionais e Diagramas</h2>
-<h3>4.1. Exemplo Clássico: Congruência Módulo $n$ sobre $\mathbb{Z}$</h3>
-<p>Fixe um inteiro positivo $n \ge 1$. Para quaisquer inteiros $a, b \in \mathbb{Z}$, diz-se que $a$ é congruente a $b$ módulo $n$, escrevendo $a \equiv b \pmod n$, se sua diferença for um múltiplo inteiro de $n$:</p>
-<div class="math-display">$$a \equiv b \pmod n \iff n \mid (a - b) \iff \exists k \in \mathbb{Z}, \quad a - b = k \cdot n$$</div>
-<h4>Validação das Propriedades de Equivalência:</h4>
-<ol><li><strong>Reflexiva</strong>: $\forall a \in \mathbb{Z}, a - a = 0 = 0 \cdot n$. Como $0 \in \mathbb{Z}$, $a \equiv a \pmod n$.</li><li><strong>Simétrica</strong>: Se $a \equiv b \pmod n$, então $a - b = k n$. Logo, $b - a = -(a - b) = (-k) n$. Como $-k \in \mathbb{Z}$, $b \equiv a \pmod n$.</li><li><strong>Transitiva</strong>: Se $a \equiv b \pmod n$ e $b \equiv c \pmod n$, então $a - b = k_1 n$ e $b - c = k_2 n$. Somando as duas equações:</li></ol>
-<div class="math-display">$$(a - b) + (b - c) = k_1 n + k_2 n \implies a - c = (k_1 + k_2) n$$</div>
-<p>Como $k_1 + k_2 \in \mathbb{Z}$, temos $a \equiv c \pmod n$.</p>
-<h4>As $n$ Classes de Equivalência Distintas de $\mathbb{Z} / n\mathbb{Z}$:</h4>
-<p>Pelo <strong>Teorema da Divisão Euclidiana</strong>, para todo inteiro $a \in \mathbb{Z}$ e $n \ge 1$, existem únicos inteiros $q$ (quociente) e $r$ (resto) tais que:</p>
-<div class="math-display">$$a = q \cdot n + r, \quad \text{onde } 0 \le r &lt; n$$</div>
-<p>Reescrevendo, $a - r = q \cdot n$, ou seja, $a \equiv r \pmod n$, o que significa que $a \in [r]$.</p>
-<p>Como os possíveis restos são estritamente $\{0, 1, 2, \dots, n-1\}$, existem exatamente $n$ classes de equivalência distintas:</p>
-<div class="math-display">$$\mathbb{Z} / n\mathbb{Z} = \{ [0], [1], [2], \dots, [n-1] \}$$</div>
-<p>Cada classe é um subconjunto infinito de inteiros:</p>
-<ul><li>$[0] = \{ \dots, -2n, -n, 0, n, 2n, \dots \}$</li><li>$[1] = \{ \dots, -2n+1, -n+1, 1, n+1, 2n+1, \dots \}$</li><li>$\dots$</li><li>$[n-1] = \{ \dots, -n-1, -1, n-1, 2n-1, \dots \}$</li></ul>
-<h4>Aritmética no Anel Quociente $(\mathbb{Z}/n\mathbb{Z}, +, \cdot)$:</h4>
-<p>As operações de adição e multiplicação em $\mathbb{Z}/n\mathbb{Z}$ são definidas sobre as próprias classes:</p>
-<div class="math-display">$$[a] + [b] = [a + b]$$</div>
-<div class="math-display">$$[a] \cdot [b] = [a \cdot b]$$</div>
-<p><strong>Demonstração da Boa-Definição (Independência de Representante)</strong>: Para que a operação seja matematicamente válida, a escolha de outros representantes na mesma classe não pode alterar o resultado. Suponha que $[a] = [a&#x27;]$ e $[b] = [b&#x27;]$. Então $a&#x27; = a + k_1 n$ e $b&#x27; = b + k_2 n$.</p>
-<ul><li>Para a soma:</li></ul>
-<div class="math-display">$$a&#x27; + b&#x27; = (a + k_1 n) + (b + k_2 n) = (a + b) + (k_1 + k_2) n \implies a&#x27; + b&#x27; \equiv a + b \pmod n \implies [a&#x27; + b&#x27;] = [a + b]$$</div>
-<ul><li>Para a multiplicação:</li></ul>
-<div class="math-display">$$a&#x27; \cdot b&#x27; = (a + k_1 n)(b + k_2 n) = ab + n(a k_2 + b k_1 + k_1 k_2 n) \implies a&#x27; b&#x27; \equiv ab \pmod n \implies [a&#x27; b&#x27;] = [ab]$$</div>
-<p>Portanto, a aritmética modular é rigorosamente bem-definida.</p>
-<hr>
-<h3>4.2. Diagrama Conceitual de Partição e Projeção Canônica</h3>
-<div class="visual-diagram-card">
+      <h2>3. Anatomia Visual: Diagrama Vetorial Nativo</h2>
+      <p class="hub-muted">Inspeção espacial sem Mermaid e sem texto desformatado (ADR 0008).</p>
+      <div class="visual-diagram-card">
   <div class="diagram-header">
-    <span class="diagram-tag">FIGURA 5.1 — PROJEÇÃO CANÔNICA</span>
-    <h4 class="diagram-title">Projeção Canônica π: A → A/R sobre o Conjunto Quociente</h4>
+    <span class="diagram-tag">FIGURA 4.1 — PARTIÇÃO DO GRAFO NÃO-DIRECIONADO</span>
+    <h4 class="diagram-title">Componentes Conexas como Classes de Equivalência</h4>
   </div>
   <div class="diagram-body">
-    <svg viewBox="0 0 680 300" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="arr-proj" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0071e3"/>
-    </marker>
-  </defs>
+    <svg viewBox="0 0 640 240" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Component 1: {1, 2, 3} -->
+  <g transform="translate(30, 20)">
+    <rect width="180" height="190" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="90" y="28" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e40af">Classe [1] = {1, 2, 3}</text>
+    
+    <line x1="50" y1="70" x2="130" y2="70" stroke="#0071e3" stroke-width="2"/>
+    <line x1="130" y1="70" x2="90" y2="150" stroke="#0071e3" stroke-width="2"/>
+    <line x1="90" y1="150" x2="50" y2="70" stroke="#0071e3" stroke-width="2"/>
 
-  <!-- Left Container: Conjunto Universo A -->
-  <rect x="20" y="20" width="340" height="260" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-  <text x="190" y="45" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">Conjunto Universo A</text>
+    <circle cx="50" cy="70" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+    <text x="50" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">1</text>
+    <circle cx="130" cy="70" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+    <text x="130" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">2</text>
+    <circle cx="90" cy="150" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+    <text x="90" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">3</text>
+  </g>
 
-  <!-- Subclasses in A -->
-  <rect x="40" y="65" width="300" height="42" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="190" y="90" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e40af">Bloco [0]: Múltiplos de n (resto 0)</text>
+  <!-- Component 2: {4, 5, 6} -->
+  <g transform="translate(240, 20)">
+    <rect width="180" height="190" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text x="90" y="28" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#166534">Classe [4] = {4, 5, 6}</text>
+    
+    <line x1="50" y1="70" x2="130" y2="70" stroke="#10b981" stroke-width="2"/>
+    <line x1="50" y1="70" x2="50" y2="150" stroke="#10b981" stroke-width="2"/>
 
-  <rect x="40" y="117" width="300" height="42" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
-  <text x="190" y="142" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#166534">Bloco [1]: Resto 1 ({..., 1, n+1, ...})</text>
+    <circle cx="50" cy="70" r="16" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+    <text x="50" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">4</text>
+    <circle cx="130" cy="70" r="16" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+    <text x="130" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">5</text>
+    <circle cx="50" cy="150" r="16" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+    <text x="50" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">6</text>
+  </g>
 
-  <rect x="40" y="169" width="300" height="42" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
-  <text x="190" y="194" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#6b21a8">Bloco [r]: Resto r ({..., r, n+r, ...})</text>
-
-  <rect x="40" y="221" width="300" height="42" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
-  <text x="190" y="246" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#9a3412">Bloco [n-1]: Resto n-1</text>
-
-  <!-- Projection Arrows -->
-  <path d="M 340 86 L 470 86" fill="none" stroke="#0071e3" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arr-proj)"/>
-  <path d="M 340 138 L 470 138" fill="none" stroke="#0071e3" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arr-proj)"/>
-  <path d="M 340 190 L 470 190" fill="none" stroke="#0071e3" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arr-proj)"/>
-  <path d="M 340 242 L 470 242" fill="none" stroke="#0071e3" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arr-proj)"/>
-
-  <!-- Projection Label -->
-  <text x="405" y="75" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="700" fill="#0071e3">π</text>
-
-  <!-- Right Container: Conjunto Quociente A/R -->
-  <rect x="480" y="20" width="180" height="260" rx="12" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
-  <text x="570" y="45" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">Quociente A/R = ℤ_n</text>
-
-  <!-- Target Elements in Quotient -->
-  <circle cx="570" cy="86" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2"/>
-  <text x="570" y="91" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e40af">[0]</text>
-
-  <circle cx="570" cy="138" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
-  <text x="570" y="143" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#166534">[1]</text>
-
-  <circle cx="570" cy="190" r="18" fill="#faf5ff" stroke="#8b5cf6" stroke-width="2"/>
-  <text x="570" y="195" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#6b21a8">[r]</text>
-
-  <circle cx="570" cy="242" r="18" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
-  <text x="570" y="247" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="700" fill="#9a3412">[n-1]</text>
+  <!-- Component 3: {7} -->
+  <g transform="translate(450, 20)">
+    <rect width="150" height="190" rx="12" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text x="75" y="28" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#6b21a8">Classe [7] = {7}</text>
+    
+    <circle cx="75" cy="110" r="18" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="75" y="115" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">7</text>
+    <text x="75" y="155" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-style="italic" fill="#64748b">(Isolado)</text>
+  </g>
 </svg>
   </div>
-  <p class="diagram-caption">A função canônica sobrejetora π mapeia cada elemento a ∈ A para a sua respectiva classe de equivalência [a] no conjunto quociente A/R.</p>
+  <p class="diagram-caption">Cada componente conexa no grafo não-direcionado corresponde rigorosamente a uma classe de equivalência disjunta da relação R = Conectado.</p>
 </div>
-<hr>
-<h2>5. Armadilhas de Banca e Corner Cases</h2>
-<ol><li><strong>A Armadilha da Sobreposição Parcial</strong>:</li></ol>
-<ul><li><em>Pegadinha frequente</em>: A banca propõe uma situação em que duas classes de equivalência $[x]$ e $[y]$ compartilham um subconjunto de elementos, mas diferem em outros.</li><li><em>Fundamento</em>: Isso viola diretamente o Lema da Tricotomia. Se $[x] \cap [y] \neq \emptyset$, então obrigatoriamente $[x] = [y]$. Se diferem em um único elemento, a relação <strong>não é de equivalência</strong> (geralmente falha a transitividade).</li></ul>
-<ol><li><strong>Relações de Tolerância (Compatibilidade)</strong>:</li></ol>
-<ul><li>Relações reflexivas e simétricas que <strong>não são transitivas</strong> são chamadas de relações de tolerância.</li><li><em>Erro clássico</em>: Afirmar que relações de compatibilidade induzem partições. Relações de tolerância geram <em>coberturas</em> (<em>coverings</em>), onde os blocos podem se sobrepor livremente sem serem idênticos.</li></ul>
-<ol><li><strong>Confundir Número de Classes com Tamanho da Classe</strong>:</li></ol>
-<ul><li>Em $\mathbb{Z} / n\mathbb{Z}$, existem exatamente $n$ classes de equivalência (o índice $[ \mathbb{Z} : \equiv_n ]$ é finito e vale $n$), porém cada uma das $n$ classes contém uma quantidade <strong>infinita enumerável</strong> de elementos ($\aleph_0$).</li></ul>
-<ol><li><strong>Operações Dependentes de Representante (Funções Mal-Definidas)</strong>:</li></ol>
-<ul><li>Tentar definir uma função $f: \mathbb{Z}/n\mathbb{Z} \to \mathbb{Z}$ por $f([x]) = x$ não é bem-definido, pois $f([0])$ resultaria em $0, n, 2n, \dots$ simultaneamente. Para mapear um conjunto quociente, a regra deve ser invariante sob a relação de equivalência.</li><li>Exemplo clássico em criptografia: Na exponenciação modular $a^x \pmod n$, os expoentes $x$ não se comportam módulo $n$, mas sim módulo $\varphi(n)$ (pelo Teorema de Euler), logo a classe do expoente vive em $\mathbb{Z}/\varphi(n)\mathbb{Z}$, e não em $\mathbb{Z}/n\mathbb{Z}$.</li></ul>
-<ol><li><strong>Caso Limite: Conjunto Vazio e Relações Extremas</strong>:</li></ol>
-<ul><li>Se $A = \emptyset$, a relação vazia $\emptyset \subseteq \emptyset \times \emptyset$ é trivialmente de equivalência (vacuamente reflexiva, simétrica e transitiva). O quociente $\emptyset / \emptyset = \emptyset$, que é a partição canônica do conjunto vazio.</li><li><strong>Relação Identidade</strong> $I_A = \{ (x, x) \mid x \in A \}$: Produz $|A|$ classes de tamanho $1$. É a partição mais fina (<em>finest partition</em>).</li><li><strong>Relação Universal</strong> $U_A = A \times A$: Produz exatamente $1$ classe de tamanho $|A|$. É a partição mais grosseira (<em>coarsest partition</em>).</li></ul>
-<hr>
-<h2>6. Aplicação na Ciência da Computação</h2>
-<h3>6.1. Teorema de Myhill-Nerode e Minimização de AFD</h3>
-<p>Um dos resultados mais elegantes da Teoria da Computação clássica é a caracterização de linguagens regulares via classes de equivalência:</p>
-<ul><li>Dada uma linguagem formal $L \subseteq \Sigma^*$, define-se a relação de indistinguibilidade de Myhill-Nerode $R_L \subseteq \Sigma^* \times \Sigma^*$ por:</li></ul>
-<div class="math-display">$$u \mathrel{R_L} v \iff \big(\forall w \in \Sigma^*, \quad uw \in L \iff vw \in L\big)$$</div>
-<ul><li><strong>Teorema</strong>: $L$ é uma linguagem regular se e somente se o número de classes de equivalência de $R_L$ (o índice $[\Sigma^* : R_L]$) for finito.</li><li><strong>Minimização</strong>: Cada classe de equivalência do conjunto quociente $\Sigma^* / R_L$ corresponde de maneira biunívoca a exatamente um estado no <strong>Autômato Finito Determinístico Mínimo</strong> que reconhece $L$. Reduzir o autômato equivale matematicamente a calcular o fecho das classes de equivalência de estados indistinguíveis.</li></ul>
-<h3>6.2. Estrutura de Dados Disjoint-Set Union (Union-Find)</h3>
-<p>Em algoritmos sobre grafos (como o algoritmo de Kruskal para Árvore Geradora Mínima) e em particionamento dinâmico de redes:</p>
-<ul><li>A floresta de conjuntos disjuntos mantém explicitamente uma partição de um conjunto finito de vértices $V$.</li><li>Cada conjunto disjunto é uma <strong>classe de equivalência</strong> representando uma componente conexa.</li><li>A operação <code>find(u)</code> retorna o <strong>representante canônico</strong> da classe à qual $u$ pertence.</li><li>A operação <code>union(u, v)</code> funde duas classes de equivalência em uma única classe quando uma nova aresta $(u, v)$ é adicionada, preservando os axiomas de partição com complexidade quase linear $\mathcal{O}(m \cdot \alpha(n))$ via compressão de caminho e união por rank.</li></ul>
-<h3>6.3. Tabelas Hash e Funções de Dispersão</h3>
-<p>O endereçamento de tabelas hash particiona o espaço de chaves $\mathcal{K}$ em $m$ posições (<em>buckets</em>):</p>
-<ul><li>A função de espalhamento modular $h(k) = k \bmod m$ projeta o conjunto infinito de chaves inteiras no quociente finito $\mathbb{Z}/m\mathbb{Z}$.</li><li>Cada bucket corresponde formalmente à classe de equivalência $[r]$ dos inteiros que deixam resto $r$ na divisão por $m$. O tratamento de colisões (seja por encadeamento ou endereçamento aberto) organiza os múltiplos representantes de uma mesma classe de equivalência alocados no mesmo slot de memória.</li></ul>
-<h3>6.4. Criptografia Asimétrica (RSA e Aritmética Modular)</h3>
-<p>O algoritmo criptográfico RSA opera integralmente no anel quociente $\mathbb{Z}/n\mathbb{Z}$, onde $n = p \cdot q$ é o produto de dois primos grandes:</p>
-<ul><li>A operação de cifração eleva a mensagem $m \in \mathbb{Z}/n\mathbb{Z}$ à potência $e$: $c = [m^e \bmod n]$.</li><li>Pelo Teorema de Euler, se $\operatorname{mdc}(m, n) = 1$, então $m^{\varphi(n)} \equiv 1 \pmod n$, onde $\varphi(n) = (p-1)(q-1)$.</li><li>A decifração recupera a classe original por $c^d = (m^e)^d \equiv m^{1 + k \varphi(n)} \equiv m \pmod n$, explorando a estrutura algébrica do grupo de unidades multiplicativas do anel quociente.</li></ul>
-    </article>
+    </section>
 
+    <!-- 7. Laboratório Interativo Tátil -->
+    <section aria-label="Pilar Interativo — Laboratório Tátil">
+      <h2>4. Laboratório Interativo: Manipulação em Tempo Real</h2>
+      <p class="hub-muted">Clique nos controles para experimentar o comportamento da estrutura e visualizar os estados.</p>
+      <div class="interactive-card">
+        <div id="lesson-widget-5"></div>
+      </div>
+    </section>
+
+    <!-- 8. Pegadinhas de Concurso -->
+    <section aria-label="Pegadinhas da Banca">
+      <h2>5. Armadilhas Clássicas da Banca Examinadora</h2>
+      
+<div class="trap-box">
+  <strong style="display:block; margin-bottom:4px;">[Cuidado com a Pegadinha da Banca]: Achar que o Quociente Tem o Mesmo Tamanho do Conjunto Original</strong>
+  <div>Se $A = \{0, 1, 2, 3, 4, 5\}$ e a relação for congruência módulo 2 (par ou ímpar), o conjunto $A$ tem 6 números inteiros. Mas o conjunto quociente $A / \sim$ tem APENAS DOIS ELEMENTOS: a gaveta dos pares $[0] = \{0, 2, 4\}$ e a gaveta dos ímpares $[1] = \{1, 3, 5\}$.</div>
+</div>
+
+    </section>
+
+    <!-- 9. Active Retrieval (Retenção Imediata da Aula) -->
+    
+<section class="quiz-section" aria-label="Active Retrieval — Retenção Imediata">
+  <h2>Active Retrieval — Fixação Imediata da Aula</h2>
+  <p class="hub-muted">Quatro perguntas de verificação imediata para checar se os conceitos e fórmulas se assentaram na sua mente antes de praticar na banca de concurso.</p>
+  
+<div class="question-block" id="q1">
+  <div class="question-title"><strong>Questão de Retenção 1 de 4:</strong> Sejam a e b elementos de um conjunto A sobre o qual está definida uma relação de equivalência ~. Se soubermos que a interseção [a] ∩ [b] NÃO é vazia, o que podemos afirmar com certeza matemática?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'A')"><strong>A)</strong> Que a e b não são equivalentes.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'B')"><strong>B)</strong> Que as classes são rigorosamente idênticas: [a] = [b].</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'C')"><strong>C)</strong> Que uma classe é subconjunto próprio da outra.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'D')"><strong>D)</strong> Que a relação perdeu a transitividade.</button>
+  </div>
+  <div class="feedback-box" id="fb-1"></div>
+</div>
+
+<div class="question-block" id="q2">
+  <div class="question-title"><strong>Questão de Retenção 2 de 4:</strong> Considere o conjunto dos inteiros Z e a relação de equivalência dada pela congruência módulo 4 (a ≡ b mod 4). Quantas classes de equivalência distintas compõem o conjunto quociente Z / 4Z?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'A')"><strong>A)</strong> Infinitas classes de equivalência.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'B')"><strong>B)</strong> Exatamente 2 classes (positivos e negativos).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'C')"><strong>C)</strong> Exatamente 4 classes: [0], [1], [2] e [3].</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'D')"><strong>D)</strong> 16 classes distintas.</button>
+  </div>
+  <div class="feedback-box" id="fb-2"></div>
+</div>
+
+<div class="question-block" id="q3">
+  <div class="question-title"><strong>Questão de Retenção 3 de 4:</strong> Qual das seguintes coleções de subconjuntos representa uma partição válida do conjunto S = {1, 2, 3, 4, 5, 6}?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'A')"><strong>A)</strong> P = {{1, 2}, {3, 4}, {5}}</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'B')"><strong>B)</strong> P = {{1, 2, 3}, {3, 4, 5}, {6}}</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'C')"><strong>C)</strong> P = {{1, 3, 5}, {2, 4, 6}}</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'D')"><strong>D)</strong> P = {{1, 2, 3, 4, 5, 6}, ∅}</button>
+  </div>
+  <div class="feedback-box" id="fb-3"></div>
+</div>
+
+<div class="question-block" id="q4">
+  <div class="question-title"><strong>Questão de Retenção 4 de 4:</strong> Dada uma relação de equivalência em um conjunto finito com n elementos, se a relação for a menor relação de equivalência possível (apenas os laços reflexivos R = {(x, x) | x ∈ A}), quantas classes de equivalência existirão no conjunto quociente?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'A')"><strong>A)</strong> Apenas 1 classe contendo todo mundo.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'B')"><strong>B)</strong> Exatamente n classes, onde cada classe é um conjunto unitário {[x] = {x}}.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'C')"><strong>C)</strong> Zero classes.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'D')"><strong>D)</strong> n^2 classes.</button>
+  </div>
+  <div class="feedback-box" id="fb-4"></div>
+</div>
+
+  <div class="score-banner" id="score-box" style="display:none;">
+    <div id="score-text"></div>
+  </div>
+</section>
+
+
+    <!-- 10. Card Próxima Parada -->
+    <div class="next-step-card">
+      <h3>Próxima Parada</h3>
+      <p>Até aqui, estudamos relações que agrupam elementos em igualdade. Agora faremos o movimento oposto: construir hierarquias de cima a baixo substituindo a simetria pela antissimetria nas Relações de Ordem (Posets)!</p>
+      <div style="margin-top: 1rem;">
+        <a class="hub-btn-secondary hub-btn-sm" href="./0006-relacoes-de-ordem.html">Próxima Aula</a>
+      </div>
+    </div>
+
+    <!-- 11. Conclusão e CTA para a Banca de Questões -->
     <section class="lesson-footer-cta" aria-label="Conclusão e Prática de Questões">
       <div>
-        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico</strong>
+        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico no Banco</strong>
         <span class="hub-muted" id="lesson-q-status">Carregando questões deste tópico no Banco...</span>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
         <button type="button" class="hub-btn-secondary" id="lesson-toggle-read-btn">Marcar aula como concluída</button>
-        <a class="hub-btn-primary" href="../questoes.html?topico=5" id="lesson-practice-btn">Praticar questões desta aula</a>
+        <a class="hub-btn-primary" href="../questoes.html?topico=5" id="lesson-practice-btn">Praticar questões desta aula na banca</a>
       </div>
     </section>
 
@@ -255,6 +297,76 @@
         });
       }
 
+      // --- Active Retrieval Engine ---
+      const activeGabarito = {"1": "B", "2": "C", "3": "C", "4": "B"};
+      const activeExplanations = {"1": {"correct": "Exato! Esse \u00e9 o Teorema da Disjun\u00e7\u00e3o das Classes: classes de equival\u00eancia nunca t\u00eam interse\u00e7\u00e3o parcial. Se elas compartilham ao menos um \u00fanico elemento em comum, ent\u00e3o elas s\u00e3o a mesm\u00edssima classe: [a] = [b]!", "incorrect": "Cuidado: na teoria das rela\u00e7\u00f5es de equival\u00eancia, duas classes ou s\u00e3o completamente disjuntas ([a] \u2229 [b] = \u2205) ou s\u00e3o id\u00eanticas ([a] = [b]). Compartilhar um elemento obriga que sejam a mesma gaveta."}, "2": {"correct": "Perfeito! Qualquer n\u00famero inteiro dividido por 4 deixa resto 0, 1, 2 ou 3. Cada poss\u00edvel resto forma uma gaveta infinita de n\u00fameros. Portanto, o conjunto quociente possui exatamente 4 classes: {[0], [1], [2], [3]}.", "incorrect": "Incorreto. Na divis\u00e3o euclidiana por 4, os \u00fanicos restos poss\u00edveis s\u00e3o 0, 1, 2 e 3. Cada inteiro cai em exatamente uma dessas 4 gavetas, totalizando 4 classes no conjunto quociente."}, "3": {"correct": "Excelente! Na op\u00e7\u00e3o C, os subconjuntos {1, 3, 5} e {2, 4, 6} s\u00e3o n\u00e3o-vazios, sua interse\u00e7\u00e3o \u00e9 vazia (disjuntos) e sua uni\u00e3o recomp\u00f5e S perfeitamente: {1, 2, 3, 4, 5, 6}. \u00c9 uma parti\u00e7\u00e3o impec\u00e1vel!", "incorrect": "Verifique os crit\u00e9rios de parti\u00e7\u00e3o: 1. Nenhum bloco pode ser vazio (D tem \u2205). 2. A uni\u00e3o deve dar S inteiro (A esqueceu o 6). 3. Os blocos devem ser disjuntos (B repete o 3). A \u00fanica correta \u00e9 a C."}, "4": {"correct": "Brilhante! Quando cada elemento s\u00f3 \u00e9 equivalente a si pr\u00f3prio (rela\u00e7\u00e3o de igualdade estrita x = y), cada elemento mora em sua pr\u00f3pria gaveta individual, gerando exatamente n classes unit\u00e1rias!", "incorrect": "Incorreto. Se ningu\u00e9m se relaciona com ningu\u00e9m al\u00e9m de si mesmo, n\u00e3o h\u00e1 agrupamentos maiores. Cada elemento fica isolado em sua pr\u00f3pria classe unit\u00e1ria {x}, totalizando n classes."}};
+      const userAnswers = {};
+
+      window.submitActiveRetrieval = function (qNum, opt) {
+        userAnswers[qNum] = opt;
+        const block = document.getElementById('q' + qNum);
+        const items = block.querySelectorAll('.option-item');
+        const fb = document.getElementById('fb-' + qNum);
+        const correctOpt = activeGabarito[qNum];
+
+        items.forEach(function (btn) {
+          btn.classList.remove('correct', 'incorrect');
+          const text = btn.textContent.trim();
+          if (text.startsWith(opt + ')')) {
+            if (opt === correctOpt) btn.classList.add('correct');
+            else btn.classList.add('incorrect');
+          }
+          if (text.startsWith(correctOpt + ')')) {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (opt === correctOpt) {
+          fb.className = 'feedback-box correct';
+          fb.innerHTML = '<strong>[Correto!]</strong> ' + activeExplanations[qNum].correct;
+        } else {
+          fb.className = 'feedback-box incorrect';
+          fb.innerHTML = '<strong>[Incorreto]</strong> ' + activeExplanations[qNum].incorrect;
+        }
+
+        if (window.renderMathInElement) {
+          renderMathInElement(fb, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+
+        updateActiveScore();
+      };
+
+      function updateActiveScore() {
+        const keys = Object.keys(userAnswers);
+        if (keys.length === 4) {
+          let hits = 0;
+          for (let i = 1; i <= 4; i++) {
+            if (userAnswers[i] === activeGabarito[i]) hits++;
+          }
+          const box = document.getElementById('score-box');
+          const txt = document.getElementById('score-text');
+          box.style.display = 'block';
+
+          if (hits === 4) {
+            box.style.background = '#14532d';
+            txt.innerHTML = '<strong>Sensacional: 4 de 4 acertos (100%)!</strong> Você absorveu perfeitamente a essência deste conceito. Seu cérebro está pronto para encarar as pegadinhas da banca!';
+          } else if (hits >= 2) {
+            box.style.background = '#1e3a8a';
+            txt.innerHTML = '<strong>Bom desempenho: ' + hits + ' de 4 acertos.</strong> Revise as explicações das questões onde você hesitou para consolidar o vocabulário formal.';
+          } else {
+            box.style.background = '#7c2d12';
+            txt.innerHTML = '<strong>Você acertou ' + hits + ' de 4.</strong> Leia com atenção os gabaritos comentados acima antes de seguir para o banco de questões.';
+          }
+        }
+      }
+
+      // --- Store & Progress Integration ---
       const toggleBtn = document.getElementById('lesson-toggle-read-btn');
       const statusEl = document.getElementById('lesson-q-status');
 
@@ -267,7 +379,7 @@
           const topicQs = window.PPGCC_DATA.questoes.filter((q) => q.topico_id === TOPICO_ID);
           const answers = store.getState().answers || {};
           const solved = topicQs.filter((q) => Boolean(answers[q.id])).length;
-          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico (' + solved + ' resolvidas).';
+          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico no Banco (' + solved + ' resolvidas).';
         }
       }
 

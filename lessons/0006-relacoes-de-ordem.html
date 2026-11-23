@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 06: Relações de Ordem (Parcial e Total) · PPGCC IFCE</title>
+  <title>Aula 06: Relações de Ordem — Posets e a Construção de Hierarquias · PPGCC IFCE</title>
   <link rel="stylesheet" href="../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -11,9 +11,9 @@
   <main class="lesson-container">
     <div class="hub-page-header">
       <div>
-        <div class="hub-eyebrow">Fase 1 · Tópico 06 de 37 · Tempo estimado: 60 min</div>
-        <h1 class="hub-title">Relações de Ordem (Parcial e Total)</h1>
-        <p class="hub-subtitle">Didática Zero Base com Tradução Tríplice, Pilar Visual (SVG) e Manipulação Interativa.</p>
+        <div class="hub-eyebrow">Fase 1 · Tópico 06 de 37 · Tempo estimado: 45 min</div>
+        <h1 class="hub-title">Relações de Ordem — Posets e a Construção de Hierarquias</h1>
+        <p class="hub-subtitle">A substituição da simetria pela antissimetria: ordens parciais, elementos incomparáveis e cadeias lineares.</p>
       </div>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a class="hub-btn-secondary hub-btn-sm" href="../edital.html">Edital</a>
@@ -21,167 +21,111 @@
       </div>
     </div>
 
-    <section aria-label="Nivelamento Zero Base">
-      <div class="como-se-le"><strong>Tradução Tríplice (Zero Base) — Como se Lê e Analogia Prática</strong><p><strong>$x \preceq y$:</strong> Lê-se 'x precede y' ou 'x é menor ou igual a y na ordem parcial'. Diferente da equivalência (simétrica), a ordem é <strong>Reflexiva + Antissimétrica + Transitiva</strong>.</p><p><strong>Ordem Parcial (Poset) vs. Ordem Total (Cadeia):</strong> Na ordem parcial (como pré-requisitos de disciplinas ou divisibilidade $m \mid n$), dois elementos podem ser <em>incomparáveis</em> (ex.: 2 não divide 3 nem 3 divide 2). Na ordem total, todo par é comparável.</p></div>
-    </section>
-
-    <section aria-label="Pilar Visual — Diagrama Vetorial">
-      <h2>Representação Visual</h2>
-      <div class="diagram-container"><svg viewBox="0 0 600 200" width="100%" height="auto" role="img" aria-label="Ordem Parcial vs Ordem Total"><rect x="12" y="12" width="278" height="176" rx="12" fill="#f8fafc" stroke="#cbd5e1"/><text x="151" y="34" text-anchor="middle" font-size="12" font-weight="600" fill="#0f172a">Ordem Parcial (D6, |) — Tem Incomparáveis</text><line x1="151" y1="64" x2="105" y2="108" stroke="#64748b" stroke-width="2"/><line x1="151" y1="64" x2="197" y2="108" stroke="#64748b" stroke-width="2"/><line x1="105" y1="108" x2="151" y2="152" stroke="#64748b" stroke-width="2"/><line x1="197" y1="108" x2="151" y2="152" stroke="#64748b" stroke-width="2"/><circle cx="151" cy="64" r="15" fill="#fff" stroke="#0071e3" stroke-width="2"/><text x="151" y="69" text-anchor="middle" font-size="12" font-weight="700">6</text><circle cx="105" cy="108" r="15" fill="#fff" stroke="#0f172a" stroke-width="2"/><text x="105" y="113" text-anchor="middle" font-size="12" font-weight="700">2</text><circle cx="197" cy="108" r="15" fill="#fff" stroke="#0f172a" stroke-width="2"/><text x="197" y="113" text-anchor="middle" font-size="12" font-weight="700">3</text><circle cx="151" cy="152" r="15" fill="#fff" stroke="#0f172a" stroke-width="2"/><text x="151" y="157" text-anchor="middle" font-size="12" font-weight="700">1</text><text x="151" y="179" text-anchor="middle" font-size="10.5" fill="#b45309">2 e 3 são incomparáveis</text><rect x="310" y="12" width="278" height="176" rx="12" fill="#f8fafc" stroke="#cbd5e1"/><text x="449" y="34" text-anchor="middle" font-size="12" font-weight="600" fill="#0f172a">Ordem Total (Cadeia, &le;) — Tudo Comparável</text><line x1="449" y1="54" x2="449" y2="164" stroke="#10b981" stroke-width="2"/><circle cx="449" cy="56" r="13" fill="#fff" stroke="#10b981" stroke-width="2"/><text x="449" y="60" text-anchor="middle" font-size="11.5" font-weight="700">6</text><circle cx="449" cy="92" r="13" fill="#fff" stroke="#10b981" stroke-width="2"/><text x="449" y="96" text-anchor="middle" font-size="11.5" font-weight="700">3</text><circle cx="449" cy="128" r="13" fill="#fff" stroke="#10b981" stroke-width="2"/><text x="449" y="132" text-anchor="middle" font-size="11.5" font-weight="700">2</text><circle cx="449" cy="164" r="13" fill="#fff" stroke="#10b981" stroke-width="2"/><text x="449" y="168" text-anchor="middle" font-size="11.5" font-weight="700">1</text></svg></div>
-    </section>
-
-    <section aria-label="Pilar Interativo — Laboratório Tátil">
-      <h2>Laboratório Interativo</h2>
-      <div id="lesson-widget-6"></div>
-    </section>
-
-    <article class="lesson-content">
-      <p>As relações de ordem constituem um dos pilares estruturantes da matemática discreta e da ciência da computação formal. Enquanto as relações de equivalência têm o propósito de particionar domínios em classes homogêneas (induzindo abstração e indistinguibilidade), as relações de ordem organizam os elementos em hierarquias estruturadas, viabilizando noções de precedência, dependência, comparabilidade e otimização.</p>
-<hr>
-<h2>1. Visão Geral e Contexto Formal</h2>
-<p>No desenvolvimento de algoritmos e sistemas computacionais, determinar &quot;quem vem antes de quem&quot; é uma necessidade universal:</p>
-<ul><li>Na compilação de código-fonte, módulos devem ser processados de acordo com grafos de dependência sintática.</li><li>Em sistemas operacionais de tempo real e clusters distribuídos, tarefas são despachadas respeitando restrições temporais de precedência acíclica.</li><li>Em teorias semânticas de linguagens de programação, a denotação de programas recursivos é modelada como o menor ponto fixo em ordens parciais completas (<em>CPOs - Complete Partial Orders</em>).</li></ul>
-<p>A formulação matemática dessas hierarquias fundamenta-se na abstração de conjuntos ordenados, formalizada pelos matemáticos Garrett Birkhoff e Edward Szpilrajn no início do século XX.</p>
-<hr>
-<h2>2. Definições Rigorosas e Formalismo Matemático</h2>
-<p>Seja $S$ um conjunto arbitrário não vazio. Uma relação binária homogênea $R$ sobre $S$ é formalmente um subconjunto do produto cartesiano:</p>
-<div class="math-display">$$R \subseteq S \times S$$</div>
-<p>Frequentemente utilizamos a notação infixa $x \preceq y$ ou $x \, R \, y$ para denotar que o par ordenado $(x, y) \in R$.</p>
-<h3>2.1 Ordem Parcial Fraca (Poset)</h3>
-<p>Uma relação binária $\preceq$ sobre $S$ é denominada uma <strong>relação de ordem parcial fraca</strong> (ou simplesmente <strong>ordem parcial</strong>) se, e somente se, satisfaz concomitantemente três axiomas fundamentais:</p>
-<ol><li><strong>Reflexividade</strong>: Todo elemento está relacionado consigo mesmo:</li></ol>
-<div class="math-display">$$\forall x \in S, \quad x \preceq x$$</div>
-<ol><li><strong>Antissimetria</strong>: Se dois elementos relacionam-se mutuamente em sentidos opostos, eles são obrigatoriamente idênticos:</li></ol>
-<div class="math-display">$$\forall x, y \in S, \quad (x \preceq y \land y \preceq x) \implies x = y$$</div>
-<ol><li><strong>Transitividade</strong>: A relação propaga-se ao longo de sequências encadeadas:</li></ol>
-<div class="math-display">$$\forall x, y, z \in S, \quad (x \preceq y \land y \preceq z) \implies x \preceq z$$</div>
-<p>O par ordenado $(S, \preceq)$ é formalmente denominado um <strong>conjunto parcialmente ordenado</strong> ou <strong>poset</strong> (<em>Partially Ordered Set</em>).</p>
-<h3>2.2 Elementos Comparáveis vs. Incomparáveis</h3>
-<p>A característica distintiva fundamental de uma ordem parcial é que ela <strong>não exige</strong> que todo par de elementos possua uma relação de precedência:</p>
-<ul><li><strong>Comparabilidade</strong>: Dois elementos $a, b \in S$ são ditos <strong>comparáveis</strong> sob $\preceq$ se:</li></ul>
-<div class="math-display">$$a \preceq b \quad \lor \quad b \preceq a$$</div>
-<ul><li><strong>Incomparabilidade</strong>: Se nem $a \preceq b$ nem $b \preceq a$ se verificam, diz-se que $a$ e $b$ são <strong>incomparáveis</strong>, denotando-se por:</li></ul>
-<div class="math-display">$$a \parallel b \iff (a \not\preceq b \land b \not\preceq a)$$</div>
-<h4>Subestruturas: Cadeias e Anticadeias</h4>
-<ul><li><strong>Cadeia (Chain)</strong>: Um subconjunto $C \subseteq S$ é uma cadeia se todo par de elementos distintos de $C$ é mutuamente comparável. Em termos estruturais, $(C, \preceq)$ forma uma subordem linear.</li><li><strong>Anticadeia (Antichain)</strong>: Um subconjunto $A \subseteq S$ é uma anticadeia se quaisquer dois elementos distintos $x, y \in A$ são mutuamente incomparáveis ($x \parallel y$).</li></ul>
-<h3>2.3 Ordem Total (Linear ou Completa)</h3>
-<p>Uma relação de ordem parcial $\preceq$ sobre $S$ é denominada uma <strong>ordem total</strong> (ou <strong>ordem linear</strong>, ou <strong>cadeia</strong>) se todos os pares de elementos do conjunto forem mutuamente comparáveis. Em notação lógica de primeira ordem:</p>
-<div class="math-display">$$\forall a, b \in S, \quad (a \preceq b \lor b \preceq a)$$</div>
-<p>Em uma ordem total, não existem elementos incomparáveis: o conjunto de anticadeias não triviais é vazio, e o poset inteiro constitui uma única cadeia contínua.</p>
-<h3>2.4 Ordem Parcial Estrita (Quase-Ordem Estrita)</h3>
-<p>Dada uma ordem parcial fraca $\preceq$, é natural analisar a precedência restrita a elementos estritamente distintos. Uma relação binária $\prec$ sobre $S$ é uma <strong>ordem parcial estrita</strong> se satisfaz:</p>
-<ol><li><strong>Irreflexividade</strong>: Nenhum elemento precede a si mesmo:</li></ol>
-<div class="math-display">$$\forall x \in S, \quad x \not\prec x$$</div>
-<ol><li><strong>Transitividade</strong>:</li></ol>
-<div class="math-display">$$\forall x, y, z \in S, \quad (x \prec y \land y \prec z) \implies x \prec z$$</div>
-<p>Desses dois axiomas decorre imediatamente a <strong>Assimetria</strong>:</p>
-<div class="math-display">$$\forall x, y \in S, \quad x \prec y \implies y \not\prec x$$</div>
-<hr>
-<h2>3. Teoremas, Propriedades Invariantes e Demonstrações</h2>
-<h3>Teorema 1 (Assimetria da Ordem Estrita)</h3>
-<p><em>Toda relação binária irreflexiva e transitiva é necessariamente assimétrica.</em></p>
-<p><strong>Demonstração</strong>: Suponha, por contradição, que a relação $\prec$ seja irreflexiva e transitiva, mas não seja assimétrica. Então existem $a, b \in S$ tais que:</p>
-<div class="math-display">$$a \prec b \quad \land \quad b \prec a$$</div>
-<p>Aplicando o axioma da transitividade sobre a conjunção acima, obtemos:</p>
-<div class="math-display">$$(a \prec b \land b \prec a) \implies a \prec a$$</div>
-<p>Entretanto, a dedução $a \prec a$ contradiz diretamente a hipótese de irreflexividade, que estabelece $\forall x \in S, x \not\prec x$. Por redução ao absurdo, é impossível que $a \prec b$ e $b \prec a$ ocorram simultaneamente. Logo, $\prec$ é rigorosamente assimétrica. $\blacksquare$</p>
-<h3>Teorema 2 (Bijeção Canônica entre Ordens Fracas e Estritas)</h3>
-<p><em>Existe uma bijeção natural entre o conjunto de todas as ordens parciais fracas sobre $S$ e o conjunto de todas as ordens parciais estritas sobre $S$.</em></p>
-<p><strong>Demonstração</strong>: Seja $\preceq$ uma ordem parcial fraca sobre $S$. Definimos a relação estrita $\prec$ por:</p>
-<div class="math-display">$$x \prec y \iff (x \preceq y \land x \neq y)$$</div>
-<ul><li><em>Irreflexividade</em>: Para qualquer $x \in S$, a condição $x \neq x$ é falsa, logo $x \not\prec x$.</li><li><em>Transitividade</em>: Se $x \prec y$ e $y \prec z$, temos $x \preceq y$, $y \preceq z$, com $x \neq y$ e $y \neq z$. Pela transitividade de $\preceq$, $x \preceq z$. Se ocorresse $x = z$, teríamos $x \preceq y$ e $y \preceq x$, o que implicaria $x = y$ por antissimetria, gerando contradição. Assim, $x \neq z$ e concluímos $x \prec z$.</li></ul>
-<p>Reciprocamente, dada uma ordem estrita $\prec$, definimos a relação fraca $\preceq$ como:</p>
-<div class="math-display">$$x \preceq y \iff (x \prec y \lor x = y)$$</div>
-<ul><li><em>Reflexividade</em>: $x = x$ é trivialmente verdadeiro para todo $x$, logo $x \preceq x$.</li><li><em>Antissimetria</em>: Se $x \preceq y$ e $y \preceq x$, suponha $x \neq y$. Então $x \prec y$ e $y \prec x$, o que violaria a assimetria demonstrada no Teorema 1. Logo, $x = y$.</li><li><em>Transitividade</em>: Decorre da união da transitividade de $\prec$ com a identidade da igualdade. $\blacksquare$</li></ul>
-<h3>Teorema 3 (Teorema da Extensão de Szpilrajn, 1930)</h3>
-<p><em>Toda ordem parcial $\preceq$ em um conjunto $S$ pode ser estendida a uma ordem total $\le$ no mesmo conjunto $S$, tal que:</em></p>
-<div class="math-display">$$\forall x, y \in S, \quad x \preceq y \implies x \le y$$</div>
-<p>Esse teorema é a garantia matemática fundamental de que <strong>qualquer grafo acíclico dirigido (DAG) de dependências admite pelo menos uma ordenação topológica linear válida</strong>.</p>
-<h3>Teorema 4 (Teorema de Dilworth, 1950)</h3>
-<p><em>Em qualquer poset finito $(S, \preceq)$, o comprimento da maior anticadeia é igual ao número mínimo de cadeias necessárias para particionar e cobrir todo o conjunto $S$.</em></p>
-<div class="math-display">$$\max |A| = \min |\mathcal{C}| \quad \text{onde } A \text{ é anticadeia e } \mathcal{C} \text{ é partição em cadeias}$$</div>
-<hr>
-<h2>4. Exemplos Computacionais e Diagramas</h2>
-<h3>4.1 O Reticulado Booleano das Partes $(\mathcal{P}(S), \subseteq)$</h3>
-<p>Considere o conjunto $S = \{a, b, c\}$. O conjunto das partes $\mathcal{P}(S)$ contém $2^3 = 8$ elementos:</p>
-<div class="math-display">$$\mathcal{P}(S) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\}$$</div>
-<p>A relação de inclusão de subconjuntos $\subseteq$ define um poset canônico:</p>
-<ol><li>Reflexiva: $X \subseteq X$ para todo $X \subseteq S$.</li><li>Antissimétrica: $X \subseteq Y \land Y \subseteq X \implies X = Y$ (axioma da extensionalidade).</li><li>Transitiva: $X \subseteq Y \land Y \subseteq Z \implies X \subseteq Z$.</li></ol>
-<h4>Diagrama de Hasse Estrutural de $(\mathcal{P}(\{a, b, c\}), \subseteq)$:</h4>
-<div class="visual-diagram-card">
-  <div class="diagram-header">
-    <span class="diagram-tag">FIGURA 6.1 — RETICULADO BOOLEANO</span>
-    <h4 class="diagram-title">Diagrama de Hasse do Hipercubo Booleano 𝒫({a,b,c})</h4>
-  </div>
-  <div class="diagram-body">
-    <svg viewBox="0 0 620 360" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <!-- Level Lines/Guides -->
-  <line x1="40" y1="50" x2="580" y2="50" stroke="#f1f5f9" stroke-width="1"/>
-  <line x1="40" y1="140" x2="580" y2="140" stroke="#f1f5f9" stroke-width="1"/>
-  <line x1="40" y1="230" x2="580" y2="230" stroke="#f1f5f9" stroke-width="1"/>
-  <line x1="40" y1="310" x2="580" y2="310" stroke="#f1f5f9" stroke-width="1"/>
-
-  <text x="50" y="55" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Nível 3 (Supremo)</text>
-  <text x="50" y="145" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Nível 2 (Pares)</text>
-  <text x="50" y="235" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Nível 1 (Unitários)</text>
-  <text x="50" y="315" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Nível 0 (Ínfimo)</text>
-
-  <!-- Edges -->
-  <!-- Level 0 to 1 -->
-  <line x1="310" y1="310" x2="190" y2="230" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="310" y1="310" x2="310" y2="230" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="310" y1="310" x2="430" y2="230" stroke="#64748b" stroke-width="1.8"/>
-
-  <!-- Level 1 to 2 -->
-  <line x1="190" y1="230" x2="190" y2="140" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="190" y1="230" x2="310" y2="140" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="310" y1="230" x2="190" y2="140" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="310" y1="230" x2="430" y2="140" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="430" y1="230" x2="310" y2="140" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="430" y1="230" x2="430" y2="140" stroke="#64748b" stroke-width="1.8"/>
-
-  <!-- Level 2 to 3 -->
-  <line x1="190" y1="140" x2="310" y2="50" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="310" y1="140" x2="310" y2="50" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="430" y1="140" x2="310" y2="50" stroke="#64748b" stroke-width="1.8"/>
-
-  <!-- Level 0 Node -->
-  <rect x="285" y="294" width="50" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-  <text x="310" y="315" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">∅</text>
-
-  <!-- Level 1 Nodes -->
-  <rect x="165" y="214" width="50" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-  <text x="190" y="235" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{a}</text>
-
-  <rect x="285" y="214" width="50" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-  <text x="310" y="235" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{b}</text>
-
-  <rect x="405" y="214" width="50" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-  <text x="430" y="235" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{c}</text>
-
-  <!-- Level 2 Nodes -->
-  <rect x="155" y="124" width="70" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-  <text x="190" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{a, b}</text>
-
-  <rect x="275" y="124" width="70" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-  <text x="310" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{a, c}</text>
-
-  <rect x="395" y="124" width="70" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-  <text x="430" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{b, c}</text>
-
-  <!-- Level 3 Node -->
-  <rect x="265" y="34" width="90" height="32" rx="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
-  <text x="310" y="55" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">{a, b, c}</text>
-</svg>
-  </div>
-  <p class="diagram-caption">A ordem parcial por inclusão ⊆ forma um reticulado booleano graduado com 2³ = 8 vértices e 12 arestas de cobertura.</p>
+    <!-- 1. Transição Ontológica & Filosofia -->
+    <div class="callout philosophy">
+      <div class="callout-title">[Filosofia da Lógica]: Da Igualdade para a Hierarquia: A Quebra da Mão Dupla</div>
+      <div>
+Nas relações de equivalência, a regra de ouro era a Simetria: se eu estou conectado a você, você está conectado a mim. Isso criava ilhas de iguais.
+Mas na vida real e nos sistemas computacionais, muitas vezes queremos <strong>ranquear, priorizar e ordenar</strong>:
+- O processo A deve executar antes do processo B;
+- O pacote <code>libssl-dev</code> precisa ser instalado antes do servidor web;
+- Na hierarquia de permissões, o <code>root</code> está acima do usuário comum.
+Para construir uma hierarquia sem ciclos viciosos, a matemática precisou <strong>expulsar a simetria</strong> e colocar em seu lugar a <strong>Antissimetria</strong>.
+Surge assim a estrutura mais fascinante da computação discreta: o <strong>Poset (Partially Ordered Set)</strong>.
 </div>
-<ul><li><strong>Pares Comparáveis</strong>: $\{a\} \subseteq \{a, b\}$; $\{b\} \subseteq \{a, b, c\}$.</li><li><strong>Pares Incomparáveis</strong>: $\{a, b\} \parallel \{b, c\}$ (pois $\{a, b\} \not\subseteq \{b, c\}$ e $\{b, c\} \not\subseteq \{a, b\}$).</li><li><strong>Maior Cadeia</strong>: Comprimento $4$: $\emptyset \subset \{a\} \subset \{a, b\} \subset \{a, b, c\}$.</li><li><strong>Maior Anticadeia</strong>: Tamanho $3$: O conjunto de todos os subconjuntos de cardinalidade 1 ($\{\{a\}, \{b\}, \{c\}\}$) ou de cardinalidade 2 ($\{\{a, b\}, \{a, c\}, \{b, c\}\}$).</li></ul>
-<h3>4.2 Poset de Divisibilidade $(\mathbb{Z}^+, \mid)$</h3>
-<p>A divisibilidade $a \mid b \iff (\exists k \in \mathbb{Z}^+)(b = k \cdot a)$ define um poset em $\mathbb{Z}^+$.</p>
-<p>Para o conjunto de divisores de 24:</p>
-<div class="math-display">$$D_{24} = \{1, 2, 3, 4, 6, 8, 12, 24\}$$</div>
-<div class="visual-diagram-card">
+    </div>
+
+    <!-- 2. Dicionário Fonético de Símbolos -->
+    
+<div class="como-se-le" style="margin-top:2rem;">
+  <div class="como-se-le-title">[Dicionário Fonético de Símbolos Lógicos]</div>
+  <p>Para ler com fluência natural qualquer fórmula desta lição:</p>
+  <ul style="margin-left: 1.25rem;">
+    <li>$\in$ : <em>"Pertence a"</em> (ex: $a \in A \to$ <em>"o elemento a pertence ao conjunto A"</em>).</li>
+    <li>$\subseteq$ : <em>"Está contido em"</em> ou <em>"é subconjunto de"</em> (ex: $R \subseteq A \times B \to$ <em>"R está contido em A vezes B"</em>).</li>
+    <li>$\land$ : <em>"E"</em> (conjunção lógica, exige que ambas as condições sejam verdadeiras).</li>
+    <li>$\lor$ : <em>"OU"</em> (disjunção lógica, basta que uma seja verdadeira).</li>
+    <li>$\iff$ : <em>"Se, e somente se"</em> (equivalência lógica bidirecional).</li>
+    <li>$\implies$ : <em>"Implica que"</em> ou <em>"se... então..."</em> (condicional unidirecional).</li>
+    <li>$\forall$ : <em>"Para todo..."</em> ou <em>"Qualquer que seja..."</em> (quantificador universal).</li>
+    <li>$\exists$ : <em>"Existe ao menos um..."</em> (quantificador existencial).</li>
+    <li>$\emptyset$ : <em>"Conjunto vazio"</em> (a sacola sem nenhum elemento).</li>
+  </ul>
+</div>
+
+
+    <!-- 3. Degraus Cognitivos e Desmistificação de Termos -->
+    <section aria-label="Degraus Cognitivos e Termos">
+      <h2>1. Degraus Cognitivos: Desmistificando os Termos</h2>
+      <p>Entendendo a etimologia e o significado real antes de qualquer fórmula complexa:</p>
+      
+<div class="word-breakdown">
+  <div><strong class="term">Poset</strong> <span class="pronunciation">[pô-sét]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Acrônimo em inglês para &#x27;Partially Ordered Set&#x27; (Conjunto Parcialmente Ordenado).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Um par (S, ≤) onde a relação ≤ é Reflexiva, Antissimétrica e Transitiva (RAT). Permite que alguns elementos fiquem lado a lado sem se comparar.</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Incomparabilidade</strong> <span class="pronunciation">[in-com-pa-ra-bi-li-da-de]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> In (negação) + comparabilis (aquilo que pode ser medido em uma mesma régua).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Dois elementos &#x27;a&#x27; e &#x27;b&#x27; são incomparáveis (a ∥ b) quando nem a ≤ b e nem b ≤ a. Exemplo: um peixe e um pássaro não são um menor que o outro.</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Cadeia (Ordem Linear)</strong> <span class="pronunciation">[ca-dei-a]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;catena&#x27; (elos sequenciais onde cada um se liga ao próximo).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Um subconjunto do poset onde todos os elementos podem ser comparados entre si (sem elementos paralelos). É uma fila indiana perfeita.</p>
+</div>
+
+    </section>
+
+    <!-- 4. Fórmulas Limpas com Guia de Leitura -->
+    <section aria-label="Fórmulas Canônicas e Como se Fala">
+      <h2>2. Fórmulas Canônicas: Como se Lê e o que Significa</h2>
+      <p>Cada símbolo rigoroso acompanhado de sua pronúncia fonética e tradução intuitiva para sistemas de TI:</p>
+      
+<div class="formula-box">
+  <div class="math-display">$$(S, \le) \text{ é Poset} \iff \le \text{ é Reflexiva, Antissimétrica e Transitiva (RAT)}$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"O par S com menor ou igual é um poset se, e somente se, a relação for reflexiva, antissimétrica e transitiva"</em></div>
+    <div style="color:#92400e;">[O que significa]: A Tríade Sagrada da Ordem. A antissimetria garante que não há voltas mútuas: se x está abaixo de y, y jamais poderá estar abaixo de x.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$a \parallel b \iff \neg(a \le b) \land \neg(b \le a)$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"a é incomparável a b se, e somente se, não é verdade que a seja menor ou igual a b e não é verdade que b seja menor ou igual a a"</em></div>
+    <div style="color:#92400e;">[O que significa]: A essência da ordem PARCIAL: a relação não é obrigada a decidir quem é o chefe entre dois nós concorrentes. Exemplo em partes: {1} e {2} são incomparáveis sob inclusão.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$\forall x, y \in S, \quad (x \le y) \lor (y \le x) \implies \text{Ordem Total}$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"Para quaisquer x e y em S, x é menor ou igual a y ou y é menor ou igual a x, implicando que a ordem é total"</em></div>
+    <div style="color:#92400e;">[O que significa]: Se a incomparabilidade for extirpada e todo mundo puder ser medido na mesma régua linear, a ordem parcial é promovida a Ordem Total (ou Linear).</div>
+  </div>
+</div>
+
+    </section>
+
+    <!-- 5. Aplicação Computacional -->
+    <div class="callout computation">
+      <div class="callout-title">[Computação e Infraestrutura]: Onde Posets Brilham na Computação: Grafos de Dependência e DAGs</div>
+      <div>
+Todo grafo acíclico direcionado (DAG) transitivamente fechado é um Poset:
+1. <strong>Compilação com <code>make</code> / CI/CD:</strong> Se a tarefa B depende de A, e C depende de B, A deve rodar antes de C (transitividade). Mas tarefas D e E que não dependem uma da outra rodam em paralelo (são <em>incomparáveis</em>!);
+2. <strong>Controle de Concorrência e Relógios de Lamport:</strong> No processamento distribuído, o 'aconteceu-antes' (<em>happened-before relation</em> $\to$) é uma ordem parcial estrita;
+3. <strong>Sistemas de Tipos:</strong> Na orientação a objetos, a relação 'é subtipo de' ($<:$) forma um poset de herança.
+</div>
+    </div>
+
+    <!-- 6. Representação Visual Vetorial SVG Nativo -->
+    <section aria-label="Pilar Visual — Diagrama Vetorial">
+      <h2>3. Anatomia Visual: Diagrama Vetorial Nativo</h2>
+      <p class="hub-muted">Inspeção espacial sem Mermaid e sem texto desformatado (ADR 0008).</p>
+      <div class="visual-diagram-card">
   <div class="diagram-header">
     <span class="diagram-tag">FIGURA 6.2 — ORDEM PARCIAL DE DIVISIBILIDADE</span>
     <h4 class="diagram-title">Reticulado dos Divisores de 24 (D₂₄ sob Divisibilidade)</h4>
@@ -244,37 +188,90 @@
   </div>
   <p class="diagram-caption">D₂₄ = {1, 2, 3, 4, 6, 8, 12, 24}. O número 1 é o elemento mínimo absoluto (divide todos) e 24 é o elemento máximo absoluto.</p>
 </div>
-<ul><li>Cadeia máxima: $\{1, 2, 4, 8, 24\}$ (comprimento 5).</li><li>Anticadeia: $\{4, 6\}$ (tamanho 2: $4 \nmid 6$ e $6 \nmid 4$) ou $\{8, 12\}$ (tamanho 2).</li></ul>
-<hr>
-<h2>5. Armadilhas de Banca e Corner Cases</h2>
-<h3>Armadilha 1: Antissimetria vs. Assimetria</h3>
-<ul><li><strong>Antissimetria</strong>: $(x \preceq y \land y \preceq x) \implies x = y$. Permite explicitamente pares reflexivos $(x, x) \in R$.</li><li><strong>Assimetria</strong>: $x \prec y \implies y \not\prec x$. Veda peremptoriamente qualquer laço reflexivo (pois $(x, x) \in R \implies (x, x) \notin R$, o que é uma contradição lógica).</li><li><strong>Regra de Ouro</strong>: Toda relação assimétrica é antissimétrica, mas a recíproca é <strong>falsa</strong>. A relação $\le$ nos números reais é antissimétrica, porém não é assimétrica (já que $3 \le 3$).</li></ul>
-<h3>Armadilha 2: O Domínio da Relação de Divisibilidade</h3>
-<ul><li>Em $\mathbb{Z}^+ = \{1, 2, 3, \dots\}$, a divisibilidade $a \mid b$ é uma <strong>ordem parcial</strong>.</li><li>Em $\mathbb{Z}^* = \mathbb{Z} \setminus \{0\}$, a divisibilidade <strong>NÃO É</strong> uma ordem parcial, pois a antissimetria falha categoricamente:</li></ul>
-<div class="math-display">$$2 \mid -2 \quad (k = -1) \quad \land \quad -2 \mid 2 \quad (k = -1), \quad \text{mas } 2 \neq -2$$</div>
-<p>Nesse domínio, a divisibilidade é apenas uma <strong>pré-ordem</strong> (reflexiva e transitiva).</p>
-<h3>Armadilha 3: Incomparabilidade NÃO é uma Relação de Equivalência</h3>
-<p>Se $a \parallel b$ e $b \parallel c$, isso <strong>não implica</strong> que $a \parallel c$. A incomparabilidade é reflexivamente nula e simétrica, mas não é transitiva. <em>Contraexemplo</em>: Em $(\mathcal{P}(\{1, 2, 3\}), \subseteq)$, tome:</p>
-<div class="math-display">$$A = \{1\}, \quad B = \{2\}, \quad C = \{1, 3\}$$</div>
-<p>Temos $\{1\} \parallel \{2\}$ e $\{2\} \parallel \{1, 3\}$, contudo $\{1\} \subseteq \{1, 3\}$ (são perfeitamente comparáveis!).</p>
-<hr>
-<h2>6. Aplicação na Ciência da Computação</h2>
-<ol><li><strong>Escalonamento e Resolução de Dependências (DAGs e Topological Sort)</strong>:</li></ol>
-<p>Em gerenciadores de pacotes (ex: <code>npm</code>, <code>cargo</code>, <code>pip</code>) e sistemas de build (ex: <code>Make</code>, <code>CMake</code>), dependências entre módulos formam um grafo direcionado acíclico. O grafo induz uma ordem parcial estrita. O algoritmo de Kahn ou a busca em profundidade (DFS) com detecção de ciclo computa uma extensão linear (ordem total) compatível em tempo $O(|V| + |E|)$.</p>
-<ol><li><strong>Hierarquia de Tipos e Subtipagem ($T_1 &lt;: T_2$)</strong>:</li></ol>
-<p>Na semântica formal de linguagens orientadas a objetos, a relação de subtipagem induz um poset onde o tipo topo é <code>Object</code> (ou <code>Any</code>) e a base é <code>Nothing</code> (ou <code>Bottom</code>). A verificação estática de tipos emprega algoritmos de fechamento transitivo sobre essa ordem.</p>
-<ol><li><strong>Teoria de Domínios e Semântica Denotacional de Scott</strong>:</li></ol>
-<p>Para conferir significado formal a programas com laços (<code>while</code>) e funções recursivas, Dana Scott introduziu conjuntos parcialmente ordenados com limites supremos de cadeias (<em>CPOs</em>). Pelo Teorema do Ponto Fixo de Kleene, o comportamento de um programa é o menor ponto fixo de uma função contínua operando sobre o poset de estados computacionais.</p>
-    </article>
+    </section>
 
+    <!-- 7. Laboratório Interativo Tátil -->
+    <section aria-label="Pilar Interativo — Laboratório Tátil">
+      <h2>4. Laboratório Interativo: Manipulação em Tempo Real</h2>
+      <p class="hub-muted">Clique nos controles para experimentar o comportamento da estrutura e visualizar os estados.</p>
+      <div class="interactive-card">
+        <div id="lesson-widget-6"></div>
+      </div>
+    </section>
+
+    <!-- 8. Pegadinhas de Concurso -->
+    <section aria-label="Pegadinhas da Banca">
+      <h2>5. Armadilhas Clássicas da Banca Examinadora</h2>
+      
+<div class="trap-box">
+  <strong style="display:block; margin-bottom:4px;">[Cuidado com a Pegadinha da Banca]: Ordem Parcial NÃO significa &#x27;Incompleta&#x27;!</strong>
+  <div>O termo &#x27;parcial&#x27; assusta quem está começando. Não significa que falta trabalho ou que a relação está quebrada. Significa apenas que a estrutura tem ramos em árvore ou malha, em vez de ser uma linha reta de fila única.</div>
+</div>
+
+    </section>
+
+    <!-- 9. Active Retrieval (Retenção Imediata da Aula) -->
+    
+<section class="quiz-section" aria-label="Active Retrieval — Retenção Imediata">
+  <h2>Active Retrieval — Fixação Imediata da Aula</h2>
+  <p class="hub-muted">Quatro perguntas de verificação imediata para checar se os conceitos e fórmulas se assentaram na sua mente antes de praticar na banca de concurso.</p>
+  
+<div class="question-block" id="q1">
+  <div class="question-title"><strong>Questão de Retenção 1 de 4:</strong> Qual é a tríade exata de propriedades que define matematicamente um Poset (Conjunto Parcialmente Ordenado)?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'A')"><strong>A)</strong> Reflexiva, Simétrica e Transitiva (RST).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'B')"><strong>B)</strong> Irreflexiva, Antissimétrica e Transitiva (IAT).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'C')"><strong>C)</strong> Reflexiva, Antissimétrica e Transitiva (RAT).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'D')"><strong>D)</strong> Reflexiva, Antissimétrica e Não-Transitiva.</button>
+  </div>
+  <div class="feedback-box" id="fb-1"></div>
+</div>
+
+<div class="question-block" id="q2">
+  <div class="question-title"><strong>Questão de Retenção 2 de 4:</strong> Considere o conjunto S = {1, 2, 3} e o poset do conjunto das partes (P(S), ⊆) ordenado pela inclusão de conjuntos. O que pode ser dito sobre os elementos {1} e {2}?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'A')"><strong>A)</strong> {1} ⊆ {2}, pois 1 é menor que 2.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'B')"><strong>B)</strong> {1} e {2} são incomparáveis ({1} ∥ {2}), pois nenhum deles é subconjunto do outro.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'C')"><strong>C)</strong> O conjunto das partes forma uma ordem total.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'D')"><strong>D)</strong> {2} ⊆ {1} pela propriedade reflexiva.</button>
+  </div>
+  <div class="feedback-box" id="fb-2"></div>
+</div>
+
+<div class="question-block" id="q3">
+  <div class="question-title"><strong>Questão de Retenção 3 de 4:</strong> Em um poset (S, ≤), o que caracteriza formalmente um subconjunto C ⊆ S como sendo uma Cadeia (Chain)?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'A')"><strong>A)</strong> Todos os elementos de C são mutuamente incomparáveis entre si.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'B')"><strong>B)</strong> C é um subconjunto totalmente ordenado, onde para quaisquer dois elementos x, y em C, ou x ≤ y ou y ≤ x.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'C')"><strong>C)</strong> C contém obrigatoriamente um ciclo direcionado.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'D')"><strong>D)</strong> C possui cardinalidade infinita.</button>
+  </div>
+  <div class="feedback-box" id="fb-3"></div>
+</div>
+
+<div class="question-block" id="q4">
+  <div class="question-title"><strong>Questão de Retenção 4 de 4:</strong> Qual das seguintes relações é um exemplo canônico de Ordem Total sobre os números inteiros?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'A')"><strong>A)</strong> A relação de divisibilidade &#x27;x divide y&#x27; (x | y).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'B')"><strong>B)</strong> A relação usual &#x27;menor ou igual que&#x27; (x ≤ y).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'C')"><strong>C)</strong> A relação &#x27;x e y têm a mesma paridade&#x27;.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'D')"><strong>D)</strong> O produto cartesiano Z x Z.</button>
+  </div>
+  <div class="feedback-box" id="fb-4"></div>
+</div>
+
+  <div class="score-banner" id="score-box" style="display:none;">
+    <div id="score-text"></div>
+  </div>
+</section>
+
+
+    <!-- 10. Card Próxima Parada -->
+    <div class="next-step-card">
+      <h3>Próxima Parada</h3>
+      <p>Com a estrutura hierárquica do Poset em mãos, agora decifraremos as maiores armadilhas de concurso sobre o topo e a base da ordem: Elementos Maximais, Minimais, Supremo, Ínfimo e Reticulados!</p>
+      <div style="margin-top: 1rem;">
+        <a class="hub-btn-secondary hub-btn-sm" href="./0007-maximais-minimais-supremo-infimo.html">Próxima Aula</a>
+      </div>
+    </div>
+
+    <!-- 11. Conclusão e CTA para a Banca de Questões -->
     <section class="lesson-footer-cta" aria-label="Conclusão e Prática de Questões">
       <div>
-        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico</strong>
+        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico no Banco</strong>
         <span class="hub-muted" id="lesson-q-status">Carregando questões deste tópico no Banco...</span>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
         <button type="button" class="hub-btn-secondary" id="lesson-toggle-read-btn">Marcar aula como concluída</button>
-        <a class="hub-btn-primary" href="../questoes.html?topico=6" id="lesson-practice-btn">Praticar questões desta aula</a>
+        <a class="hub-btn-primary" href="../questoes.html?topico=6" id="lesson-practice-btn">Praticar questões desta aula na banca</a>
       </div>
     </section>
 
@@ -298,7 +295,7 @@
       const { store } = window.PPGCCNavbar.init({ prefix: '../', active: 'edital' });
       const TOPICO_ID = 6;
 
-      if (typeof initBooleanMatrixWidget === 'function') initBooleanMatrixWidget('lesson-widget-6', [[1,1,1],[0,1,0],[0,0,1]]);
+      if (typeof initBooleanMatrixWidget === 'function') initBooleanMatrixWidget('lesson-widget-6', [[1,1,1],[0,1,1],[0,0,1]]);
 
       if (typeof renderMathInElement === 'function') {
         renderMathInElement(document.body, {
@@ -310,6 +307,76 @@
         });
       }
 
+      // --- Active Retrieval Engine ---
+      const activeGabarito = {"1": "C", "2": "B", "3": "B", "4": "B"};
+      const activeExplanations = {"1": {"correct": "Exato! Um Poset \u00e9 definido pela tr\u00edade RAT: Reflexiva (todo elemento \u00e9 menor ou igual a si mesmo), Antissim\u00e9trica (n\u00e3o h\u00e1 idas e voltas entre n\u00f3s distintos) e Transitiva (se a <= b e b <= c, ent\u00e3o a <= c).", "incorrect": "Aten\u00e7\u00e3o \u00e0 troca de letras: RST define Rela\u00e7\u00e3o de Equival\u00eancia. RAT define Rela\u00e7\u00e3o de Ordem Parcial (Poset). A diferen\u00e7a crucial \u00e9 a Antissimetria no lugar da Simetria!"}, "2": {"correct": "Perfeito! Como {1} n\u00e3o est\u00e1 contido em {2} e {2} n\u00e3o est\u00e1 contido em {1}, eles n\u00e3o possuem conex\u00e3o de inclus\u00e3o entre si. Eles s\u00e3o perfeitamente INCOMPAR\u00c1VEIS ({1} \u2225 {2})!", "incorrect": "Cuidado: a ordem aqui n\u00e3o \u00e9 a numera\u00e7\u00e3o dos inteiros, mas a inclus\u00e3o de conjuntos (\u2286). O conjunto {1} tem o n\u00famero 1, o {2} tem o n\u00famero 2. Nenhum cont\u00e9m o outro, logo s\u00e3o incompar\u00e1veis."}, "3": {"correct": "Excelente! Uma cadeia \u00e9 uma fatia do poset onde todos os elementos se alinham em uma fila \u00fanica sem bifurca\u00e7\u00f5es: quaisquer dois elementos podem ser comparados entre si.", "incorrect": "Incorreto. A defini\u00e7\u00e3o de cadeia \u00e9 exatamente a linearidade: para quaisquer x e y no subconjunto, um \u00e9 menor ou igual ao outro. Se todos fossem incompar\u00e1veis, ter\u00edamos uma ANTICADEIA."}, "4": {"correct": "Brilhante! Na rela\u00e7\u00e3o usual \u2264 dos inteiros, dados quaisquer dois n\u00fameros, ou x \u2264 y ou y \u2264 x (ex: entre 7 e 12, sabemos que 7 \u2264 12). N\u00e3o existem inteiros incompar\u00e1veis sob essa rela\u00e7\u00e3o, sendo uma Ordem Total!", "incorrect": "Incorreto. Na divisibilidade (x | y), o 2 e o 3 s\u00e3o incompar\u00e1veis (2 n\u00e3o divide 3 e 3 n\u00e3o divide 2), sendo ordem parcial. A rela\u00e7\u00e3o usual \u2264 compara absolutamente todos os pares, sendo Total."}};
+      const userAnswers = {};
+
+      window.submitActiveRetrieval = function (qNum, opt) {
+        userAnswers[qNum] = opt;
+        const block = document.getElementById('q' + qNum);
+        const items = block.querySelectorAll('.option-item');
+        const fb = document.getElementById('fb-' + qNum);
+        const correctOpt = activeGabarito[qNum];
+
+        items.forEach(function (btn) {
+          btn.classList.remove('correct', 'incorrect');
+          const text = btn.textContent.trim();
+          if (text.startsWith(opt + ')')) {
+            if (opt === correctOpt) btn.classList.add('correct');
+            else btn.classList.add('incorrect');
+          }
+          if (text.startsWith(correctOpt + ')')) {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (opt === correctOpt) {
+          fb.className = 'feedback-box correct';
+          fb.innerHTML = '<strong>[Correto!]</strong> ' + activeExplanations[qNum].correct;
+        } else {
+          fb.className = 'feedback-box incorrect';
+          fb.innerHTML = '<strong>[Incorreto]</strong> ' + activeExplanations[qNum].incorrect;
+        }
+
+        if (window.renderMathInElement) {
+          renderMathInElement(fb, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+
+        updateActiveScore();
+      };
+
+      function updateActiveScore() {
+        const keys = Object.keys(userAnswers);
+        if (keys.length === 4) {
+          let hits = 0;
+          for (let i = 1; i <= 4; i++) {
+            if (userAnswers[i] === activeGabarito[i]) hits++;
+          }
+          const box = document.getElementById('score-box');
+          const txt = document.getElementById('score-text');
+          box.style.display = 'block';
+
+          if (hits === 4) {
+            box.style.background = '#14532d';
+            txt.innerHTML = '<strong>Sensacional: 4 de 4 acertos (100%)!</strong> Você absorveu perfeitamente a essência deste conceito. Seu cérebro está pronto para encarar as pegadinhas da banca!';
+          } else if (hits >= 2) {
+            box.style.background = '#1e3a8a';
+            txt.innerHTML = '<strong>Bom desempenho: ' + hits + ' de 4 acertos.</strong> Revise as explicações das questões onde você hesitou para consolidar o vocabulário formal.';
+          } else {
+            box.style.background = '#7c2d12';
+            txt.innerHTML = '<strong>Você acertou ' + hits + ' de 4.</strong> Leia com atenção os gabaritos comentados acima antes de seguir para o banco de questões.';
+          }
+        }
+      }
+
+      // --- Store & Progress Integration ---
       const toggleBtn = document.getElementById('lesson-toggle-read-btn');
       const statusEl = document.getElementById('lesson-q-status');
 
@@ -322,7 +389,7 @@
           const topicQs = window.PPGCC_DATA.questoes.filter((q) => q.topico_id === TOPICO_ID);
           const answers = store.getState().answers || {};
           const solved = topicQs.filter((q) => Boolean(answers[q.id])).length;
-          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico (' + solved + ' resolvidas).';
+          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico no Banco (' + solved + ' resolvidas).';
         }
       }
 

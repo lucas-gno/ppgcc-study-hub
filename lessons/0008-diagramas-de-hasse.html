@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 08: Leitura e interpretação de Diagramas de Hasse · PPGCC IFCE</title>
+  <title>Aula 08: Leitura e Interpretação de Diagramas de Hasse — A Geometria Limpa dos Posets · PPGCC IFCE</title>
   <link rel="stylesheet" href="../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -11,9 +11,9 @@
   <main class="lesson-container">
     <div class="hub-page-header">
       <div>
-        <div class="hub-eyebrow">Fase 1 · Tópico 08 de 37 · Tempo estimado: 60 min</div>
-        <h1 class="hub-title">Leitura e interpretação de Diagramas de Hasse</h1>
-        <p class="hub-subtitle">Didática Zero Base com Tradução Tríplice, Pilar Visual (SVG) e Manipulação Interativa.</p>
+        <div class="hub-eyebrow">Fase 1 · Tópico 08 de 37 · Tempo estimado: 45 min</div>
+        <h1 class="hub-title">Leitura e Interpretação de Diagramas de Hasse — A Geometria Limpa dos Posets</h1>
+        <p class="hub-subtitle">As 3 regras de redução de Helmut Hasse: eliminando laços e atalhos transitivos para expor a cobertura degrau a degrau.</p>
       </div>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a class="hub-btn-secondary hub-btn-sm" href="../edital.html">Edital</a>
@@ -21,190 +21,153 @@
       </div>
     </div>
 
-    <section aria-label="Nivelamento Zero Base">
-      <div class="como-se-le"><strong>Tradução Tríplice (Zero Base) — Como se Lê e Analogia Prática</strong><p><strong>$x \lessdot y$:</strong> Lê-se 'x é coberto por y' ou 'x precede imediatamente y'. Significa que $x \prec y$ e não existe nenhum elemento intermediário $z$ entre eles.</p><p><strong>Regra de Leitura do Diagrama de Hasse:</strong> Remova todos os laços reflexivos, apague atalhos transitivos e oriente tudo para cima sem pontas de seta. Subir por uma aresta significa 'é menor que / divide / está contido'.</p></div>
+    <!-- 1. Transição Ontológica & Filosofia -->
+    <div class="callout philosophy">
+      <div class="callout-title">[Filosofia da Lógica]: A Arte da Limpeza Visual: Por que Menos é Infinitamente Mais</div>
+      <div>
+Se você desenhar o dígrafo completo de um Poset com apenas 8 elementos (como o hipercubo de subconjuntos de 3 itens), o resultado é um pesadelo visual:
+são dezenas de laços reflexivos em cada nó e dezenas de flechas de atalhos cruzando a tela em todas as direções.
+O matemático alemão Helmut Hasse percebeu algo genial em 1932:
+<strong>Como todo mundo já sabe que uma ordem é reflexiva e transitiva, desenhar laços e atalhos é pura redundância inútil!</strong>
+Ao eliminar tudo o que é óbvio, criamos o <strong>Diagrama de Hasse</strong>:
+uma representação minimalista e elegante onde apenas as arestas essenciais (as <em>coberturas</em>) sobrevivem, e a direção do fluxo é lida naturalmente <strong>de baixo para cima</strong> pela gravidade do desenho.
+</div>
+    </div>
+
+    <!-- 2. Dicionário Fonético de Símbolos -->
+    
+<div class="como-se-le" style="margin-top:2rem;">
+  <div class="como-se-le-title">[Dicionário Fonético de Símbolos Lógicos]</div>
+  <p>Para ler com fluência natural qualquer fórmula desta lição:</p>
+  <ul style="margin-left: 1.25rem;">
+    <li>$\in$ : <em>"Pertence a"</em> (ex: $a \in A \to$ <em>"o elemento a pertence ao conjunto A"</em>).</li>
+    <li>$\subseteq$ : <em>"Está contido em"</em> ou <em>"é subconjunto de"</em> (ex: $R \subseteq A \times B \to$ <em>"R está contido em A vezes B"</em>).</li>
+    <li>$\land$ : <em>"E"</em> (conjunção lógica, exige que ambas as condições sejam verdadeiras).</li>
+    <li>$\lor$ : <em>"OU"</em> (disjunção lógica, basta que uma seja verdadeira).</li>
+    <li>$\iff$ : <em>"Se, e somente se"</em> (equivalência lógica bidirecional).</li>
+    <li>$\implies$ : <em>"Implica que"</em> ou <em>"se... então..."</em> (condicional unidirecional).</li>
+    <li>$\forall$ : <em>"Para todo..."</em> ou <em>"Qualquer que seja..."</em> (quantificador universal).</li>
+    <li>$\exists$ : <em>"Existe ao menos um..."</em> (quantificador existencial).</li>
+    <li>$\emptyset$ : <em>"Conjunto vazio"</em> (a sacola sem nenhum elemento).</li>
+  </ul>
+</div>
+
+
+    <!-- 3. Degraus Cognitivos e Desmistificação de Termos -->
+    <section aria-label="Degraus Cognitivos e Termos">
+      <h2>1. Degraus Cognitivos: Desmistificando os Termos</h2>
+      <p>Entendendo a etimologia e o significado real antes de qualquer fórmula complexa:</p>
+      
+<div class="word-breakdown">
+  <div><strong class="term">Diagrama de Hasse</strong> <span class="pronunciation">[di-a-gra-ma de há-sse]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Em homenagem a Helmut Hasse (1898–1979), algebrista e teorista dos números alemão.</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> O desenho limpo de um poset onde nós inferiores ficam embaixo, nós superiores ficam em cima, e linhas retas unem quem cobre quem.</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Relação de Cobertura</strong> <span class="pronunciation">[re-la-ção de co-ber-tu-ra]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Denotada pelo símbolo ⋖ (x ⋖ y significa &#x27;y cobre x&#x27;).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> y está imediatamente acima de x sem NENHUM elemento intermediário entre eles. Exemplo: 2 cobre 1 em divisibilidade, mas 4 NÃO cobre 1 porque o 2 está no meio!</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Redução Transitiva</strong> <span class="pronunciation">[re-du-ção tran-si-ti-va]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Reduzir o grafo ao menor número de arestas que preserve o mesmo fecho transitivo.</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Apagar todas as arestas que são atalhos redundantes de caminhos mais longos.</p>
+</div>
+
     </section>
 
+    <!-- 4. Fórmulas Limpas com Guia de Leitura -->
+    <section aria-label="Fórmulas Canônicas e Como se Fala">
+      <h2>2. Fórmulas Canônicas: Como se Lê e o que Significa</h2>
+      <p>Cada símbolo rigoroso acompanhado de sua pronúncia fonética e tradução intuitiva para sistemas de TI:</p>
+      
+<div class="formula-box">
+  <div class="math-display">$$x \lessdot y \iff x < y \quad \land \quad \neg \exists z \in S \, (x < z < y)$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"y cobre x se, e somente se, x for menor que y e não existir nenhum elemento z tal que x seja menor que z e z seja menor que y"</em></div>
+    <div style="color:#92400e;">[O que significa]: Definição axiomática de Cobertura: y é o sucessor direto degrau a degrau de x. No Diagrama de Hasse, desenham-se EXCLUSIVAMENTE as linhas de cobertura!</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$\text{Regras de Hasse: } 1) \text{ Apagar laços } (x, x) \quad 2) \text{ Apagar atalhos } (x, z) \text{ se } x < y < z \quad 3) \text{ Apagar flechas}$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"As três regras de Hasse: apagar laços reflexivos, apagar atalhos transitivos e apagar pontas de flecha"</em></div>
+    <div style="color:#92400e;">[O que significa]: O algoritmo visual canônico: a orientação de baixo para cima substitui as setas; a ausência de atalhos expõe a geometria dos reticulados.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$|E_G| = 12 \text{ arestas estritas} \quad \implies \quad |E_H| = 7 \text{ coberturas mantidas} \quad (5 \text{ atalhos eliminados})$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"No conjunto dos divisores de doze, o dígrafo estrito tem doze arestas, o diagrama de Hasse mantém sete coberturas e elimina cinco atalhos transitivos"</em></div>
+    <div style="color:#92400e;">[O que significa]: Cálculo oficial de concurso da banca IFCE: no conjunto D_12 = {1, 2, 3, 4, 6, 12}, 5 arestas transitivas redundantes são eliminadas ((1,4), (1,6), (1,12), (2,12), (3,12)).</div>
+  </div>
+</div>
+
+    </section>
+
+    <!-- 5. Aplicação Computacional -->
+    <div class="callout computation">
+      <div class="callout-title">[Computação e Infraestrutura]: Contraexemplos Canônicos de Reticulados: Pentágono N5 e Diamante M3</div>
+      <div>
+Dois diagramas de Hasse são imortais na Ciência da Computação teórica:
+1. <strong>Pentágono $N_5$:</strong> É o menor exemplo de reticulado que <strong>NÃO É MODULAR</strong>. Possui uma cadeia de comprimento 3 de um lado e um nó solitário do outro lado;
+2. <strong>Diamante $M_3$:</strong> É modular, mas <strong>NÃO É DISTRIBUTIVO</strong>. Possui 3 nós centrais incomparáveis concorrendo entre a base e o topo.
+<strong>Teorema de Birkhoff:</strong> Um reticulado é distributivo se, e somente se, NÃO CONTÉM $N_5$ nem $M_3$ como subreticulados!
+</div>
+    </div>
+
+    <!-- 6. Representação Visual Vetorial SVG Nativo -->
     <section aria-label="Pilar Visual — Diagrama Vetorial">
-      <h2>Representação Visual</h2>
-      <div class="diagram-container"><svg viewBox="0 0 640 210" width="100%" height="auto" role="img" aria-label="Diagramas de Hasse Notáveis: D12, M3 e N5"><rect x="10" y="10" width="200" height="190" rx="10" fill="#f8fafc" stroke="#cbd5e1"/><text x="110" y="30" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">D12 (Divisores de 12)</text><line x1="110" y1="54" x2="75" y2="92" stroke="#64748b" stroke-width="1.8"/><line x1="110" y1="54" x2="145" y2="92" stroke="#64748b" stroke-width="1.8"/><line x1="75" y1="92" x2="75" y2="132" stroke="#64748b" stroke-width="1.8"/><line x1="145" y1="92" x2="75" y2="132" stroke="#64748b" stroke-width="1.8"/><line x1="145" y1="92" x2="145" y2="132" stroke="#64748b" stroke-width="1.8"/><line x1="75" y1="132" x2="110" y2="170" stroke="#64748b" stroke-width="1.8"/><line x1="145" y1="132" x2="110" y2="170" stroke="#64748b" stroke-width="1.8"/><circle cx="110" cy="54" r="12" fill="#eff6ff" stroke="#0071e3" stroke-width="1.6"/><text x="110" y="58" text-anchor="middle" font-size="10.5" font-weight="700">12</text><circle cx="75" cy="92" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="75" y="96" text-anchor="middle" font-size="10.5">4</text><circle cx="145" cy="92" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="145" y="96" text-anchor="middle" font-size="10.5">6</text><circle cx="75" cy="132" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="75" y="136" text-anchor="middle" font-size="10.5">2</text><circle cx="145" cy="132" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="145" y="136" text-anchor="middle" font-size="10.5">3</text><circle cx="110" cy="170" r="12" fill="#f0fdf4" stroke="#10b981" stroke-width="1.6"/><text x="110" y="174" text-anchor="middle" font-size="10.5" font-weight="700">1</text><rect x="220" y="10" width="200" height="190" rx="10" fill="#f8fafc" stroke="#cbd5e1"/><text x="320" y="30" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">Diamante M3 (Não Distributivo)</text><line x1="320" y1="56" x2="265" y2="112" stroke="#64748b" stroke-width="1.8"/><line x1="320" y1="56" x2="320" y2="112" stroke="#64748b" stroke-width="1.8"/><line x1="320" y1="56" x2="375" y2="112" stroke="#64748b" stroke-width="1.8"/><line x1="265" y1="112" x2="320" y2="168" stroke="#64748b" stroke-width="1.8"/><line x1="320" y1="112" x2="320" y2="168" stroke="#64748b" stroke-width="1.8"/><line x1="375" y1="112" x2="320" y2="168" stroke="#64748b" stroke-width="1.8"/><circle cx="320" cy="56" r="11" fill="#fff" stroke="#0071e3" stroke-width="1.6"/><text x="320" y="60" text-anchor="middle" font-size="10">1</text><circle cx="265" cy="112" r="11" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="265" y="116" text-anchor="middle" font-size="10">a</text><circle cx="320" cy="112" r="11" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="320" y="116" text-anchor="middle" font-size="10">b</text><circle cx="375" cy="112" r="11" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="375" y="116" text-anchor="middle" font-size="10">c</text><circle cx="320" cy="168" r="11" fill="#fff" stroke="#10b981" stroke-width="1.6"/><text x="320" y="172" text-anchor="middle" font-size="10">0</text><rect x="430" y="10" width="200" height="190" rx="10" fill="#f8fafc" stroke="#cbd5e1"/><text x="530" y="30" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">Pentágono N5 (Não Modular)</text><line x1="530" y1="56" x2="480" y2="95" stroke="#64748b" stroke-width="1.8"/><line x1="480" y1="95" x2="480" y2="136" stroke="#64748b" stroke-width="1.8"/><line x1="480" y1="136" x2="530" y2="168" stroke="#64748b" stroke-width="1.8"/><line x1="530" y1="56" x2="580" y2="112" stroke="#64748b" stroke-width="1.8"/><line x1="580" y1="112" x2="530" y2="168" stroke="#64748b" stroke-width="1.8"/><circle cx="530" cy="56" r="11" fill="#fff" stroke="#0071e3" stroke-width="1.6"/><text x="530" y="60" text-anchor="middle" font-size="10">1</text><circle cx="480" cy="95" r="11" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="480" y="99" text-anchor="middle" font-size="10">b</text><circle cx="480" cy="136" r="11" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="480" y="140" text-anchor="middle" font-size="10">a</text><circle cx="580" cy="112" r="11" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="580" y="116" text-anchor="middle" font-size="10">c</text><circle cx="530" cy="168" r="11" fill="#fff" stroke="#10b981" stroke-width="1.6"/><text x="530" y="172" text-anchor="middle" font-size="10">0</text></svg></div>
-    </section>
-
-    <section aria-label="Pilar Interativo — Laboratório Tátil">
-      <h2>Laboratório Interativo</h2>
-      <div id="lesson-widget-8"></div>
-    </section>
-
-    <article class="lesson-content">
-      <hr>
-<h2>1. Visão Geral e Contexto Formal</h2>
-<p>Na Ciência da Computação, as <strong>relações de ordem parcial</strong> modelam hierarquias de herança em linguagens orientadas a objetos, controle de concorrência em sistemas distribuídos (relação causal <em>happened-before</em> de Lamport), fluxo de dados em compiladores e sistemas de tipos.</p>
-<p>Dado um conjunto parcialmente ordenado (poset) $(P, \le)$, a representação dessa relação através de um grafo direcionado convencional (dígrafo) $G = (P, R)$, onde $(u, v) \in R \iff u \le v$, revela-se impraticável para a análise humana e ineficiente para processamento visual:</p>
-<ul><li>Todo vértice $x \in P$ possui um laço reflexivo $(x, x)$.</li><li>Para cada cadeia $x_1 \le x_2 \le \dots \le x_n$, a transitividade obriga a inserção de todas as arestas de atalho $(x_i, x_j)$ com $i &lt; j$.</li><li>Em uma cadeia linear simples com $n$ elementos, o dígrafo completo possui $n$ laços e $\frac{n(n-1)}{2}$ arestas direcionadas, totalizando $\frac{n(n+1)}{2} = O(n^2)$ arestas.</li></ul>
-<p>O <strong>Diagrama de Hasse</strong>, proposto pelo matemático alemão Helmut Hasse (1898–1979), é a representação canônica, minimal e elegante de um poset finito. Ele elimina todas as redundâncias geradas pelos axiomas da reflexividade e transitividade, retendo apenas o arcabouço estrutural irredutível da ordem: a <strong>relação de cobertura</strong>. Uma cadeia linear de $n$ vértices é sintetizada em exatamente $n-1$ arestas ($O(n)$), preservando toda a semântica de ordenação por meio de sua geometria vertical.</p>
-<hr>
-<h2>2. Definições Rigorosas e Formalismo Matemático</h2>
-<h3>2.1. Conjunto Parcialmente Ordenado (Poset)</h3>
-<p>Um <strong>poset</strong> é uma estrutura matemática denotada pelo par ordenado $(P, \le)$, onde $P$ é um conjunto não-vazio e $\le$ é uma relação binária sobre $P$ satisfazendo, para quaisquer $x, y, z \in P$, três axiomas fundamentais:</p>
-<ol><li><strong>Reflexividade</strong>: $x \le x$.</li><li><strong>Antissimetria</strong>: $(x \le y \land y \le x) \implies x = y$.</li><li><strong>Transitividade</strong>: $(x \le y \land y \le z) \implies x \le z$.</li></ol>
-<p>Define-se a ordem estrita associada $&lt;$ como:</p>
-<div class="math-display">$$x &lt; y \iff (x \le y \land x \neq y)$$</div>
-<p>Dois elementos $x, y \in P$ são ditos <strong>comparáveis</strong> se $x \le y$ ou $y \le x$. Caso contrário ($x \not\le y$ e $y \not\le x$), $x$ e $y$ são ditos <strong>incomparáveis</strong>, denotado por $x \parallel y$.</p>
-<hr>
-<h3>2.2. A Relação de Cobertura (Covering Relation)</h3>
-<p>O cerne formal da construção do Diagrama de Hasse reside na relação de cobertura.</p>
-<blockquote><p><strong>Definição Formal (Relação de Cobertura):</strong> Seja $(P, \le)$ um poset e sejam $x, y \in P$. Diz-se que <strong>$y$ cobre $x$</strong> (ou que $x$ é coberto por $y$), denotado por: $$x \lessdot y \quad \text{ou} \quad x \prec: y$$ se, e somente se: 1. $x &lt; y$, e 2. Não existe nenhum elemento $z \in P$ tal que $x &lt; z &lt; y$.</p></blockquote>
-<p>Em termos da teoria dos conjuntos, $x \lessdot y$ significa que o intervalo aberto entre $x$ e $y$ é rigorosamente vazio:</p>
-<div class="math-display">$$(x, y)_P = \{z \in P \mid x &lt; z &lt; y\} = \emptyset$$</div>
-<p>Intuitivamente, $y$ é o <strong>sucessor imediato</strong> de $x$ na ordem parcial; não há degraus intermediários entre $x$ e $y$.</p>
-<hr>
-<h3>2.3. O Algoritmo de Simplificação de Hasse</h3>
-<p>Para converter o dígrafo original de um poset finito $(P, \le)$ em seu Diagrama de Hasse, executa-se o seguinte algoritmo em três regras estritas:</p>
-<div class="visual-diagram-card">
+      <h2>3. Anatomia Visual: Diagrama Vetorial Nativo</h2>
+      <p class="hub-muted">Inspeção espacial sem Mermaid e sem texto desformatado (ADR 0008).</p>
+      <div class="visual-diagram-card">
   <div class="diagram-header">
-    <span class="diagram-tag">FIGURA 8.1 — PIPELINE ALGORÍTMICO</span>
-    <h4 class="diagram-title">O Algoritmo de Simplificação de Hasse em Três Regras Estritas</h4>
+    <span class="diagram-tag">EXEMPLO 2 — RETICULADO DISTRIBUTIVO D₁₂</span>
+    <h4 class="diagram-title">Diagrama de Hasse dos Divisores de 12 (D₁₂ sob Divisibilidade)</h4>
   </div>
   <div class="diagram-body">
-    <svg viewBox="0 0 620 400" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="arr-step" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0071e3"/>
-    </marker>
-  </defs>
-
-  <!-- Step 1: Dígrafo da Ordem -->
-  <g transform="translate(130, 20)">
-    <rect width="360" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-    <text x="180" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">DÍGRAFO DA ORDEM (P, ≤)</text>
-  </g>
-
-  <!-- Transition 1 -->
-  <line x1="310" y1="72" x2="310" y2="120" stroke="#0071e3" stroke-width="2" marker-end="url(#arr-step)"/>
-  <rect x="180" y="85" width="260" height="22" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
-  <text x="310" y="100" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1e40af">Regra 1: Supressão da Reflexividade (Remove Laços)</text>
-
-  <!-- Step 2: Dígrafo Acíclico Estrito -->
-  <g transform="translate(130, 125)">
-    <rect width="360" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-    <text x="180" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">DÍGRAFO ACÍCLICO ESTRITO (P, &lt;)</text>
-  </g>
-
-  <!-- Transition 2 -->
-  <line x1="310" y1="177" x2="310" y2="225" stroke="#0071e3" stroke-width="2" marker-end="url(#arr-step)"/>
-  <rect x="180" y="190" width="260" height="22" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
-  <text x="310" y="205" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1e40af">Regra 2: Redução Transitiva (Remove Atalhos)</text>
-
-  <!-- Step 3: Dígrafo de Cobertura -->
-  <g transform="translate(130, 230)">
-    <rect width="360" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-    <text x="180" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">DÍGRAFO DE COBERTURA (P, ⋖)</text>
-  </g>
-
-  <!-- Transition 3 -->
-  <line x1="310" y1="282" x2="310" y2="330" stroke="#0071e3" stroke-width="2" marker-end="url(#arr-step)"/>
-  <rect x="160" y="295" width="300" height="22" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
-  <text x="310" y="310" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1e40af">Regra 3: Disposição Vertical e Arestas Não-Direcionadas</text>
-
-  <!-- Step 4: Diagrama de Hasse -->
-  <g transform="translate(130, 335)">
-    <rect width="360" height="52" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
-    <text x="180" y="32" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#15803d">DIAGRAMA DE HASSE FINAL</text>
-  </g>
-</svg>
-  </div>
-  <p class="diagram-caption">Redução do dígrafo original da ordem em seu Diagrama de Hasse via eliminação de laços reflexivos, redução transitiva e elevação espacial ascendente.</p>
-</div>
-<h4>Regra 1: Eliminação dos laços reflexivos</h4>
-<p>Para todo elemento $x \in P$, remove-se a aresta direcionada $(x, x)$. Como a relação é declarada como uma ordem parcial, a reflexividade é axioma implícito universal e sua exibição gráfica é ruído redundante.</p>
-<h4>Regra 2: Redução Transitiva (Eliminação de arestas redundantes)</h4>
-<p>Sejam $x, y \in P$. Se existe uma sequência de elementos intermediários $z_1, z_2, \dots, z_k \in P$ ($k \ge 1$) tais que:</p>
-<div class="math-display">$$x &lt; z_1 &lt; z_2 &lt; \dots &lt; z_k &lt; y$$</div>
-<p>então a aresta direta $(x, y)$ é <strong>obrigatoriamente eliminada</strong>. A relação $x \le y$ é recuperada pela existência do caminho connecting $x$ a $y$. Apenas as arestas que pertencem à relação de cobertura $\lessdot$ são mantidas no grafo.</p>
-<h4>Regra 3: Orientação espacial vertical ascendente e supressão de setas</h4>
-<ul><li>Se $x \lessdot y$, o vértice que representa $y$ é posicionado em um nível vertical superior ao vértice que representa $x$ no plano (coordenada $y_{\text{pos}} &gt; x_{\text{pos}}$).</li><li>As pontas das setas (direção do dígrafo) são inteiramente descartadas, substituindo-se os arcos por segmentos retilíneos simples.</li><li><strong>Convenção de Leitura:</strong> A direção causal da relação $\le$ flui de baixo para cima. Afirmar que $a \le b$ no Diagrama de Hasse equivale a afirmar que existe um caminho contínuo estritamente ascendente partindo de $a$ até alcançar $b$.</li></ul>
-<hr>
-<h2>3. Teoremas, Propriedades Invariantes e Demonstrações</h2>
-<h3>Teorema 1 (Teorema da Reconstrução Canônica da Ordem)</h3>
-<p><em>Seja $(P, \le)$ um poset finito e seja $\lessdot$ a sua relação de cobertura. Então, a relação $\le$ coincide perfeitamente com o fecho reflexivo e transitivo de $\lessdot$:</em></p>
-<div class="math-display">$$\le \;=\; (\lessdot)^* \;=\; \bigcup_{k=0}^{|P|-1} \lessdot^k$$</div>
-<p><em>onde $\lessdot^0 = \Delta_P = \{(x, x) \mid x \in P\}$ é a relação identidade.</em></p>
-<blockquote><p><strong>Demonstração:</strong> 1. ($\subseteq$): Seja $(x, y) \in\; \le$. Se $x = y$, então $(x, y) \in \Delta_P \subseteq (\lessdot)^*$. Se $x &lt; y$, como $P$ é finito, o conjunto de cadeias estritas iniciando em $x$ e terminando em $y$ é finito. Seja $x = z_0 &lt; z_1 &lt; \dots &lt; z_k = y$ uma cadeia de comprimento maximal entre $x$ e $y$. Se existisse algum $w$ tal que $z_i &lt; w &lt; z_{i+1}$, poderíamos estender a cadeia, contradizendo sua maximalidade. Logo, $z_i \lessdot z_{i+1}$ para todo $0 \le i &lt; k$. Isso implica que $(x, y) \in\; \lessdot^k \subseteq (\lessdot)^*$. 2. ($\supseteq$): Por definição de cobertura, $x \lessdot y \implies x &lt; y \implies x \le y$. Como $\le$ é transitiva e reflexiva, todo par derivado do fecho reflexivo-transitivo de qualquer sub-relação de $\le$ também pertence a $\le$. Portanto, $(\lessdot)^* \subseteq\; \le$. Conclui-se que $\le \;=\; (\lessdot)^*$. $\blacksquare$</p></blockquote>
-<hr>
-<h3>3.1. Identificação Topológica de Elementos Extremais</h3>
-<p>A leitura do Diagrama de Hasse permite a identificação imediata dos elementos extremais através de propriedades de grau dos nós:</p>
-<div class="table-wrapper"><table><thead><tr><th>Conceito</th><th>Definição Formal</th><th>Assinatura Topológica no Diagrama de Hasse</th></tr></thead><tbody><tr><td><strong>Elemento Minimal</strong></td><td>$m \in P \iff (\forall x \in P)(x \le m \implies x = m)$</td><td>Vértice sem nenhuma aresta descendente (grau inferior nulo). Pode haver múltiplos.</td></tr><tr><td><strong>Elemento Maximal</strong></td><td>$M \in P \iff (\forall x \in P)(M \le x \implies x = M)$</td><td>Vértice sem nenhuma aresta ascendente (grau superior nulo). Pode haver múltiplos.</td></tr><tr><td><strong>Elemento Mínimo ($\bot$)</strong></td><td>$\bot \in P \iff (\forall x \in P)(\bot \le x)$</td><td>Vértice único na base de onde parte caminho ascendente para <strong>todos</strong> os demais nós.</td></tr><tr><td><strong>Elemento Máximo ($\top$)</strong></td><td>$\top \in P \iff (\forall x \in P)(x \le \top)$</td><td>Vértice único no topo até onde converge caminho ascendente de <strong>todos</strong> os demais nós.</td></tr></tbody></table></div>
-<div class="visual-diagram-card">
-  <div class="diagram-header">
-    <span class="diagram-tag">FIGURA 8.2 — ASSINATURA TOPOLÓGICA</span>
-    <h4 class="diagram-title">Identificação Topológica de Elementos Extremais</h4>
-  </div>
-  <div class="diagram-body">
-    <svg viewBox="0 0 520 300" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 460 300" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
   <!-- Edges -->
-  <line x1="260" y1="240" x2="190" y2="180" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="260" y1="240" x2="330" y2="180" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="190" y1="180" x2="190" y2="120" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="330" y1="180" x2="330" y2="120" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="190" y1="120" x2="150" y2="60" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="190" y1="120" x2="330" y2="60" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="330" y1="120" x2="330" y2="60" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="230" y1="240" x2="160" y2="170" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="230" y1="240" x2="300" y2="170" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="170" x2="160" y2="100" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="170" x2="300" y2="100" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="300" y1="170" x2="300" y2="100" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="160" y1="100" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="300" y1="100" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
 
-  <!-- Unique Bottom (⊥) -->
-  <circle cx="260" cy="240" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2.5"/>
-  <text x="260" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0071e3">⊥</text>
-  <text x="370" y="245" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#0071e3">Mínimo Global Único (Grau inf = 0)</text>
+  <!-- Nodes -->
+  <!-- 1 -->
+  <circle cx="230" cy="240" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2"/>
+  <text x="230" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#1e40af">1</text>
+  <text x="270" y="245" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">Bottom ⊥</text>
 
-  <!-- Level 1: a, b -->
-  <circle cx="190" cy="180" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="190" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">a</text>
+  <!-- 2, 3 -->
+  <circle cx="160" cy="170" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="160" y="175" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">2</text>
 
-  <circle cx="330" cy="180" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="330" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">b</text>
+  <circle cx="300" cy="170" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="300" y="175" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">3</text>
 
-  <!-- Level 2: c, d -->
-  <circle cx="190" cy="120" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="190" y="125" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">c</text>
+  <!-- 4, 6 -->
+  <circle cx="160" cy="100" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="160" y="105" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">4</text>
 
-  <circle cx="330" cy="120" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="330" y="125" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">d</text>
+  <circle cx="300" cy="100" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="300" y="105" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">6</text>
 
-  <!-- Maximais: M1, M2 -->
-  <circle cx="150" cy="60" r="18" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
-  <text x="150" y="65" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#b91c1c">M₁</text>
-
-  <circle cx="330" cy="60" r="18" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
-  <text x="330" y="65" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#b91c1c">M₂</text>
-  <text x="370" y="65" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="600" fill="#b91c1c">Maximais Múltiplos (Grau sup = 0)</text>
+  <!-- 12 -->
+  <circle cx="230" cy="40" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+  <text x="230" y="45" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#15803d">12</text>
+  <text x="270" y="45" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#15803d">Top ⊤</text>
 </svg>
   </div>
-  <p class="diagram-caption">Nós sem arestas superiores são maximais (M₁, M₂). O nó inferior único de onde partem caminhos para todos os vértices é o mínimo absoluto ⊥.</p>
+  <p class="diagram-caption">D₁₂ = {1, 2, 3, 4, 6, 12}. Como todo par possui supremo (MMC) e ínfimo (MDC) únicos, D₁₂ é um reticulado distributivo completo.</p>
 </div>
-<blockquote><p><strong>Invariante Crítico:</strong> Todo elemento mínimo é minimal, mas a recíproca é falsa. Se um poset possui dois ou mais elementos minimais distintos, ele <strong>não possui</strong> elemento mínimo. O mesmo raciocínio aplica-se a maximais e máximo.</p></blockquote>
-<hr>
-<h3>3.2. Limitantes, Supremo e Ínfimo</h3>
-<p>Dado um subconjunto arbitrário $S \subseteq P$:</p>
-<ol><li><strong>Limitante Superior (Upper Bound):</strong></li></ol>
-<div class="math-display">$$u \in P \text{ é limitante superior de } S \iff (\forall s \in S)(s \le u)$$</div>
-<p>No diagrama, $u$ é alcançável por caminhos ascendentes a partir de cada elemento de $S$ simultaneamente.</p>
-<ol><li><strong>Limitante Inferior (Lower Bound):</strong></li></ol>
-<div class="math-display">$$l \in P \text{ é limitante inferior de } S \iff (\forall s \in S)(l \le s)$$</div>
-<p>No diagrama, cada elemento de $S$ é alcançável por caminhos ascendentes a partir de $l$.</p>
-<ol><li><strong>Menor Limitante Superior (LUB / Supremo):</strong></li></ol>
-<div class="math-display">$$\sup(S) = \min(\{u \in P \mid u \text{ é limitante superior de } S\})$$</div>
-<p>Denotado por $\bigvee S$ ou $a \vee b$ (junção / join) para pares $\{a, b\}$. Se existir, é <strong>único</strong> (pela antissimetria).</p>
-<ol><li><strong>Maior Limitante Inferior (GLB / Ínfimo):</strong></li></ol>
-<div class="math-display">$$\inf(S) = \max(\{l \in P \mid l \text{ é limitante inferior de } S\})$$</div>
-<p>Denotado por $\bigwedge S$ ou $a \wedge b$ (encontro / meet) para pares $\{a, b\}$. Se existir, é <strong>único</strong>.</p>
-<hr>
-<h3>3.3. Reticulados (Lattices)</h3>
-<blockquote><p><strong>Definição de Reticulado:</strong> Um poset $(L, \le)$ é denominado <strong>Reticulado</strong> se, e somente se, para <strong>todo</strong> par de elementos $\{a, b\} \subseteq L$, existem: 1. Um único supremo: $\sup(\{a, b\}) = a \vee b \in L$ 2. Um único ínfimo: $\inf(\{a, b\}) = a \wedge b \in L$</p></blockquote>
-<h4>Critério de Verificação em Diagramas de Hasse:</h4>
-<ul><li>Em um reticulado finito, sempre existem elemento mínimo ($\bot$) e elemento máximo ($\top$).</li><li><strong>Atenção:</strong> Ter elemento mínimo e máximo é <strong>condição necessária, mas NÃO suficiente</strong>. Se dois elementos incomparáveis $a, b$ convergirem para dois limitantes superiores minimais incomparáveis $u_1, u_2$ sem que um deles seja menor que o outro, o supremo $\sup(\{a, b\})$ não existe, e o poset <strong>não</strong> é um reticulado.</li></ul>
-<hr>
-<h2>4. Exemplos Computacionais e Diagramas</h2>
-<h3>Exemplo 1: O Hipercubo Booleano $\mathcal{P}(\{a, b, c\})$ sob Inclusão $\subseteq$</h3>
-<p>Seja $A = \{a, b, c\}$ e $P = \mathcal{P}(A)$ com $2^3 = 8$ elementos, ordenados por inclusão de conjuntos ($X \le Y \iff X \subseteq Y$). A relação de cobertura ocorre quando um conjunto tem exatamente um elemento a mais: $X \lessdot Y \iff X \subset Y \land |Y| = |X| + 1$.</p>
 <div class="visual-diagram-card">
   <div class="diagram-header">
     <span class="diagram-tag">EXEMPLO 1 — RETICULADO BOOLEANO Q₃</span>
@@ -267,112 +230,6 @@
   </div>
   <p class="diagram-caption">Cada nível k representa subconjuntos de cardinalidade exata k. As arestas representam a relação de cobertura X ⋖ Y ⟺ X ⊂ Y e |Y| = |X| + 1.</p>
 </div>
-<ul><li><strong>Propriedades:</strong> É um reticulado distributivo e booleano. Para quaisquer $X, Y \in \mathcal{P}(A)$:</li></ul>
-<div class="math-display">$$X \vee Y = X \cup Y \quad \text{e} \quad X \wedge Y = X \cap Y$$</div>
-<ul><li>Topologia de grafo: Hipercubo 3D ($Q_3$), com 8 vértices e 12 arestas de cobertura.</li></ul>
-<hr>
-<h3>Exemplo 2: O Reticulado dos Divisores $D_{12}$ sob Divisibilidade</h3>
-<p>Considere $D_{12} = \{1, 2, 3, 4, 6, 12\}$ sob a relação de divisibilidade ($x \le y \iff x \mid y$). Como $12 = 2^2 \cdot 3^1$, os divisores são expressos como $2^i 3^j$ com $i \in \{0, 1, 2\}$ e $j \in \{0, 1\}$.</p>
-<p>A relação de cobertura exige multiplicação por um único fator primo irredutível:</p>
-<ul><li>$1 \lessdot 2$ e $1 \lessdot 3$</li><li>$2 \lessdot 4$ e $2 \lessdot 6$</li><li>$3 \lessdot 6$</li><li>$4 \lessdot 12$ e $6 \lessdot 12$</li></ul>
-<div class="visual-diagram-card">
-  <div class="diagram-header">
-    <span class="diagram-tag">EXEMPLO 2 — RETICULADO DISTRIBUTIVO D₁₂</span>
-    <h4 class="diagram-title">Diagrama de Hasse dos Divisores de 12 (D₁₂ sob Divisibilidade)</h4>
-  </div>
-  <div class="diagram-body">
-    <svg viewBox="0 0 460 300" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <!-- Edges -->
-  <line x1="230" y1="240" x2="160" y2="170" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="230" y1="240" x2="300" y2="170" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="160" y1="170" x2="160" y2="100" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="160" y1="170" x2="300" y2="100" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="300" y1="170" x2="300" y2="100" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="160" y1="100" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="300" y1="100" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
-
-  <!-- Nodes -->
-  <!-- 1 -->
-  <circle cx="230" cy="240" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2"/>
-  <text x="230" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#1e40af">1</text>
-  <text x="270" y="245" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">Bottom ⊥</text>
-
-  <!-- 2, 3 -->
-  <circle cx="160" cy="170" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="160" y="175" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">2</text>
-
-  <circle cx="300" cy="170" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="300" y="175" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">3</text>
-
-  <!-- 4, 6 -->
-  <circle cx="160" cy="100" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="160" y="105" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">4</text>
-
-  <circle cx="300" cy="100" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="300" y="105" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">6</text>
-
-  <!-- 12 -->
-  <circle cx="230" cy="40" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
-  <text x="230" y="45" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#15803d">12</text>
-  <text x="270" y="45" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#15803d">Top ⊤</text>
-</svg>
-  </div>
-  <p class="diagram-caption">D₁₂ = {1, 2, 3, 4, 6, 12}. Como todo par possui supremo (MMC) e ínfimo (MDC) únicos, D₁₂ é um reticulado distributivo completo.</p>
-</div>
-<ul><li>Total de arestas de cobertura: <strong>7 arestas</strong>.</li><li>Arestas transitivas omitidas: $(1, 4), (1, 6), (1, 12), (2, 12), (3, 12)$ (5 arestas suprimidas).</li><li>Neste reticulado:</li></ul>
-<div class="math-display">$$x \vee y = \text{mmc}(x, y) \quad \text{e} \quad x \wedge y = \text{mdc}(x, y)$$</div>
-<hr>
-<h3>Exemplo 3: O Poset Ampulheta Dupla (Com Mínimo e Máximo, mas NÃO-Reticulado)</h3>
-<p>Considere o poset $P = \{\bot, a, b, c, d, \top\}$ com as coberturas: $\bot \lessdot a, \bot \lessdot b, a \lessdot c, a \lessdot d, b \lessdot c, b \lessdot d, c \lessdot \top, d \lessdot \top$.</p>
-<div class="visual-diagram-card">
-  <div class="diagram-header">
-    <span class="diagram-tag">FIGURA 8.3 — TOPOLOGIA DE CRUZAMENTO</span>
-    <h4 class="diagram-title">Poset com Cruzamento Central X ({⊥, a, b, c, d, ⊤})</h4>
-  </div>
-  <div class="diagram-body">
-    <svg viewBox="0 0 460 300" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
-  <!-- Cross Edges -->
-  <line x1="230" y1="240" x2="160" y2="180" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="230" y1="240" x2="300" y2="180" stroke="#64748b" stroke-width="1.8"/>
-
-  <!-- The X Cross -->
-  <line x1="160" y1="180" x2="160" y2="110" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="160" y1="180" x2="300" y2="110" stroke="#0071e3" stroke-width="2"/>
-  <line x1="300" y1="180" x2="160" y2="110" stroke="#0071e3" stroke-width="2"/>
-  <line x1="300" y1="180" x2="300" y2="110" stroke="#64748b" stroke-width="1.8"/>
-
-  <line x1="160" y1="110" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="300" y1="110" x2="230" y2="40" stroke="#64748b" stroke-width="1.8"/>
-
-  <!-- Nodes -->
-  <!-- Bottom ⊥ -->
-  <circle cx="230" cy="240" r="18" fill="#eff6ff" stroke="#0071e3" stroke-width="2"/>
-  <text x="230" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#0071e3">⊥</text>
-
-  <!-- a, b -->
-  <circle cx="160" cy="180" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="160" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">a</text>
-
-  <circle cx="300" cy="180" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="300" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">b</text>
-
-  <!-- c, d -->
-  <circle cx="160" cy="110" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="160" y="115" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">c</text>
-
-  <circle cx="300" cy="110" r="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="300" y="115" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">d</text>
-
-  <!-- Top ⊤ -->
-  <circle cx="230" cy="40" r="18" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
-  <text x="230" y="45" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="700" fill="#15803d">⊤</text>
-</svg>
-  </div>
-  <p class="diagram-caption">As conexões cruzadas a ⋖ d e b ⋖ c produzem limitantes superiores comuns c e d para o par {a, b}. Como c e d são incomparáveis, este poset NÃO é um reticulado.</p>
-</div>
-<ul><li>O poset possui mínimo único ($\bot$) e máximo único ($\top$).</li><li>Analisemos o par $\{a, b\}$:</li><li>Limitantes superiores de $\{a, b\}$: $\{c, d, \top\}$.</li><li>Quem é o <strong>menor</strong> limitante superior?</li><li>Os limitantes $c$ e $d$ são incomparáveis ($c \parallel d$). Nenhum deles é menor que o outro.</li><li>Portanto, não existe um menor limitante superior para $\{a, b\}$. $\sup(\{a, b\})$ inexiste!</li><li><strong>Conclusão:</strong> Este poset <strong>NÃO é um reticulado</strong>.</li></ul>
-<hr>
-<h3>Exemplo 4: Os Reticulados Não-Distributivos $N_5$ (Pentágono) e $M_3$ (Diamante)</h3>
 <div class="visual-diagram-card">
   <div class="diagram-header">
     <span class="diagram-tag">FIGURA 8.4 — RETICULADOS PROIBIDOS N₅ E M₃</span>
@@ -445,31 +302,90 @@
   </div>
   <p class="diagram-caption">Um reticulado é modular se e somente se não contém N₅ como sub-reticulado. Um reticulado é distributivo se e somente se não contém nem N₅ nem M₃.</p>
 </div>
-<p>Ambos são reticulados, mas <strong>não são distributivos</strong>:</p>
-<ul><li>Em $N_5$, $a \le b$, mas $a \vee (b \wedge c) = a \vee 0 = a$, enquanto $(a \vee b) \wedge (a \vee c) = b \wedge 1 = b$. Como $a \neq b$, a distributividade falha!</li><li><strong>Teorema de Birkhoff:</strong> Um reticulado $L$ é distributivo se, e somente se, não possui sub-reticulado isomorfo a $N_5$ nem a $M_3$.</li></ul>
-<hr>
-<h2>5. Armadilhas de Banca e Corner Cases</h2>
-<ol><li><strong>Arestas Cruzadas no Plano vs Comparabilidade:</strong></li></ol>
-<ul><li>O cruzamento visual de duas linhas em um diagrama de Hasse é um artefato puramente bidimensional (2D embedding). Se não há um vértice no ponto de cruzamento nem caminho estritamente ascendente entre os vértices, os elementos são estritamente <strong>incomparáveis</strong>.</li></ul>
-<ol><li><strong>Confundir Minimal com Mínimo:</strong></li></ol>
-<ul><li>Se o nível inferior de um diagrama apresentar dois ou mais nós (ex: $a$ e $b$), o poset possui múltiplos minimais e <strong>nenhum mínimo</strong>. Jamais assinale que o mínimo é o conjunto $\{a, b\}$. O mínimo, se existir, é um elemento único escalar.</li></ul>
-<ol><li><strong>Desenhar Arestas Transitivas por Engano:</strong></li></ol>
-<ul><li>Se $x \lessdot z$ e $z \lessdot y$, desenhar um segmento direto unindo $x$ a $y$ invalida o diagrama de Hasse. Bancas frequentemente apresentam grafos com arestas transitivas para testar se o candidato detecta que a figura não é um diagrama de Hasse legítimo.</li></ul>
-<ol><li><strong>Subconjuntos sem Supremo:</strong></li></ol>
-<ul><li>Em um subconjunto $S$, se os limitantes superiores formam uma anticadeia (elementos mutuamente incomparáveis), o supremo inexiste. Para haver supremo, deve existir um elemento limitante que seja menor ou igual a todos os outros limitantes.</li></ul>
-<hr>
-<h2>6. Aplicação na Ciência da Computação</h2>
-<ul><li><strong>Interpretação Abstrata e Análise Estática de Código (Cousot &amp; Cousot):</strong> Compiladores modernos utilizam reticulados completos (<em>complete lattices</em>) para análise de fluxo de dados (ex: propagação de constantes, análise de ponteiros). O ponto fixo de funções de transferência monotônicas é computado via iteração de Kleene sobre o reticulado.</li><li><strong>Teoria de Tipos e Polimorfismo:</strong> Em linguagens com subtipagem (como Scala, TypeScript e Kotlin), a hierarquia de tipos forma um reticulado onde $\top$ é <code>Any</code> / <code>Object</code>, $\bot$ é <code>Nothing</code> / <code>Bottom</code>, a junção $\vee$ representa a união de tipos (<em>Least Upper Bound</em> / LUB) e o encontro $\wedge$ representa a interseção de tipos.</li><li><strong>Sistemas Distribuídos e CRDTs (Conflict-free Replicated Data Types):</strong> Estruturas de dados replicadas livres de conflito baseadas em estado (<em>CvRDT</em>) modelam seus estados como um semirreticulado de junção (<em>join-semilattice</em>). A sincronização entre réplicas concorrentes consiste simplesmente na aplicação da operação comutativa, associativa e idempotente de supremo ($state_A \vee state_B$), garantindo convergência forte eventual sem locks distribuídos.</li><li><strong>Relógios Lógicos Vetoriais:</strong> A relação de precedência temporal de Leslie Lamport ($e_1 \to e_2$) estabelece uma ordem parcial sobre eventos de um sistema distribuído. A representação dos carimbos de tempo vetoriais forma um poset cujo diagrama de Hasse reflete a causalidade real das mensagens trocadas.</li></ul>
-    </article>
+    </section>
 
+    <!-- 7. Laboratório Interativo Tátil -->
+    <section aria-label="Pilar Interativo — Laboratório Tátil">
+      <h2>4. Laboratório Interativo: Manipulação em Tempo Real</h2>
+      <p class="hub-muted">Clique nos controles para experimentar o comportamento da estrutura e visualizar os estados.</p>
+      <div class="interactive-card">
+        <div id="lesson-widget-8"></div>
+      </div>
+    </section>
+
+    <!-- 8. Pegadinhas de Concurso -->
+    <section aria-label="Pegadinhas da Banca">
+      <h2>5. Armadilhas Clássicas da Banca Examinadora</h2>
+      
+<div class="trap-box">
+  <strong style="display:block; margin-bottom:4px;">[Cuidado com a Pegadinha da Banca]: Desenhar Flechas ou Laços no Diagrama de Hasse</strong>
+  <div>É terminação errada colocar flechas direcionadas ou laços no Diagrama de Hasse! Por convenção internacional de Helmut Hasse, flechas e laços são terminantemente proibidos: o menor sempre fica abaixo e o maior acima.</div>
+</div>
+
+    </section>
+
+    <!-- 9. Active Retrieval (Retenção Imediata da Aula) -->
+    
+<section class="quiz-section" aria-label="Active Retrieval — Retenção Imediata">
+  <h2>Active Retrieval — Fixação Imediata da Aula</h2>
+  <p class="hub-muted">Quatro perguntas de verificação imediata para checar se os conceitos e fórmulas se assentaram na sua mente antes de praticar na banca de concurso.</p>
+  
+<div class="question-block" id="q1">
+  <div class="question-title"><strong>Questão de Retenção 1 de 4:</strong> Quais são as três operações fundamentais executadas pelo algoritmo de Helmut Hasse para transformar o dígrafo de um poset em seu Diagrama de Hasse?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'A')"><strong>A)</strong> Adicionar fecho transitivo, inverter as arestas e duplicar os laços.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'B')"><strong>B)</strong> Eliminar todos os laços reflexivos (x, x), eliminar todas as arestas transitivas redundantes (redução transitiva) e remover as pontas de flecha orientando verticalmente de baixo para cima.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'C')"><strong>C)</strong> Transformar o dígrafo em uma árvore binária completa de busca.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'D')"><strong>D)</strong> Manter apenas as arestas que formam ciclos direcionados.</button>
+  </div>
+  <div class="feedback-box" id="fb-1"></div>
+</div>
+
+<div class="question-block" id="q2">
+  <div class="question-title"><strong>Questão de Retenção 2 de 4:</strong> Considere o conjunto S = {1, 2, 3, 4, 6, 12} ordenado por divisibilidade (x | y). O dígrafo estrito possui 12 arestas. Quantas arestas são mantidas no Diagrama de Hasse e quantas são eliminadas pela redução transitiva?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'A')"><strong>A)</strong> Mantém 8 e elimina 4.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'B')"><strong>B)</strong> Mantém 6 e elimina 6.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'C')"><strong>C)</strong> Mantém exatamente 7 arestas de cobertura e elimina 5 arestas transitivas redundantes.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'D')"><strong>D)</strong> Mantém 9 e elimina 3.</button>
+  </div>
+  <div class="feedback-box" id="fb-2"></div>
+</div>
+
+<div class="question-block" id="q3">
+  <div class="question-title"><strong>Questão de Retenção 3 de 4:</strong> Ao inspecionar visualmente um Diagrama de Hasse, como identificamos com 100% de precisão os elementos MINIMAIS e os elementos MAXIMAIS?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'A')"><strong>A)</strong> Minimais são os nós com maior número de arestas; Maximais são os nós com menor número de arestas.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'B')"><strong>B)</strong> Minimais são os vértices que não possuem nenhuma aresta descendo deles (grau inferior nulo); Maximais são os vértices que não possuem nenhuma aresta subindo deles (grau superior nulo).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'C')"><strong>C)</strong> Minimais ficam sempre no centro do diagrama; Maximais ficam nas bordas laterais.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'D')"><strong>D)</strong> Minimais e maximais só podem ser identificados por busca em largura no código C.</button>
+  </div>
+  <div class="feedback-box" id="fb-3"></div>
+</div>
+
+<div class="question-block" id="q4">
+  <div class="question-title"><strong>Questão de Retenção 4 de 4:</strong> Qual é a importância histórica e teórica dos diagramas de Hasse do Pentágono N5 e do Diamante M3 na Teoria dos Reticulados?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'A')"><strong>A)</strong> São exemplos de relações de equivalência perfeitas.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'B')"><strong>B)</strong> São os contraexemplos fundamentais do Teorema de Birkhoff: N5 prova que um reticulado não é modular, e M3 prova que não é distributivo.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'C')"><strong>C)</strong> São os únicos reticulados finitos que existem na computação.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'D')"><strong>D)</strong> Provam que o conjunto das partes não é um poset.</button>
+  </div>
+  <div class="feedback-box" id="fb-4"></div>
+</div>
+
+  <div class="score-banner" id="score-box" style="display:none;">
+    <div id="score-text"></div>
+  </div>
+</section>
+
+
+    <!-- 10. Card Próxima Parada -->
+    <div class="next-step-card">
+      <h3>Próxima Parada</h3>
+      <p>PARABÉNS! Você concluiu a Fase 1 (Lógica Matemática, Relações e Conjuntos) com nível de excelência teórica e visual! Agora que seus fundamentos estão inabaláveis, estamos prontos para a Fase 2: Programação em C e Python!</p>
+      <div style="margin-top: 1rem;">
+        <a class="hub-btn-secondary hub-btn-sm" href="../edital.html">Concluir Fase 1 no Edital</a>
+      </div>
+    </div>
+
+    <!-- 11. Conclusão e CTA para a Banca de Questões -->
     <section class="lesson-footer-cta" aria-label="Conclusão e Prática de Questões">
       <div>
-        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico</strong>
+        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico no Banco</strong>
         <span class="hub-muted" id="lesson-q-status">Carregando questões deste tópico no Banco...</span>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
         <button type="button" class="hub-btn-secondary" id="lesson-toggle-read-btn">Marcar aula como concluída</button>
-        <a class="hub-btn-primary" href="../questoes.html?topico=8" id="lesson-practice-btn">Praticar questões desta aula</a>
+        <a class="hub-btn-primary" href="../questoes.html?topico=8" id="lesson-practice-btn">Praticar questões desta aula na banca</a>
       </div>
     </section>
 
@@ -505,6 +421,76 @@
         });
       }
 
+      // --- Active Retrieval Engine ---
+      const activeGabarito = {"1": "B", "2": "C", "3": "B", "4": "B"};
+      const activeExplanations = {"1": {"correct": "Exato! Helmut Hasse estabeleceu as 3 regras: 1. Arrancar la\u00e7os reflexivos. 2. Arrancar atalhos transitivos (preservando apenas coberturas diretas). 3. Remover setas, confiando na orienta\u00e7\u00e3o vertical (menor embaixo, maior em cima).", "incorrect": "Incorreto. O Diagrama de Hasse \u00e9 uma simplifica\u00e7\u00e3o minimalista: remove la\u00e7os (sabemos que \u00e9 reflexivo), remove atalhos transitivos (sabemos que \u00e9 transitivo) e troca flechas pela orienta\u00e7\u00e3o de altura."}, "2": {"correct": "Perfeito! As 7 arestas de cobertura mantidas s\u00e3o: (1,2), (1,3), (2,4), (2,6), (3,6), (4,12) e (6,12). As 5 arestas eliminadas s\u00e3o os atalhos: (1,4), (1,6), (1,12), (2,12) e (3,12). Total: 12 - 7 = 5 eliminadas!", "incorrect": "Cuidado com o c\u00e1lculo: desenhe os n\u00edveis de divisibilidade. As liga\u00e7\u00f5es diretas de cobertura s\u00e3o 7 arestas. Os atalhos que pulam n\u00f3s intermedi\u00e1rios s\u00e3o exatamente 5 arestas, que s\u00e3o eliminadas."}, "3": {"correct": "Excelente! Na leitura espacial de Hasse: se nenhuma linha desce de um n\u00f3, n\u00e3o h\u00e1 ningu\u00e9m abaixo dele (ele \u00e9 Minimal!). Se nenhuma linha sobe dele, n\u00e3o h\u00e1 ningu\u00e9m acima dele (ele \u00e9 Maximal!).", "incorrect": "Incorreto. A assinatura topol\u00f3gica de Hasse \u00e9 vertical: v\u00e9rtices na base sem arestas para baixo s\u00e3o minimais; v\u00e9rtices no topo sem arestas para cima s\u00e3o maximais."}, "4": {"correct": "Brilhante! O Pent\u00e1gono N5 e o Diamante M3 s\u00e3o os dois contraexemplos mais famosos de toda a \u00e1lgebra abstrata. Pelo Teorema de Birkhoff, um reticulado \u00e9 distributivo se, e somente se, n\u00e3o cont\u00e9m N5 nem M3!", "incorrect": "Incorreto. N5 e M3 s\u00e3o os contraexemplos anat\u00f4micos universais: N5 \u00e9 o menor reticulado n\u00e3o-modular e M3 \u00e9 o menor reticulado modular n\u00e3o-distributivo."}};
+      const userAnswers = {};
+
+      window.submitActiveRetrieval = function (qNum, opt) {
+        userAnswers[qNum] = opt;
+        const block = document.getElementById('q' + qNum);
+        const items = block.querySelectorAll('.option-item');
+        const fb = document.getElementById('fb-' + qNum);
+        const correctOpt = activeGabarito[qNum];
+
+        items.forEach(function (btn) {
+          btn.classList.remove('correct', 'incorrect');
+          const text = btn.textContent.trim();
+          if (text.startsWith(opt + ')')) {
+            if (opt === correctOpt) btn.classList.add('correct');
+            else btn.classList.add('incorrect');
+          }
+          if (text.startsWith(correctOpt + ')')) {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (opt === correctOpt) {
+          fb.className = 'feedback-box correct';
+          fb.innerHTML = '<strong>[Correto!]</strong> ' + activeExplanations[qNum].correct;
+        } else {
+          fb.className = 'feedback-box incorrect';
+          fb.innerHTML = '<strong>[Incorreto]</strong> ' + activeExplanations[qNum].incorrect;
+        }
+
+        if (window.renderMathInElement) {
+          renderMathInElement(fb, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+
+        updateActiveScore();
+      };
+
+      function updateActiveScore() {
+        const keys = Object.keys(userAnswers);
+        if (keys.length === 4) {
+          let hits = 0;
+          for (let i = 1; i <= 4; i++) {
+            if (userAnswers[i] === activeGabarito[i]) hits++;
+          }
+          const box = document.getElementById('score-box');
+          const txt = document.getElementById('score-text');
+          box.style.display = 'block';
+
+          if (hits === 4) {
+            box.style.background = '#14532d';
+            txt.innerHTML = '<strong>Sensacional: 4 de 4 acertos (100%)!</strong> Você absorveu perfeitamente a essência deste conceito. Seu cérebro está pronto para encarar as pegadinhas da banca!';
+          } else if (hits >= 2) {
+            box.style.background = '#1e3a8a';
+            txt.innerHTML = '<strong>Bom desempenho: ' + hits + ' de 4 acertos.</strong> Revise as explicações das questões onde você hesitou para consolidar o vocabulário formal.';
+          } else {
+            box.style.background = '#7c2d12';
+            txt.innerHTML = '<strong>Você acertou ' + hits + ' de 4.</strong> Leia com atenção os gabaritos comentados acima antes de seguir para o banco de questões.';
+          }
+        }
+      }
+
+      // --- Store & Progress Integration ---
       const toggleBtn = document.getElementById('lesson-toggle-read-btn');
       const statusEl = document.getElementById('lesson-q-status');
 
@@ -517,7 +503,7 @@
           const topicQs = window.PPGCC_DATA.questoes.filter((q) => q.topico_id === TOPICO_ID);
           const answers = store.getState().answers || {};
           const solved = topicQs.filter((q) => Boolean(answers[q.id])).length;
-          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico (' + solved + ' resolvidas).';
+          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico no Banco (' + solved + ' resolvidas).';
         }
       }
 

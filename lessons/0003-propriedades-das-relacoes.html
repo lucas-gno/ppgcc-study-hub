@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 03: Propriedades das Relações (Reflexiva, Simétrica, Transitiva, Antissimétrica) · PPGCC IFCE</title>
+  <title>Aula 03: Propriedades das Relações Binárias — O DNA Estrutural dos Vínculos · PPGCC IFCE</title>
   <link rel="stylesheet" href="../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -11,9 +11,9 @@
   <main class="lesson-container">
     <div class="hub-page-header">
       <div>
-        <div class="hub-eyebrow">Fase 1 · Tópico 03 de 37 · Tempo estimado: 60 min</div>
-        <h1 class="hub-title">Propriedades das Relações (Reflexiva, Simétrica, Transitiva, Antissimétrica)</h1>
-        <p class="hub-subtitle">Didática Zero Base com Tradução Tríplice, Pilar Visual (SVG) e Manipulação Interativa.</p>
+        <div class="hub-eyebrow">Fase 1 · Tópico 03 de 37 · Tempo estimado: 45 min</div>
+        <h1 class="hub-title">Propriedades das Relações Binárias — O DNA Estrutural dos Vínculos</h1>
+        <p class="hub-subtitle">Reflexividade, simetria, antissimetria, transitividade, fechos e o algoritmo de Warshall.</p>
       </div>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a class="hub-btn-secondary hub-btn-sm" href="../edital.html">Edital</a>
@@ -21,145 +21,127 @@
       </div>
     </div>
 
-    <section aria-label="Nivelamento Zero Base">
-      <div class="como-se-le"><strong>Tradução Tríplice (Zero Base) — Como se Lê e Analogia Prática</strong><p><strong>Reflexiva:</strong> $\forall x \in A,\ (x,x) \in R$ — 'Para todo x em A, x se relaciona consigo mesmo' (todos os nós têm laço próprio; diagonal principal da matriz toda igual a 1).</p><p><strong>Simétrica:</strong> $(x,y) \in R \implies (y,x) \in R$ — 'Toda rua tem mão dupla' (matriz igual à sua transposta).</p><p><strong>Antissimétrica:</strong> $(x,y) \in R \land (y,x) \in R \implies x = y$ — 'Nunca existem duas setas opostas entre nós diferentes'.</p><p><strong>Transitiva:</strong> $(x,y) \in R \land (y,z) \in R \implies (x,z) \in R$ — 'Todo caminho de dois saltos possui um atalho direto'.</p></div>
+    <!-- 1. Transição Ontológica & Filosofia -->
+    <div class="callout philosophy">
+      <div class="callout-title">[Filosofia da Lógica]: O DNA Estrutural: Reconhecendo Padrões nas Redes</div>
+      <div>
+Quando analisamos uma rede social, um sistema de arquivos ou uma malha de roteadores, não queremos apenas saber quais conexões existem: queremos entender a <strong>natureza</strong> dessas conexões.
+- A conexão é mútua ou de mão única?
+- Se você pode ir de A para B e de B para C, consegue cortar caminho direto de A para C?
+- Todo mundo está conectado a si mesmo?
+Na Lógica Matemática e na Ciência da Computação, essas quatro perguntas recebem os nomes de <strong>Reflexividade, Simetria, Antissimetria e Transitividade</strong>.
+Elas são o DNA que define se uma relação servirá para agrupar coisas iguais (equivalência) ou para ranquear coisas de cima a baixo (ordem).
+</div>
+    </div>
+
+    <!-- 2. Dicionário Fonético de Símbolos -->
+    
+<div class="como-se-le" style="margin-top:2rem;">
+  <div class="como-se-le-title">[Dicionário Fonético de Símbolos Lógicos]</div>
+  <p>Para ler com fluência natural qualquer fórmula desta lição:</p>
+  <ul style="margin-left: 1.25rem;">
+    <li>$\in$ : <em>"Pertence a"</em> (ex: $a \in A \to$ <em>"o elemento a pertence ao conjunto A"</em>).</li>
+    <li>$\subseteq$ : <em>"Está contido em"</em> ou <em>"é subconjunto de"</em> (ex: $R \subseteq A \times B \to$ <em>"R está contido em A vezes B"</em>).</li>
+    <li>$\land$ : <em>"E"</em> (conjunção lógica, exige que ambas as condições sejam verdadeiras).</li>
+    <li>$\lor$ : <em>"OU"</em> (disjunção lógica, basta que uma seja verdadeira).</li>
+    <li>$\iff$ : <em>"Se, e somente se"</em> (equivalência lógica bidirecional).</li>
+    <li>$\implies$ : <em>"Implica que"</em> ou <em>"se... então..."</em> (condicional unidirecional).</li>
+    <li>$\forall$ : <em>"Para todo..."</em> ou <em>"Qualquer que seja..."</em> (quantificador universal).</li>
+    <li>$\exists$ : <em>"Existe ao menos um..."</em> (quantificador existencial).</li>
+    <li>$\emptyset$ : <em>"Conjunto vazio"</em> (a sacola sem nenhum elemento).</li>
+  </ul>
+</div>
+
+
+    <!-- 3. Degraus Cognitivos e Desmistificação de Termos -->
+    <section aria-label="Degraus Cognitivos e Termos">
+      <h2>1. Degraus Cognitivos: Desmistificando os Termos</h2>
+      <p>Entendendo a etimologia e o significado real antes de qualquer fórmula complexa:</p>
+      
+<div class="word-breakdown">
+  <div><strong class="term">Reflexividade</strong> <span class="pronunciation">[re-fle-xi-vi-da-de]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;reflectere&#x27; (dobrar para trás, olhar para o espelho).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Todo elemento conecta-se consigo mesmo. No dígrafo, todo nó tem um laço. Na matriz, a diagonal principal é toda 1.</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Antissimetria</strong> <span class="pronunciation">[an-ti-si-me-tri-a]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Anti (oposição ao retorno mútuo) + simetria (medida mútua).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Se x conecta em y e x ≠ y, é PROIBIDO y conectar de volta em x! É uma rua de mão única estrita entre cidades diferentes.</p>
+</div>
+
+<div class="word-breakdown">
+  <div><strong class="term">Transitividade</strong> <span class="pronunciation">[tran-si-ti-vi-da-de]</span></div>
+  <p style="margin: 6px 0 4px; font-size: 0.92rem; color: #475569;"><strong>Origem e Conceito:</strong> Do latim &#x27;transire&#x27; (passar através, fazer a ponte).</p>
+  <p style="margin: 0; font-size: 0.96rem; color: #0f172a;"><strong>No mundo real e computação:</strong> Se há caminho de dois passos (x → y → z), obrigatoriamente existe o atalho de um passo só (x → z).</p>
+</div>
+
     </section>
 
+    <!-- 4. Fórmulas Limpas com Guia de Leitura -->
+    <section aria-label="Fórmulas Canônicas e Como se Fala">
+      <h2>2. Fórmulas Canônicas: Como se Lê e o que Significa</h2>
+      <p>Cada símbolo rigoroso acompanhado de sua pronúncia fonética e tradução intuitiva para sistemas de TI:</p>
+      
+<div class="formula-box">
+  <div class="math-display">$$\forall x \in A, \quad (x, x) \in R$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"Para todo x pertencente a A, o par (x, x) pertence a R"</em></div>
+    <div style="color:#92400e;">[O que significa]: Definição formal de Reflexividade. Exemplo real: a igualdade (=) e a inclusão de conjuntos (A ⊆ A) são sempre reflexivas.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$\forall x, y \in A, \quad (x, y) \in R \implies (y, x) \in R$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"Para todo x e y em A, se (x, y) está em R, então (y, x) também está em R"</em></div>
+    <div style="color:#92400e;">[O que significa]: Definição formal de Simetria. Toda rua é de mão dupla. A matriz de adjacência é simétrica em relação à diagonal principal (M = M^T).</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$\forall x, y \in A, \quad (x, y) \in R \land (y, x) \in R \implies x = y$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"Para todo x e y, se (x, y) está em R e (y, x) está em R, então x obrigatoriamente é igual a y"</em></div>
+    <div style="color:#92400e;">[O que significa]: Definição formal de Antissimetria. Só é permitida ida e volta se o ponto de partida e chegada forem o mesmo nó (laço próprio). Entre nós distintos, o retorno mútuo é vetado.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$\forall x, y, z \in A, \quad (x, y) \in R \land (y, z) \in R \implies (x, z) \in R$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"Para quaisquer x, y e z, se (x, y) está em R e (y, z) está em R, então (x, z) também está em R"</em></div>
+    <div style="color:#92400e;">[O que significa]: Definição formal de Transitividade. Se há escala por y, o voo direto x -&gt; z tem que existir na relação.</div>
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="math-display">$$W_k[i, j] = W_{k-1}[i, j] \lor (W_{k-1}[i, k] \land W_{k-1}[k, j])$$</div>
+  <div class="reading-guide">
+    <div style="font-weight:600; margin-bottom:4px; color:#78350f;">[Como se fala]: <em>"O fecho transitivo no passo k conecta i a j se já havia conexão anterior ou se existe caminho passando pelo pivô intermediário k"</em></div>
+    <div style="color:#92400e;">[O que significa]: A regra mestre do Algoritmo de Warshall: calcula o fecho transitivo em tempo O(n^3) testando sistematicamente cada vértice k como intermediário.</div>
+  </div>
+</div>
+
+    </section>
+
+    <!-- 5. Aplicação Computacional -->
+    <div class="callout computation">
+      <div class="callout-title">[Computação e Infraestrutura]: Fechos de Relações e o Algoritmo de Warshall</div>
+      <div>
+Quando uma relação não possui uma propriedade desejada, podemos 'completá-la' adicionando a quantidade mínima necessária de pares:
+- <strong>Fecho Reflexivo ($R \cup I$):</strong> Adiciona todos os laços faltantes na diagonal principal;
+- <strong>Fecho Simétrico ($R \cup R^{-1}$):</strong> Adiciona a volta para cada ida que existir;
+- <strong>Fecho Transitivo ($R^+$):</strong> Adiciona todos os atalhos indiretos de qualquer comprimento.
+O <strong>Algoritmo de Warshall</strong> calcula o fecho transitivo operando sobre matrizes booleanas em três laços aninhados (<code>for k, for i, for j</code>), sendo a base dos algoritmos de alcance em grafos (reachability).
+</div>
+    </div>
+
+    <!-- 6. Representação Visual Vetorial SVG Nativo -->
     <section aria-label="Pilar Visual — Diagrama Vetorial">
-      <h2>Representação Visual</h2>
-      <div class="diagram-container"><svg viewBox="0 0 640 180" width="100%" height="auto" role="img" aria-label="Assinaturas Visuais de Propriedades em Dígrafos"><defs><marker id="arr3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#0071e3"/></marker></defs><rect x="8" y="10" width="148" height="160" rx="10" fill="#f8fafc" stroke="#cbd5e1"/><text x="82" y="32" text-anchor="middle" font-size="12" font-weight="600" fill="#0f172a">Reflexiva</text><path d="M 74 72 C 55 40, 109 40, 90 72" fill="none" stroke="#0071e3" stroke-width="2" marker-end="url(#arr3)"/><circle cx="82" cy="90" r="16" fill="#fff" stroke="#0f172a" stroke-width="1.8"/><text x="82" y="95" text-anchor="middle" font-size="12" font-weight="600">x</text><text x="82" y="148" text-anchor="middle" font-size="10.5" fill="#64748b">Laço em todo nó</text><rect x="166" y="10" width="148" height="160" rx="10" fill="#f8fafc" stroke="#cbd5e1"/><text x="240" y="32" text-anchor="middle" font-size="12" font-weight="600" fill="#0f172a">Simétrica</text><path d="M 210 82 Q 240 62 268 82" fill="none" stroke="#0071e3" stroke-width="2" marker-end="url(#arr3)"/><path d="M 268 98 Q 240 118 210 98" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arr3)"/><circle cx="202" cy="90" r="14" fill="#fff" stroke="#0f172a" stroke-width="1.8"/><text x="202" y="94" text-anchor="middle" font-size="12">x</text><circle cx="278" cy="90" r="14" fill="#fff" stroke="#0f172a" stroke-width="1.8"/><text x="278" y="94" text-anchor="middle" font-size="12">y</text><text x="240" y="148" text-anchor="middle" font-size="10.5" fill="#64748b">Ida obriga volta</text><rect x="324" y="10" width="148" height="160" rx="10" fill="#f8fafc" stroke="#cbd5e1"/><text x="398" y="32" text-anchor="middle" font-size="12" font-weight="600" fill="#0f172a">Antissimétrica</text><line x1="374" y1="90" x2="420" y2="90" stroke="#0071e3" stroke-width="2" marker-end="url(#arr3)"/><circle cx="360" cy="90" r="14" fill="#fff" stroke="#0f172a" stroke-width="1.8"/><text x="360" y="94" text-anchor="middle" font-size="12">x</text><circle cx="436" cy="90" r="14" fill="#fff" stroke="#0f172a" stroke-width="1.8"/><text x="436" y="94" text-anchor="middle" font-size="12">y</text><text x="398" y="148" text-anchor="middle" font-size="10.5" fill="#64748b">Sem retorno entre distintos</text><rect x="482" y="10" width="148" height="160" rx="10" fill="#f8fafc" stroke="#cbd5e1"/><text x="556" y="32" text-anchor="middle" font-size="12" font-weight="600" fill="#0f172a">Transitiva</text><line x1="528" y1="74" x2="554" y2="108" stroke="#0071e3" stroke-width="1.8" marker-end="url(#arr3)"/><line x1="558" y1="108" x2="584" y2="74" stroke="#0071e3" stroke-width="1.8" marker-end="url(#arr3)"/><line x1="532" y1="66" x2="580" y2="66" stroke="#10b981" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arr3)"/><circle cx="520" cy="66" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="520" y="70" text-anchor="middle" font-size="11">x</text><circle cx="556" cy="116" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="556" y="120" text-anchor="middle" font-size="11">y</text><circle cx="592" cy="66" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.6"/><text x="592" y="70" text-anchor="middle" font-size="11">z</text><text x="556" y="148" text-anchor="middle" font-size="10.5" fill="#64748b">Atalho x -> z obrigatório</text></svg></div>
-    </section>
-
-    <section aria-label="Pilar Interativo — Laboratório Tátil">
-      <h2>Laboratório Interativo</h2>
-      <div id="lesson-widget-3"></div>
-    </section>
-
-    <article class="lesson-content">
-      <h2>1. Visão Geral e Contexto Formal</h2>
-<p>Na Ciência da Computação teórica e aplicada, as relações binárias constituem o arcabouço matemático fundamental para a modelagem de interações entre entidades computacionais. Seja para descrever a equivalência de estados em autômatos finitos, formalizar dependências causais em escalonadores de tarefas (DAGs no Kubernetes e Google Borg), expressar restrições de integridade em bancos de dados relacionais ou formular sistemas de tipos em linguagens de programação, o comportamento de um sistema é definido pelas propriedades que suas relações satisfazem.</p>
-<p>Formalmente, dados dois conjuntos $A$ e $B$, uma relação binária $R$ de $A$ em $B$ é definida como um subconjunto arbitrário do produto cartesiano:</p>
-<div class="math-display">$$R \subseteq A \times B = \{ (a, b) \mid a \in A \land b \in B \}$$</div>
-<p>Quando o domínio e o contradomínio coincidem ($A = B$), dizemos que $R$ é uma <strong>relação binária sobre o conjunto $A$</strong> (ou uma relação endógena):</p>
-<div class="math-display">$$R \subseteq A \times A$$</div>
-<p>A notação infixa clássica $x R y$ é equivalente à declaração formal $(x, y) \in R$, enquanto $x \cancel{R} y$ indica que $(x, y) \notin R$.</p>
-<p>Se $|A| = n$, a cardinalidade do produto cartesiano é $|A \times A| = n^2$. Consequentemente, o número total de relações binárias distintas que podem ser formuladas sobre $A$ corresponde à cardinalidade do conjunto das partes $\mathcal{P}(A \times A)$:</p>
-<div class="math-display">$$|\mathcal{P}(A \times A)| = 2^{n^2}$$</div>
-<p>Dentre essas $2^{n^2}$ relações, classes específicas são delineadas por meio de axiomas quantificados de primeira ordem: <strong>reflexividade</strong>, <strong>irreflexividade</strong>, <strong>simetria</strong>, <strong>antissimetria</strong>, <strong>assimetria</strong> e <strong>transitividade</strong>. Compreender o comportamento lógico dessas propriedades, suas intersecções, seus fechos e suas representações computacionais é o foco central deste módulo.</p>
-<hr>
-<h2>2. Definições Rigorosas e Formalismo Matemático</h2>
-<p>As propriedades de relações sobre um conjunto $A$ são formalizadas estritamente por sentenças da Lógica de Predicados de Primeira Ordem. A precisão dos quantificadores universais ($\forall$) e existenciais ($\exists$) é mandatória para evitar falácias comuns de prova.</p>
-<h3>2.1. Reflexividade</h3>
-<p>Uma relação $R$ sobre $A$ é denominada <strong>reflexiva</strong> se, e somente se, todo elemento de $A$ relaciona-se consigo mesmo:</p>
-<div class="math-display">$$(\forall x \in A)((x, x) \in R)$$</div>
-<p>Em termos da teoria dos conjuntos, definindo a <strong>relação identidade</strong> (ou diagonal principal) sobre $A$ como:</p>
-<div class="math-display">$$\Delta_A = \{ (x, x) \mid x \in A \}$$</div>
-<p>A reflexividade equivale à condição de inclusão:</p>
-<div class="math-display">$$\Delta_A \subseteq R$$</div>
-<h3>2.2. Irreflexividade</h3>
-<p>Uma relação $R$ sobre $A$ é denominada <strong>irreflexiva</strong> (ou antirreflexiva) se, e somente se, nenhum elemento de $A$ relaciona-se consigo mesmo:</p>
-<div class="math-display">$$(\forall x \in A)((x, x) \notin R)$$</div>
-<p>Em termos de conjuntos:</p>
-<div class="math-display">$$R \cap \Delta_A = \emptyset$$</div>
-<blockquote><p>&lt;strong&gt;CAUTION:&lt;/strong&gt; <strong>Atenção à Armadilha de Negação:</strong> A propriedade de irreflexividade <strong>NÃO</strong> é a negação lógica da reflexividade. A negação de ser reflexiva é a <strong>não-reflexividade</strong>, cuja formalização lógica é: $$\neg [(\forall x \in A)((x, x) \in R)] \iff (\exists x \in A)((x, x) \notin R)$$ Uma relação pode conter alguns pares da diagonal e carecer de outros. Nesses casos, ela não é reflexiva e tampouco é irreflexiva.</p></blockquote>
-<h3>2.3. Simetria</h3>
-<p>Uma relação $R$ sobre $A$ é dita <strong>simétrica</strong> se a ocorrência de qualquer par ordenado $(x, y)$ implica obrigatoriamente a presença do par recíproco $(y, x)$:</p>
-<div class="math-display">$$(\forall x, y \in A)((x, y) \in R \implies (y, x) \in R)$$</div>
-<p>Definindo a <strong>relação inversa</strong> $R^{-1}$ como:</p>
-<div class="math-display">$$R^{-1} = \{ (y, x) \mid (x, y) \in R \}$$</div>
-<p>A simetria é algebricamente caracterizada pela igualdade:</p>
-<div class="math-display">$$R = R^{-1}$$</div>
-<h3>2.4. Antissimetria</h3>
-<p>Uma relação $R$ sobre $A$ é dita <strong>antissimétrica</strong> se não admite pares bidirecionais entre elementos distintos. Ou seja, se $(x, y) \in R$ e $(y, x) \in R$, os dois elementos devem ser necessariamente idênticos:</p>
-<div class="math-display">$$(\forall x, y \in A)(((x, y) \in R \land (y, x) \in R) \implies x = y)$$</div>
-<p>A formulação contrapositiva equivalente explicita com maior clareza o comportamento algorítmico da antissimetria:</p>
-<div class="math-display">$$(\forall x, y \in A)((x, y) \in R \land x \neq y \implies (y, x) \notin R)$$</div>
-<p>Em teoria de conjuntos, a antissimetria pode ser concisamente expressa por:</p>
-<div class="math-display">$$R \cap R^{-1} \subseteq \Delta_A$$</div>
-<blockquote><p>&lt;strong&gt;WARNING:&lt;/strong&gt; <strong>Antissimétrica NÃO é a negação de Simétrica:</strong> Este é o erro conceitual mais frequente em bancas examinadoras. As propriedades de simetria e antissimetria não são mutuamente excludentes nem complementares: - Uma relação pode ser <strong>simétrica e antissimétrica</strong> simultaneamente (ocorre se e somente se $R \subseteq \Delta_A$). - Uma relação pode não ser <strong>nem simétrica, nem antissimétrica</strong>.</p></blockquote>
-<h3>2.5. Assimetria</h3>
-<p>Uma relação $R$ sobre $A$ é <strong>assimétrica</strong> se a presença de $(x, y)$ impede terminantemente a presença de $(y, x)$, inclusive para pares com elementos idênticos:</p>
-<div class="math-display">$$(\forall x, y \in A)((x, y) \in R \implies (y, x) \notin R)$$</div>
-<p>Em termos de conjuntos:</p>
-<div class="math-display">$$R \cap R^{-1} = \emptyset$$</div>
-<p><em>Teorema de Decomposição:</em> Uma relação é assimétrica se, e somente se, for simultaneamente <strong>irreflexiva e antissimétrica</strong>.</p>
-<h3>2.6. Transitividade</h3>
-<p>Uma relação $R$ sobre $A$ é dita <strong>transitiva</strong> se a conectividade indireta via um elemento intermediário implica a existência do atalho direto:</p>
-<div class="math-display">$$(\forall x, y, z \in A)(((x, y) \in R \land (y, z) \in R) \implies (x, z) \in R)$$</div>
-<p>Definindo a <strong>composição de relações</strong> $R \circ S$ (onde $(x, z) \in R \circ S \iff \exists y ((x, y) \in R \land (y, z) \in S)$), a transitividade é sintetizada algebricamente por:</p>
-<div class="math-display">$$R \circ R \subseteq R$$</div>
-<hr>
-<h2>3. Teoremas, Propriedades Invariantes e Demonstrações</h2>
-<p>O exame das propriedades de relações exige domínio das técnicas formais de demonstração matemática (prova direta, redução ao absurdo e contraposição).</p>
-<h3>Teorema 3.1 (Simultaneidade de Simetria e Antissimetria)</h3>
-<p><em>Enunciado:</em> Seja $R$ uma relação binária sobre um conjunto $A$. A relação $R$ é simultaneamente simétrica e antissimétrica se, e somente se, $R \subseteq \Delta_A$.</p>
-<p><strong>Demonstração:</strong></p>
-<ul><li>$(\implies)$ Suponha que $R$ seja simétrica e antissimétrica. Seja $(a, b) \in R$ um par arbitrário.</li></ul>
-<ol><li>Por simetria, se $(a, b) \in R$, então $(b, a) \in R$.</li><li>Como $(a, b) \in R$ e $(b, a) \in R$, pela hipótese de antissimetria temos que $a = b$.</li><li>Logo, o par é da forma $(a, a)$, o que implica $(a, b) \in \Delta_A$.</li><li>Como $(a, b)$ foi tomado arbitrariamente em $R$, conclui-se que $R \subseteq \Delta_A$.</li></ol>
-<ul><li>$(\impliedby)$ Suponha que $R \subseteq \Delta_A$.</li></ul>
-<ol><li>Qualquer par pertencente a $R$ é da forma $(x, x)$ com $x \in A$.</li><li>Se $(x, x) \in R$, sua inversão $(x, x)$ pertence trivialmente a $R$. Portanto, $R$ é simétrica.</li><li>Para a antissimetria: se $(x, y) \in R$ e $(y, x) \in R$, como $R \subseteq \Delta_A$, necessariamente $x = y$. Portanto, $R$ é antissimétrica.</li></ol>
-<p>$\blacksquare$</p>
-<h3>Teorema 3.2 (Ordem Estrita e Assimetria a partir da Irreflexividade)</h3>
-<p><em>Enunciado:</em> Se uma relação $R$ sobre $A$ é irreflexiva e transitiva, então $R$ é assimétrica (e, por extensão, antissimétrica).</p>
-<p><strong>Demonstração:</strong></p>
-<ul><li>Prova por contradição (Redução ao Absurdo).</li><li>Suponha que $R$ seja irreflexiva e transitiva, mas <strong>não seja assimétrica</strong>.</li><li>Por negação da assimetria, existem elementos $a, b \in A$ tais que:</li></ul>
-<div class="math-display">$$(a, b) \in R \quad \land \quad (b, a) \in R$$</div>
-<ul><li>Pela hipótese de transitividade, tomando $x = a$, $y = b$ e $z = a$:</li></ul>
-<div class="math-display">$$(a, b) \in R \land (b, a) \in R \implies (a, a) \in R$$</div>
-<ul><li>No entanto, a dedução de que $(a, a) \in R$ contradiz frontalmente a hipótese de irreflexividade, que estipula $(\forall x \in A)((x, x) \notin R)$.</li><li>Logo, a premissa de que existem tais pares é falsa. Portanto, $R$ é assimétrica.</li><li>Como toda relação assimétrica é antissimétrica, $R$ também é antissimétrica.</li></ul>
-<p>$\blacksquare$</p>
-<h3>Teorema 3.3 (Caracterização e Finitude dos Fechos de Relações)</h3>
-<p>Dada uma relação $R$ sobre $A$ e uma propriedade matemática $P$ (reflexividade, simetria ou transitividade), o <strong>fecho de $R$ com respeito a $P$</strong> (denotado genericamente por $c_P(R)$) é a relação $R&#x27;$ que satisfaz:</p>
-<ol><li>$R \subseteq R&#x27;$;</li><li>$R&#x27;$ possui a propriedade $P$;</li><li>Para qualquer relação $S$ que possua a propriedade $P$ e tal que $R \subseteq S$, tem-se $R&#x27; \subseteq S$ (isto é, $R&#x27;$ é a <em>menor</em> relação que estende $R$ com a propriedade $P$).</li></ol>
-<p>As fórmulas fechadas para os três principais fechos são:</p>
-<ul><li><strong>Fecho Reflexivo ($r(R)$):</strong></li></ul>
-<div class="math-display">$$r(R) = R \cup \Delta_A$$</div>
-<ul><li><strong>Fecho Simétrico ($s(R)$):</strong></li></ul>
-<div class="math-display">$$s(R) = R \cup R^{-1}$$</div>
-<ul><li><strong>Fecho Transitivo ($t(R)$ ou $R^+$):</strong></li></ul>
-<div class="math-display">$$t(R) = R^+ = \bigcup_{k=1}^{\infty} R^k$$</div>
-<p>onde $R^1 = R$ e $R^{k} = R^{k-1} \circ R$.</p>
-<p><em>Lema da Finitude em Conjuntos Finitos:</em> Se $|A| = n$, qualquer caminho elementar sem repetição de vértices em um grafo com $n$ nós tem comprimento no máximo $n - 1$ arestas (ou ciclos de comprimento até $n$). Consequentemente, para conjuntos finitos, a união infinita estabiliza no expoente $n$:</p>
-<div class="math-display">$$t(R) = \bigcup_{k=1}^{n} R^k = R^1 \cup R^2 \cup \dots \cup R^n$$</div>
-<hr>
-<h2>4. Exemplos Computacionais e Diagramas</h2>
-<h3>4.1. Representação por Matrizes Booleanas de Adjacência</h3>
-<p>Seja $A = \{a_1, a_2, \dots, a_n\}$ um conjunto finito indexado. Uma relação binária $R$ sobre $A$ pode ser representada de forma canônica por uma matriz booleana $M_R \in \{0, 1\}^{n \times n}$, onde:</p>
-<div class="math-display">$$M_R[i, j] = \begin{cases} 1, &amp; \text{se } (a_i, a_j) \in R \\ 0, &amp; \text{se } (a_i, a_j) \notin R \end{cases}$$</div>
-<p>As propriedades de $R$ traduzem-se imediatamente em propriedades algébricas de $M_R$:</p>
-<div class="table-wrapper"><table><thead><tr><th>Propriedade</th><th>Condição Lógica Matricial</th><th>Interpretação Algébrica</th></tr></thead><tbody><tr><td><strong>Reflexiva</strong></td><td>$\forall i, M_R[i, i] = 1$</td><td>Todos os elementos da diagonal principal são iguais a 1 ($I_n \le M_R$).</td></tr><tr><td><strong>Irreflexiva</strong></td><td>$\forall i, M_R[i, i] = 0$</td><td>O traço booleano é estritamente nulo ($M_R \land I_n = \mathbf{0}$).</td></tr><tr><td><strong>Simétrica</strong></td><td>$M_R = M_R^T$</td><td>A matriz é idêntica à sua transposta ($M_R[i, j] = M_R[j, i]$).</td></tr><tr><td><strong>Antissimétrica</strong></td><td>$M_R \land M_R^T \le I_n$</td><td>Se $i \neq j$ e $M_R[i, j] = 1$, então $M_R[j, i] = 0$.</td></tr><tr><td><strong>Transitiva</strong></td><td>$M_R^{[2]} \le M_R$</td><td>O quadrado booleano não introduz novos 1s ($M_R \odot M_R \le M_R$).</td></tr></tbody></table></div>
-<p>O <strong>produto booleano</strong> de duas matrizes $M_A$ e $M_B$ de ordem $n$, denotado por $M_A \odot M_B$, utiliza as operações lógicas $\lor$ (OR) e $\land$ (AND):</p>
-<div class="math-display">$$(M_A \odot M_B)[i, j] = \bigvee_{k=1}^{n} (M_A[i, k] \land M_B[k, j])$$</div>
-<h3>4.2. O Algoritmo de Warshall para o Fecho Transitivo</h3>
-<p>O cálculo ingenuo do fecho transitivo via potências booleanas $M_R \lor M_R^{[2]} \lor \dots \lor M_R^{[n]}$ requer $n - 1$ multiplicações booleanas de matrizes, cada uma com custo $O(n^3)$, resultando em complexidade total $O(n^4)$.</p>
-<p>O matemático Stephen Warshall (1962) formulou um algoritmo clássico de <strong>Programação Dinâmica</strong> que computa o fecho transitivo com complexidade ótima $\Theta(n^3)$ e espaço auxiliar in-place $\Theta(1)$.</p>
-<h4>Princípio Teórico do Algoritmo de Warshall:</h4>
-<p>Definimos uma sequência de matrizes booleanas $W^{(0)}, W^{(1)}, \dots, W^{(n)}$. A entrada $W^{(k)}[i, j] = 1$ se, e somente se, existe um caminho direcionado de $a_i$ para $a_j$ cujos <strong>vértices intermediários</strong> pertençam exclusivamente ao subconjunto $\{a_1, a_2, \dots, a_k\}$.</p>
-<ul><li><strong>Caso Base:</strong> $W^{(0)} = M_R$ (caminhos diretos sem vértices intermediários).</li><li><strong>Passo Indutivo:</strong> Um caminho de $a_i$ para $a_j$ com intermediários em $\{a_1, \dots, a_k\}$ pode existir por duas vias mutuamente não excludentes:</li></ul>
-<ol><li>Já existia caminho usando apenas intermediários em $\{a_1, \dots, a_{k-1}\}$: $W^{(k-1)}[i, j] = 1$;</li><li>Existe um caminho de $a_i$ para $a_k$ E um caminho de $a_k$ para $a_j$, ambos usando intermediários em $\{a_1, \dots, a_{k-1}\}$:</li></ol>
-<div class="math-display">$$W^{(k)}[i, j] = W^{(k-1)}[i, j] \lor \left( W^{(k-1)}[i, k] \land W^{(k-1)}[k, j] \right)$$</div>
-<pre class="code-block"><code class="language-python">def warshall_fecho_transitivo(matriz_adj: list[list[int]]) -&gt; list[list[int]]:
-    # Computa o fecho transitivo de uma relacao binaria representada por matriz booleana.
-    # Complexidade de Tempo: Theta(n^3)
-    # Complexidade de Espaço: Theta(n^2) para a matriz resultante
-    n = len(matriz_adj)
-    # Clona a matriz para W_k
-    w = [linha[:] for linha in matriz_adj]
-
-    # k representa o vértice pivô intermediário
-    for k in range(n):
-        for i in range(n):
-            for j in range(n):
-                w[i][j] = w[i][j] or (w[i][k] and w[k][j])
-                
-    return w
-
-# Exemplo de Teste de Mesa:
-# R = {(1, 2), (2, 3), (3, 4)} sobre A = {1, 2, 3, 4}
-# Warshall computara arestas diretas (1, 3), (1, 4), (2, 4)</code></pre>
-<h3>4.3. Visualização em Grafo Direcionado (Digrafo)</h3>
-<p>Considere o conjunto $A = \{1, 2, 3, 4\}$ e a relação $R = \{(1, 2), (2, 3), (3, 1), (3, 4)\}$. O diagrama abaixo ilustra as arestas originais de $R$ (linhas cheias) e as arestas introduzidas no fecho transitivo $t(R)$ pelo algoritmo de Warshall (linhas tracejadas com autoloops devidos ao ciclo $1 \to 2 \to 3 \to 1$):</p>
-<div class="visual-diagram-card">
+      <h2>3. Anatomia Visual: Diagrama Vetorial Nativo</h2>
+      <p class="hub-muted">Inspeção espacial sem Mermaid e sem texto desformatado (ADR 0008).</p>
+      <div class="visual-diagram-card">
   <div class="diagram-header">
     <span class="diagram-tag">FIGURA 3.1 — FECHOS RELACIONAIS</span>
     <h4 class="diagram-title">Fecho Transitivo t(R) via Algoritmo de Warshall</h4>
@@ -225,38 +207,95 @@
   </div>
   <p class="diagram-caption">As arestas azuis contínuas representam a relação original R. As arestas roxas pontilhadas são adicionadas pelo algoritmo de Warshall por transitividade (caminhos de comprimento ≥ 2).</p>
 </div>
-<hr>
-<h2>5. Armadilhas de Banca e Corner Cases</h2>
-<p>Ao enfrentar provas de alto nível como a do PPGCC IFCE e o POSCOMP, certos casos-limite (<em>corner cases</em>) e sutilezas semânticas são reiteradamente explorados pelos examinadores.</p>
-<h3>5.1. O Caso da Relação Vazia ($R = \emptyset$)</h3>
-<p>A análise da relação vazia sobre um conjunto base não vazio $A \neq \emptyset$ é o teste supremo do domínio de quantificadores e implicações vacantes:</p>
-<ul><li><strong>Reflexiva?</strong> <strong>FALSA</strong>. Para ser reflexiva, deve satisfazer $(\forall x \in A)((x, x) \in \emptyset)$. Como $A \neq \emptyset$, existe ao menos um $a \in A$, e $(a, a) \notin \emptyset$.</li><li><strong>Irreflexiva?</strong> <strong>VERDADEIRA</strong>. Nenhum par da forma $(x, x)$ está em $\emptyset$. A proposição $(\forall x \in A)((x, x) \notin \emptyset)$ é universalmente satisfeita.</li><li><strong>Simétrica?</strong> <strong>VERDADEIRA por Vacuidade</strong>. A implicação $(x, y) \in \emptyset \implies (y, x) \in \emptyset$ tem premissa falsa para todos $x, y$. Como $\text{Falso} \implies P$ é sempre tautologicamente Verdadeiro, $R$ é simétrica.</li><li><strong>Antissimétrica?</strong> <strong>VERDADEIRA por Vacuidade</strong>. $((x, y) \in \emptyset \land (y, x) \in \emptyset) \implies x = y$ possui antecedente falso. Logo, o condicional é verdadeiro.</li><li><strong>Transitiva?</strong> <strong>VERDADEIRA por Vacuidade</strong>. $((x, y) \in \emptyset \land (y, z) \in \emptyset) \implies (x, z) \in \emptyset$ tem antecedente falso.</li></ul>
-<blockquote><p>&lt;strong&gt;IMPORTANT:&lt;/strong&gt; <strong>Resumo Crítico da Relação Vazia ($A \neq \emptyset$):</strong> $R = \emptyset$ é <strong>irreflexiva</strong>, <strong>simétrica</strong>, <strong>antissimétrica</strong> e <strong>transitiva</strong>, mas <strong>NÃO é reflexiva</strong>.</p></blockquote>
-<h3>5.2. O Caso da Relação Diagonal Identidade ($\Delta_A$)</h3>
-<p>Para qualquer conjunto não vazio $A$:</p>
-<ul><li>$\Delta_A = \{ (x, x) \mid x \in A \}$ é <strong>reflexiva</strong>, <strong>simétrica</strong>, <strong>antissimétrica</strong> e <strong>transitiva</strong>.</li><li>Constitui o exemplo canônico de uma relação que é simultaneamente uma <strong>relação de equivalência</strong> e uma <strong>relação de ordem parcial</strong>.</li></ul>
-<h3>5.3. Transitividade por Falta de Conexão</h3>
-<p>Considere $A = \{1, 2, 3, 4\}$ e $R = \{(1, 2), (3, 4)\}$. Muitos estudantes erram afirmando que $R$ não é transitiva. No entanto, não existem pares da forma $(x, y)$ e $(y, z)$ encadeados (pois o segundo elemento de $(1, 2)$ é $2$, mas não há nenhum par iniciando com $2$; similarmente para $(3, 4)$). Como a hipótese da implicação transitiva é falsa para todos os pares, a relação é <strong>transitivamente verdadeira por vacuidade</strong>.</p>
-<hr>
-<h2>6. Aplicação na Ciência da Computação</h2>
-<ol><li><strong>Escalonamento em Sistemas Distribuídos e Clusters (Google Borg e Kubernetes):</strong></li></ol>
-<p>A relação de dependência entre tarefas de processamento em um cluster de contêineres deve formar uma <strong>ordem parcial estrita</strong> (uma relação irreflexiva e transitiva). O fecho transitivo do grafo de dependências identifica todos os nós predecessores necessários para a execução de um pod, e a detecção de ciclos (que quebram a irreflexividade do fecho) impede deadlocks de dependência no agendamento do BorgMaster.</p>
-<ol><li><strong>Engenharia de Bancos de Dados e Consultas Recursivas:</strong></li></ol>
-<p>Em bancos de dados relacionais e em grafos de conhecimento, a computação da cláusula SQL <code>WITH RECURSIVE</code> implementa exatamente o fecho transitivo de uma tabela de chaves estrangeiras autorreferenciadas (como hierarquias de gerência ou redes de transporte).</p>
-<ol><li><strong>Compiladores e Análise de Fluxo de Controle:</strong></li></ol>
-<p>Em compiladores otimizadores, a relação de dominância em grafos de fluxo de controle (CFG) é uma relação de ordem parcial reflexiva, antissimétrica e transitiva. A análise de variáveis vivas e alcance de código (<em>reachability analysis</em>) baseia-se diretamente na matriz booleana do fecho transitivo do grafo de blocos básicos.</p>
-<ol><li><strong>Verificação Formal e Model Checking:</strong></li></ol>
-<p>A verificação de protocolos criptográficos e sistemas reativos utiliza fechos reflexivo-transitivos ($R^*$) para mapear todos os estados acessíveis a partir do estado inicial, garantindo propriedades de segurança (<em>safety</em>) e vivacidade (<em>liveness</em>).</p>
-    </article>
+    </section>
 
+    <!-- 7. Laboratório Interativo Tátil -->
+    <section aria-label="Pilar Interativo — Laboratório Tátil">
+      <h2>4. Laboratório Interativo: Manipulação em Tempo Real</h2>
+      <p class="hub-muted">Clique nos controles para experimentar o comportamento da estrutura e visualizar os estados.</p>
+      <div class="interactive-card">
+        <div id="lesson-widget-3"></div>
+      </div>
+    </section>
+
+    <!-- 8. Pegadinhas de Concurso -->
+    <section aria-label="Pegadinhas da Banca">
+      <h2>5. Armadilhas Clássicas da Banca Examinadora</h2>
+      
+<div class="trap-box">
+  <strong style="display:block; margin-bottom:4px;">[Cuidado com a Pegadinha da Banca]: Antissimétrica NÃO é o oposto de Simétrica!</strong>
+  <div>Uma relação pode ser SIMÉTRICA E ANTISSIMÉTRICA ao mesmo tempo! Por exemplo: $R = \{(1,1), (2,2)\}$ é simétrica (toda ida tem volta) e é antissimétrica (nunca há volta entre nós distintos). Além disso, uma relação pode não ser nenhuma das duas!</div>
+</div>
+
+<div class="trap-box">
+  <strong style="display:block; margin-bottom:4px;">[Cuidado com a Pegadinha da Banca]: Não-Reflexiva vs Irreflexiva</strong>
+  <div>Irreflexiva exige que NENHUM nó tenha laço ($\\forall x, (x,x) \\notin R$). Se uma relação tem 3 nós e 2 têm laço mas 1 não tem, ela é &lt;em&gt;não-reflexiva&lt;/em&gt; (pois falhou para um), mas NÃO é irreflexiva (pois teve laços).</div>
+</div>
+
+    </section>
+
+    <!-- 9. Active Retrieval (Retenção Imediata da Aula) -->
+    
+<section class="quiz-section" aria-label="Active Retrieval — Retenção Imediata">
+  <h2>Active Retrieval — Fixação Imediata da Aula</h2>
+  <p class="hub-muted">Quatro perguntas de verificação imediata para checar se os conceitos e fórmulas se assentaram na sua mente antes de praticar na banca de concurso.</p>
+  
+<div class="question-block" id="q1">
+  <div class="question-title"><strong>Questão de Retenção 1 de 4:</strong> Seja o conjunto A = {1, 2, 3} e a relação R = {(1, 1), (1, 2), (2, 1), (2, 2), (3, 3)}. Quais propriedades R satisfaz?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'A')"><strong>A)</strong> Apenas simétrica e transitiva, mas não reflexiva.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'B')"><strong>B)</strong> Reflexiva e simétrica, mas não transitiva.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'C')"><strong>C)</strong> Reflexiva, simétrica e transitiva.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(1, 'D')"><strong>D)</strong> Antissimétrica e irreflexiva.</button>
+  </div>
+  <div class="feedback-box" id="fb-1"></div>
+</div>
+
+<div class="question-block" id="q2">
+  <div class="question-title"><strong>Questão de Retenção 2 de 4:</strong> A relação clássica de divisibilidade &#x27;x divide y&#x27; (x | y) sobre o conjunto dos inteiros positivos Z+ é:</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'A')"><strong>A)</strong> Simétrica, pois se x divide y, então y divide x.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'B')"><strong>B)</strong> Antissimétrica, pois se x divide y e y divide x entre inteiros positivos, obrigatoriamente x = y.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'C')"><strong>C)</strong> Irreflexiva, pois nenhum número divide a si mesmo.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(2, 'D')"><strong>D)</strong> Não-transitiva, pois a divisibilidade se perde após dois passos.</button>
+  </div>
+  <div class="feedback-box" id="fb-2"></div>
+</div>
+
+<div class="question-block" id="q3">
+  <div class="question-title"><strong>Questão de Retenção 3 de 4:</strong> Se o dígrafo de uma relação homogênea sobre 3 nós contém as arestas (1, 2) e (2, 3), qual aresta mínima DEVE ser acrescentada para formar o Fecho Transitivo da relação?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'A')"><strong>A)</strong> Aresta (3, 1).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'B')"><strong>B)</strong> Aresta (2, 1).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'C')"><strong>C)</strong> Aresta (1, 3).</button><button type="button" class="option-item" onclick="submitActiveRetrieval(3, 'D')"><strong>D)</strong> Arestas (1, 1) e (3, 3).</button>
+  </div>
+  <div class="feedback-box" id="fb-3"></div>
+</div>
+
+<div class="question-block" id="q4">
+  <div class="question-title"><strong>Questão de Retenção 4 de 4:</strong> No Algoritmo de Warshall, qual é o papel da variável pivô k na iteração externa?</div>
+  <div class="options-list">
+    <button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'A')"><strong>A)</strong> Serve apenas como contador de laços sem significado geométrico.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'B')"><strong>B)</strong> Indica que estamos verificando se existe um caminho de i até j usando apenas vértices do subconjunto {1, 2, ..., k} como intermediários.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'C')"><strong>C)</strong> Calcula a transposta da matriz booleana.</button><button type="button" class="option-item" onclick="submitActiveRetrieval(4, 'D')"><strong>D)</strong> Remove os laços reflexivos da diagonal principal.</button>
+  </div>
+  <div class="feedback-box" id="fb-4"></div>
+</div>
+
+  <div class="score-banner" id="score-box" style="display:none;">
+    <div id="score-text"></div>
+  </div>
+</section>
+
+
+    <!-- 10. Card Próxima Parada -->
+    <div class="next-step-card">
+      <h3>Próxima Parada</h3>
+      <p>Com o domínio de reflexividade, simetria e transitividade, você acabou de desbloquear a ferramenta mais poderosa de agrupamento matemático: as Relações de Equivalência!</p>
+      <div style="margin-top: 1rem;">
+        <a class="hub-btn-secondary hub-btn-sm" href="./0004-relacoes-de-equivalencia.html">Próxima Aula</a>
+      </div>
+    </div>
+
+    <!-- 11. Conclusão e CTA para a Banca de Questões -->
     <section class="lesson-footer-cta" aria-label="Conclusão e Prática de Questões">
       <div>
-        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico</strong>
+        <strong style="display:block; color:var(--text-main); margin-bottom:4px;">Prática Focada deste Tópico no Banco</strong>
         <span class="hub-muted" id="lesson-q-status">Carregando questões deste tópico no Banco...</span>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
         <button type="button" class="hub-btn-secondary" id="lesson-toggle-read-btn">Marcar aula como concluída</button>
-        <a class="hub-btn-primary" href="../questoes.html?topico=3" id="lesson-practice-btn">Praticar questões desta aula</a>
+        <a class="hub-btn-primary" href="../questoes.html?topico=3" id="lesson-practice-btn">Praticar questões desta aula na banca</a>
       </div>
     </section>
 
@@ -292,6 +331,76 @@
         });
       }
 
+      // --- Active Retrieval Engine ---
+      const activeGabarito = {"1": "C", "2": "B", "3": "C", "4": "B"};
+      const activeExplanations = {"1": {"correct": "Exato! 1. Reflexiva: (1,1), (2,2) e (3,3) est\u00e3o todos presentes. 2. Sim\u00e9trica: (1,2) tem o seu inverso (2,1). 3. Transitiva: a composi\u00e7\u00e3o de (1,2) com (2,1) d\u00e1 (1,1) e de (2,1) com (1,2) d\u00e1 (2,2), ambos presentes. Satisfaz as tr\u00eas!", "incorrect": "Verifique com calma: todos os n\u00f3s t\u00eam la\u00e7o ((1,1), (2,2), (3,3)), logo \u00e9 reflexiva. O \u00fanico par assim\u00e9trico aparente \u00e9 (1,2), mas (2,1) est\u00e1 l\u00e1, logo \u00e9 sim\u00e9trica. E as composi\u00e7\u00f5es est\u00e3o satisfeitas, sendo transitiva."}, "2": {"correct": "Perfeito! Se x divide y e y divide x em inteiros positivos, a \u00fanica possibilidade aritm\u00e9tica \u00e9 x = y (ex: 2 divide 4, mas 4 N\u00c3O divide 2). Isso \u00e9 a ess\u00eancia pura da Antissimetria!", "incorrect": "Aten\u00e7\u00e3o: divisibilidade \u00e9 reflexiva (x divide x) e transitiva (se x divide y e y divide z, x divide z). E se x divide y e y divide x em inteiros positivos, x = y, logo ela \u00e9 ANTISSIM\u00c9TRICA."}, "3": {"correct": "Excelente! O fecho transitivo exige o atalho direto do in\u00edcio ao fim do caminho de dois passos: de 1 vai para 2, de 2 vai para 3, logo deve existir obrigatoriamente a aresta (1, 3).", "incorrect": "Incorreto. Transitividade diz: se (1, 2) e (2, 3) existem, o atalho de 1 direto para 3 deve existir: (1, 3). O par (3, 1) criaria um ciclo, e (2, 1) seria a volta sim\u00e9trica."}, "4": {"correct": "Brilhante! Essa \u00e9 a ess\u00eancia da Programa\u00e7\u00e3o Din\u00e2mica de Warshall: na etapa k, W_k[i, j] \u00e9 1 se e somente se existe um caminho de i at\u00e9 j cujos n\u00f3s intermedi\u00e1rios pertencem a {1, ..., k}.", "incorrect": "Incorreto. O algoritmo de Warshall constr\u00f3i a conectividade incrementalmente: no passo k, ele permite que o v\u00e9rtice k seja usado como ponte entre qualquer i e j."}};
+      const userAnswers = {};
+
+      window.submitActiveRetrieval = function (qNum, opt) {
+        userAnswers[qNum] = opt;
+        const block = document.getElementById('q' + qNum);
+        const items = block.querySelectorAll('.option-item');
+        const fb = document.getElementById('fb-' + qNum);
+        const correctOpt = activeGabarito[qNum];
+
+        items.forEach(function (btn) {
+          btn.classList.remove('correct', 'incorrect');
+          const text = btn.textContent.trim();
+          if (text.startsWith(opt + ')')) {
+            if (opt === correctOpt) btn.classList.add('correct');
+            else btn.classList.add('incorrect');
+          }
+          if (text.startsWith(correctOpt + ')')) {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (opt === correctOpt) {
+          fb.className = 'feedback-box correct';
+          fb.innerHTML = '<strong>[Correto!]</strong> ' + activeExplanations[qNum].correct;
+        } else {
+          fb.className = 'feedback-box incorrect';
+          fb.innerHTML = '<strong>[Incorreto]</strong> ' + activeExplanations[qNum].incorrect;
+        }
+
+        if (window.renderMathInElement) {
+          renderMathInElement(fb, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+
+        updateActiveScore();
+      };
+
+      function updateActiveScore() {
+        const keys = Object.keys(userAnswers);
+        if (keys.length === 4) {
+          let hits = 0;
+          for (let i = 1; i <= 4; i++) {
+            if (userAnswers[i] === activeGabarito[i]) hits++;
+          }
+          const box = document.getElementById('score-box');
+          const txt = document.getElementById('score-text');
+          box.style.display = 'block';
+
+          if (hits === 4) {
+            box.style.background = '#14532d';
+            txt.innerHTML = '<strong>Sensacional: 4 de 4 acertos (100%)!</strong> Você absorveu perfeitamente a essência deste conceito. Seu cérebro está pronto para encarar as pegadinhas da banca!';
+          } else if (hits >= 2) {
+            box.style.background = '#1e3a8a';
+            txt.innerHTML = '<strong>Bom desempenho: ' + hits + ' de 4 acertos.</strong> Revise as explicações das questões onde você hesitou para consolidar o vocabulário formal.';
+          } else {
+            box.style.background = '#7c2d12';
+            txt.innerHTML = '<strong>Você acertou ' + hits + ' de 4.</strong> Leia com atenção os gabaritos comentados acima antes de seguir para o banco de questões.';
+          }
+        }
+      }
+
+      // --- Store & Progress Integration ---
       const toggleBtn = document.getElementById('lesson-toggle-read-btn');
       const statusEl = document.getElementById('lesson-q-status');
 
@@ -304,7 +413,7 @@
           const topicQs = window.PPGCC_DATA.questoes.filter((q) => q.topico_id === TOPICO_ID);
           const answers = store.getState().answers || {};
           const solved = topicQs.filter((q) => Boolean(answers[q.id])).length;
-          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico (' + solved + ' resolvidas).';
+          statusEl.textContent = topicQs.length + ' questões disponíveis neste tópico no Banco (' + solved + ' resolvidas).';
         }
       }
 

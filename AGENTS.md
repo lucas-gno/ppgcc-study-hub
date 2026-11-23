@@ -16,28 +16,42 @@
 
 ---
 
-## 2. Perfil do Aluno e Didática Zero Base
+## 2. Perfil do Aluno e Didática Zero Base (Princípio de Einstein)
 
 - **Origem Não-Exata ("Enferrujado"):** O aluno (Lucas Galdino, Analista de TI na DGTI/IFCE) vem das Ciências Humanas e atua na prática de infraestrutura há anos. **É terminantemente proibido presumir qualquer conhecimento formal prévio.**
-- **Tradução Tríplice Obrigatória em Todo Conceito Formal:**
-  1. **Fórmula Simbólica Formal:** Notação rigorosa cobrada pela banca.
-  2. **Caixa "Como se Lê" (`.como-se-le`):** Pronúncia fonética literal em voz alta.
-  3. **Tradução Intuitiva / Analogia Prática:** Explicação ancorada no cotidiano de TI e infraestrutura.
+- **Princípio Maior de Einstein & Feynman:** *"Se você não consegue explicar algo para uma criança de seis anos, você mesmo não entende."* A formalidade matemática existe para dar precisão, nunca para intimidar ou parecer erudita.
+- **Linguagem, Tom e Conexão com o Aluno:**
+  - Linguajar acolhedor, próximo e direto, dialogando sempre com o aluno (*"Você"*).
+  - Nunca iniciar com uma enxurrada de axiomas abstratos. Toda abstração matemática deve ser imediatamente aterrada com uma metáfora visceral do mundo real e de sistemas/infraestrutura (ex: pacotes de rede, nós em um cluster, permissões de arquivos, tabelas de banco de dados).
+- **Tradução Tríplice e Desmistificação Fonética de Símbolos:**
+  - É proibido usar qualquer símbolo matemático ($\in, \subseteq, \land, \iff, \forall, \exists, \equiv, \lessdot, \mid, \cup, \cap$) sem ensiná-lo primeiro.
+  - Toda fórmula formal deve ser encapsulada em um container `.formula-box` contendo a fórmula KaTeX centralizada e uma barra de leitura integrada `.reading-guide`:
+    - **Como se fala:** pronúncia fonética exata em voz alta (ex: *"a é congruente a b módulo n"*).
+    - **O que significa:** explicação intuitiva imediata do operador (ex: *"Repare no símbolo com três tracinhos $\equiv$, que indica equivalência modular"*).
+  - Blocos `.word-breakdown` com etimologia e pronúncia fonética silábica (`.pronunciation`, ex: `[pô-sét]`, `[an-ti-si-mé-tri-ca]`, `[há-sse]`).
+  - Glossário / Dicionário de Pronúncia de Símbolos Lógicos presente em pontos estratégicos de cada fase.
 
 ---
 
-## 3. Padrão de Aula: Visual + Interativo + Sandboxes Jupyter + Separação de Questões
+## 3. Padrão de Aula: Visual + Interativo + Degraus Cognitivos + Active Retrieval
 
 > [!CRITICAL]
-> **Visual** e **Interativo** são dois pilares distintos e complementares obrigatórios (`NOTES.md` Seção 2), somados aos **Sandboxes Jupyter no Navegador** (`NOTES.md` Seção 3).
+> Toda aula segue rigorosamente uma estrutura em **degraus cognitivos em micro-blocos**, combinando quatro pilares complementares.
 
-1. **Pilar Visual (SVG Nativo — Proibido Mermaid e Proibido ASCII Art — ADR 0008):** Toda aula contém diagramas vetoriais em `<svg>` puro embutidos diretamente no HTML dentro de containers `.visual-diagram-card` (Diagramas de Hasse $D_{12}$, hipercubo $Q_3$, $M_3/N_5$, dígrafos, Stack/Heap, BST/AVL, topologia Borg/Kubernetes). É **estritamente proibido** usar blocos `mermaid`/`flowchart` ou diagramas desenhados em texto ASCII desformatado. Siga obrigatoriamente a receita de 5 passos descrita em [`docs/adr/0008-proibicao-mermaid-ascii-svg-nativo.md`](docs/adr/0008-proibicao-mermaid-ascii-svg-nativo.md) e na Seção 2 de [`docs/HANDOFF.md`](docs/HANDOFF.md).
-2. **Pilar Interativo (`assets/widgets.js`):** Toda aula instancia controles táteis que reagem em tempo real (`initSetOperationsWidget`, `initBooleanMatrixWidget`, `initHasseReductionWidget`, etc.).
-3. **Sandboxes Jupyter no Navegador (`.notebook-cell`):** Obrigatório em todas as aulas de código, algoritmos e sistemas (Fases 2, 3 e 4), contendo: topbar macOS minimalista, editor sintático dark monospaced, `.notebook-inputs-group`, botões Executar/Passo/Reset, console `stdout` colorido e `.notebook-inspector-panel` de memória/ponteiros.
-4. **Separação Estrita Aulas vs. Banco de Questões (ADR 0004):**
-   - **Proibido colocar questões de múltipla escolha no corpo das aulas.**
-   - Toda prática de questões ocorre exclusivamente em `questoes.html` e `simulados.html`.
-   - O rodapé de cada aula traz apenas o botão de marcar como concluída (`Store.toggleTopicRead`) e o botão primário **"Praticar questões desta aula"** (`../questoes.html?topico=<id>`).
+1. **Pilar Visual (SVG Nativo — Proibido Mermaid e Proibido ASCII Art — ADR 0008):** Toda aula contém diagramas vetoriais em `<svg>` puro embutidos diretamente no HTML dentro de containers `.visual-diagram-card` (Diagramas de Hasse $D_{12}$, hipercubo $Q_3$, $M_3/N_5$, dígrafos, Stack/Heap, BST/AVL, topologia Borg/Kubernetes). É **estritamente proibido** usar blocos `mermaid`/`flowchart` ou diagramas desenhados em texto ASCII desformatado. Siga a receita de 5 passos de [`docs/adr/0008-proibicao-mermaid-ascii-svg-nativo.md`](docs/adr/0008-proibicao-mermaid-ascii-svg-nativo.md).
+2. **Caixas Semânticas Coloridas e Destaques Visuais:**
+   - `.callout.philosophy`: Transição ontológica, filosófica e histórica da lógica (borda âmbar `#7c2d12`, fundo `#fff7ed`).
+   - `.callout.computation`: Definição canônica formal e aplicação direta em computação/infraestrutura (borda esmeralda `#065f46`, fundo `#f0fdf4`).
+   - `.callout.warning` / `.trap-box`: Alertas de armadilhas clássicas e pegadinhas de banca de concurso (borda âmbar `#b45309` ou rosa `#e11d48`, fundo `#fffbeb` ou `#fff1f2`).
+   - `.callout.warshall`: Algoritmos e passos matriciais iterativos (borda roxa `#6b21a8`, fundo `#f5f3ff`).
+   - Tabelas anatômicas (`.table-wrapper` com `.academic-table`): Largura total, espaçamento confortável e `white-space: nowrap` rigoroso em colunas de conceitos/fórmulas para nunca quebrar termos curtos ao meio.
+3. **Pilar Interativo Tátil e Sandboxes (`assets/widgets.js` e `.notebook-cell`):**
+   - Micro-laboratórios táteis específicos por degrau cognitivo (`.interactive-card` com controles interativos, matrizes booleanas táteis, visualizador de dígrafo SVG que reage a cliques, simulador de Hasse que remove atalhos).
+   - Sandboxes Jupyter no Navegador (`.notebook-cell`) para aulas de código, algoritmos e sistemas (Fases 2, 3 e 4).
+4. **Active Retrieval (Retenção Imediata) vs. Banco de Questões de Prova (ADR 0004 & ADR 0009):**
+   - **Active Retrieval no final de cada aula (`.quiz-section`):** Mini-quiz de 4 perguntas conceituais com feedback instantâneo (verde para acerto, vermelho para erro), justificativa didática em tempo real explicando o porquê de cada item, e banner de score dinâmico (`.score-banner`). Focado na retenção e compreensão da aula pelo aluno.
+   - **Card "Próxima Parada" (`.next-step-card`):** Síntese acolhedora do degrau conquistado e gancho conectivo com o próximo assunto da trilha.
+   - **Botão Primário para o Banco de Questões de Concurso:** O rodapé da aula traz o botão de destaque **"Praticar questões desta aula na banca"** (`../questoes.html?topico=<id>`), direcionando para o banco oficial de 64+ questões calibradas no padrão `/gerador-questoes-cfp` para treino cronometrado, algoritmo FSRS v5 e Caderno de Erros.
 
 ---
 
