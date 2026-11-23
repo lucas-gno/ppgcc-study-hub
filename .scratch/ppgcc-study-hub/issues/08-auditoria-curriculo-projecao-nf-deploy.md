@@ -4,7 +4,7 @@
 
 **Blocked by:** 01: Fundação de Dados Oficiais, Motor Store e Visão do Dia, 05: Simulados Cronometrados (Oficial 120 min e Por Área), 07: Simulador de Arguição Oral (CA05 — Ficha 5+5 e Cronômetro 20 min)
 
-**Status:** ready-for-agent
+**Status:** cancelled-by-user (descartado pelo usuario: curriculo fica a cargo da banca)
 
 - [ ] Calcula e persiste `DA`, pontuação limitada do Anexo VI, `NC` e projeção de `NF` exatamente conforme fórmulas oficiais e Retificação nº 02.
 - [ ] Compara a projeção de `NF` com os patamares reais do resultado final do Edital 53/2025 e envia `NC`/`NF` para a Visão do Dia.

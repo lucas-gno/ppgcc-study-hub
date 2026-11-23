@@ -952,3 +952,115 @@ def get_diagram_topico_8_n5_m3() -> str:
         svg,
         "Um reticulado é modular se e somente se não contém N₅ como sub-reticulado. Um reticulado é distributivo se e somente se não contém nem N₅ nem M₃."
     )
+
+
+def get_diagram_topico_8_poset_g() -> str:
+    svg = """<svg viewBox="0 0 540 360" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arestas de Cobertura -->
+  <!-- Level 0 -> Level 1: a->c, b->c, b->d -->
+  <line x1="200" y1="300" x2="200" y2="210" stroke="#64748b" stroke-width="2"/>
+  <line x1="340" y1="300" x2="200" y2="210" stroke="#64748b" stroke-width="2"/>
+  <line x1="340" y1="300" x2="340" y2="210" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Level 1 -> Level 2: c->e, c->f, d->f -->
+  <line x1="200" y1="210" x2="200" y2="120" stroke="#64748b" stroke-width="2"/>
+  <line x1="200" y1="210" x2="340" y2="120" stroke="#64748b" stroke-width="2"/>
+  <line x1="340" y1="210" x2="340" y2="120" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Level 2 -> Level 3: e->g, f->g -->
+  <line x1="200" y1="120" x2="270" y2="40" stroke="#64748b" stroke-width="2"/>
+  <line x1="340" y1="120" x2="270" y2="40" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Nos Level 0: a, b (Minimais) -->
+  <circle cx="200" cy="300" r="18" fill="#ffffff" stroke="#10b981" stroke-width="2.5"/>
+  <text x="200" y="305" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">a</text>
+
+  <circle cx="340" cy="300" r="18" fill="#ffffff" stroke="#10b981" stroke-width="2.5"/>
+  <text x="340" y="305" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">b</text>
+
+  <!-- Nos Level 1: c, d -->
+  <circle cx="200" cy="210" r="18" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="200" y="215" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">c</text>
+
+  <circle cx="340" cy="210" r="18" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="340" y="215" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">d</text>
+
+  <!-- Nos Level 2: e, f -->
+  <circle cx="200" cy="120" r="18" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="200" y="125" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">e</text>
+
+  <circle cx="340" cy="120" r="18" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="340" y="125" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">f</text>
+
+  <!-- No Level 3: g (Maximo) -->
+  <circle cx="270" cy="40" r="18" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="270" y="45" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">g</text>
+</svg>"""
+    return wrap_diagram(
+        "Diagrama de Hasse do Poset P = {a, b, c, d, e, f, g}",
+        "FIGURA 8.5 — DIAGRAMA DE HASSE DE COBERTURAS",
+        svg,
+        "Estrutura com elementos minimais {a, b}, intermediários {c, d, e, f} e elemento máximo único g."
+    )
+
+
+def get_diagram_topico_8_d36() -> str:
+    svg = """<svg viewBox="0 0 540 380" class="responsive-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arestas de D36 (Produto C3 x C3) -->
+  <!-- Linhas horizontais (fator 2: 1->2->4; 3->6->12; 9->18->36) -->
+  <line x1="170" y1="320" x2="270" y2="280" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="270" y1="280" x2="370" y2="240" stroke="#64748b" stroke-width="1.8"/>
+
+  <line x1="170" y1="220" x2="270" y2="180" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="270" y1="180" x2="370" y2="140" stroke="#64748b" stroke-width="1.8"/>
+
+  <line x1="170" y1="120" x2="270" y2="80" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="270" y1="80" x2="370" y2="40" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- Linhas verticais (fator 3: 1->3->9; 2->6->18; 4->12->36) -->
+  <line x1="170" y1="320" x2="170" y2="220" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="170" y1="220" x2="170" y2="120" stroke="#64748b" stroke-width="1.8"/>
+
+  <line x1="270" y1="280" x2="270" y2="180" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="270" y1="180" x2="270" y2="80" stroke="#64748b" stroke-width="1.8"/>
+
+  <line x1="370" y1="240" x2="370" y2="140" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="370" y1="140" x2="370" y2="40" stroke="#64748b" stroke-width="1.8"/>
+
+  <!-- Vértices -->
+  <!-- 1, 2, 4 -->
+  <circle cx="170" cy="320" r="16" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+  <text x="170" y="325" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">1</text>
+
+  <circle cx="270" cy="280" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="270" y="285" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">2</text>
+
+  <circle cx="370" cy="240" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="370" y="245" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">4</text>
+
+  <!-- 3, 6, 12 -->
+  <circle cx="170" cy="220" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="170" y="225" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">3</text>
+
+  <circle cx="270" cy="180" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="270" y="185" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">6</text>
+
+  <circle cx="370" cy="140" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="370" y="145" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">12</text>
+
+  <!-- 9, 18, 36 -->
+  <circle cx="170" cy="120" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="170" y="125" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">9</text>
+
+  <circle cx="270" cy="80" r="16" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  <text x="270" y="85" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">18</text>
+
+  <circle cx="370" cy="40" r="16" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="370" y="45" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">36</text>
+</svg>"""
+    return wrap_diagram(
+        "Diagrama de Hasse de D₃₆ ≅ C₃ × C₃",
+        "FIGURA 8.6 — PRODUTO DE CADEIAS FINITAS",
+        svg,
+        "Reticulado distributivo isomorfo à grade 3×3 dos expoentes primos de 36 = 2² · 3² (12 arestas de cobertura)."
+    )

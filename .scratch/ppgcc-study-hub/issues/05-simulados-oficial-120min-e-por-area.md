@@ -4,9 +4,9 @@
 
 **Blocked by:** 01: Fundação de Dados Oficiais, Motor Store e Visão do Dia, 04: Banco de Questões, Filtro por Deep-Link e Modo Treino FSRS v5
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Modo Prova Oficial carrega as 20 questões do Edital 53/2025 com temporizador real de 120 minutos e cartão-resposta navegável.
-- [ ] Modos por área permitem treinar baterias específicas de AED, Programação ou Lógica com suporte misto a 4 e 5 alternativas.
-- [ ] Calcula e persiste `NPE`, status de corte eliminatório e estatísticas por disciplina para consulta histórica e projeção de `NF`.
-- [ ] Zero emojis, ícones SVG minimalistas e zero CDNs externas.
+- [x] Modo Prova Oficial carrega as 20 questões do Edital 53/2025 com temporizador real de 120 minutos e cartão-resposta navegável.
+- [x] Modos por área permitem treinar baterias específicas de AED, Programação ou Lógica com suporte misto a 4 e 5 alternativas.
+- [x] Calcula e persiste `NPE`, status de corte eliminatório e estatísticas por disciplina para consulta histórica e projeção de `NF`.
+- [x] Zero emojis, ícones SVG minimalistas e zero CDNs externas.

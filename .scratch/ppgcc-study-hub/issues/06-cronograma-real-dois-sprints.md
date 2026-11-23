@@ -4,9 +4,9 @@
 
 **Blocked by:** 01: Fundação de Dados Oficiais, Motor Store e Visão do Dia, 02: Edital Verticalizado com Progresso Persistente e Bibliografia Oficial
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Separa visualmente Sprint 1 (Prova Escrita até `03/12`) e Sprint 2 (Arguição Oral até `13/12`) sem herdar datas defasadas do banco legado.
-- [ ] Permite concluir blocos diários e ajustar horas disponíveis por dia com recálculo determinístico imediato.
-- [ ] Sincroniza o bloco prioritário do dia com o card principal da Visão do Dia.
-- [ ] Zero emojis, ícones SVG minimalistas e zero CDNs externas.
+- [x] Separa visualmente Sprint 1 (Prova Escrita até `03/12`) e Sprint 2 (Arguição Oral até `13/12`) sem herdar datas defasadas do banco legado.
+- [x] Permite concluir blocos diários e ajustar horas disponíveis por dia com recálculo determinístico imediato.
+- [x] Sincroniza o bloco prioritário do dia com o card principal da Visão do Dia.
+- [x] Zero emojis, ícones SVG minimalistas e zero CDNs externas.

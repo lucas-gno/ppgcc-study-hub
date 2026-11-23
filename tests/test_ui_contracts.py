@@ -138,6 +138,33 @@ class UiContractsTests(unittest.TestCase):
         self.assertIn("rateFsrsCard", html)
         self.assertIn("filterQuestions", html)
 
+    def test_simulados_page_contract(self):
+        html = assert_clean_static_asset(self, ROOT / "simulados.html")
+        for asset in [
+            "./assets/katex/katex.min.css",
+            "./assets/katex/katex.min.js",
+            "./assets/katex/auto-render.min.js",
+            "./assets/data.js",
+            "./assets/icons.js",
+            "./assets/store.js",
+            "./assets/navbar.js",
+        ]:
+            self.assertIn(asset, html)
+        self.assertIn("saveSimulado", html)
+        self.assertIn("calculateNPE", html)
+
+    def test_cronograma_page_contract(self):
+        html = assert_clean_static_asset(self, ROOT / "cronograma.html")
+        for asset in [
+            "./assets/data.js",
+            "./assets/icons.js",
+            "./assets/store.js",
+            "./assets/navbar.js",
+        ]:
+            self.assertIn(asset, html)
+        self.assertIn("buildSprintSchedule", html)
+        self.assertIn("toggleSprintDay", html)
+
 
 if __name__ == "__main__":
     unittest.main()

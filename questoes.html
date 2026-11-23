@@ -27,6 +27,14 @@
           <button type="button" class="hub-btn-ghost hub-btn-sm" id="btn-clear-filters">Limpar filtros</button>
         </div>
 
+        <div class="hub-tabs" id="mode-tabs" role="tablist" aria-label="Modo de prática" style="margin-bottom:16px;">
+          <button type="button" class="hub-tab-btn is-active" data-modo="todos">Todas as Questões</button>
+          <button type="button" class="hub-tab-btn" data-modo="favoritas" id="tab-favoritas">Favoritas (<span id="count-fav">0</span>)</button>
+          <button type="button" class="hub-tab-btn" data-modo="erros" id="tab-erros">Caderno de Erros (<span id="count-err">0</span>)</button>
+          <button type="button" class="hub-tab-btn" data-modo="nao_resolvidas" id="tab-nao-resolvidas">Não Resolvidas</button>
+          <button type="button" class="hub-tab-btn" data-modo="fsrs" id="tab-fsrs">FSRS Pendente Hoje</button>
+        </div>
+
         <div class="hub-filter-bar" style="margin-bottom:24px;">
           <div class="hub-field">
             <label for="filter-fase">Fase</label>
@@ -106,8 +114,16 @@
       }
 
       function renderRichText(raw) {
-        const blocks = String(raw || '').replace(/\r\n/g, '\n');
-        const parts = blocks.split(/```(\w*)\n([\s\S]*?)```/g);
+        let text = String(raw || '').replace(/\r\n/g, '\n');
+        const rawHtmlBlocks = [];
+        // Preserve raw block-level HTML tags (<div, <svg, <section, <figure) without escaping
+        text = text.replace(/<(div|svg|section|figure)\b[\s\S]*?<\/\1>/gi, (match) => {
+          const token = `@@HTML_BLOCK_${rawHtmlBlocks.length}@@`;
+          rawHtmlBlocks.push(match);
+          return '\n\n' + token + '\n\n';
+        });
+
+        const parts = text.split(/```(\w*)\n([\s\S]*?)```/g);
         let htmlOut = '';
         for (let idx = 0; idx < parts.length; idx++) {
           if (idx % 3 === 0) {
@@ -136,6 +152,10 @@
             htmlOut += '<pre class="code-block"><code class="language-' + escapeHtml(lang) + '">' + escapeHtml(parts[idx]) + '</code></pre>';
           }
         }
+        rawHtmlBlocks.forEach((block, i) => {
+          htmlOut = htmlOut.replace(new RegExp('<p>\\s*@@HTML_BLOCK_' + i + '@@\\s*</p>', 'g'), block);
+          htmlOut = htmlOut.replace(new RegExp('@@HTML_BLOCK_' + i + '@@', 'g'), block);
+        });
         return htmlOut;
       }
 
@@ -190,6 +210,18 @@
       function updateReadiness() {
         const f = getCurrentFilters();
         const filtered = S.filterQuestions(DATA.questoes, store.getState(), f);
+        const state = store.getState();
+        const favCount = (state.favorites || []).length;
+        const errCount = (state.errorNotebook || []).length;
+        const favCountEl = document.getElementById('count-fav');
+        const errCountEl = document.getElementById('count-err');
+        if (favCountEl) favCountEl.textContent = favCount;
+        if (errCountEl) errCountEl.textContent = errCount;
+
+        document.querySelectorAll('#mode-tabs .hub-tab-btn').forEach((btn) => {
+          btn.classList.toggle('is-active', btn.getAttribute('data-modo') === f.modo);
+        });
+
         document.getElementById('readiness-count').textContent =
           `${filtered.length} ${filtered.length === 1 ? 'questão pronta' : 'questões prontas'} para treino`;
 
@@ -309,14 +341,17 @@
                 <span class="hub-badge">${q.nivel || 'MEDIO'}</span>
               </div>
               <div style="display:flex; align-items:center; gap:8px;">
-                <button type="button" class="hub-btn-ghost hub-btn-sm" id="btn-toggle-fav" title="Favoritar">
+                ${topic && topic.lesson_file
+                  ? `<a class="hub-btn-ghost hub-btn-sm" href="./${topic.lesson_file}" title="Abrir aula do tópico">${I.arrowLeft(14)}<span>Aula</span></a>`
+                  : ''}
+                <button type="button" class="hub-btn-ghost hub-btn-sm ${isFav ? 'is-active' : ''}" id="btn-toggle-fav" title="${isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}" style="${isFav ? 'color:var(--accent-primary); border-color:var(--accent-primary-border);' : ''}">
                   ${I.bookmark(15)}<span>${isFav ? 'Favoritada' : 'Favoritar'}</span>
                 </button>
-                <button type="button" class="hub-btn-ghost hub-btn-sm" id="btn-toggle-err" title="Caderno de Erros">
-                  ${I.alertTriangle(15)}<span>${isErr ? 'No Caderno de Erros' : 'Marcar Erro'}</span>
+                <button type="button" class="hub-btn-ghost hub-btn-sm ${isErr ? 'is-active' : ''}" id="btn-toggle-err" title="${isErr ? 'Remover do caderno de erros' : 'Adicionar ao caderno de erros para revisão focada'}" style="${isErr ? 'color:var(--accent-danger-text); border-color:var(--accent-danger-border);' : ''}">
+                  ${I.alertTriangle(15)}<span>${isErr ? 'No Caderno de Erros' : '+ Caderno de Erros'}</span>
                 </button>
-                <button type="button" class="hub-btn-ghost hub-btn-sm" id="btn-exit-training">
-                  ${I.x(15)}<span>Sair</span>
+                <button type="button" class="hub-btn-ghost hub-btn-sm" id="btn-exit-training" title="Encerrar sessão de treino e voltar aos filtros">
+                  ${I.x(15)}<span>Sair do Treino</span>
                 </button>
               </div>
             </div>
@@ -360,7 +395,9 @@
         document.getElementById('btn-exit-training').addEventListener('click', () => {
           activeSession = null;
           viewTraining.setAttribute('hidden', '');
+          viewSummary.setAttribute('hidden', '');
           viewReadiness.removeAttribute('hidden');
+          window.scrollTo({ top: 0, behavior: 'instant' });
           updateReadiness();
         });
       }
@@ -444,6 +481,16 @@
       topicoSelect.addEventListener('change', updateReadiness);
       origemSelect.addEventListener('change', updateReadiness);
       modoSelect.addEventListener('change', updateReadiness);
+
+      document.querySelectorAll('#mode-tabs .hub-tab-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const m = btn.getAttribute('data-modo');
+          if (m) {
+            modoSelect.value = m;
+            updateReadiness();
+          }
+        });
+      });
 
       document.getElementById('btn-clear-filters').addEventListener('click', () => {
         faseSelect.value = '';

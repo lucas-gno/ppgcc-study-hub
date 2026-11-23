@@ -4,7 +4,7 @@
 
 **Blocked by:** 01: Fundação de Dados Oficiais, Motor Store e Visão do Dia
 
-**Status:** ready-for-agent
+**Status:** cancelled-by-user (descartado pelo usuario: foco total na prova escrita)
 
 - [ ] Apresenta as 6 perguntas divididas em Tipo 1 (5 pts) e Tipo 2 (5 pts) com cronômetro oficial de 20 minutos.
 - [ ] Oferece guia STAR-A recolhível baseado nas referências obrigatórias do Anexo I (Borg, Autopilot, Kubernetes Docs) e contexto DGTI/IFCE.

@@ -48,8 +48,6 @@
       { key: 'cronograma', label: 'Cronograma', href: `${prefix}cronograma.html`, icon: 'calendar' },
       { key: 'questoes', label: 'Questões', href: `${prefix}questoes.html`, icon: 'checkSquare' },
       { key: 'simulados', label: 'Simulados', href: `${prefix}simulados.html`, icon: 'clock' },
-      { key: 'arguicao', label: 'Arguição', href: `${prefix}arguicao.html`, icon: 'mic' },
-      { key: 'curriculo', label: 'Currículo', href: `${prefix}curriculo.html`, icon: 'award' },
     ];
 
     const header = document.createElement('header');

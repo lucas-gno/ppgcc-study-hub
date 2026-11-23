@@ -121,7 +121,7 @@ body {
 body.tufte-layout,
 .tufte-layout,
 .lesson-container {
-  max-width: 880px;
+  max-width: 1240px;
   margin: 0 auto;
   position: relative;
 }
@@ -574,6 +574,7 @@ pre .language-python {
   background: #ffffff;
 }
 
+.table-wrapper table,
 .academic-table {
   width: 100%;
   border-collapse: collapse;
@@ -581,6 +582,7 @@ pre .language-python {
   text-align: left;
 }
 
+.table-wrapper thead th,
 .academic-table thead th {
   background-color: var(--bg-card-subtle);
   color: var(--text-main);
@@ -593,18 +595,33 @@ pre .language-python {
   white-space: nowrap;
 }
 
+.table-wrapper tbody td,
 .academic-table tbody td {
   padding: 0.95rem 1.25rem;
   border-bottom: 1px solid var(--border-subtle);
-  vertical-align: top;
+  vertical-align: middle;
   line-height: 1.6;
   color: var(--text-secondary);
 }
 
+.table-wrapper tbody td:first-child,
+.academic-table tbody td:first-child {
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.table-wrapper tbody td:nth-child(2),
+.academic-table tbody td:nth-child(2) {
+  white-space: nowrap;
+}
+
+.table-wrapper tbody tr:last-child td,
 .academic-table tbody tr:last-child td {
   border-bottom: none;
 }
 
+.table-wrapper tbody tr:hover td,
 .academic-table tbody tr:hover td {
   background-color: #f8fafc;
 }
@@ -1566,7 +1583,7 @@ body.hub-body {
 }
 
 .hub-navbar-inner {
-  max-width: 1080px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: var(--space-3) var(--space-6);
   display: flex;
@@ -1646,7 +1663,7 @@ body.hub-body {
 }
 
 .hub-mobile-menu-btn {
-  display: none;
+  display: none !important;
 }
 
 .hub-mobile-drawer {
@@ -1684,13 +1701,13 @@ body.hub-body {
 
 /* Main Shell */
 .hub-shell {
-  max-width: 1080px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: var(--space-8) var(--space-6) 64px;
 }
 
 body.hub-body .lesson-container {
-  max-width: 840px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: var(--space-8) var(--space-6) 64px;
 }
@@ -2331,10 +2348,10 @@ body.hub-body .lesson-container {
 
 @media (max-width: 900px) {
   .hub-nav-links {
-    display: none;
+    display: none !important;
   }
   .hub-mobile-menu-btn {
-    display: inline-flex;
+    display: inline-flex !important;
   }
   .hub-grid-4,
   .hub-filter-bar {

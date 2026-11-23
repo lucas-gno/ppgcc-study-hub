@@ -61,12 +61,12 @@ Quando precisar criar diagramas nas Fases 2, 3 e 4 (ex: Stack vs Heap, ponteiros
 | **02** | Edital Verticalizado com Progresso e Bibliografia (`edital.html`) | 01 | `done` |
 | **03** | Gerador de Aulas Fase 1 (Visual SVG + Interativo + Link Banco + Molde Sandbox) | 02 | `done` |
 | **04** | Banco de Questões, Deep-Link `?topico=` e Modo Treino FSRS (`questoes.html`) | 01 | `done` |
-| **05** | Simulados Cronometrados (Oficial 120 min e Por Área) (`simulados.html`) | 01, 04 | `ready-for-agent` |
-| **06** | Cronograma Real de Dois Sprints (`cronograma.html`) | 01, 02 | `ready-for-agent` |
-| **07** | Simulador de Arguição Oral CA05 (`arguicao.html`) | 01 | `ready-for-agent` |
-| **08** | Auditoria Curricular Anexo VI, Projeção NF (`curriculo.html`) e Deploy GitHub Pages | 01, 05, 07 | `blocked` |
+| **05** | Simulados Cronometrados (Oficial 120 min e Por Área) (`simulados.html`) | 01, 04 | `done` |
+| **06** | Cronograma Real de Dois Sprints (`cronograma.html`) | 01, 02 | `done` |
+| **07** | Simulador de Arguição Oral CA05 (`arguicao.html`) | 01 | `cancelled-by-user` |
+| **08** | Auditoria Curricular Anexo VI, Projeção NF (`curriculo.html`) | 01, 05, 07 | `cancelled-by-user` |
 
-**Fronteira atual de trabalho:** Tickets **05**, **06** e **07** têm todos os bloqueadores concluídos (`ready-for-agent`).
+**Fronteira atual de trabalho:** Todos os módulos centrais da Prova Escrita (01 a 06) estão concluídos. O próximo passo de conteúdo é a **Fase 2 (Tópicos 09 a 18 — Programação C e Python)**.
 
 ---
 

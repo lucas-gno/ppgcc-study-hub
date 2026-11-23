@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronograma de Estudos · PPGCC IFCE Study Hub</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body class="hub-body">
+  <main class="hub-shell">
+    <section class="hub-page-header">
+      <div>
+        <div class="hub-eyebrow">Planejamento Estratégico · Edital nº 43/2026</div>
+        <h1 class="hub-title">Cronograma de Dois Sprints</h1>
+        <p class="hub-subtitle">Plano diário calibrado pelos pesos da banca: Sprint 1 (23/11 a 03/12) para a Prova Escrita de 04/12; Sprint 2 (05/12 a 13/12) para o tema CA05 e defesa DGTI.</p>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;" id="cronograma-countdown-strip"></div>
+    </section>
+
+    <!-- KPI STRIP -->
+    <section class="hub-grid-4" id="cronograma-kpi-strip" style="margin-bottom:24px;"></section>
+
+    <!-- CONTROLES E SELECAO DE SPRINT -->
+    <section class="hub-card" style="margin-bottom:24px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:16px;">
+        <div class="hub-tabs" id="sprint-filter-tabs" style="margin-bottom:0;">
+          <button type="button" class="hub-tab-btn is-active" data-sprint-view="sprint1">Sprint 1: Prova Escrita (11 Dias)</button>
+          <button type="button" class="hub-tab-btn" data-sprint-view="sprint2">Sprint 2: Tema CA05 &amp; Arguição (9 Dias)</button>
+          <button type="button" class="hub-tab-btn" data-sprint-view="all">Todos os Dias</button>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:10px;">
+          <label for="hours-multiplier" style="font-size:0.84rem; font-weight:600; color:var(--text-muted);">
+            Disponibilidade diária:
+          </label>
+          <select id="hours-multiplier" class="hub-select" style="padding:5px 12px; font-size:0.85rem; width:auto;">
+            <option value="1.0">Padrão do Edital (2h30/dia)</option>
+            <option value="0.8">Moderada (2h00/dia)</option>
+            <option value="1.2">Intensiva (3h00/dia)</option>
+            <option value="1.5">Imersão Total (3h45/dia)</option>
+          </select>
+        </div>
+      </div>
+      <p class="hub-muted" id="sprint-desc-text" style="font-size:0.88rem; margin:0;">
+        Sprint 1 prioriza o peso de prova da comissão examinadora: 55% Algoritmos e ED, 25% Programação (C/Python) e 20% Lógica e Conjuntos.
+      </p>
+    </section>
+
+    <!-- LISTA DE DIAS / TIMELINE -->
+    <section class="hub-stack" id="sprint-timeline-container" style="gap:16px;"></section>
+  </main>
+
+  <script src="./assets/data.js"></script>
+  <script src="./assets/icons.js"></script>
+  <script src="./assets/store.js"></script>
+  <script src="./assets/navbar.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      const { store } = window.PPGCCNavbar.init({ prefix: './', active: 'cronograma' });
+      const DATA = window.PPGCC_DATA;
+      const S = window.PPGCCStore;
+      const I = window.PPGCCIcons;
+
+      const countdownStrip = document.getElementById('cronograma-countdown-strip');
+      const kpiStrip = document.getElementById('cronograma-kpi-strip');
+      const timelineContainer = document.getElementById('sprint-timeline-container');
+      const sprintTabs = document.querySelectorAll('#sprint-filter-tabs .hub-tab-btn');
+      const hoursSelect = document.getElementById('hours-multiplier');
+      const sprintDesc = document.getElementById('sprint-desc-text');
+
+      let currentView = 'sprint1';
+      let multiplier = 1.0;
+
+      function renderCountdown() {
+        const cd = S.getCountdown();
+        countdownStrip.innerHTML = `
+          <span class="hub-badge is-blue">${I.clock(14)} <span>Prova Escrita: ${cd.daysToProvaEscrita >= 0 ? cd.daysToProvaEscrita + ' dias (04/12)' : 'Concluída'}</span></span>
+          <span class="hub-badge">${I.calendar(14)} <span>Arguição: ${cd.daysToArguicaoOral >= 0 ? cd.daysToArguicaoOral + ' dias (14/12)' : 'Em andamento'}</span></span>
+        `;
+      }
+
+      function renderKPIs(schedule) {
+        const state = store.getState();
+        const doneSet = new Set(state.sprintDone || []);
+        const s1Total = schedule.sprint1.length;
+        const s1Done = schedule.sprint1.filter((d) => doneSet.has(d.date)).length;
+        const s1Pct = Math.round((s1Done / s1Total) * 100);
+
+        const cd = S.getCountdown();
+        const totalMinutes = schedule.sprint1.reduce((acc, d) => acc + Math.round(d.minutes * multiplier), 0);
+        const totalHours = (totalMinutes / 60).toFixed(1).replace('.', ',');
+
+        kpiStrip.innerHTML = `
+          <div class="hub-card-compact">
+            <div class="hub-kpi-label">Progresso Sprint 1 (Prova)</div>
+            <div class="hub-kpi-value">${s1Done} / ${s1Total} dias</div>
+            <div class="hub-kpi-foot">${s1Pct}% concluído</div>
+          </div>
+          <div class="hub-card-compact">
+            <div class="hub-kpi-label">Dias para a Prova Escrita</div>
+            <div class="hub-kpi-value">${Math.max(0, cd.daysToProvaEscrita)}</div>
+            <div class="hub-kpi-foot">04/12/2026 (sexta-feira)</div>
+          </div>
+          <div class="hub-card-compact">
+            <div class="hub-kpi-label">Carga Horária Sprint 1</div>
+            <div class="hub-kpi-value">${totalHours}h</div>
+            <div class="hub-kpi-foot">Ponderada pelo multiplicador</div>
+          </div>
+          <div class="hub-card-compact">
+            <div class="hub-kpi-label">Questões Previstas no Sprint</div>
+            <div class="hub-kpi-value">195</div>
+            <div class="hub-kpi-foot">Foco em fixação e testes de mesa</div>
+          </div>
+        `;
+      }
+
+      function renderTimeline() {
+        const schedule = S.buildSprintSchedule();
+        renderCountdown();
+        renderKPIs(schedule);
+
+        const state = store.getState();
+        const doneSet = new Set(state.sprintDone || []);
+        const todayStr = schedule.today;
+
+        let daysToShow = [];
+        if (currentView === 'sprint1') {
+          daysToShow = schedule.sprint1;
+          sprintDesc.textContent = 'Sprint 1 (23/11 a 03/12): Foco total na Prova Escrita de 04/12. Distribuição calibrada: 55% AED, 25% Programação (C/Python) e 20% Lógica e Conjuntos.';
+        } else if (currentView === 'sprint2') {
+          daysToShow = schedule.sprint2;
+          sprintDesc.textContent = 'Sprint 2 (05/12 a 13/12): Dedicado exclusivamente à Arguição Oral (14/12 a 18/12). Leitura das referências Borg e Autopilot, métricas de desempenho e fundamentação do laboratório DGTI/IFCE.';
+        } else {
+          daysToShow = schedule.allDays;
+          sprintDesc.textContent = 'Visão Integrada de todos os 20 dias de preparação do PPGCC IFCE Study Hub.';
+        }
+
+        const cardsHtml = daysToShow.map((item) => {
+          const isDone = doneSet.has(item.date);
+          const isToday = item.date === todayStr;
+          const faseObj = DATA.fases.find((f) => f.id === item.faseId);
+          const adjustedMinutes = Math.round(item.minutes * multiplier);
+          const adjustedHours = (adjustedMinutes / 60).toFixed(1).replace('.', ',');
+
+          // Topicos relacionados
+          const topicsHtml = (item.topicIds || []).map((tid) => {
+            const t = DATA.topicos.find((x) => x.id === tid);
+            if (!t) return '';
+            const isRead = (state.topicsRead || []).includes(t.id);
+            const lessonBtn = t.lesson_file
+              ? `<a class="hub-btn-ghost hub-btn-sm" href="./${t.lesson_file}">${I.book(13)} <span>Aula ${String(t.id).padStart(2, '0')}</span></a>`
+              : '';
+            const questaoBtn = `<a class="hub-btn-ghost hub-btn-sm" href="./questoes.html?topico=${t.id}">${I.checkSquare(13)} <span>Questões</span></a>`;
+            return `
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; padding:6px 10px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:8px; font-size:0.83rem; flex-wrap:wrap;">
+                <span style="color:var(--text-main); font-weight:${isRead ? '600' : '500'};">
+                  ${String(t.id).padStart(2, '0')}. ${t.titulo}
+                </span>
+                <div style="display:flex; gap:6px;">
+                  ${lessonBtn}
+                  ${questaoBtn}
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          let tipoBadge = '<span class="hub-badge">Teoria &amp; Questões</span>';
+          if (item.tipo === 'SIMULADO_120MIN') {
+            tipoBadge = '<span class="hub-badge is-amber">Simulado 120 min</span>';
+          } else if (item.tipo === 'REVISAO_FSRS') {
+            tipoBadge = '<span class="hub-badge is-green">Revisão FSRS de Erros</span>';
+          } else if (item.tipo === 'LEITURA_ARTIGO') {
+            tipoBadge = '<span class="hub-badge is-blue">Leitura de Artigo Obrigatório</span>';
+          } else if (item.tipo === 'DEFESA_PRATICA') {
+            tipoBadge = '<span class="hub-badge">Defesa DGTI / IFCE</span>';
+          } else if (item.tipo === 'SIMULADO_ORAL') {
+            tipoBadge = '<span class="hub-badge is-blue">Simulado Oral 20 min</span>';
+          }
+
+          let borderStyle = 'border-color:var(--border-subtle);';
+          if (isToday) {
+            borderStyle = 'border-color:var(--accent-primary); box-shadow:0 0 0 1px var(--accent-primary);';
+          } else if (isDone) {
+            borderStyle = 'border-color:var(--accent-success-border); opacity:0.92;';
+          }
+
+          return `
+            <article class="hub-card" style="${borderStyle}">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap;">
+                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                  <span class="hub-badge ${isToday ? 'is-blue' : ''}" style="font-weight:700; font-size:0.88rem;">
+                    ${item.date}
+                  </span>
+                  ${isToday ? '<span class="hub-badge is-blue">HOJE</span>' : ''}
+                  ${tipoBadge}
+                  <span class="hub-badge">${faseObj ? faseObj.titulo : 'Fase'}</span>
+                </div>
+                <div>
+                  <button type="button" class="hub-btn-${isDone ? 'secondary' : 'primary'} hub-btn-sm btn-toggle-day" data-date="${item.date}">
+                    ${isDone ? I.checkSquare(14) : I.layers(14)}
+                    <span>${isDone ? 'Bloco Concluído' : 'Marcar como Concluído'}</span>
+                  </button>
+                </div>
+              </div>
+
+              <h3 style="font-size:1.08rem; font-weight:700; color:var(--text-main); margin-bottom:6px;">
+                ${item.focus}
+              </h3>
+
+              <div style="display:flex; gap:16px; font-size:0.84rem; color:var(--text-muted); margin-bottom:14px; flex-wrap:wrap;">
+                <span><strong>Carga Prevista:</strong> ${adjustedMinutes} min (${adjustedHours}h)</span>
+                ${item.targetQuestions ? `<span><strong>Meta:</strong> ${item.targetQuestions} questões</span>` : ''}
+              </div>
+
+              ${topicsHtml ? `<div class="hub-stack" style="gap:6px;">${topicsHtml}</div>` : ''}
+            </article>
+          `;
+        }).join('');
+
+        timelineContainer.innerHTML = cardsHtml;
+
+        timelineContainer.querySelectorAll('.btn-toggle-day').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const dateStr = btn.getAttribute('data-date');
+            store.toggleSprintDay(dateStr);
+            renderTimeline();
+          });
+        });
+      }
+
+      sprintTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          sprintTabs.forEach((t) => t.classList.remove('is-active'));
+          tab.classList.add('is-active');
+          currentView = tab.getAttribute('data-sprint-view');
+          renderTimeline();
+        });
+      });
+
+      hoursSelect.addEventListener('change', () => {
+        multiplier = parseFloat(hoursSelect.value) || 1.0;
+        renderTimeline();
+      });
+
+      renderTimeline();
+    })();
+  </script>
+</body>
+</html>
