@@ -25,7 +25,13 @@ O projeto adota uma arquitetura **100% estática, offline-first e sem CDNs exter
 ### Por que alguns diagramas vieram em ASCII desformatado?
 As primeiras versões dos tópicos 6, 7 e 8 no banco `data/mestrado.db` traziam diagramas concebidos em texto ASCII simples (`/ \ | X \ /`, `[M1]`, etc.) dentro de blocos ` ```text ` ou ` ``` `. Em telas de alta resolução, essa representação textual fica truncada, sem hierarquia espacial e visualmente pobre.
 
-### A Solução Implementada (100% SVG Vetorial Nativo)
+### A Solução Implementada (100% SVG Vetorial Nativo — ADR 0008)
+
+> [!WARNING]
+> **AVISO EXPRESSO AO PRÓXIMO AGENTE: NÃO TENTE EMPURRAR MERMAID EM HIPÓTESE ALGUMA!**
+> Não tente escrever blocos `mermaid` ou `flowchart`, nem tente "consertar" o Mermaid importando scripts de CDNs externas (`<script src="https://cdn.jsdelivr...">`), pacotes `npm` ou bundlers. O projeto é **100% offline-first e sem dependências de rede**.
+> Todo e qualquer diagrama nas Fases 2, 3 e 4 DEVE ser criado exclusivamente como vetor `<svg>` nativo dentro de `.visual-diagram-card`, seguindo o passo a passo documentado em [`docs/adr/0008-proibicao-mermaid-ascii-svg-nativo.md`](adr/0008-proibicao-mermaid-ascii-svg-nativo.md).
+
 1. **Módulo de Diagramas Vetoriais (`scripts/svg_diagrams.py`):** Criamos 16 diagramas vetoriais nativos em `<svg>` puro, com `viewBox` responsivo, tipografia de sistema Apple (-apple-system), paleta de alto contraste (`#0071e3`, `#10b981`, `#ef4444`, `#8b5cf6`, `#64748b`), nós arredondados com drop-shadow sutil e bordas elegantes, exatamente na mesma linguagem visual dos widgets interativos que o usuário aprovou.
 2. **Container CSS `.visual-diagram-card` (`assets/style.css` e `assets/tufte-clean.css`):**
    - Header com `.diagram-tag` (badge minimalista) e `.diagram-title`;
@@ -34,6 +40,16 @@ As primeiras versões dos tópicos 6, 7 e 8 no banco `data/mestrado.db` traziam 
 3. **Parser HTML Bloco em `scripts/generate_lessons.py`:** Atualizamos o parser `markdown_to_html` para reconhecer e preservar blocos HTML completos (`<div class="visual-diagram-card">...</div>`, `<svg>...`) sem encapsulá-los indevidamente em `<p>` e sem escapar tags.
 4. **Migração do Banco (`scripts/migrate_phase1_diagrams.py`):** Atualizamos a coluna `aulas.conteudo_markdown` no banco SQLite `data/mestrado.db` e regeneramos todos os arquivos `lessons/0001` a `0008` e o bundle `assets/data.js`.
 5. **Garantia por Teste Automatizado (`tests/test_ui_contracts.py`):** O teste verifica automaticamente que nenhuma aula contém blocos `language-mermaid`, fluxogramas de texto ou diagramas ASCII crus, exigindo a presença de `.visual-diagram-card`.
+
+---
+
+### O Passo a Passo Padronizado para Criar Novos Diagramas (Receita ADR 0008)
+Quando precisar criar diagramas nas Fases 2, 3 e 4 (ex: Stack vs Heap, ponteiros, árvores BST/AVL, etc.):
+1. **Passo 1:** Adicione a função no arquivo `scripts/svg_diagrams.py` montando o código SVG com `viewBox` e chamando `wrap_diagram(title, tag, svg_content, caption)`.
+2. **Passo 2:** Insira a chamada no `conteudo_markdown` do tópico no banco `data/mestrado.db` ou gere diretamente pelo script.
+3. **Passo 3:** O container semântico gerado (`.visual-diagram-card`) será lido intacto pelo `markdown_to_html` de `scripts/generate_lessons.py` graças ao parser de blocos HTML nativo.
+4. **Passo 4:** Rode `python scripts/generate_lessons.py` e `python scripts/export_db.py`.
+5. **Passo 5:** Rode `python -m unittest discover -s tests -v` para certificar que nenhum `language-mermaid` ou ASCII art vazou.
 
 ---
 
@@ -175,7 +191,7 @@ Antes de começar, leia obrigatoriamente:
 2. docs/HANDOFF.md
 3. GLOSSARY.md
 4. docs/BANCA_E_EDITAL_2027.md
-5. Os registros arquiteturais em docs/adr/ (ADRs 0001 a 0007).
+5. Os registros arquiteturais em docs/adr/ (ADRs 0001 a 0008).
 
 Execute as suítes de teste para confirmar o estado do projeto:
 python -m unittest discover -s tests -v
@@ -184,7 +200,7 @@ node --test tests/*.test.mjs
 Lembre-se das regras pétreas:
 - Zero emojis em qualquer arquivo (ADR 0007);
 - Zero CDNs externas (100% offline-first com KaTeX local);
-- Zero blocos Mermaid ou ASCII art — qualquer visual deve ser <svg> vetorial nativo responsivo em .visual-diagram-card;
+- Proibição estrita de Mermaid e ASCII art (ADR 0008) — NUNCA tente usar blocos mermaid/flowchart ou injetar CDNs. Todo diagrama DEVE seguir a receita de 5 passos com <svg> vetorial nativo em scripts/svg_diagrams.py e .visual-diagram-card;
 - Sandboxes Jupyter no navegador (.notebook-cell) obrigatórias em aulas de código;
 - Zero questões no corpo das aulas (separação estrita para questoes.html?topico=ID).
 
